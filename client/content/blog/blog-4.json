@@ -1,0 +1,9 @@
+{
+  "type" : "blog",
+	"name": "blog-4",
+  "categories" : "Tech",
+  "tags" : "hacking,node,tech",
+  "date" : "1/5/2012 at 12:00:00",
+  "title" : "crypto-js FTW",
+  "body" : "<p>Just did some monkeying around with Crypto-JS for Node, and it's pretty wicked.</p><p>The ease of creating and managing secure keys is made of awesome.</p>"
+}

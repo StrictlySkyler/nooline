@@ -1,0 +1,9 @@
+{
+  "type" : "blog",
+  "name": "blog-3",
+	"categories" : "Tech",
+  "tags" : "node,tech,cms",
+  "date" : "1/4/2012 at 12:00:00",
+  "title" : "All My Very Own",
+  "body" : "<p>Node.js, I &hearts; you.</p><p>I did it. It's done.</p><p>Today, I built my very own CMS from scratch.</p><p>totallywickedamirite???</p>"
+}

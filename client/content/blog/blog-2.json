@@ -1,0 +1,9 @@
+{
+  "type" : "blog",
+	"name": "blog-2",
+  "categories" : "Life",
+  "tags" : "life,time,tinfoil-hat",
+  "date" : "1/2/2012 at 12:00:00",
+  "title" : "And Into the Future",
+  "body" : "<p>Welcome to the future, and the year of the End of the World.</p><p>I, for one, am super excited to see if it actually happens.</p>"
+}

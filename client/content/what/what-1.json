@@ -1,0 +1,8 @@
+{
+	"type": "what",
+	"name": "what-1",
+	"date": "1/29/2012 at 16:51:0",
+	"author": "skyler",
+	"title": "What he duz",
+	"body": "<a class=\"invisible\"></a>\n\n<p>Right now, I build websites, create wireframes, and lay down some wicked HTML5, CSS3, and JavaScript (<a href=\"http://nodejs.org\" target=\"_blank\">node.js</a> is my favorite toy).</p>\n\n<p>Fundamentally, however, I've spent the last twenty-odd years of my life working to solve a fundamental problem:</p>\n\n<p>Our computers have <em>failed</em> us.</p>\n\n<p>When compared with other tools, like a drill or a screwdriver, even complicated ones such as automobiles or appliances, the maintenance and upkeep of computers abuses a disproportionately large amount of our time and energy, generating an equally abusive level of frustration and displeasure for the people using them.</p>\n\n<p>I work to make this better.</p>\n\n<p>In my mind, using a computer should be as simple and intuitive as using a screwdriver or a hammer, or at the very least, as reliably consistent as driving a car.  In my opinion, neither is close to being true right now.</p>\n\n<p>This quest of mine has led me through the deepest, darkest parts the tech world, from Systems Administration to Enterprise Architecture, and has landed me squarely at the understanding that the only way to achieve the level of consistent, easy User Experience I want is make it ubiquitous on the Web.</p>\n\n<p>I have a sneaking suspicion that JavaScript will be the next C, and I'd like to make sure we get it right this time around.</p>"
+}

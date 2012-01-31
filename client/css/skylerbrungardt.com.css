@@ -1,0 +1,1802 @@
+/*****
+BEGIN FILE
+*****/
+/*****
+I.		BEGIN RESETS
+*****/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small,
+strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label,
+legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+details, figcaption, figure, footer, header, hgroup, menu, nav, section,
+summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+section {
+	display: block;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: "";
+	content: none;
+}
+
+ins {
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+mark {
+	background-color: #ff9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px dotted #c60;
+	margin: 5px 0;
+	padding: 0;
+}
+
+input, select {
+	vertical-align: middle;
+}
+
+/*****
+Font Normalization
+*****/
+body {
+	font: 13px/1.231 sans-serif;
+	*font-size: small;	/***** Hack retained to preserve specificity *****/
+}
+
+select, input, textarea, button {
+	font: 99% sans-serif;
+}
+
+/***** 
+Normalize monospace sizing: 
+http://en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+*****/
+pre, code, kbd, samp {
+	font-family: monospace, sans-serif;
+}
+
+/***** 
+Always force a scrollbar in non-IE 
+*****/
+html {
+	overflow-y: scroll;
+}
+
+/***** 
+Accessible focus treatment: http://people.opera.com/patrickl/experiments/keyboard/test 
+*****/
+a:hover, a:active, a:focus {
+	outline: none;
+	text-decoration: none;
+}
+
+ul, ol {
+	margin-left: 2em;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+/***** 
+Remove margins for navigation lists 
+*****/
+nav ul, nav li {
+	margin: 0;
+	list-style: none;
+	list-style-image: none;
+}
+
+small {
+	font-size: 85%;
+}
+
+strong, th {
+	font-weight: bold;
+}
+
+td {
+	vertical-align: top;
+}
+
+/***** 
+Set sub, sup without affecting line-height: 
+http://gist.github.com/413930 
+*****/
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+pre {
+	/***** http://www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ *****/
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	padding: 15px;
+}
+
+textarea {
+	overflow: auto;
+}
+
+/***** http://www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ *****/
+.ie6 legend, .ie7 legend {
+	margin-left: -7px;
+}
+
+/***** 
+Align checkboxes, radios, text inputs with their label by: 
+Thierry Koblentz 
+http://tjkdesign.com/ez-css/css/base.css 
+*****/
+input[type="radio"] {
+	vertical-align: text-bottom;
+}
+
+input[type="checkbox"] {
+	vertical-align: bottom;
+}
+
+.ie7 input[type="checkbox"] {
+	vertical-align: baseline;
+}
+
+.ie6 input {
+	vertical-align: text-bottom;
+}
+
+/***** Hand cursor on clickable input elements *****/
+label, input[type="button"], input[type="submit"], input[type="image"], button {
+	cursor: pointer;
+}
+
+/***** 
+Webkit browsers add a 2px margin outside the chrome of form elements 
+*****/
+button, input, select, textarea {
+	margin: 0;
+}
+
+/***** 
+Colors for form validity 
+*****/
+input:valid, textarea:valid {
+	/***** 
+	Probably should be left blank, as default, unless design 
+	dictates otherwise 
+	*****/
+}
+
+/*****
+Should be set to design spec
+*****/
+input:invalid, textarea:invalid {
+	border-radius: 1px;
+	-moz-box-shadow: 0px 0px 5px red;
+	-webkit-box-shadow: 0px 0px 5px red;
+	box-shadow: 0px 0px 5px red;
+}
+
+/***** 
+Make buttons play nice in IE: 
+http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ 
+*****/
+button {
+	width: auto;
+	overflow: visible;
+}
+
+/***** Bicubic resizing for non-native sized IMG: code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ *****/
+.ie7 img {
+	-ms-interpolation-mode: bicubic;
+}
+
+/***** Remove inner focus border from elements for FireFox *****/
+::-moz-focus-inner {
+	border: 0;
+}
+/*****
+END RESETS
+*****/
+/*****
+II.		BEGIN SITE-SPECIFIC STYLES
+Author: Skyler Brungardt
+*****/
+
+/*
+ Fonts
+*/
+@font-face {
+    font-family: 'MunroNarrowRegular';
+    src: url('../fonts/munro_narrow-webfont.eot');
+    src: url('../fonts/munro_narrow-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/munro_narrow-webfont.woff') format('woff'),
+         url('../fonts/munro_narrow-webfont.ttf') format('truetype'),
+         url('../fonts/munro_narrow-webfont.svg#MunroNarrowRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MunroSmallRegular';
+    src: url('../fonts/munro_small-webfont.eot');
+    src: url('../fonts/munro_small-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/munro_small-webfont.woff') format('woff'),
+         url('../fonts/munro_small-webfont.ttf') format('truetype'),
+         url('../fonts/munro_small-webfont.svg#MunroSmallRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MunroRegular';
+    src: url('../fonts/munro-webfont.eot');
+    src: url('../fonts/munro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/munro-webfont.woff') format('woff'),
+         url('../fonts/munro-webfont.ttf') format('truetype'),
+         url('../fonts/munro-webfont.svg#MunroRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'JoystixMonospace';
+    src: url('../fonts/joystix_monospace-webfont.eot');
+    src: url('../fonts/joystix_monospace-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/joystix_monospace-webfont.woff') format('woff'),
+         url('../fonts/joystix_monospace-webfont.ttf') format('truetype'),
+         url('../fonts/joystix_monospace-webfont.svg#JoystixMonospace') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*
+ Can haz custom stylz plz!?
+*/
+
+::selection {
+	background: rgba(0,0,0,0.5);
+}
+
+::-moz-selection {
+	background: rgba(0,0,0,0.5);
+}
+
+html {
+	background: #940;
+	box-shadow: inset 0 0 30px #310;
+	min-height: 100%;
+	background:
+		-webkit-radial-gradient(#830 15%, transparent 16%) 0 0,
+		-webkit-radial-gradient(#830 15%, transparent 16%) 8px 8px,
+		-webkit-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+		-webkit-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+	background:
+		-moz-radial-gradient(#830 15%, transparent 16%) 0 0,
+		-moz-radial-gradient(#830 15%, transparent 16%) 8px 8px,
+		-moz-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+		-moz-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+	background:
+		-ms-radial-gradient(#830 15%, transparent 16%) 0 0,
+		-ms-radial-gradient(#830 15%, transparent 16%) 8px 8px,
+		-ms-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+		-ms-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+	background:
+		-o-radial-gradient(#830 15%, transparent 16%) 0 0,
+		-o-radial-gradient(#830 15%, transparent 16%) 8px 8px,
+		-o-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+		-o-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+	background-color:#940;
+	background-size:16px 16px;
+}
+
+body {
+	height: 100%;
+	min-height: 700px;
+	background: -webkit-linear-gradient(
+					-90deg,
+					rgba(153,68,0,0),
+					#830 100px,
+					#830 99%,
+					rgba(153,68,0,0)
+				);
+	background: -moz-linear-gradient(
+					-90deg,
+					rgba(153,68,0,0),
+					#830 100px,
+					#830 99%,
+					rgba(153,68,0,0)
+				);
+	background: -ms-linear-gradient(
+					-90deg,
+					rgba(153,68,0,0),
+					#830 100px,
+					#830 99%,
+					rgba(153,68,0,0)
+				);
+	background: -o-linear-gradient(
+					-90deg,
+					rgba(153,68,0,0),
+					#830 100px,
+					#830 99%,
+					rgba(153,68,0,0)
+				);
+	margin: 0 auto;
+	width: 1024px;
+}
+
+#legacy {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #a50;
+	z-index: 99998;
+}
+
+#warning {
+	margin: 200px auto 0;
+	width: 300px;
+	padding: 25px;
+	background: #fff;
+}
+
+#warning a {
+	color: #900;
+	cursor: pointer;
+}
+
+#warning a:hover {
+	color: #f00;
+}
+
+#warning p {
+	font: normal 15px/20px 'Monaco', 'Lucida Console', 'monospace';
+	color: #f60;
+	margin: 0 0 10px 20px;
+	text-indent: -20px;
+}
+
+#container {
+	width: 924px;
+	margin: 0 auto;
+	padding: 0 5px;
+	height: 100%;
+	min-height: 700px;
+	background: -webkit-linear-gradient(
+					-90deg,
+					rgba(153,68,0,0),
+					rgba(153,68,0,1) 100px,
+					rgba(153,68,0,1) 99%,
+					rgba(153,68,0,0)
+				);
+	background: -moz-linear-gradient(
+					-90deg,
+					rgba(153,68,0,0),
+					rgba(153,68,0,1) 100px,
+					rgba(153,68,0,1) 99%,
+					rgba(153,68,0,0)
+				);
+	background: -ms-linear-gradient(
+					-90deg,
+					rgba(153,68,0,0),
+					rgba(153,68,0,1) 100px,
+					rgba(153,68,0,1) 99%,
+					rgba(153,68,0,0)
+				);
+	background: -o-linear-gradient(
+					-90deg,
+					rgba(153,68,0,0),
+					rgba(153,68,0,1) 100px,
+					rgba(153,68,0,1) 99%,
+					rgba(153,68,0,0)
+				);
+}
+
+a {
+	text-decoration: none;
+}
+
+em {
+	color: #afa;
+}
+
+/*
+ Headers & Nav
+*/
+
+#header {
+	height: 225px;
+}
+
+h1 {
+	font: normal 50px/60px 'JoystixMonospace';
+	color: #f40;
+	margin: 20px 0 0 50px;
+	position: absolute;
+	top: 0;
+	text-shadow:
+		-1px 1px 1px #FC0,
+		-2px 2px 1px #FB0,
+		-3px 3px 1px #FA0,
+		-4px 4px 1px #F90,
+		-5px 5px 1px #f80;
+}
+
+h1 a {
+	color: #f40;
+}
+
+h1 a:visited {
+	color: #f40;;
+}
+
+h1 span {
+	position: absolute;
+	z-index: 0;
+}
+
+.h1-shadow {
+	text-shadow:
+		-1px 1px 1px #FC0,
+		-2px 2px 1px #FB0,
+		-3px 3px 1px #FA0,
+		-4px 4px 1px #F90,
+		-5px 5px 1px #f80;
+}
+
+#s {
+	z-index: 15;
+	font-size: 60px;
+	margin: 2px 0 0;
+}
+
+#k {
+	z-index: 14;
+	margin: 0 0 0 42px;
+}
+
+#y {
+	z-index: 13;
+	margin: 0 0 0 74px;
+}
+
+#l {
+	z-index: 12;
+	margin: 0 0 0 106px;
+}
+
+#e {
+	z-index: 11;
+	margin: 0 0 0 140px;
+}
+
+#r1 {
+	z-index: 10;
+	margin: 0 0 0 174px;
+}
+
+#b {
+	z-index: 16;
+	font-size: 60px;
+	margin: 44px 0 0;
+}
+
+#r2 {
+	z-index: 9;
+	margin: 42px 0 0 42px;
+}
+
+#u {
+	z-index: 8;
+	margin: 42px 0 0 76px;
+}
+
+#n {
+	z-index: 7;
+	margin: 42px 0 0 110px;
+}
+
+#g {
+	z-index: 6;
+	margin: 42px 0 0 144px;
+}
+
+#a {
+	z-index: 5;
+	margin: 42px 0 0 178px;
+}
+
+#r3 {
+	z-index: 4;
+	margin: 42px 0 0 212px;
+}
+
+#d {
+	z-index: 3;
+	margin: 42px 0 0 246px;
+}
+
+#t {
+	z-index: 2;
+	margin: 42px 0 0 268px;
+}
+
+h2 {
+	color: #fc0;
+	font: normal 36px/36px 'MunroRegular';
+	width: 710px;
+	margin: 120px 0 0 150px;
+	position: absolute;
+	top: 0;
+	text-shadow:
+		-1px 1px 1px #000;
+}
+
+h3 {
+	font: normal 18px/18px 'JoystixMonospace';
+	color: #fc0;
+	margin: 0 0 30px;
+	text-shadow: -1px 1px 1px #000;
+}
+
+h3 a {
+	color: #f60;
+}
+
+h3 a:hover {
+	color: #f0c;
+}
+
+nav {
+	font: normal 20px/20px 'MunroSmallRegular';
+	padding: 170px 0 0 138px;
+}
+
+/*
+ Accessory stylistic content properties are used to avoid rendering the content
+ in the markup. This benefits both SEO purposes and should prevent screen
+ readers from catching it, as it's strictly decorative anyway. It does require
+ that any styles, including transitions, need to be added directly in the rules
+ for each one, since pseudo-elements can't receive classes.
+*/
+nav ul:after {
+	content: "{";
+	font: normal 76px/76px 'Times New Roman';
+	color: #730;
+	display: inline-block;
+	margin: -16px 0 0;
+	padding: 0;
+	-webkit-transition: all 0.5s 1s;
+	-moz-transition: all 0.5s 1s;
+	-ms-transition: all 0.5s 1s;
+	-o-transition: all 0.5s 1s;
+}
+
+nav ul:hover:after {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	margin: 0;
+}
+
+nav a {
+	color: #f90;
+	text-decoration: none;
+	margin: 0;
+}
+
+nav ul {
+	float: left;
+	width: 220px;
+}
+
+nav ul li {
+	float: left;
+	clear: both;
+	margin: 0 0 0 12px;
+	width: 170px;
+}
+
+nav li:first-child a {
+	text-shadow:
+		-1px 1px 1px #000;
+}
+
+nav li:nth-child(0n+2) a {
+	text-shadow:
+		-1px 1px 1px #000;
+}
+
+nav li:nth-child(0n+3) a {
+	text-shadow:
+		-1px 1px 1px #000;
+}
+
+nav a:hover,
+nav a:focus {
+	color: #f0c;
+	padding: 0;
+}
+
+nav li a:before {
+	content: "[";
+	color: #f00;
+	position: absolute;
+	margin: 0 0 0 -10px;
+	padding: 0 5px 0 0;
+	text-shadow: -1px 1px 1px #000;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-ms-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+}
+
+.ie8 nav li a:before {
+	display: none;
+}
+
+nav li a:after {
+	content: "]";
+	color: #f00;
+	float: left;
+	position: absolute;
+	margin: 0;
+	padding: 0 0 0 5px;
+	text-shadow: -1px 1px 1px #000;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-ms-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+}
+
+.ie8 nav li a:after {
+	display: none;
+}
+
+nav li a:hover:before,
+nav li a:hover:after,
+nav li a:focus:before,
+nav li a:focus:after {
+	opacity: 1;
+}
+
+.ie8 nav li a:hover:before,
+.ie8 nav li a:hover:after,
+.ie8 nav li a:focus:before,
+.ie8 nav li a:focus:after {
+	display: inline-block;
+}
+
+.description {
+	font: normal 18px/18px 'Monaco', 'Lucida Console', 'monospace';
+	color: #f90;
+	position: absolute;
+	top: 190px;
+	margin: 0 0 0 225px;
+	width: 500px;
+	opacity: 0;
+	text-shadow: -1px 1px 1px #000;
+}
+
+.ie8 .description {
+	display: none;
+}
+
+.starter {
+	opacity: 1;
+	padding: 20px 50px 20px 0;
+	margin: -20px 0 0 225px;
+}
+
+.ie8 .starter {
+	display: inline-block;
+}
+
+nav ul:hover+.starter {
+	opacity: 0;
+}
+
+.ie8 ul:hover+.starter {
+	display: none;
+}
+
+nav li a:hover+.description {
+	opacity: 1;
+}
+
+.ie8 nav li a:hover+.description {
+	display: inline-block;
+}
+
+/*
+ Main stylez!
+*/
+
+.animate-color {
+	-webkit-transition: color 0.5s;
+	-moz-transition: color 0.5s;
+	-ms-transition: color 0.5s;
+	-o-transition: color 0.5s;
+	-webkit-transform: translateZ(0);
+}
+
+.animate-opacity {
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-ms-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+	-webkit-transform: translateZ(0);
+}
+
+.animate-all {
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transform: translateZ(0);
+}
+
+#container .hidden {
+	padding: 0;
+	height: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	border: none;
+	box-shadow: none;
+	overflow: hidden;
+}
+
+.main {
+	margin: 0 0 0 150px;
+	width: 700px;
+}
+
+.main:first-child {
+	margin: 60px 0 0 150px;
+}
+
+.main:after {
+	content: '★';
+	display: block;
+	margin: 0 0 0 320px;
+	padding: 0 0 30px;
+	text-shadow: none;
+	width: 60px;
+	text-align: center;
+	color: #730;
+}
+
+.main:last-child:after {
+	content: '';
+}
+
+#intro {
+	height: 200px;
+}
+
+.newline {
+	color: #36f;
+}
+
+.highlight {
+	color: #0cf;
+}
+
+.article {
+	padding: 10px;
+	margin: 0 0 15px;
+	background: #944100;
+	border-top: 1px solid #720;
+	border-right: 1px solid #720;
+	border-bottom: 1px solid #a50;
+	border-left: 1px solid #a50;
+	-webkit-transition: all 1s 1s;
+	-moz-transition: all 1s 1s;
+	-ms-transition: all 1s 1s;
+	-o-transition: all 1s 1s;
+}
+
+.article:last-child {
+	margin: 0 0 30px;
+}
+
+.article:hover {
+	background: #913800;
+}
+
+.text-body {
+	color: #f90;
+	font: normal 15px/20px 'Monaco', 'Lucida Console', 'monospace';
+	text-shadow: -1px 1px 1px #000;
+}
+
+.text-body p {
+	margin: 0 0 10px 20px;
+	text-indent: -20px;
+}
+
+.text-body p strong {
+	color: #0ac;
+	text-shadow:
+		-1px 1px 1px #000,
+		-2px 2px 1px #930,
+		-3px 3px 1px #710;
+	font-weight: normal;
+}
+
+.text-body a {
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-ms-transition: all 0.25s;
+	-o-transition: all 0.25s;
+}
+
+.text-body a:before {
+	content: "{";
+	color: #f00;
+	position: absolute;
+	margin: -1px 0 0 10px;
+	opacity: 0;
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-ms-transition: all 0.25s;
+	-o-transition: all 0.25s;
+}
+
+.ie8 .text-body a:before {
+	display: none;
+}
+
+.text-body a:after {
+	content: "}";
+	color: #f00;
+	position: absolute;
+	margin: -1px 0 0 21px;
+	opacity: 0;
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-ms-transition: all 0.25s;
+	-o-transition: all 0.25s;
+}
+
+.ie8 .text-body a:after {
+	display: none;
+}
+
+.text-body a:hover:before,
+.text-body a:hover:after,
+.text-body a:focus:before,
+.text-body a:focus:after {
+	opacity: 1;
+}
+
+.ie8 .text-body a:hover:before,
+.ie8 .text-body a:hover:after,
+.ie8 .text-body a:focus:before,
+.ie8 .text-body a:focus:after {
+	display: inline-block;
+}
+
+.details {
+	font: normal 10px/10px 'Arial';
+	color: #c60;
+	text-shadow: -1px 1px 1px #300;
+	margin: 0 0 5px;
+}
+
+.details a,
+.text-body a {
+	color: #c00;
+	text-decoration: none;
+}
+
+.details a:hover,
+.text-body a:hover {
+	color: #f0c;
+	text-shadow: -1px 1px 1px #000;
+}
+
+.details a:before {
+	content: "[";
+	color: #f00;
+	text-shadow: -1px 1px 1px #000;
+	position: absolute;
+	font: normal 10px/10px 'Arial';
+	margin: -1px 0 0 -5px;
+	padding: 0 5px 0 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.25s;
+	-moz-transition: opacity 0.25s;
+	-ms-transition: opacity 0.25s;
+	-o-transition: opacity 0.25s;
+}
+
+.ie8 .details a:before {
+	display: none;
+}
+
+.details a:after {
+	content: "]";
+	color: #f00;
+	text-shadow: -1px 1px 1px #000;
+	position: absolute;
+	font: normal 10px/10px 'Arial';
+	margin: -1px 0 0;
+	padding: 0 0 0 3px;
+	opacity: 0;
+	-webkit-transition: opacity 0.25s;
+	-moz-transition: opacity 0.25s;
+	-ms-transition: opacity 0.25s;
+	-o-transition: opacity 0.25s;
+}
+
+.ie8 .details a:after {
+	display: none;
+}
+
+.details a:hover:before,
+.details a:hover:after,
+.details a:focus:before,
+.details a:focus:after {
+	opacity: 1;
+}
+
+.ie8 .details a:hover:before,
+.ie8 .details a:hover:after,
+.ie8 .details a:focus:before,
+.ie8 .details a:focus:after {
+	display: inline-block;
+}
+
+#login-form {
+	position: absolute;
+	z-index: 16;
+	padding: 0 5px;
+	background: #a40;
+	top: 80px;
+	margin: 0 0 0 380px;
+	border-top: 1px solid #720;
+	border-right: 1px solid #720;
+	border-bottom: 1px solid #A50;
+	border-left: 1px solid #A50;
+	opacity: 0;
+	height: 28px;
+	width: 530px;
+}
+
+#login-form * {
+	display: inline-block;
+	float: left;
+}
+
+#login-form label {
+	font: normal 12px/12px 'JoystixMonospace';
+	color: #F90;
+	text-shadow: -1px 1px 1px black;
+	margin: 7px 0 0;
+	padding: 0;
+	height: 17px;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+	width: 100px;
+	margin: 5px 15px 0 5px;
+	padding: 0 5px;
+	height: 15px;
+	background: #C60;
+	border: 1px solid #F90;
+	box-shadow: -1px 1px 1px #000;
+	font: normal 12px/12px 'JoystixMonospace';
+	color: #fff;
+	
+}
+
+#login-form input[type="submit"],
+#login-form button {
+	background: #c60;
+	border: 1px solid #f90;
+	box-shadow: -1px 1px 1px #000;
+	font: normal 10px/10px 'JoystixMonospace';
+	margin: 5px 10px 0 0;
+	color: #fc0;
+	padding: 0 5px;
+	height: 17px;
+}
+
+#login-form button {
+	padding: 0;
+	margin: 5px 0 0;
+	width: 17px;
+	float: right;
+}
+
+#container input:focus,
+#container textarea:focus,
+#container button:focus {
+	outline: none;
+	border: 1px solid #f00;
+	color: #fff;
+}
+
+#container input:hover,
+#container textarea:hover,
+#container button:hover {
+	box-shadow: -1px 1px 1px #f0c;
+	color: #fff;
+}
+
+#container input:active,
+#container button:active {
+	background: #fc0;
+	color: #f00;
+}
+
+#footer {
+	position: absolute;
+	top: 15px;
+	width: 924px;
+	text-align: right;
+}
+
+#footer a {
+	color: #c00;
+}
+
+#footer a:hover,
+#footer a:focus {
+	color: #f0c;
+}
+
+#footer .details {
+	background: rgba(0,0,0,0.1);
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	float: right;
+	clear: both;
+}
+
+.support {
+	margin: 0 0 5px;
+}
+
+.individual .entry {
+	padding: 0 0 80px;
+}
+
+.add-post {
+	width: 40px;
+	height: 30px;
+	border: 1px solid #0cf;
+	background: #0af;
+	font: normal 22px/22px 'MunroRegular';
+	box-shadow: -1px 1px 1px #000;
+	color: #fc0;
+	position: absolute;
+	opacity: 0;
+	margin: -2px 0 0 600px;
+	z-index: 99999;
+}
+
+.edit-post {
+	position: absolute;
+	width: 40px;
+	height: 30px;
+	border: 1px solid #c6f;
+	background: #a0f;
+	font: normal 10px/10px 'JoystixMonospace';
+	color: #fc0;
+	margin: -13px 0 0 640px;
+	box-shadow: -1px 1px 1px #000;
+	padding: 0;
+}
+
+.new-post {
+	background: #a40;
+	padding: 10px;
+	margin: 0 0 15px;
+	border-top: 1px solid #720;
+	border-right: 1px solid #720;
+	border-bottom: 1px solid #a50;
+	border-left: 1px solid #a50;
+	opacity: 0;
+}
+
+.post-form * {
+	display: block;
+	clear: both;
+	margin: 0 0 5px;
+	padding: 0;
+}
+
+.post-form label {
+	float: left;
+	color: #f90;
+	font: normal 12px/12px 'JoystixMonospace';
+}
+
+.post-form input[type="text"],
+.post-form textarea {
+	width: 590px;
+	padding: 5px;
+	background: #944100;
+	border: 1px solid #f90;
+	box-shadow: -1px 1px 1px #000;
+	text-shadow: -1px 1px 1px #000;
+	color: #fff;
+}
+
+.post-form input[type="text"] {
+	font: normal 18px/18px 'JoystixMonospace';
+	color: #fc0;
+}
+
+.post-form textarea {
+	resize: none;
+	height: 200px;
+	outline: none;
+	color: #F90;
+	font: normal 15px/20px 'Monaco', 'Lucida Console', 'monospace';
+}
+
+.new-post-controls,
+.edit-controls {
+	float: right;
+	clear: both;
+	display: block;
+	width: 60px;
+	background: #c60;
+	border: 1px solid #930;
+	box-shadow: -1px 1px 1px #000;
+	font: normal 12px/12px 'JoystixMonospace';
+	color: #a40;
+}
+
+.close-new-post,
+.close-edit-post {
+	margin: -295px -5px 0 0;
+	height: 25px;
+	font-size: 22px;
+}
+
+.close-new-post:hover,
+.close-new-post:focus,
+.close-edit-post:hover,
+.close-edit-post:active {
+	background: #f00;
+	color: #fc0;
+	border-color: #f90;
+}
+
+.new-post-options,
+.edit-post-options {
+	height: 240px;
+	margin: -265px -5px 0 0;
+	font: 100 150px/150px 'Times New Roman';
+	color: #af4f00;
+}
+
+.new-post-options div,
+.edit-post-options div {
+	position: absolute;
+	margin: -85px 0 0 -13px;
+}
+
+.new-post-options:hover,
+.new-post-options:active,
+.edit-post-options:hover,
+.edit-post-options:active {
+	color: #f60;
+	background: #404040;
+	border-color: #f60;
+}
+
+.save-new-post,
+.update-edit-post {
+	height: 25px;
+	margin: -20px -5px 0 0;
+}
+
+.update-edit-post {
+	font: normal 10px/10px 'JoystixMonospace';
+}
+
+.save-new-post:hover,
+.save-new-post:active,
+.update-edit-post:hover,
+.update-edit-post:active {
+	background: #0af;
+	color: #fff;
+	border-color: #0cf;
+}
+
+.close-new-post:active,
+.new-post-options:active,
+.save-new-post:active {
+	background: #fc0;
+	color: #f00;
+}
+
+#container #content .input-error {
+	color: #f00;
+}
+
+/*
+ Toon
+*/
+.toon {
+	margin: -75px 0 0 50px;
+}
+
+#legacy + #container #toon {
+	z-index: 99999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 350px 0 0 270px;
+}
+
+.toon,
+.toon div {
+	position: absolute;
+	z-index: 1;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transform: translateZ(0);
+}
+
+.toon .shadow {
+	z-index: 0;
+}
+
+.head {
+	left: 20px;
+}
+
+.hair {
+	width: 20px;
+	height: 20px;
+	background: #310;
+}
+
+.face {
+	width: 15px;
+	height: 15px;
+	background: #fc9;
+	top: 5px;
+	left: 5px;
+}
+
+.sideburn {
+	width: 5px;
+	height: 5px;
+	background: #310;
+	top: 5px;
+}
+
+.who-link .sideburn,
+.what-link .sideburn,
+.social-link .sideburn {
+	margin-left: 5px;
+}
+
+.neck {
+	width: 10px;
+	height: 10px;
+	background: #fc9;
+	top: 20px;
+	left: 20px;
+}
+
+.toon-body {
+	width: 30px;
+	height: 40px;
+	background: #333;
+	top: 30px;
+	left: 10px;
+}
+
+.shirt-main {
+	width: 10px;
+	height: 20px;
+	background: #fff;
+	left: 10px;
+}
+
+.shirt-small {
+	width: 5px;
+	height: 5px;
+	background: #fff;
+	top: 20px;
+	left: 15px;
+}
+
+.right-lapel {
+	width: 5px;
+	height: 20px;
+	background: #000;
+	left: 5px;
+}
+
+.left-lapel {
+	width: 5px;
+	height: 25px;
+	background: #000;
+	left: 20px;
+}
+
+.zipper {
+	width: 5px;
+	height: 5px;
+	background: #ccc;
+	left: 15px;
+	top: 25px;
+}
+
+.right-shoulder {
+	width: 10px;
+	height: 10px;
+	background: #000;
+	top: 30px;
+}
+
+.right-bicep1 {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 40px;
+}
+
+.right-bicep2 {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 50px;
+}
+
+.right-forearm1 {
+	width: 10px;
+	height: 10px;
+	background: #666;
+	top: 60px;
+}
+
+.right-forearm2 {
+	width: 10px;
+	height: 10px;
+	background: #666;
+	top: 70px;
+}
+
+.right-hand {
+	width: 10px;
+	height: 10px;
+	background: #fc9;
+	top: 80px;
+}
+
+.left-arm {
+	left: 40px;
+}
+
+.left-shoulder {
+	width: 10px;
+	height: 10px;
+	background: #000;
+	top: 30px;
+}
+
+.left-bicep1 {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 40px;
+}
+
+.left-bicep2 {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 50px;
+}
+
+.left-forearm1 {
+	width: 10px;
+	height: 10px;
+	background: #666;
+	top: 60px;
+}
+
+.moving-out .left-forearm1 {
+	margin-left: 10px;
+}
+
+.who-link .left-forearm1,
+.what-link .left-forearm1,
+.social-link .left-forearm1,
+#legacy + #container .left-forearm1 {
+	margin-top: -10px;
+	margin-left: 10px;
+}
+
+.left-forearm2 {
+	width: 10px;
+	height: 10px;
+	background: #666;
+	top: 70px;
+}
+
+.moving-out .left-forearm2 {
+	margin-left: 20px;
+}
+
+.who-link .left-forearm2 {
+	margin-top: -30px;
+	margin-left: 20px;
+}
+
+.what-link .left-forearm2,
+#legacy + #container .left-forearm2 {
+	margin-top: -20px;
+	margin-left: 20px;
+}
+
+.social-link .left-forearm2 {
+	margin-top: -10px;
+	margin-left: 20px;
+}
+
+.left-hand {
+	width: 10px;
+	height: 10px;
+	background: #fc9;
+	top: 80px;
+}
+
+.moving-out .left-hand {
+	margin-left: 30px;
+}
+
+.who-link .left-hand {
+	margin-top: -50px;
+	margin-left: 30px;
+}
+
+.what-link .left-hand,
+#legacy + #container .left-hand {
+	margin-top: -30px;
+	margin-left: 30px;
+}
+
+.social-link .left-hand {
+	margin-top: -15px;
+	margin-left: 30px;
+}
+
+.belt {
+	width: 30px;
+	height: 5px;
+	background: #000;
+	left: 10px;
+	top: 70px;
+}
+
+.buckle {
+	width: 5px;
+	height: 5px;
+	background: #ccc;
+	left: 15px;
+}
+
+.right-leg {
+	left: 10px;
+	top: 75px;
+}
+
+.right-thigh1 {
+	width: 10px;
+	height: 10px;
+	background: #039;
+}
+
+.right-thigh2 {
+	width: 10px;
+	height: 10px;
+	background: #039;
+	top: 10px;
+}
+
+.right-knee {
+	width: 10px;
+	height: 10px;
+	background: #039;
+	top: 20px;
+}
+
+.right-calf1 {
+	width: 10px;
+	height: 10px;
+	background: #039;
+	top: 30px;
+}
+
+.right-calf2 {
+	width: 10px;
+	height: 10px;
+	background: #039;
+	top: 40px;
+}
+
+.right-boot-top {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 50px;
+}
+
+.right-heel {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 60px;
+}
+
+.right-toe {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 60px;
+}
+
+.left-leg {
+	left: 30px;
+	top: 75px;
+}
+
+.left-thigh1 {
+	width: 10px;
+	height: 10px;
+	background: #039;
+}
+
+.left-thigh2 {
+	width: 10px;
+	height: 10px;
+	background: #039;
+	top: 10px;
+}
+
+.left-knee {
+	width: 10px;
+	height: 10px;
+	background: #039;
+	top: 20px;
+}
+
+.left-calf1 {
+	width: 10px;
+	height: 10px;
+	background: #039;
+	top: 30px;
+}
+
+.left-calf2 {
+	width: 10px;
+	height: 10px;
+	background: #039;
+	top: 40px;
+}
+
+.left-boot-top {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 50px;
+}
+
+.left-heel {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	top: 60px;
+}
+
+.left-toe {
+	width: 10px;
+	height: 10px;
+	background: #333;
+	left: 10px;
+	top: 60px;
+}
+
+.shadow {
+	width: 50px;
+	height: 5px;
+	background: rgba(0,0,0,0.25);
+	left: 5px;
+	top: 141px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.who-link .shadow,
+.what-link .shadow,
+.social-link .shadow,
+.moving-out .shadow {
+	width: 60px;
+}
+
+/*
+ End custom styling.
+*/
+/*****
+III.	BEGIN NON-SEMANTIC HELPER CLASSES
+Please define your styles BEFORE this section!
+*****/
+.invisible {
+	display: none;
+}
+/*****
+END NON-SEMANTIC HELPER CLASSES
+*****/
+/*****
+IV.		BEGIN MEDIA QUERIES
+*****/
+/*****
+Media queries for responsive design.
+These follow after primary styles so they will successfully override. 
+*****/
+@media all and (orientation: portrait) {
+	/***** Style adjustments for portrait mode goes here *****/
+}
+@media all and (orientation: landscape) {
+	/***** Style adjustments for landscape mode goes here *****/
+}
+/***** 
+Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, 
+Android Chrome) consider this: 
+http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ 
+*****/
+@media screen and (max-device-width: 480px) {
+	/***** 
+	Uncomment if you don't want iOS and WinMobile to mobile-optimize
+	the text for you: 
+	http://j.mp/textsizeadjust 
+	*****/
+	/***** 
+	html {
+		-webkit-text-size-adjust: none;
+		-ms-text-size-adjust: none;
+	}
+	*****/
+}
+/*****
+Print styles.  Inlined to avoid required HTTP connection: 
+www.phpied.com/delay-loading-your-print-css/
+*****/
+@media print {
+	
+	* {
+		background: transparent !important;
+		color: black !important;
+		text-shadow: none !important;
+		filter: none !important;
+		-ms-filter: none !important;
+	}
+	
+	/***** 
+	Black prints faster: 
+	http://sanbeiji.com/archives/953 
+	*****/
+	a, a:visited {
+		color: #444 !important;
+		text-decoration: underline;
+	}
+	
+	a[href]:after {
+		content: " (" attr(href) ")";
+	}
+	
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+	
+	.ir a:after, a[href^="javascript: "]:after, a[href^="#"]:after {
+		content: "";
+	}
+	
+	/***** 
+	Don't show links for images, or javascript/internal links 
+	*****/
+	pre, blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+	
+	thead {
+		display: table-header-group;
+	}
+	
+	/***** 
+	http://css-discuss.incutio.com/wiki/Printing_Tables 
+	*****/
+	tr, img {
+		page-break-inside: avoid;
+	}
+	
+	@page {
+		margin: 0.5cm;
+	}
+	
+	p, h2, h3 {
+		orphans: 3;
+		widows: 3;
+	}
+	
+	h2, h3 {
+		page-break-after: avoid;
+	}
+}
+/*****
+END MEDIA QUERIES
+*****/
+/*****
+END FILE
+*****/
