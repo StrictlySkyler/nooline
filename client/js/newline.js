@@ -52,12 +52,12 @@ document.onreadystatechange = function() {
 			N.originalZ;
 			N.validCreds;
 			N.mainNav = document.getElementById('main-nav').children[0];
+			N.runBuildOnce = false;
 			
 			N.getContent();
 			
 			N.loginLink.onclick = N.createLoginForm;
 			
-			N.onNav(N.mainNav, 'moving-out');
 		}(Newline));
 	}
 }

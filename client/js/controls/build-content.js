@@ -6,12 +6,13 @@
 		article,
 		title,
 		body,
-		details;
+		details,
+		blurb;
 	
 	N.buildContent = function(aggregator) {
 		
-		//if (!N.runBuildOnce) {
-			
+		if (!N.runBuildOnce) {
+
 			for (var j in aggregator) {
 				if (aggregator.hasOwnProperty(j)) {
 					
@@ -27,41 +28,45 @@
 					targetArea = document.getElementById(j);
 					
 					for (i = 0, len = aggregator[j].content.length; i < len; i++) {
+						blurb = aggregator[j].content[i].type === 'blurb' ? true : false;
+						
 						article = document.createElement('article');
-						title = document.createElement('h3');
+						title = blurb ?
+							document.createElement('h2') :
+							document.createElement('h3');
 						body = document.createElement('div');
-						details = document.createElement('p');
 						
 						article.className = 'article ' + aggregator[j].content[i].name;
 						title.className = 'title';
 						body.className = 'body';
-						details.className = 'details';
 						
 						targetArea.appendChild(article);
 						article.appendChild(title);
 						article.appendChild(body);
-						article.appendChild(details);
 						
 						title.innerHTML = aggregator[j].content[i].title;
 						body.innerHTML = aggregator[j].content[i].body;
-						details.innerHTML = 'Posted by ' +
+						
+						if (!blurb) {
+							details = document.createElement('p');
+							details.className = 'details';
+							article.appendChild(details);
+							
+							details.innerHTML = 'Posted by ' +
 							aggregator[j].content[i].author +
 							' on ' +
 							aggregator[j].content[i].date.match(/\d+\/\d+\/\d+/)[0] +
 							'.';
-						
+						}
 					}
 				}
 			}
 			
-		//}
+			N.checkState();
+			
+		}
 		
-		N.checkState();
-		
-		// Chrome bug: Chrome 16 seems to be a little overzealous, and runs this
-		// twice. Firefox 9 doesn't behave that way, so we set a boolean against
-		// which to check to ensure that this script is only run once.
-		//N.runBuildOnce = true;
+		N.runBuildOnce = true;
 	}
 	
 }(Newline));

@@ -1,0 +1,1395 @@
+/*****
+BEGIN FILE
+*****/
+/*****
+I.		BEGIN RESETS
+*****/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small,
+strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label,
+legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+details, figcaption, figure, footer, header, hgroup, menu, nav, section,
+summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+section {
+	display: block;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: "";
+	content: none;
+}
+
+ins {
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+mark {
+	background-color: #ff9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px dotted #c60;
+	margin: 5px 0;
+	padding: 0;
+}
+
+input, select {
+	vertical-align: middle;
+}
+
+/*****
+Font Normalization
+*****/
+body {
+	font: 13px/1.231 sans-serif;
+	*font-size: small;	/***** Hack retained to preserve specificity *****/
+}
+
+select, input, textarea, button {
+	font: 99% sans-serif;
+}
+
+/***** 
+Normalize monospace sizing: 
+http://en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+*****/
+pre, code, kbd, samp {
+	font-family: monospace, sans-serif;
+}
+
+/***** 
+Always force a scrollbar in non-IE 
+*****/
+html {
+	overflow-y: scroll;
+}
+
+/***** 
+Accessible focus treatment: http://people.opera.com/patrickl/experiments/keyboard/test 
+*****/
+a:hover, a:active, a:focus {
+	outline: none;
+	text-decoration: none;
+}
+
+ul, ol {
+	margin: 0 0 10px 45px;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+/***** 
+Remove margins for navigation lists 
+*****/
+nav ul, nav li {
+	margin: 0;
+	list-style: none;
+	list-style-image: none;
+}
+
+small {
+	font-size: 85%;
+}
+
+strong, th {
+	font-weight: bold;
+}
+
+td {
+	vertical-align: top;
+}
+
+/***** 
+Set sub, sup without affecting line-height: 
+http://gist.github.com/413930 
+*****/
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+pre {
+	/***** http://www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ *****/
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	padding: 15px;
+}
+
+textarea {
+	overflow: auto;
+}
+
+/***** http://www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ *****/
+.ie6 legend, .ie7 legend {
+	margin-left: -7px;
+}
+
+/***** 
+Align checkboxes, radios, text inputs with their label by: 
+Thierry Koblentz 
+http://tjkdesign.com/ez-css/css/base.css 
+*****/
+input[type="radio"] {
+	vertical-align: text-bottom;
+}
+
+input[type="checkbox"] {
+	vertical-align: bottom;
+}
+
+.ie7 input[type="checkbox"] {
+	vertical-align: baseline;
+}
+
+.ie6 input {
+	vertical-align: text-bottom;
+}
+
+/***** Hand cursor on clickable input elements *****/
+label, input[type="button"], input[type="submit"], input[type="image"], button {
+	cursor: pointer;
+}
+
+/***** 
+Webkit browsers add a 2px margin outside the chrome of form elements 
+*****/
+button, input, select, textarea {
+	margin: 0;
+}
+
+/***** 
+Colors for form validity 
+*****/
+input:valid, textarea:valid {
+	/***** 
+	Probably should be left blank, as default, unless design 
+	dictates otherwise 
+	*****/
+}
+
+/*****
+Should be set to design spec
+*****/
+input:invalid, textarea:invalid {
+	border-radius: 1px;
+	-moz-box-shadow: 0px 0px 5px red;
+	-webkit-box-shadow: 0px 0px 5px red;
+	box-shadow: 0px 0px 5px red;
+}
+
+/***** 
+Make buttons play nice in IE: 
+http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ 
+*****/
+button {
+	width: auto;
+	overflow: visible;
+}
+
+/***** Bicubic resizing for non-native sized IMG: code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ *****/
+.ie7 img {
+	-ms-interpolation-mode: bicubic;
+}
+
+/***** Remove inner focus border from elements for FireFox *****/
+::-moz-focus-inner {
+	border: 0;
+}
+/*****
+END RESETS
+*****/
+/*****
+II.		BEGIN SITE-SPECIFIC STYLES
+Author: Skyler Brungardt
+*****/
+
+/*
+ Fonts
+*/
+@font-face {
+    font-family: 'MunroNarrowRegular';
+    src: url('../fonts/munro_narrow-webfont.eot');
+    src: url('../fonts/munro_narrow-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/munro_narrow-webfont.woff') format('woff'),
+         url('../fonts/munro_narrow-webfont.ttf') format('truetype'),
+         url('../fonts/munro_narrow-webfont.svg#MunroNarrowRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MunroSmallRegular';
+    src: url('../fonts/munro_small-webfont.eot');
+    src: url('../fonts/munro_small-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/munro_small-webfont.woff') format('woff'),
+         url('../fonts/munro_small-webfont.ttf') format('truetype'),
+         url('../fonts/munro_small-webfont.svg#MunroSmallRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MunroRegular';
+    src: url('../fonts/munro-webfont.eot');
+    src: url('../fonts/munro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/munro-webfont.woff') format('woff'),
+         url('../fonts/munro-webfont.ttf') format('truetype'),
+         url('../fonts/munro-webfont.svg#MunroRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'JoystixMonospace';
+    src: url('../fonts/joystix_monospace-webfont.eot');
+    src: url('../fonts/joystix_monospace-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/joystix_monospace-webfont.woff') format('woff'),
+         url('../fonts/joystix_monospace-webfont.ttf') format('truetype'),
+         url('../fonts/joystix_monospace-webfont.svg#JoystixMonospace') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*
+ Can haz custom stylz plz!?
+*/
+
+::selection {
+	background: rgba(0,0,0,0.5);
+}
+
+::-moz-selection {
+	background: rgba(0,0,0,0.5);
+}
+
+html {
+	background: #fff;
+	box-shadow: inset 0 0 30px #333;
+	min-height: 100%;
+	background:
+		-webkit-linear-gradient(-45deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px),
+		-webkit-linear-gradient(225deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px)0 64px;
+	background:
+		-moz-linear-gradient(-45deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px),
+		-moz-linear-gradient(225deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px)0 64px;
+	background:
+		-o-linear-gradient(-45deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px),
+		-o-linear-gradient(225deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px)0 64px;
+	background:
+		-ms-linear-gradient(-45deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px),
+		-ms-linear-gradient(225deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px)0 64px;
+	background:
+		linear-gradient(-45deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px),
+		linear-gradient(225deg,
+			#fff 22px,
+			#efefef 22px,
+			#efefef 24px,
+			transparent 24px,
+			transparent 67px,
+			#efefef 67px,
+			#efefef 69px,
+			transparent 69px)0 64px;
+background-color:#fff;
+background-size: 64px 128px;
+}
+
+body {
+	height: 100%;
+	min-height: 700px;
+	background: -webkit-linear-gradient(
+					-90deg,
+					rgba(255,255,255,0),
+					rgba(255,255,255,0) 50px,
+					rgba(0,31,136,0.8) 150px,
+					rgba(0,31,136,0.8) 95%,
+					rgba(255,255,255,0) 99%,
+					rgba(255,255,255,0)
+				);
+	background: -moz-linear-gradient(
+					-90deg,
+					rgba(255,255,255,0),
+					rgba(255,255,255,0) 50px,
+					rgba(0,31,136,0.8) 150px,
+					rgba(0,31,136,0.8) 95%,
+					rgba(255,255,255,0) 99%,
+					rgba(255,255,255,0)
+				);
+	background: -ms-linear-gradient(
+					-90deg,
+					rgba(255,255,255,0),
+					rgba(255,255,255,0) 50px,
+					rgba(0,31,136,0.8) 150px,
+					rgba(0,31,136,0.8) 95%,
+					rgba(255,255,255,0) 99%,
+					rgba(255,255,255,0)
+				);
+	background: -o-linear-gradient(
+					-90deg,
+					rgba(255,255,255,0),
+					rgba(255,255,255,0) 50px,
+					rgba(0,31,136,0.8) 150px,
+					rgba(0,31,136,0.8) 95%,
+					rgba(255,255,255,0) 99%,
+					rgba(255,255,255,0)
+				);
+	margin: 0 auto;
+	width: 1024px;
+}
+
+#legacy {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	z-index: 99999;
+}
+
+#warning {
+	margin: 200px auto 0;
+	width: 300px;
+	padding: 25px;
+	background: #efefff;
+	border: 1px solid;
+	border-color: #cef #cef #9bf #9bf;
+}
+
+#warning a {
+	color: #06f;
+	cursor: pointer;
+}
+
+#warning a:hover {
+	color: #f00;
+}
+
+#warning p {
+	color: #333;
+	font: normal 18px/24px 'Palatino', 'Palatino Linotype', 'serif';
+	text-shadow: -1px 1px 1px #ccf;
+	margin: 0 0 10px 20px;
+	text-indent: -20px;
+}
+
+#container {
+	width: 924px;
+	margin: 0 auto;
+	padding: 0 5px;
+	height: 100%;
+	min-height: 700px;
+	background: -webkit-linear-gradient(
+					-90deg,
+					rgba(255,255,255,0),
+					rgba(255,255,255,1) 50px,
+					rgba(255,255,255,1) 98%,
+					rgba(255,255,255,0)
+				);
+	background: -moz-linear-gradient(
+					-90deg,
+					rgba(255,255,255,0),
+					rgba(255,255,255,1) 50px,
+					rgba(255,255,255,1) 98%,
+					rgba(255,255,255,0)
+				);
+	background: -ms-linear-gradient(
+					-90deg,
+					rgba(255,255,255,0),
+					rgba(255,255,255,1) 50px,
+					rgba(255,255,255,1) 98%,
+					rgba(255,255,255,0)
+				);
+	background: -o-linear-gradient(
+					-90deg,
+					rgba(255,255,255,0),
+					rgba(255,255,255,1) 50px,
+					rgba(255,255,255,1) 98%,
+					rgba(255,255,255,0)
+				);
+}
+
+a {
+	text-decoration: none;
+}
+
+em {
+	color: #a50;
+}
+
+/*
+ Headers & Nav
+*/
+
+h1 {
+	font: normal 60px/60px 'Courier New';
+	color: #06f;
+	padding: 60px 0 0 50px;
+	width: 300px;
+	text-shadow: -1px 1px 1px #aaf;
+}
+
+h1 span {
+	color: #0af;
+}
+
+h1 a {
+	color: #06f;
+}
+
+h1 a:visited {
+	color: #06f;
+}
+
+h2 {
+	color: #333;
+	font: normal 28px/28px 'Palatino', 'Palatino Linotype', 'serif';
+	width: 710px;
+	text-shadow:
+		-1px 1px 1px #ccf;
+}
+
+h3 {
+	font: bold 25px/25px 'Courier New';
+	color: #333;
+	margin: 0 0 30px;
+	text-shadow: -1px 1px 1px #ccf;
+}
+
+h3 a {
+	color: #f60;
+}
+
+h3 a:hover {
+	color: #f0c;
+}
+
+#left-sidebar {
+	width: 115px;
+	float: left;
+}
+
+#right-sidebar h3 {
+	font: normal 16px/16px 'Courier New';
+	padding: 0 0 0 10px;
+	margin: 0 0 10px;
+	text-indent: -10px;
+}
+
+nav {
+	font: normal 18px/20px 'Courier New';
+	margin: 0 0 0 10px;
+}
+
+nav a {
+	color: #06f;
+	text-decoration: none;
+	margin: 0;
+}
+
+nav ul li {
+	float: left;
+	clear: left;
+	margin: 0 0 5px;
+}
+
+nav li a {
+	padding: 0 15px 0 0;
+	text-shadow:
+		-1px 1px 1px #aaf;
+}
+
+nav a:hover,
+nav a:focus {
+	color: #f0c;
+}
+
+nav li a:before {
+	content: "[";
+	color: #f00;
+	position: absolute;
+	margin: 0 0 0 -10px;
+	padding: 0 5px 0 0;
+	text-shadow: -1px 1px 1px #000;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-ms-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+}
+
+.ie8 nav li a:before {
+	display: none;
+}
+
+nav li a:after {
+	content: "]";
+	color: #f00;
+	float: left;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	text-shadow: -1px 1px 1px #000;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-ms-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+}
+
+.ie8 nav li a:after {
+	display: none;
+}
+
+nav li a:hover:before,
+nav li a:hover:after,
+nav li a:focus:before,
+nav li a:focus:after {
+	opacity: 1;
+}
+
+.ie8 nav li a:hover:before,
+.ie8 nav li a:hover:after,
+.ie8 nav li a:focus:before,
+.ie8 nav li a:focus:after {
+	display: inline-block;
+}
+
+/*
+ Main stylez!
+*/
+
+.animate-color {
+	-webkit-transition: color 0.5s;
+	-moz-transition: color 0.5s;
+	-ms-transition: color 0.5s;
+	-o-transition: color 0.5s;
+	-webkit-transform: translateZ(0);
+}
+
+.animate-opacity {
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-ms-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+	-webkit-transform: translateZ(0);
+}
+
+.animate-all {
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transform: translateZ(0);
+}
+
+#container .hidden {
+	padding: 0;
+	height: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	border: none;
+	box-shadow: none;
+	overflow: hidden;
+}
+
+.blurb {
+	width: 635px;
+	margin: 0 0 0 115px;
+}
+
+.blurb .article {
+	border: none;
+	background: none;
+	margin: 0;
+}
+
+.blurb .body {
+	margin: 10px 0 0;
+}
+
+#content {
+	margin: 0 0 0 120px;
+	width: 630px;
+}
+
+#content ul {
+	list-style: none;
+}
+
+#content ul li:before {
+	content: '☞';
+	margin: 0 10px 0 -25px;
+}
+
+.main {
+	margin: 0;
+	width: 630px;
+}
+
+.main:after {
+	content: '✍';
+	font-size: 36px;
+	display: block;
+	margin: 0 0 0 270px;
+	padding: 0 0 10px;
+	text-shadow: none;
+	width: 60px;
+	text-align: center;
+	color: #efefff;
+}
+
+.main:last-child:after {
+	content: '';
+}
+
+.article {
+	padding: 10px;
+	margin: 0 0 15px;
+	background: #fafaff;
+	border-top: 1px solid #9bf;
+	border-right: 1px solid #9bf;
+	border-bottom: 1px solid #cef;
+	border-left: 1px solid #cef;
+	-webkit-transition: all 1s 1s;
+	-moz-transition: all 1s 1s;
+	-ms-transition: all 1s 1s;
+	-o-transition: all 1s 1s;
+}
+
+.article:hover {
+	border: 1px solid #0af;
+}
+
+.blurb .article:hover {
+	border: none;
+}
+
+#right-sidebar .article {
+	background: none;
+	border: none;
+	padding: 0 10px;
+}
+
+#right-sidebar .article .details {
+	color: #555;
+	margin: 0 0 10px 10px;
+	font-size: 10px;
+}
+
+.text-body {
+	color: #333;
+	font: normal 18px/24px 'Palatino', 'Palatino Linotype', 'serif';
+	text-shadow: -1px 1px 1px #ccf;
+}
+
+.blurb.text-body {
+	font-size: 14px;
+}
+
+.text-body p {
+	margin: 0 0 10px 20px;
+	text-indent: -20px;
+}
+
+#right-sidebar .text-body p {
+	font: normal 13px/18px 'Palatino', 'Palatino Linotype', 'serif';
+	text-indent: 0;
+	margin: 0 0 10px;
+}
+
+.text-body p strong {
+	color: #0ac;
+	text-shadow:
+		-1px 1px 1px #000,
+		-2px 2px 1px #930,
+		-3px 3px 1px #710;
+	font-weight: normal;
+}
+
+.text-body a {
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-ms-transition: all 0.25s;
+	-o-transition: all 0.25s;
+}
+
+.text-body a:before {
+	content: "[";
+	color: #f00;
+	position: absolute;
+	margin: 0 0 0 13px;
+	text-shadow: -1px 1px 1px #000;
+	opacity: 0;
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-ms-transition: all 0.25s;
+	-o-transition: all 0.25s;
+}
+
+#right-sidebar .text-body a:before {
+	margin: 0 0 0 -7px
+}
+
+.ie8 .text-body a:before {
+	display: none;
+}
+
+.text-body a:after {
+	content: "]";
+	color: #f00;
+	position: absolute;
+	margin: 0 0 0 21px;
+	text-shadow: -1px 1px 1px #000;
+	opacity: 0;
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-ms-transition: all 0.25s;
+	-o-transition: all 0.25s;
+}
+
+#right-sidebar .text-body a:after {
+	margin: 0 0 0 3px;
+}
+
+.ie8 .text-body a:after {
+	display: none;
+}
+
+.text-body a:hover:before,
+.text-body a:hover:after,
+.text-body a:focus:before,
+.text-body a:focus:after {
+	opacity: 1;
+}
+
+.ie8 .text-body a:hover:before,
+.ie8 .text-body a:hover:after,
+.ie8 .text-body a:focus:before,
+.ie8 .text-body a:focus:after {
+	display: inline-block;
+}
+
+.details {
+	font: normal 10px/10px 'Palatino', 'Palatino Linotype', 'serif';
+	color: #333;
+	text-shadow: -1px 1px 1px #aaa;
+	margin: 0 0 5px;
+}
+
+.details a,
+.text-body a {
+	color: #06f;
+	text-decoration: none;
+}
+
+.details a:hover,
+.text-body a:hover {
+	color: #f0c;
+}
+
+.details a:before {
+	content: "[";
+	color: #f00;
+	text-shadow: -1px 1px 1px #000;
+	position: absolute;
+	font: normal 10px/10px 'Arial';
+	margin: -1px 0 0 -5px;
+	padding: 0 5px 0 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.25s;
+	-moz-transition: opacity 0.25s;
+	-ms-transition: opacity 0.25s;
+	-o-transition: opacity 0.25s;
+}
+
+.ie8 .details a:before {
+	display: none;
+}
+
+.details a:after {
+	content: "]";
+	color: #f00;
+	text-shadow: -1px 1px 1px #000;
+	position: absolute;
+	font: normal 10px/10px 'Arial';
+	margin: -1px 0 0;
+	padding: 0 0 0 3px;
+	opacity: 0;
+	-webkit-transition: opacity 0.25s;
+	-moz-transition: opacity 0.25s;
+	-ms-transition: opacity 0.25s;
+	-o-transition: opacity 0.25s;
+}
+
+.ie8 .details a:after {
+	display: none;
+}
+
+.details a:hover:before,
+.details a:hover:after,
+.details a:focus:before,
+.details a:focus:after {
+	opacity: 1;
+}
+
+.ie8 .details a:hover:before,
+.ie8 .details a:hover:after,
+.ie8 .details a:focus:before,
+.ie8 .details a:focus:after {
+	display: inline-block;
+}
+
+#login-form {
+	position: absolute;
+	z-index: 16;
+	padding: 0 5px;
+	background: #fafaff;
+	top: 80px;
+	margin: 0 0 0 380px;
+	border-top: 1px solid #9bf;
+	border-right: 1px solid #9bf;
+	border-bottom: 1px solid #cef;
+	border-left: 1px solid #cef;
+	opacity: 0;
+	height: 28px;
+	width: 530px;
+}
+
+#login-form * {
+	display: inline-block;
+	float: left;
+}
+
+#login-form label {
+	font: bold 16px/16px 'Courier New';
+	color: #06f;
+	text-shadow: -1px 1px 1px #ccf;
+	margin: 7px 0 0;
+	padding: 0;
+	height: 17px;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+	width: 100px;
+	margin: 5px 15px 0 5px;
+	padding: 0 5px;
+	height: 15px;
+	background: #06f;
+	border: 1px solid #fff;
+	box-shadow: -1px 1px 1px #999;
+	font: normal 14px/14px 'Courier New';
+	color: #fff;
+	
+}
+
+#login-form input[type="submit"],
+#login-form button {
+	background: #06f;
+	border: 1px solid #fff;
+	box-shadow: -1px 1px 1px #999;
+	font: normal 14px/14px 'Courier New';
+	margin: 5px 10px 0 0;
+	color: #0ff;
+	padding: 0 5px;
+	height: 17px;
+}
+
+#login-form button {
+	padding: 0;
+	margin: 5px 0 0;
+	width: 17px;
+	float: right;
+}
+
+#container input:focus,
+#container textarea:focus,
+#container button:focus {
+	outline: none;
+	border: 1px solid #0f0;
+	color: #09f;
+}
+
+#login-form input:focus,
+#login-form textarea:focus,
+#login-form button:focus {
+	color: #fff;
+}
+
+#container button:hover {
+	color: #fff;
+}
+
+#container input:hover,
+#container textarea:hover {
+	box-shadow: -1px 1px 1px #f0c;
+	color: #09f;
+}
+
+#container input:active,
+#container button:active {
+	background: #fc0;
+	color: #f00;
+}
+
+#right-sidebar {
+	float: right;
+	clear: none;
+	width: 150px;
+	margin: 0 10px 0 0;
+}
+
+#footer {
+	position: absolute;
+	top: 15px;
+	width: 924px;
+	text-align: right;
+}
+
+#footer a {
+	color: #06f;
+}
+
+#footer a:hover,
+#footer a:focus {
+	color: #f0c;
+}
+
+#footer .details {
+	background: rgba(255,255,255,0.1);
+	box-shadow: 0 0 10px rgba(255,255,255,0.3);
+	float: right;
+	clear: both;
+}
+
+.support {
+	margin: 0 0 5px;
+}
+
+.individual .entry {
+	padding: 0 0 80px;
+}
+
+.add-post {
+	width: 40px;
+	height: 30px;
+	border: 1px solid #fff;
+	background: #06f;
+	font: normal 22px/28px 'Courier New';
+	box-shadow: -1px 1px 1px #999;
+	color: #0ff;
+	position: absolute;
+	opacity: 0;
+	margin: -2px 0 0 500px;
+	z-index: 1000;
+}
+
+#right-sidebar .add-post {
+	margin: -2px 0 0 145px;
+}
+
+.edit-post {
+	position: absolute;
+	width: 40px;
+	height: 30px;
+	border: 1px solid #fff;
+	background: #5af;
+	font: normal 14px/14px 'Courier New';
+	color: #0ff;
+	margin: -13px 0 0 540px;
+	box-shadow: -1px 1px 1px #999;
+	padding: 0;
+	z-index: 1000;
+}
+
+#right-sidebar .edit-post {
+	margin: 35px 0 0 135px;
+}
+
+#container .content .editing {
+	background: #cef;
+	box-shadow: -1px 1px 1px #999;
+	margin: 0 0 10px;
+}
+
+.blurb .edit-post {
+	margin: 0 0 0 545px;
+}
+
+.new-post {
+	background: #fafaff;
+	padding: 10px;
+	margin: 0 0 15px;
+	border-top: 1px solid #9bf;
+	border-right: 1px solid #9bf;
+	border-bottom: 1px solid #cef;
+	border-left: 1px solid #cef;
+	opacity: 0;
+}
+
+.post-form * {
+	display: block;
+	margin: 0 0 5px;
+	padding: 0;
+}
+
+.post-form label {
+	color: #06f;
+	font: bold 14px/14px 'Courier New';
+}
+
+.post-form input[type="text"],
+.post-form textarea {
+	width: 530px;
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	box-shadow: -1px 1px 1px #999;
+	text-shadow: -1px 1px 1px #ccf;
+}
+
+.post-form input[type="text"] {
+	font: bold 25px/25px 'Courier New';
+	color: #333;
+}
+
+.post-form textarea {
+	resize: none;
+	height: 200px;
+	outline: none;
+	color: #333;
+	font: normal 18px/24px 'Palatino', 'Palatino Linotype', 'serif';
+}
+
+.new-post-controls,
+.edit-controls {
+	position: absolute;
+	width: 60px;
+	background: #5af;
+	border: 1px solid #fff;
+	box-shadow: -1px 1px 1px #999;
+	font: normal 24px/28px 'Courier New';
+	color: #0ff;
+}
+
+.close-new-post,
+.close-edit-post {
+	height: 25px;
+	font-size: 22px;
+	margin: 0 0 0 550px;
+}
+
+#right-sidebar .close-new-post,
+#right-sidebar .close-edit-post {
+	margin: 0 0 0 145px;
+}
+
+.close-new-post:hover,
+.close-new-post:focus,
+.close-edit-post:hover,
+.close-edit-post:active {
+	background: #f00;
+	color: #fc0;
+	border-color: #f90;
+}
+
+.new-post-options,
+.edit-post-options {
+	height: 240px;
+	margin: -275px -5px 0 0;
+	font: 100 150px/150px 'Palatino', 'Palatino Linotype', 'serif';
+	color: #0ff;
+}
+
+.new-post-options div,
+.edit-post-options div {
+	position: absolute;
+	margin: -80px 0 0;
+}
+
+.new-post-options:hover,
+.new-post-options:active,
+.edit-post-options:hover,
+.edit-post-options:active {
+	color: #f60;
+	background: #404040;
+	border-color: #f60;
+}
+
+.save-new-post,
+.update-edit-post {
+	height: 25px;
+	margin: 30px 0 0 550px;
+}
+
+#right-sidebar .save-new-post,
+#right-sidebar .update-edit-post {
+	margin: 30px 0 0 145px;
+}
+
+.save-new-post,
+.update-edit-post {
+	font: bold 14px/14px 'Courier New';
+}
+
+.save-new-post:hover,
+.save-new-post:active,
+.update-edit-post:hover,
+.update-edit-post:active {
+	background: #06f;
+	color: #fff;
+	border-color: #0cf;
+}
+
+.close-new-post:active,
+.new-post-options:active,
+.save-new-post:active {
+	background: #fc0;
+	color: #f00;
+}
+
+#container #content .input-error {
+	color: #f00;
+}
+
+/*
+ End custom styling.
+*/
+/*****
+III.	BEGIN NON-SEMANTIC HELPER CLASSES
+Please define your styles BEFORE this section!
+*****/
+.invisible {
+	display: none;
+}
+/*****
+END NON-SEMANTIC HELPER CLASSES
+*****/
+/*****
+IV.		BEGIN MEDIA QUERIES
+*****/
+/*****
+Media queries for responsive design.
+These follow after primary styles so they will successfully override. 
+*****/
+@media all and (orientation: portrait) {
+	/***** Style adjustments for portrait mode goes here *****/
+}
+@media all and (orientation: landscape) {
+	/***** Style adjustments for landscape mode goes here *****/
+}
+/***** 
+Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, 
+Android Chrome) consider this: 
+http://www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ 
+*****/
+@media screen and (max-device-width: 480px) {
+	/***** 
+	Uncomment if you don't want iOS and WinMobile to mobile-optimize
+	the text for you: 
+	http://j.mp/textsizeadjust 
+	*****/
+	/***** 
+	html {
+		-webkit-text-size-adjust: none;
+		-ms-text-size-adjust: none;
+	}
+	*****/
+}
+/*****
+Print styles.  Inlined to avoid required HTTP connection: 
+www.phpied.com/delay-loading-your-print-css/
+*****/
+@media print {
+	
+	* {
+		background: transparent !important;
+		color: black !important;
+		text-shadow: none !important;
+		filter: none !important;
+		-ms-filter: none !important;
+	}
+	
+	/***** 
+	Black prints faster: 
+	http://sanbeiji.com/archives/953 
+	*****/
+	a, a:visited {
+		color: #444 !important;
+		text-decoration: underline;
+	}
+	
+	a[href]:after {
+		content: " (" attr(href) ")";
+	}
+	
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+	
+	.ir a:after, a[href^="javascript: "]:after, a[href^="#"]:after {
+		content: "";
+	}
+	
+	/***** 
+	Don't show links for images, or javascript/internal links 
+	*****/
+	pre, blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+	
+	thead {
+		display: table-header-group;
+	}
+	
+	/***** 
+	http://css-discuss.incutio.com/wiki/Printing_Tables 
+	*****/
+	tr, img {
+		page-break-inside: avoid;
+	}
+	
+	@page {
+		margin: 0.5cm;
+	}
+	
+	p, h2, h3 {
+		orphans: 3;
+		widows: 3;
+	}
+	
+	h2, h3 {
+		page-break-after: avoid;
+	}
+}
+/*****
+END MEDIA QUERIES
+*****/
+/*****
+END FILE
+*****/

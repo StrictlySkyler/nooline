@@ -29,8 +29,7 @@
 		
 		loginMeta.style.opacity = 0;
 		window.setTimeout(function() {
-			loginMeta.innerHTML = '<hr>' +
-			'Click here to ' +
+			loginMeta.innerHTML = 'Click here to ' +
 			'<a id="login-link" class="animate-color" href="/login">login</a>.';
 			loginMeta.style.opacity = 1;
 			

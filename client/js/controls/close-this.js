@@ -10,7 +10,7 @@
 		
 		var self = this,
 			parent = self.parentNode,
-			name = parent.id,
+			name = parent.parentNode.parentNode.id,
 			i,
 			len,
 			sure,
@@ -32,9 +32,12 @@
 			newBody = parent.querySelectorAll('.body')[0];
 			
 			content.push(parent.parentNode.querySelectorAll('.edit-post')[0],
-								 parent.parentNode.querySelectorAll('.title')[0],
-								 parent.parentNode.querySelectorAll('.body')[0],
-								 parent.parentNode.querySelectorAll('.details')[0]);
+				parent.parentNode.querySelectorAll('.title')[0],
+				parent.parentNode.querySelectorAll('.body')[0]);
+			
+			if (name !== 'blurb') {
+				content.push(parent.parentNode.querySelectorAll('.details')[0]);
+			}
 			
 			if ((newTitle.value !== currentTitle.innerHTML) ||
 					newBody.value !== currentBody.innerHTML) {
@@ -45,6 +48,8 @@
 				if (sure) {
 					N.removeElement(parent);
 					
+					parent.parentNode.className = parent.parentNode.className.replace(' editing', '');
+					
 					for (i = 0, len = content.length; i < len; i++) {
 						content[i].style.display = '';
 					}
@@ -53,7 +58,8 @@
 						for (i = 0, len = content.length; i < len; i++) {
 							content[i].style.opacity = 1;
 						}
-						if (parent.parentNode === contentArea.children[0]) {
+						if (contentArea.className.match('addable')) {
+							
 							N.createAddContentButton(contentArea);
 						}
 					}, 250);
@@ -61,6 +67,8 @@
 				
 			} else {
 				N.removeElement(parent);
+				
+				parent.parentNode.className = parent.parentNode.className.replace(' editing', '');
 				
 				for (i = 0, len = content.length; i < len; i++) {
 					content[i].style.display = '';
@@ -71,7 +79,8 @@
 						content[i].style.opacity = 1;
 					}
 					
-					if (parent.parentNode === contentArea.children[0]) {
+					if (contentArea.className.match('addable')) {
+						
 						N.createAddContentButton(contentArea);
 					}
 				}, 250);
@@ -83,7 +92,11 @@
 			
 			if (sure) {
 				window.setTimeout(function() {
-					N.createAddContentButton(contentArea);
+					if (contentArea.className.match('addable')) {
+						
+						N.createAddContentButton(contentArea);
+					}
+					
 					N.removeElement(article);
 				}, 250);
 			}

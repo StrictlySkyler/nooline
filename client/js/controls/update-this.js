@@ -15,7 +15,8 @@
 			article,
 			title,
 			body,
-			details;
+			details,
+			blurb;
 			
 		if (emptyNodes.length > 0) {
 			for (i = 0, len = emptyNodes.length; i < len; i++) {
@@ -37,6 +38,7 @@
 			}, 250);
 		} else {
 			
+			blurb = contentArea.id === 'blurb' ? true : false;
 			content.type = contentArea.id;
 			if (parent.parentNode === contentArea.children[0]) {
 				content.name = contentArea.children[0].className
@@ -67,27 +69,32 @@
 			postContent.send(JSON.stringify(content, null, '\t'));
 			
 			article = document.createElement('article');
-			title = document.createElement('h3');
+			title = blurb ?
+				document.createElement('h2') :
+				document.createElement('h3');
 			body = document.createElement('div');
-			details = document.createElement('p');
 			
 			article.className = 'article ' + content.name;
 			title.className = 'title';
 			body.className = 'body';
-			details.className = 'details';
 			
 			contentArea.insertBefore(article, contentArea.children[0]);
 			article.appendChild(title);
 			article.appendChild(body);
-			article.appendChild(details);
 			
 			title.innerHTML = content.title;
 			body.innerHTML = content.body;
-			details.innerHTML = 'Posted by ' +
-				content.author +
-				' on ' +
-				content.date.match(/\d+\/\d+\/\d+/)[0] +
+				
+			if (!blurb) {
+				details = document.createElement('p');
+				details.className = 'details';
+				article.appendChild(details);
+				details.innerHTML = 'Posted by ' +
+					content.author +
+					' on ' +
+					content.date.match(/\d+\/\d+\/\d+/)[0] +
 				'.';
+			}
 			
 			N.removeElement(self.parentNode.parentNode);
 			N.createEditContentButton(contentArea.children[0]);

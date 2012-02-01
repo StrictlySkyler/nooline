@@ -9,12 +9,12 @@
 		<![endif]-->
 		<meta charset="UTF-8" >
 		<meta name="viewport" content="width=device-width" >
-		<title>skylerbrungardt.com</title>
-		<meta name="description" content="Skyler Brungardt's Website.">
+		<title>nooline.org</title>
+		<meta name="description" content="A CMS for the 21st Century.">
 		<meta name="author" content="Skyler Brungardt">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="/client/images/favicon.ico">
-		<link rel="stylesheet" href="/client/css/skylerbrungardt.com.css">
+		<link rel="stylesheet" href="/client/css/nooline.org.css">
 			
 		<script src="/client/js/lib/modernizr-1.7.min.js"></script>
 		<!--Newline scripts-->
@@ -42,134 +42,65 @@
 		<!--Encryption scripts-->
 		<script src="/shared/js/lib/sjcl.js"></script>
 		
-		<!--Custom scripts-->
-		<script src="/client/js/controls/on-nav.js"></script>
 	</head>
 	<body class="mainIndex">
 		<div id="container">
 			<header id="header">
 				<h1>
 					<a href="/">
-						<span id="s">S</span>
-						<span id="k">k</span>
-						<span id="y">y</span>
-						<span id="l">l</span>
-						<span id="e">e</span>
-						<span id="r1">r</span>
-						<span id="b" class="h1-shadow">B</span>
-						<span id="r2" class="h1-shadow">r</span>
-						<span id="u" class="h1-shadow">u</span>
-						<span id="n" class="h1-shadow">n</span>
-						<span id="g" class="h1-shadow">g</span>
-						<span id="a" class="h1-shadow">a</span>
-						<span id="r3" class="h1-shadow">r</span>
-						<span id="d" class="h1-shadow">d</span>
-						<span id="t" class="h1-shadow">t</span>
+						<span id="slash-n">\n</span>ooline
 					</a>
 				</h1>	
-				<h2>Wacky, wicked, wild. It's the www, baby.</h2>
+				
+				<section id="blurb" class="blurb text-body content editable count-1">
+				</section>
+				
+			</header>
+			
+			<aside id="left-sidebar">
 				<nav id="main-nav">
 					<ul>
 						<li>
-							<a id="who-link" class="animate-color" href="#who">
-								Who he iz
+							<a id="news-link" class="animate-color" href="#news">
+								News
 							</a>
-							<div class="description animate-opacity">
-								Learn more about this crazy cat.
-							</div>
 						</li>
 						<li>
-							<a id="what-link" class="animate-color" href="#what">
-								What he duz
+							<a id="about-link" class="animate-color" href="#about">
+								About
 							</a>
-							<div class="description animate-opacity">
-								It's all about what I do, isn't it?
-							</div>
 						</li>
 						<li>
-							<a id="social-link" class="animate-color" href="#social">
-								Social media plz
+							<a id="docs-link" class="animate-color" href="#docs">
+								Docs
 							</a>
-							<div class="description animate-opacity">
-								You know what this is all about.
-							</div>
+						</li>
+						<li>
+							<a id="download-link" class="animate-color" href="http://github.com/StrictlySkyler/nooline" target="_blank">
+								Download
+							</a>
 						</li>
 					</ul>
-			
-					<div class="description starter animate-opacity">
-						Pick one.
-					</div>
 				</nav>
-			</header>
-			<div id="toon" class="toon">
-				<div class="head">
-					<div class="hair"></div>
-					<div class="face"></div>
-					<div class="sideburn"></div>
-				</div>
-				<div class="neck"></div>
-				<div class="toon-body">
-					<div class="shirt-main"></div>
-					<div class="shirt-small"></div>
-					<div class="right-lapel"></div>
-					<div class="left-lapel"></div>
-					<div class="zipper"></div>
-				</div>
-				<div class="right-arm">
-					<div class="right-shoulder"></div>
-					<div class="right-bicep1"></div>
-					<div class="right-bicep2"></div>
-					<div class="right-forearm1"></div>
-					<div class="right-forearm2"></div>
-					<div class="right-hand"></div>
-				</div>
-				<div class="left-arm">
-					<div class="left-shoulder"></div>
-					<div class="left-bicep1"></div>
-					<div class="left-bicep2"></div>
-					<div class="left-forearm1"></div>
-					<div class="left-forearm2"></div>
-					<div class="left-hand"></div>
-				</div>
-				<div class="belt">
-					<div class="buckle"></div>
-				</div>
-				<div class="right-leg">
-					<div class="right-thigh1"></div>
-					<div class="right-thigh2"></div>
-					<div class="right-knee"></div>
-					<div class="right-calf1"></div>
-					<div class="right-calf2"></div>
-					<div class="right-boot-top"></div>
-					<div class="right-heel"></div>
-					<div class="right-toe"></div>	
-				</div>
-				<div class="left-leg">
-					<div class="left-thigh1"></div>
-					<div class="left-thigh2"></div>
-					<div class="left-knee"></div>
-					<div class="left-calf1"></div>
-					<div class="left-calf2"></div>
-					<div class="left-boot-top"></div>
-					<div class="left-heel"></div>
-					<div class="left-toe"></div>	
-				</div>
-				<div class="shadow"></div>
-			</div>
+			</aside>
+			
+			<aside id="right-sidebar">
+				<section id="notes" class="note text-body content editable addable count-1">
+				</section>
+			</aside>
 			
 			<div id="content">
-				<section id="blog" class="main text-body content editable addable count-5">
+				<section id="news" class="main text-body content editable addable count-1">
 				</section>
 				
-				<section id="who" class="main text-body content editable count-1">
+				<section id="about" class="main text-body content editable count-1">
 				</section>
 				
-				<section id="what" class="main text-body content editable count-1">
+				<section id="docs" class="main text-body content editable count-1">
 				</section>
 				
-				<section id="social" class="main text-body content editable count-1">
-				</section>
 			</div>
+			
 			<!--end content-->
 			<footer id="footer">
 				<section class="support details">
@@ -186,15 +117,14 @@
 						 target="_blank">Node.js</a>
 					and
 					<a class="animate-color"
-						 href="https://github.com/StrictlySkyler/newline" target="_blank">
-						\newline</a>.
+						 href="https://github.com/StrictlySkyler/nooline" target="_blank">
+						\nooline</a>.
 				</section>
 				<section class="license details">
 					Copyleft <a class="animate-color" href="/">Skyler Brungardt</a>.  No Rights
 					Reserved. Enjoy.
 				</section>
 				<section class="login details animate-opacity">
-					<hr>
 					Click here to 
 					<a id="login-link" class="animate-color" href="/login">login</a>.
 				</section>

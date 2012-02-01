@@ -3,7 +3,7 @@
 	N.editThis = function() {
 		var self = this,
 			parent = self.parentNode,
-			name = parent.id,
+			name = parent.parentNode.id,
 			i,
 			len,
 			sure,
@@ -25,16 +25,14 @@
 		form.className = 'animate-all post-form';
 		form.style.opacity = 0;
 		form.style.position = 'absolute';
-		form.innerHTML = '<label>Post Title:</label>' +
-			'<input type="text" class="animate-all userinput title" />' +
-			'<label>Post Content:</label>' +
-			'<textarea class="animate-all userinput body"></textarea>' +
-			'<button class="edit-controls animate-all close-edit-post">' +
-				'&times;</button>' +
-			'<button class="edit-controls animate-all edit-post-options">' +
-				'<div>{</div></button>' +
+		form.innerHTML ='<button class="edit-controls animate-all ' +
+			'close-edit-post">&times;</button>' +
+			//'<button class="edit-controls animate-all edit-post-options">' +
+			//	'<div>{</div></button>' +
 			'<button class="edit-controls animate-all update-edit-post">' +
-				'Update</button>';
+				'Update</button>' +
+			'<input type="text" class="animate-all userinput title" />' +
+			'<textarea class="animate-all userinput body"></textarea>';
 		
 		form.onsubmit = function(event) {
 			event.preventDefault();
@@ -46,16 +44,31 @@
 		newTitle.value = currentTitle.innerHTML;
 		newBody.value = currentBody.innerHTML;
 		
+		newTitle.style.height = currentTitle.offsetHeight + 'px';
+		newBody.style.height = currentBody.offsetHeight + 'px';
+		
+		parent.className += ' editing';
+		
 		closeButton = form.querySelectorAll('.close-edit-post')[0];
 		updateButton = form.querySelectorAll('.update-edit-post')[0];
 		
 		closeButton.onclick = N.closeThis;
 		updateButton.onclick = N.updateThis;
-			
+		
 		content.push(self,
-								 parent.querySelectorAll('.title')[0],
-								 parent.querySelectorAll('.body')[0],
-								 parent.querySelectorAll('.details')[0]);
+			parent.querySelectorAll('.title')[0],
+			parent.querySelectorAll('.body')[0]);
+		
+		if (name !== 'blurb') {
+			
+			content.push(parent.querySelectorAll('.details')[0]);
+		
+		}
+		
+		if (name === 'notes') {
+			newTitle.style.width = currentTitle.offsetWidth + 'px';
+			newBody.style.width = currentBody.offsetWidth + 'px';
+		}
 		
 		for (i = 0, len = content.length; i < len; i++) {
 			if (!content[i].className.match(' animate-all')) {

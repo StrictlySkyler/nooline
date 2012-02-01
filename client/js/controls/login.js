@@ -15,8 +15,7 @@
 		
 		loginMeta.style.opacity = 0;
 		window.setTimeout(function() {
-			loginMeta.innerHTML = '<hr>' +
-			'You are logged in.  Click here to ' +
+			loginMeta.innerHTML = 'You are logged in.  Click here to ' +
 			'<a id="logout-link" class="animate-color" href="/logout">logout</a>.';
 			loginMeta.style.opacity = 1;
 			
