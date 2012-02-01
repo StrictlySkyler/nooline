@@ -14,7 +14,7 @@ handle["/"] = function(request, response) {
 	
 	postData = '';
 	
-	console.log('Handling default request.');
+	console.log('Handling default request for ' + request.headers.host + '.');
 		
 	request.setEncoding('utf8');
 	
@@ -34,9 +34,9 @@ handle["/"] = function(request, response) {
 			
 		}
 		
-		console.log('Serving ./client/templates/index.html.');
+		console.log('Serving ./client/templates/' + request.headers.host + '.html.');
 				
-		fs.readFile('./client/templates/index.html', encoding='utf8', function(error, content) {
+		fs.readFile('./client/templates/' + request.headers.host + '.html', encoding='utf8', function(error, content) {
 			
 			if (error) {
 				
@@ -283,7 +283,7 @@ handle["/get-content"] = function(request, response, requestPath) {
 			
 			console.log('POST received.  Attempting to load data.');
 			
-			load(postData, response);
+			load(postData, request, response);
 		}
 		
 	})

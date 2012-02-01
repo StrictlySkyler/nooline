@@ -1,0 +1,8 @@
+{
+	"type": "news",
+	"name": "news-1",
+	"date": "2/1/2012 at 17:30:13",
+	"author": "skyler",
+	"title": "Welcome to version 0.1.0!",
+	"body": "<p>Welcome to the brand-new site for \\nooline!</p>\n\n<p>The project is currently hosted over on GitHub: <a href=\"http://github.com/StrictlySkyler/nooline\" target=\"_blank\">\\nooline</a>, and forks are welcome, as are any questions.</p>\n\n<p>Things forthcoming:</p>\n<ul>\n  <li>Documentation (as always).</li>\n  <li>A little bit of hardening.</li>\n  <li>Mechanisms/hooks for modules and extending.</li>\n  <li>A sandbox/demo area would be sweet.</li>\n  <li>Oh, and a WYSIWYG editor.  Gotta have one of those.</li>\n</ul>\n\n<p>Stay tuned!</p>"
+}

@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-var load = function(postData, response) {
+var load = function(postData, request, response) {
 	
 	var i;
 	var j;
@@ -24,7 +24,11 @@ var load = function(postData, response) {
 			
 			postData[i].content = [];
 			
-			fs.readdir('./client/content/' + i + '/', function(error, files) {
+			fs.readdir('./client/content/' +
+				request.headers.host +
+				'/' +
+				i +
+				'/', function(error, files) {
 				if (error) {
 					
 					console.log(error);
@@ -62,6 +66,8 @@ var load = function(postData, response) {
 			console.log('...Grabbing content item: ' + file + '...');
 			
 			fs.readFile('./client/content/' +
+				request.headers.host +
+				'/' +
 				whatKind +
 				'/' +
 				file, 'utf8', function(error, data) {
