@@ -1,10 +1,12 @@
 var fs = require('fs');
 
-var save = function(postData, response) {
+var save = function(postData, request, response) {
 	
 	var content = JSON.parse(postData);
 	var count = 1;
 	var file = './client/content/' +
+		request.headers.host +
+		'/' +
 		content.type +
 		'/' +
 		content.type +
@@ -39,6 +41,8 @@ var save = function(postData, response) {
 				
 				count++;
 				file = './client/content/' +
+					request.headers.host +
+					'/' +
 					content.type +
 					'/' +
 					content.type +

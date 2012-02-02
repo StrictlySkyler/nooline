@@ -1,0 +1,37 @@
+{
+  "name": "nooline",
+  "preferGlobal": "false",
+  "version": "0.1.1",
+  "author": "Skyler Brungardt <skyler.brungardt@gmail.com> (skylerbrungardt.com)",
+  "description": "A CMS focused on ease of use, scalability, and easy maintenance.",
+  "contributors": [],
+  "bin": {},
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/StrictlySkyler/nooline.git"
+  },
+  "keywords": [
+    "cms",
+    "content",
+    "content management system",
+    "wordpress",
+    "drupal"
+  ],
+  "dependencies": {},
+  "noAnalyze": false,
+  "devDependencies": {},
+  "bundleDependencies": [],
+  "license": "GPL 3.0",
+  "engine": {
+    "node": ">=0.6.6"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "homepage": "http://nooline.org",
+  "subdomain": "nooline"
+}

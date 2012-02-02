@@ -1,10 +1,12 @@
 var fs = require('fs');
 
-var update = function(postData, response) {
+var update = function(postData, request, response) {
 	
 	var content = JSON.parse(postData);
 	var count = 1;
 	var file = './client/content/' +
+		request.headers.host +
+		'/' +
 		content.type +
 		'/' +
 		content.name +

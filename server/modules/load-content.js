@@ -8,6 +8,7 @@ var load = function(postData, request, response) {
 	var howMany;
 	var whatKind;
 	var file;
+	var total;
 	var contentTypesRequested = 0;
 	var contentTypesComplete = 0;
 	
@@ -34,17 +35,19 @@ var load = function(postData, request, response) {
 					console.log(error);
 	
 				} else {
+					total = files.length;
+					
 					whatKind = files[0].match(/\w+/)[0];
 					
 					console.log('...' + files.length + ' \"' +
 						whatKind +
 						'\" content items total.');
 					
-					if (files.length < postData[whatKind].howMany) {
-						postData[whatKind].howMany = files.length;
+					if (total < postData[whatKind].howMany) {
+						postData[whatKind].howMany = total;
 					}
 					
-					aggregate(postData[whatKind], whatKind);
+					aggregate(postData[whatKind], whatKind, total);
 				}
 			});
 		}
@@ -52,7 +55,7 @@ var load = function(postData, request, response) {
 	
 	console.log(contentTypesRequested + ' types of content have been requested.');
 	
-	var aggregate = function(obj, whatKind) {
+	var aggregate = function(obj, whatKind, total) {
 		console.log('Grabbing ' +
 			obj.howMany +
 			' most recent \"' +
@@ -61,7 +64,7 @@ var load = function(postData, request, response) {
 	
 		for (i = 0, len = obj.howMany; i < len; i++) {
 			
-			file = whatKind + '-' + (obj.howMany - i) + '.json';
+			file = whatKind + '-' + (total - i) + '.json';
 			
 			console.log('...Grabbing content item: ' + file + '...');
 			
@@ -78,7 +81,7 @@ var load = function(postData, request, response) {
 				} else {
 					
 					console.log('...' + whatKind + '-' +
-						(obj.howMany - obj.content.length) +
+						(total - obj.content.length) +
 						'.json grabbed...');
 					
 					obj.content.push(data);

@@ -30,7 +30,7 @@ handle["/"] = function(request, response) {
 			
 			console.log('POST received.  Attempting to save data.');
 			
-			save(postData, requestPath);
+			save(postData, request, requestPath);
 			
 		}
 		
@@ -137,7 +137,7 @@ handle["request"] = function(request, response, requestPath, redirect) {
 			
 			console.log('POST received.  Attempting to save data.');
 			
-			save(postData, requestPath);
+			save(postData, request, requestPath);
 			
 		}
 		
@@ -227,7 +227,7 @@ handle["/post-content"] = function(request, response, requestPath) {
 			
 			console.log('POST received.  Attempting to save data.');
 			
-			save(postData, response);
+			save(postData, request, response);
 			
 		}
 		
@@ -255,7 +255,7 @@ handle["/update-content"] = function(request, response, requestPath) {
 			
 			console.log('POST received.  Attempting to save data.');
 			
-			update(postData, response);
+			update(postData, request, response);
 			
 		}
 		
