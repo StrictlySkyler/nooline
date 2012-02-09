@@ -1,10 +1,15 @@
-var fs = require('fs');
+// This module is responsible for saving new content, incrementally increasing
+// the file name based upon what exists in the directory already.
+var fs = require('fs'),
 
-var save = function(postData, request, response) {
+save = function(postData, request, response) {
 	
-	var content = JSON.parse(postData);
-	var count = 1;
-	var file = './client/content/' +
+	// Parse out the content we're receiving from the client into an object.
+	var content = JSON.parse(postData),
+	// Count starts at 1, for the first piece of content.
+	count = 1,
+	// The initial file we're going to try to modify.
+	file = './client/content/' +
 		request.headers.host +
 		'/' +
 		content.type +
@@ -12,21 +17,30 @@ var save = function(postData, request, response) {
 		content.type +
 		'-' +
 		count +
-		'.json';
+		'.json',
 	
-	var fileCheck = function() {
+	// Here we check to see what files have been saved, and save the next one
+	// incrementally.
+	fileCheck = function() {
+		
+		// First we try to read to see if our filename already exists.
 		fs.readFile(file, function(error, data) {
 			
+			// If we get an error, it means it likely doesn't, and we're probably safe
+			// to write out to it.
 			if (error) {
 				
 				fs.writeFile(file, JSON.stringify(content, null, '\t'),
 					function(error) {
 					if (error) {
 						
-						console.log(error);
+						// If it does already exist, and we can neither read nor write to
+						// it, log the error.
+						console.error(error);
 						
 					} else {
 						
+						// Otherwise we save away.
 						console.log('Content saved as ' + file + '.');
 						
 						response.writeHead(201, {
@@ -39,6 +53,8 @@ var save = function(postData, request, response) {
 				});
 			} else {
 				
+				// If our file does already exist, and we can read from it, increment
+				// the count and try again.
 				count++;
 				file = './client/content/' +
 					request.headers.host +
@@ -49,15 +65,15 @@ var save = function(postData, request, response) {
 					'-' +
 					count +
 					'.json';
+					
 				fileCheck();
 				
 			}
 		});
 	}
 	
+	// In initial run.
 	fileCheck();
-	
-
 	
 };
 

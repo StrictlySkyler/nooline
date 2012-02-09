@@ -1,21 +1,25 @@
-var fs = require('fs');
+// This is the module grabs a file and updates it, replacing the content in it currently, with the new content received from the client.
+var fs = require('fs'),
 
-var update = function(postData, request, response) {
+update = function(postData, request, response) {
 	
-	var content = JSON.parse(postData);
-	var count = 1;
-	var file = './client/content/' +
+	// Parse out the object that we've received from the client.
+	var content = JSON.parse(postData),
+	// Grab the file we're going to be modifying, based upon which site the client
+	// is viewing.
+		file = './client/content/' +
 		request.headers.host +
 		'/' +
 		content.type +
 		'/' +
 		content.name +
 		'.json';
-		
+	
+	// Write the file out as JSON.
 	fs.writeFile(file, JSON.stringify(content, null, '\t'), function(error) {
 		if (error) {
 			
-			console.log(error);
+			console.error(error);
 			
 		} else {
 			

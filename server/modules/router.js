@@ -1,28 +1,36 @@
-var url = require('url');
+// In order to know what to serve appropriately, the request needs to be parsed
+// to determine what is being asked. This module is responsible for that.
 
-var files;
-var requestPath;
-var extension;
-var guess;
-var redirect = false;
+var url = require('url'),
+	requestPath,
+	extension,
+	guess,
+	redirect = false, // This should eventually be implemented as a CLI flag.
 
-var route = function(request, response, handle) {
-
+route = function(request, response, handle) {
+	
+	// Parse out the path being requested.
 	requestPath = url.parse(request.url).pathname;
 	
+	// Test to see if the client has supplied a specific extention.
 	extension = /\.\w+/.test(requestPath);
-		
+	
 	console.log(requestPath +
-							' has been requested.');
-			
+		' has been requested.');
+	
+	// If the request has a behavior defined in the handler, execute it, and pass
+	// along the request and response to maintain async.
 	if (typeof handle[requestPath] === 'function') {
 				
 		handle[requestPath](request, response, requestPath);
-				
+	
+	// If an extension was specified, go handle the request for that file.
 	} else if (extension) {
 				
 		handle["request"](request, response, requestPath);
 		
+	// If no extension was specified, and no behavior was defined, redirect and
+	// try to load a default .html file instead.
 	} else if (!extension) {
 				
 		console.log('No extension provided in ' + requestPath + ', requesting ' +
@@ -31,12 +39,13 @@ var route = function(request, response, handle) {
 		requestPath += '.html';
 		handle["request"](request, response, requestPath, redirect);
 		
+	// Failing all that, handle it as a 404 error.
 	} else {
 		
 		handle["404"](response, requestPath);
 		
 	}
 
-}
+};
 
 exports.route = route;

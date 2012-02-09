@@ -1,0 +1,2453 @@
+Server started, and listening at port 80
+/ has been requested.
+Handling default request for localhost.
+Serving ./client/templates/localhost.html.
+/favicon.ico has been requested.
+Handling favicon.
+Server started, and listening at port 80
+Server started, and listening at port 80
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/newline.js has been requested.
+Handling request for /client/js/newline.js.
+Serving /client/js/newline.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/images/nooline.org.ico has been requested.
+Handling request for /client/images/nooline.org.ico.
+Serving /client/images/nooline.org.ico.
+/client/js/newline.js has been requested.
+Handling request for /client/js/newline.js.
+Serving /client/js/newline.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/client/images/nooline.org.ico has been requested.
+Handling request for /client/images/nooline.org.ico.
+Serving /client/images/nooline.org.ico.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/images/nooline.org.ico has been requested.
+Handling request for /client/images/nooline.org.ico.
+Serving /client/images/nooline.org.ico.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/client/images/nooline.org.ico has been requested.
+Handling request for /client/images/nooline.org.ico.
+Serving /client/images/nooline.org.ico.
+/ has been requested.
+Handling default request for localhost.
+Serving ./client/templates/localhost.html.
+/ has been requested.
+Handling default request for localhost.
+Serving ./client/templates/localhost.html.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/get-content has been requested.
+Handling request for /get-content.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+POST received.  Attempting to load data.
+Server started, and listening at port 80
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/topnavselected_simple.gif has been requested.
+Handling request for /topnavselected_simple.gif.
+Serving /topnavselected_simple.gif.
+/topnavselected_simple.gif has been requested.
+Handling request for /topnavselected_simple.gif.
+Serving /topnavselected_simple.gif.
+/topnavhover_simple.gif has been requested.
+Handling request for /topnavhover_simple.gif.
+Serving /topnavhover_simple.gif.
+/topnavhover_simple.gif has been requested.
+Handling request for /topnavhover_simple.gif.
+Serving /topnavhover_simple.gif.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+/client/images/nooline.org.ico has been requested.
+Handling request for /client/images/nooline.org.ico.
+Serving /client/images/nooline.org.ico.
+/login has been requested.
+Couldn't find a hash file for the user 'undefined'.
+/ has been requested.
+Handling default request for nooline.org.
+Serving ./client/templates/nooline.org.html.
+/client/css/nooline.org.css has been requested.
+Handling request for /client/css/nooline.org.css.
+Serving /client/css/nooline.org.css.
+/client/js/controls/close-this.js has been requested.
+Handling request for /client/js/controls/close-this.js.
+Serving /client/js/controls/close-this.js.
+/client/js/controls/create-login-form.js has been requested.
+Handling request for /client/js/controls/create-login-form.js.
+Serving /client/js/controls/create-login-form.js.
+/client/js/controls/remove-element.js has been requested.
+Handling request for /client/js/controls/remove-element.js.
+Serving /client/js/controls/remove-element.js.
+/client/js/nooline.js has been requested.
+Handling request for /client/js/nooline.js.
+Serving /client/js/nooline.js.
+/client/js/lib/modernizr-1.7.min.js has been requested.
+Handling request for /client/js/lib/modernizr-1.7.min.js.
+Serving /client/js/lib/modernizr-1.7.min.js.
+/client/js/controls/check-for-content.js has been requested.
+Handling request for /client/js/controls/check-for-content.js.
+Serving /client/js/controls/check-for-content.js.
+/client/js/controls/submit-login.js has been requested.
+Handling request for /client/js/controls/submit-login.js.
+Serving /client/js/controls/submit-login.js.
+/client/js/controls/save-this.js has been requested.
+Handling request for /client/js/controls/save-this.js.
+Serving /client/js/controls/save-this.js.
+/client/js/controls/create-add-content-button.js has been requested.
+Handling request for /client/js/controls/create-add-content-button.js.
+Serving /client/js/controls/create-add-content-button.js.
+/client/js/controls/error-check.js has been requested.
+Handling request for /client/js/controls/error-check.js.
+Serving /client/js/controls/error-check.js.
+/client/js/controls/check-for-empty.js has been requested.
+Handling request for /client/js/controls/check-for-empty.js.
+Serving /client/js/controls/check-for-empty.js.
+/client/js/controls/get-input-type.js has been requested.
+Handling request for /client/js/controls/get-input-type.js.
+Serving /client/js/controls/get-input-type.js.
+/client/js/controls/login.js has been requested.
+Handling request for /client/js/controls/login.js.
+Serving /client/js/controls/login.js.
+/client/js/controls/get-creds.js has been requested.
+Handling request for /client/js/controls/get-creds.js.
+Serving /client/js/controls/get-creds.js.
+/client/js/controls/create-edit-content-button.js has been requested.
+Handling request for /client/js/controls/create-edit-content-button.js.
+Serving /client/js/controls/create-edit-content-button.js.
+/client/js/controls/check-state.js has been requested.
+Handling request for /client/js/controls/check-state.js.
+Serving /client/js/controls/check-state.js.
+/client/js/controls/create-post-form.js has been requested.
+Handling request for /client/js/controls/create-post-form.js.
+Serving /client/js/controls/create-post-form.js.
+/client/js/controls/logout.js has been requested.
+Handling request for /client/js/controls/logout.js.
+Serving /client/js/controls/logout.js.
+/client/js/controls/get-content.js has been requested.
+Handling request for /client/js/controls/get-content.js.
+Serving /client/js/controls/get-content.js.
+/shared/js/lib/sjcl.js has been requested.
+Handling request for /shared/js/lib/sjcl.js.
+Serving /shared/js/lib/sjcl.js.
+/client/js/controls/update-this.js has been requested.
+Handling request for /client/js/controls/update-this.js.
+Serving /client/js/controls/update-this.js.
+/client/js/controls/edit-this.js has been requested.
+Handling request for /client/js/controls/edit-this.js.
+Serving /client/js/controls/edit-this.js.
+/client/js/controls/build-content.js has been requested.
+Handling request for /client/js/controls/build-content.js.
+Serving /client/js/controls/build-content.js.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/get-content has been requested.
+Handling request for /get-content.
+POST received.  Attempting to load data.
+1 "blurb" content items requested...
+1 "notes" content items requested...
+1 "news" content items requested...
+1 "about" content items requested...
+1 "docs" content items requested...
+5 types of content have been requested.
+...1 "blurb" content items total.
+Grabbing 1 most recent "blurb" content items...
+...Grabbing content item: blurb-1.json...
+...1 "docs" content items total.
+Grabbing 1 most recent "docs" content items...
+...Grabbing content item: docs-1.json...
+...1 "notes" content items total.
+Grabbing 1 most recent "notes" content items...
+...Grabbing content item: notes-1.json...
+...1 "about" content items total.
+Grabbing 1 most recent "about" content items...
+...Grabbing content item: about-1.json...
+...1 "news" content items total.
+Grabbing 1 most recent "news" content items...
+...Grabbing content item: news-1.json...
+...blurb-1.json grabbed...
+...All "blurb" content items have been grabbed.
+...docs-1.json grabbed...
+...All "docs" content items have been grabbed.
+...notes-1.json grabbed...
+...All "notes" content items have been grabbed.
+...about-1.json grabbed...
+...All "about" content items have been grabbed.
+...news-1.json grabbed...
+...All "news" content items have been grabbed.
+All 5 content types have been grabbed!
+Sending data back to client.
+/login has been requested.
+Couldn't find a hash file for the user 'undefined'.

@@ -1,0 +1,38 @@
+{ [Error: ENOENT, no such file or directory './client/templates/localhost.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/localhost.html' }
+{ [Error: ENOENT, no such file or directory './client/templates/localhost.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/localhost.html' }
+{ [Error: ENOENT, no such file or directory './client/templates/localhost.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/localhost.html' }
+
+undefined:17
+}{
+ ^
+SyntaxError: Unexpected token {
+    at Object.parse (native)
+    at /Users/skyler/github/nooline/server/modules/load-content.js:21:18
+    at IncomingMessage.<anonymous> (/Users/skyler/github/nooline/server/modules/handle.js:327:4)
+    at IncomingMessage.emit (events.js:64:17)
+    at HTTPParser.onMessageComplete (http.js:137:23)
+    at Socket.ondata (http.js:1403:22)
+    at TCP.onread (net.js:354:27)
+Sorry, try again.
+Sorry, try again.
+Sorry, try again.
+sudo: 3 incorrect password attempts
+{ [Error: ENOENT, no such file or directory './topnavselected_simple.gif']
+  errno: 34,
+  code: 'ENOENT',
+  path: './topnavselected_simple.gif' }
+{ [Error: ENOENT, no such file or directory './topnavselected_simple.gif']
+  errno: 34,
+  code: 'ENOENT',
+  path: './topnavselected_simple.gif' }
+{ [Error: ENOENT, no such file or directory './topnavhover_simple.gif'] errno: 34, code: 'ENOENT', path: './topnavhover_simple.gif' }
+{ [Error: ENOENT, no such file or directory './topnavhover_simple.gif'] errno: 34, code: 'ENOENT', path: './topnavhover_simple.gif' }

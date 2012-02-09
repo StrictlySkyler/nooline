@@ -1,21 +1,39 @@
-var fs = require('fs');
-var save = require('./save-content.js').save;
-var load = require('./load-content.js').load;
-var update = require('./update-content.js').update;
-var auth = require('./authenticate.js').auth;
-var path = require('path');
+// This file does bulk of figuring out what to do with specific requests.
+// Eventually the plan is to make it extensible by moving all but a select few
+// utility handlers to a folder containing each specific handler, and including
+// those dynamically like plugins.
 
-var handle = {};
+// Right now we have the ability to save new content as files, read existing
+// content, update existing content, and login. That gives us CRU out of the
+// CRUD model, excepting that we also lack the ability to re-classify content
+// automatically. That, along with deletion, is forthcoming.
+var fs = require('fs'),
+	save = require('./save-content.js').save,
+	load = require('./load-content.js').load,
+	update = require('./update-content.js').update,
+	auth = require('./authenticate.js').auth,
+	path = require('path'),
+	
+	// The "handle" object lets us dynamically define and export each handler we
+	// have, and match them specifically to custom strings, like pathnames from an
+	// http request.
+	handle = {},
+	
+	// "defaultPath" is the place to which redirects are sent, if they are
+	// enabled.
+	defaultPath = '/', // This should eventually be implemented as a CLI flag.
+	postData = '';
 
-var defaultPath = '/';
-var postData = '';
-
+// A request with no path specified attempts to load the template file
+// associated with the hostname requested by the client.
 handle["/"] = function(request, response) {
 	
+	// Reset postData if it was modified.
 	postData = '';
 	
 	console.log('Handling default request for ' + request.headers.host + '.');
-		
+	
+	// If there was a POST, catch the data chunks we receive and put 'em together.
 	request.setEncoding('utf8');
 	
 	request.addListener('data', function(chunk) {
@@ -24,6 +42,8 @@ handle["/"] = function(request, response) {
 		
 	});
 	
+	// When the request has finished, check to see if we've received anything. If
+	// so, save it.
 	request.addListener('end', function() {
 		
 		if (postData !== '') {
@@ -34,13 +54,15 @@ handle["/"] = function(request, response) {
 			
 		}
 		
+		// Grab the template file requested, and serve it up, if we can. Otherwise
+		// throw a 404.
 		console.log('Serving ./client/templates/' + request.headers.host + '.html.');
 				
 		fs.readFile('./client/templates/' + request.headers.host + '.html', encoding='utf8', function(error, content) {
 			
 			if (error) {
 				
-				console.log(error)
+				console.error(error)
 				
 				response.writeHead(404, {
 					"Content-Type" : "text/plain"
@@ -63,12 +85,14 @@ handle["/"] = function(request, response) {
 	
 };
 
+// Some browsers make an extra request for the favicon located in the docroot.
+// This routes them to where ours lives, or throws a 404 if it can't find it.
 handle["/favicon.ico"] = function(request, response) {
 	
 	fs.readFile('./client/images/favicon.ico', 'base64', function(error, data) {
 		if (error) {
 			
-			console.log(error);
+			console.error(error);
 			
 			response.writeHead(404);
 			response.end();
@@ -88,6 +112,8 @@ handle["/favicon.ico"] = function(request, response) {
 	
 };
 
+// If redirection is enabled and we can't find what was requested, send them
+// permanently back to the default path.
 handle["redirect"] = function(response, requestPath) {
 	
 	console.log('Couldn\'t handle request for ' +
@@ -103,6 +129,8 @@ handle["redirect"] = function(response, requestPath) {
 	
 };
 
+// Send along a nice 404 for anything we can't find, usually if redirection
+// isn't enabled.
 handle["404"] = function(response, requestPath) {
 	
 	console.log('Couldn\'t handle request for ' +
@@ -117,6 +145,11 @@ handle["404"] = function(response, requestPath) {
 	
 };
 
+// Dynamic request handler; grabs any post data and saves it, like above, and
+// serves up any files requested.
+// Eventually this should be split off into subdomains, like how the default
+// path is handled; right now all of the non-template assets live in the same
+// directories, and aren't split up based on domain.
 handle["request"] = function(request, response, requestPath, redirect) {
 	
 	postData = '';
@@ -151,7 +184,7 @@ handle["request"] = function(request, response, requestPath, redirect) {
 				
 			} else if (error) {
 				
-				console.log(error)
+				console.error(error)
 				
 				response.writeHead(404, {
 					"Content-Type" : "text/plain"
@@ -161,6 +194,8 @@ handle["request"] = function(request, response, requestPath, redirect) {
 			
 			} else {
 				
+				// Serve up some MIME types for what we're serving. This needs to be
+				// split into its own config file/module.
 				var extension = path.extname(requestPath);
 				var contentType = 'text/html';
 				
@@ -201,12 +236,15 @@ handle["request"] = function(request, response, requestPath, redirect) {
 		
 };
 
+// If we have a login request, call the authentication module.
 handle["/login"] = function(request, response) {
 	
 	auth(request, response);
 	
 };
 
+// If the client is posting content, like adding a blog post, grab it all and
+// save it.
 handle["/post-content"] = function(request, response, requestPath) {
 	
 	postData = '';
@@ -235,6 +273,7 @@ handle["/post-content"] = function(request, response, requestPath) {
 		
 };
 
+// Just like saving content above, bit we're updating it.
 handle["/update-content"] = function(request, response, requestPath) {
 	
 	postData = '';
@@ -263,6 +302,8 @@ handle["/update-content"] = function(request, response, requestPath) {
 		
 };
 
+// Loading the content usually happens on first page load, but this could be
+// called at any time, if desired.
 handle["/get-content"] = function(request, response, requestPath) {
 	
 	postData = '';
@@ -290,6 +331,7 @@ handle["/get-content"] = function(request, response, requestPath) {
 	
 };
 
+// Export all the methods in the handler.
 for (i in handle) {
 	exports[i] = handle[i];
 }

@@ -1,73 +1,46 @@
-var fs = require('fs');
+// This module is responsible for loading the content requested by the client,
+// batching it up, and sending it along as JSON.
 
-var load = function(postData, request, response) {
+var fs = require('fs'),
+
+load = function(postData, request, response) {
 	
-	var i;
-	var j;
-	var len;
-	var howMany;
-	var whatKind;
-	var file;
-	var total;
-	var contentTypesRequested = 0;
-	var contentTypesComplete = 0;
+	// We'll need some counters for this, along with some tracking vars.
+	var i,
+	j,
+	len,
+	howMany,
+	whatKind,
+	file,
+	total,
+	contentTypesRequested = 0,
+	contentTypesComplete = 0;
 	
-	postData = JSON.parse(postData);
+	// Parse out what the client is looking for, based on the content passed
+	// along.
+	postData = JSON.parse(postData),
 	
-	for (i in postData) {
-		if (postData.hasOwnProperty(i)) {
-			contentTypesRequested++;
-			
-			console.log(postData[i].howMany +
-				' \"' +
-				i +
-				'\" content items requested...');
-			
-			postData[i].content = [];
-			
-			fs.readdir('./client/content/' +
-				request.headers.host +
-				'/' +
-				i +
-				'/', function(error, files) {
-				if (error) {
-					
-					console.log(error);
-	
-				} else {
-					total = files.length;
-					
-					whatKind = files[0].match(/\w+/)[0];
-					
-					console.log('...' + files.length + ' \"' +
-						whatKind +
-						'\" content items total.');
-					
-					if (total < postData[whatKind].howMany) {
-						postData[whatKind].howMany = total;
-					}
-					
-					aggregate(postData[whatKind], whatKind, total);
-				}
-			});
-		}
-	}
-	
-	console.log(contentTypesRequested + ' types of content have been requested.');
-	
-	var aggregate = function(obj, whatKind, total) {
+	// Gather up all the content requested, and push it to the content array of
+	// the object passed in. Not called until the async read operation is
+	// complete.
+	aggregate = function(obj, whatKind, total) {
 		console.log('Grabbing ' +
 			obj.howMany +
 			' most recent \"' +
 			whatKind +
 			'\" content items...');
-	
+		
+		// For however many content items are requested, grab the appropriate files.
 		for (i = 0, len = obj.howMany; i < len; i++) {
 			
+			// Files are saved incrementally, meaning the highest number should be the
+			// most recent. We decrement from there, based on the toal number
+			// reported.
 			file = whatKind + '-' + (total - i) + '.json';
 			
 			console.log('...Grabbing content item: ' + file + '...');
 			
+			// Read out the file, if we can.
 			fs.readFile('./client/content/' +
 				request.headers.host +
 				'/' +
@@ -76,7 +49,7 @@ var load = function(postData, request, response) {
 				file, 'utf8', function(error, data) {
 				if (error) {
 					
-					console.log(error);
+					console.error(error);
 					
 				} else {
 					
@@ -84,8 +57,12 @@ var load = function(postData, request, response) {
 						(total - obj.content.length) +
 						'.json grabbed...');
 					
+					// Push the contents of the file to the content array in our object.
 					obj.content.push(data);
 					
+					// If the length of our content array matches the number of content
+					// items requested, we increment the number of content items we've
+					// completed.
 					if (obj.content.length === obj.howMany) {
 						contentTypesComplete++;
 						
@@ -93,6 +70,9 @@ var load = function(postData, request, response) {
 							whatKind +
 							'\" content items have been grabbed.');
 						
+						// If the number of content types we've completed matches the number
+						// requested, we've grabbed all the content, and can send it back to
+						// the client.
 						if (contentTypesComplete === contentTypesRequested) {
 							console.log('All ' +
 								contentTypesComplete +
@@ -110,7 +90,64 @@ var load = function(postData, request, response) {
 				}
 			});
 		}
+	};
+	
+	// For every member of the content object, we need to figure out what we need
+	// to grab.
+	for (i in postData) {
+		if (postData.hasOwnProperty(i)) {
+			// Increment based on how many types of content are being requested.
+			contentTypesRequested++;
+			
+			console.log(postData[i].howMany +
+				' \"' +
+				i +
+				'\" content items requested...');
+			
+			// Set an array for the content objects we'll grab from the JSON files.
+			postData[i].content = [];
+			
+			// Go looking for the content type being requested for this domain,
+			// determine how much content exists, and if we can serve it.
+			fs.readdir('./client/content/' +
+				request.headers.host +
+				'/' +
+				i +
+				'/', function(error, files) {
+				if (error) {
+					
+					console.error(error);
+	
+				} else {
+					// Total number of content pieces of this content type.
+					total = files.length;
+					
+					// Because this is an async operation, we need to be able to determine
+					// what kind of content we're dealing with after the loop has already
+					// finished. Since the files are named based upon their content type,
+					// we can set this when the operation finishes by testing against this
+					// with RegExp.
+					whatKind = files[0].match(/\w+/)[0];
+					
+					console.log('...' + files.length + ' \"' +
+						whatKind +
+						'\" content items total.');
+					
+					// If we have less content than they've requested, just set our target
+					// number to what we have, and load that instead.
+					if (total < postData[whatKind].howMany) {
+						postData[whatKind].howMany = total;
+					}
+					
+					// Put all the content together before sending it back as a batch.
+					aggregate(postData[whatKind], whatKind, total);
+				}
+			});
+		}
 	}
+	
+	console.log(contentTypesRequested + ' types of content have been requested.');
+	
 }
 
 exports.load = load;

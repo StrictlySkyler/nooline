@@ -1,15 +1,21 @@
-var http = require('http');
-var router = require('./router.js');
-var handle = require('./handle.js');
+// The server consists of three major parts:
+// 		1. The http server itself, built into node.
+//		2. The router, which routes requests to the handler or other places
+// 		3. The handler, which handles whatever the router passes to it
+var http = require('http'),
+	router = require('./router.js'),
+	handle = require('./handle.js'),
+	port,
 
-var address;
-
-var start = function(portPassed) {
+// Startup our http server and pass it any custom port we've defined.
+start = function(portPassed) {
 	
 	port = portPassed || 8080;
 
 	http.createServer(function (request, response) {
 		
+		// Passing along the request and response objects to the router lets us
+		// maintain async behavior for each request.
 		router.route(request, response, handle);
 		
 	}).listen(port);
