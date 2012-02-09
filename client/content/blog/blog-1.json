@@ -1,9 +1,0 @@
-{
-	"type" : "blog",
-	"name": "blog-1",
-	"categories" : "Tech",
-	"tags" : "node,tech",
-	"date" : "12/28/2011 at 12:00:00",
-	"title" : "Up and Running With Node.js",
-	"body" : "<p>Well finally!</p><p>Site's been revamped to now be running with Looseleaf on node.js (see links at the top of the page), and I'll say that the setup process, while simple, is still a little hoary. It's cool though – proof of concept, and now I have an entire CMS running on node.js. That's a win.</p><p>More to come. I'd like to get <a href=\"http://calip.so\">Calipso</a> up and running, as it looks like a more robust platform, but it relies upon an older version of node. So, we'll see.</p>"
-}

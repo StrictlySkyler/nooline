@@ -1,30 +1,37 @@
+// Removes an element passed to it from the DOM. Usually called from a close
+// button on a form.
+
 (function(N) {
 	N.removeElement = function(element) {
-				
+		
+		// Next line might be deprecated.  Need to check.
 		if (element) {
 			
-		var parent = element.parentNode,
-			interval = window.setInterval(function() {
-				
-				var opacity = window.getComputedStyle ?
-					window.getComputedStyle(element, null).getPropertyValue('opacity') :
-					element.currentStyle.opacity,
+			// Grab the parent element, and set an interval to check on the opacity
+			// and height (the "hidden" class uses height) of the element, waiting to
+			// remove the element until both have reached 0.
+			var parent = element.parentNode,
+				interval = window.setInterval(function() {
 					
-					height = window.getComputedStyle ?
-					window.getComputedStyle(element, null).getPropertyValue('height') :
-					element.currentStyle.height;
-				
-				if (opacity === '0') {
-					if (height === '0px') {
+					var opacity = window.getComputedStyle ?
+						window.getComputedStyle(element, null).getPropertyValue('opacity') :
+						element.currentStyle.opacity,
 						
-						parent.removeChild(element);
-						window.clearInterval(interval);
+						height = window.getComputedStyle ?
+						window.getComputedStyle(element, null).getPropertyValue('height') :
+						element.currentStyle.height;
+					
+					if (opacity === '0') {
+						if (height === '0px') {
+							
+							parent.removeChild(element);
+							window.clearInterval(interval);
+						}
 					}
-				}
-			}, 250);
-			
-		element.style.opacity = 0;
-		element.className += ' hidden';
+				}, 250);
+				
+			element.style.opacity = 0;
+			element.className += ' hidden';
 		}
 	}
-}(Newline));
+}(nooline));

@@ -1,20 +1,34 @@
+// Logout current user when the logout button is clicked.
+
 (function(N) {
 	N.logout = function(event) {
-		event.preventDefault();
+		// Prevent our default behavior with a catch for IE.
+		if (!event) {
+			event = window.event;
+			event.returnValue = false;
+		} else {
+			event.preventDefault();
+		}
 		
+		// Gather all the content areas, add-post buttons, edit-post buttons, and
+		// posts in progress.
 		var contentAreas = document.querySelectorAll('.content'),
 			addPostButtons = document.querySelectorAll('.add-post'),
 			editPostButtons = document.querySelectorAll('.edit-post'),
+			// Need to change this to getElementById
 			loginMeta = document.querySelectorAll('.login')[0],
 			openPosts = document.querySelectorAll('.new-post'),
 			loginLink,
 			i,
 			len;
 					
+		// Expire the cookie creds.
 		document.cookie = 'user=null;expires=Thu, 01-Jan-70 00:00:01 GMT';
 		document.cookie = 'tracker=null;expires=Thu, 01-Jan-70 00:00:01 GMT';
+		// Need to refactor this – see login.js for details.
 		N.validCreds = false;
 		
+		// Remove each of the elements gathered.
 		for (i = 0, len = addPostButtons.length; i < len; i++) {
 			N.removeElement(addPostButtons[i]);
 		}
@@ -27,7 +41,11 @@
 			N.removeElement(openPosts[i]);
 		}
 		
+		// Hide the login meta field, so that it can be animated with CSS
+		// transitions if desired.
 		loginMeta.style.opacity = 0;
+		// When the animation has completed (presumably) change the meta to allow
+		// logging in.
 		window.setTimeout(function() {
 			loginMeta.innerHTML = 'Click here to ' +
 			'<a id="login-link" class="animate-color" href="/login">login</a>.';
@@ -37,4 +55,4 @@
 			loginLink.onclick = N.createLoginForm;
 		}, 250);
 	};
-}(Newline));
+}(nooline));

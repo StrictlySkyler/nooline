@@ -1,8 +1,0 @@
-{
-	"type": "blog",
-	"name": "blog-5",
-	"date": "1/28/2012 at 10:17:44",
-	"author": "skyler",
-	"title": "It is done!",
-	"body": "<p>It lives.</p>\n\n<p>I now have a prototype ‐ an entire CMS built entirely on <a href=\"http://nodejs.org\">node</a> from the ground up; one that pushes all of the work to the client with near zero pre-processing.  This very site is running on it.</p>\n\n<p>I'm calling it <span class=\"newline\"><span class=\"highlight\">\\n</span>ewline</span>, a CMS for the 21st Century.</p>"
-}

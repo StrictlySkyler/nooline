@@ -1,9 +1,11 @@
-var Newline = {};
+// Delcare a global namespace object, in which we'll build our members.
+var nooline = {};
 
-// Firefox < v4 doens't implement the onreadystatechange event, so we'll build
-// in a timer to check for us.
-if ((!document.onreadystatechange) &&
-		(window.navigator.userAgent.match('Firefox'))) {
+// Some browsers don't implement the onreadystatechange event, so we'll build
+// in a timer to check for us. If it doesn't exist, we check every 50ms to see
+// if the document has finished loading. If it has, we execute the function
+// below.
+if (!document.onreadystatechange) {
 	
 	var readyCheck = setInterval(function() {
 		if (document.readyState === 'complete') {
@@ -14,6 +16,9 @@ if ((!document.onreadystatechange) &&
 	
 }
 
+// When the document is finished loading, we check to see if the client can
+// support what we're doing here with \nooline. If not, or it's unlikely, we
+// warn them.
 document.onreadystatechange = function() {
 	if (document.readyState === 'complete') {
 		(function(N) {
@@ -22,11 +27,16 @@ document.onreadystatechange = function() {
 				legacy,
 				riskLink;
 				
+			// Some preliminary browser sniffing. This should be changed to feature
+			// detection, catching to see if the client supports querySelectorAll and
+			// XMLHttpRequest. Suffice to say for now that this shorthand achieves the
+			// job, and should be revisited.
 			N.UA = window.navigator.userAgent;
-			legacyClient = ['Firefox/3.6', 'MSIE 7.0', 'MSIE 8.0', 'MSIE 9.0'];
+			legacyClient = ['Firefox/3', 'MSIE 6', 'MSIE 7', 'MSIE 8'];
 			
 			for (i = 0, len = legacyClient.length; i < len; i++) {
 				if (N.UA.match(legacyClient[i])) {
+					// Here we create our warning.
 					legacy = document.createElement('div');
 					legacy.id = 'legacy';
 					legacy.innerHTML = '<div id="warning">' +
@@ -47,6 +57,7 @@ document.onreadystatechange = function() {
 				}
 			}
 			
+			// The initial setup properties are created.
 			N.loginLink = document.getElementById('login-link');
 			N.header = document.getElementById('header');
 			N.originalZ;
@@ -54,10 +65,11 @@ document.onreadystatechange = function() {
 			N.mainNav = document.getElementById('main-nav').children[0];
 			N.runBuildOnce = false;
 			
+			// Get our initial content, based on our template.
 			N.getContent();
 			
 			N.loginLink.onclick = N.createLoginForm;
 			
-		}(Newline));
+		}(nooline));
 	}
 }

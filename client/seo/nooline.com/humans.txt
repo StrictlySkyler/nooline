@@ -1,0 +1,3 @@
+\nooline is a project created and ideated by Skyler Brungardt to both prove a concept and to solve a pain point he was experiencing with other CMS platforms.
+
+He encourages contribution and mutation, provided that the source remains free and open.
