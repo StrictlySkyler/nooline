@@ -36,3 +36,17 @@ sudo: 3 incorrect password attempts
   path: './topnavselected_simple.gif' }
 { [Error: ENOENT, no such file or directory './topnavhover_simple.gif'] errno: 34, code: 'ENOENT', path: './topnavhover_simple.gif' }
 { [Error: ENOENT, no such file or directory './topnavhover_simple.gif'] errno: 34, code: 'ENOENT', path: './topnavhover_simple.gif' }
+{ [Error: ENOENT, no such file or directory './client/templates/localhost.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/localhost.html' }
+
+/Users/skyler/github/nooline/server/modules/handle.js:115
+			response.writeHead(200, {
+            ^
+TypeError: Object #<IncomingMessage> has no method 'writeHead'
+    at /Users/skyler/github/nooline/server/modules/handle.js:115:13
+    at [object Object].<anonymous> (fs.js:115:5)
+    at [object Object].emit (events.js:64:17)
+    at afterRead (fs.js:1111:12)
+    at Object.wrapper [as oncomplete] (fs.js:254:17)

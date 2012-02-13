@@ -2451,3 +2451,9 @@ All 5 content types have been grabbed!
 Sending data back to client.
 /login has been requested.
 Couldn't find a hash file for the user 'undefined'.
+Server started, and listening at port 80
+/ has been requested.
+Handling default request for localhost.
+Serving ./client/templates/localhost.html.
+/favicon.ico has been requested.
+Handling favicon.
