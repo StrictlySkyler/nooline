@@ -1,5 +1,9 @@
 // This module is responsible for saving new content, incrementally increasing
 // the file name based upon what exists in the directory already.
+
+/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var fs = require('fs'),
 
 save = function(postData, request, response) {
@@ -24,7 +28,7 @@ save = function(postData, request, response) {
 	fileCheck = function() {
 		
 		// First we try to read to see if our filename already exists.
-		fs.readFile(file, function(error, data) {
+		fs.readFile(file, function(error) {
 			
 			// If we get an error, it means it likely doesn't, and we're probably safe
 			// to write out to it.
@@ -70,7 +74,7 @@ save = function(postData, request, response) {
 				
 			}
 		});
-	}
+	};
 	
 	// In initial run.
 	fileCheck();

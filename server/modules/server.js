@@ -1,7 +1,11 @@
 // The server consists of three major parts:
-// 		1. The http server itself, built into node.
+//		1. The http server itself, built into node.
 //		2. The router, which routes requests to the handler or other places
-// 		3. The handler, which handles whatever the router passes to it
+//		3. The handler, which handles whatever the router passes to it
+
+/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var http = require('http'),
 	router = require('./router.js'),
 	handle = require('./handle.js'),

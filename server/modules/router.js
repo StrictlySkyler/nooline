@@ -1,6 +1,9 @@
 // In order to know what to serve appropriately, the request needs to be parsed
 // to determine what is being asked. This module is responsible for that.
 
+/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var url = require('url'),
 	requestPath,
 	extension,
@@ -27,7 +30,7 @@ route = function(request, response, handle) {
 	// If an extension was specified, go handle the request for that file.
 	} else if (extension) {
 				
-		handle["request"](request, response, requestPath);
+		handle.request(request, response, requestPath);
 		
 	// If no extension was specified, and no behavior was defined, redirect and
 	// try to load a default .html file instead.
@@ -37,7 +40,7 @@ route = function(request, response, handle) {
 								requestPath +
 								'.html instead.');
 		requestPath += '.html';
-		handle["request"](request, response, requestPath, redirect);
+		handle.request(request, response, requestPath, redirect);
 		
 	// Failing all that, handle it as a 404 error.
 	} else {

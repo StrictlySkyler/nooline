@@ -2,6 +2,10 @@
 // to it at the command line when initialized.
 
 // The server.js file does the bulk of the rest of the work for this CMS.
+
+/*jslint node: true, white: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var start = require('./server/modules/server.js').start
 
 	, portPassed;	// nooline defaults to port 8080 if no port is passed.
@@ -9,7 +13,7 @@ var start = require('./server/modules/server.js').start
 // Catch the CLI flags.
 if (process.argv.length > 2) {
 	
-	portPassed = process.argv[2]
+	portPassed = process.argv[2];
 	
 }
 

@@ -9,6 +9,10 @@
 // sjcl.js (Stanford JavaScript Crypto Library) is shared between client and
 // server, and used to create the unique key for each user. We'll write the
 // hashed key out to a file.
+
+/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var sjcl = require('../../shared/js/lib/sjcl.js'),
 	fs = require('fs'),
 

@@ -6,6 +6,9 @@
 // It's possible to replace this with another authentication mechanism, should a
 // developer choose; right now the work is pushed off to the client.
 
+/*jslint node: true, white: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var fs = require('fs'),
 
 hash,
@@ -30,7 +33,7 @@ auth = function(request, response) {
 		
 		fs.readFile('./shared/creds/' +
 							creds +
-							'.hash', encoding='utf8', function(error, data) {
+							'.hash', 'utf8', function(error, data) {
 		
 		if (error) {
 			console.log('Couldn\'t find a hash file for the user \'' +

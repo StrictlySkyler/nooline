@@ -1,4 +1,8 @@
 // This is the module grabs a file and updates it, replacing the content in it currently, with the new content received from the client.
+
+/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var fs = require('fs'),
 
 update = function(postData, request, response) {
@@ -34,6 +38,6 @@ update = function(postData, request, response) {
 		}
 	});
 	
-}
+};
 
 exports.update = update;

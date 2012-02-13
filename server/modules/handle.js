@@ -7,12 +7,17 @@
 // content, update existing content, and login. That gives us CRU out of the
 // CRUD model, excepting that we also lack the ability to re-classify content
 // automatically. That, along with deletion, is forthcoming.
+
+/*jslint node: true, white: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var fs = require('fs'),
 	save = require('./save-content.js').save,
 	load = require('./load-content.js').load,
 	update = require('./update-content.js').update,
 	auth = require('./authenticate.js').auth,
 	path = require('path'),
+	i,
 	
 	// The "handle" object lets us dynamically define and export each handler we
 	// have, and match them specifically to custom strings, like pathnames from an
@@ -50,7 +55,7 @@ handle["/"] = function(request, response) {
 			
 			console.log('POST received.  Attempting to save data.');
 			
-			save(postData, request, requestPath);
+			save(postData, request);
 			
 		}
 		
@@ -58,11 +63,13 @@ handle["/"] = function(request, response) {
 		// throw a 404.
 		console.log('Serving ./client/templates/' + request.headers.host + '.html.');
 				
-		fs.readFile('./client/templates/' + request.headers.host + '.html', encoding='utf8', function(error, content) {
+		fs.readFile('./client/templates/' +
+			request.headers.host +
+			'.html', 'utf8', function(error, content) {
 			
 			if (error) {
 				
-				console.error(error)
+				console.error(error);
 				
 				response.writeHead(404, {
 					"Content-Type" : "text/plain"
@@ -87,7 +94,11 @@ handle["/"] = function(request, response) {
 
 // Some browsers make an extra request for the favicon located in the docroot.
 // This routes them to where ours lives, or throws a 404 if it can't find it.
-handle["/favicon.ico"] = function(request, response) {
+//
+// This implementation is deprecated, and needs to be either updated to look for
+// the host.name.ico file, or removed entirely to rely solely upon the templates
+// including the favicon in a link tag.
+handle["/favicon.ico"] = function(response) {
 	
 	fs.readFile('./client/images/favicon.ico', 'base64', function(error, data) {
 		if (error) {
@@ -114,7 +125,7 @@ handle["/favicon.ico"] = function(request, response) {
 
 // If redirection is enabled and we can't find what was requested, send them
 // permanently back to the default path.
-handle["redirect"] = function(response, requestPath) {
+handle.redirect = function(response, requestPath) {
 	
 	console.log('Couldn\'t handle request for ' +
 							requestPath +
@@ -150,7 +161,7 @@ handle["404"] = function(response, requestPath) {
 // Eventually this should be split off into subdomains, like how the default
 // path is handled; right now all of the non-template assets live in the same
 // directories, and aren't split up based on domain.
-handle["request"] = function(request, response, requestPath, redirect) {
+handle.request = function(request, response, requestPath, redirect) {
 	
 	postData = '';
 	
@@ -180,11 +191,11 @@ handle["request"] = function(request, response, requestPath, redirect) {
 								requestPath, function(error, content) {
 			if (error && redirect) {
 				
-				handle["redirect"](response, requestPath);
+				handle.redirect(response, requestPath);
 				
 			} else if (error) {
 				
-				console.error(error)
+				console.error(error);
 				
 				response.writeHead(404, {
 					"Content-Type" : "text/plain"
@@ -196,8 +207,8 @@ handle["request"] = function(request, response, requestPath, redirect) {
 				
 				// Serve up some MIME types for what we're serving. This needs to be
 				// split into its own config file/module.
-				var extension = path.extname(requestPath);
-				var contentType = 'text/html';
+				var extension = path.extname(requestPath),
+					contentType = 'text/html';
 				
 				switch (extension) {
 					case '.js' :
@@ -327,11 +338,13 @@ handle["/get-content"] = function(request, response, requestPath) {
 			load(postData, request, response);
 		}
 		
-	})
+	});
 	
 };
 
 // Export all the methods in the handler.
 for (i in handle) {
-	exports[i] = handle[i];
+	if (handle.hasOwnProperty(i)) {
+		exports[i] = handle[i];
+	}
 }

@@ -1,24 +1,28 @@
 // This module is responsible for loading the content requested by the client,
 // batching it up, and sending it along as JSON.
 
+/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
+'use strict';
+
 var fs = require('fs'),
 
 load = function(postData, request, response) {
 	
 	// We'll need some counters for this, along with some tracking vars.
 	var i,
-	j,
 	len,
-	howMany,
 	whatKind,
 	file,
 	total,
 	contentTypesRequested = 0,
-	contentTypesComplete = 0;
+	contentTypesComplete = 0,
+	aggregate = {},
+	readFile,
+	readDir;
 	
 	// Parse out what the client is looking for, based on the content passed
 	// along.
-	postData = JSON.parse(postData),
+	postData = JSON.parse(postData);
 	
 	// Gather up all the content requested, and push it to the content array of
 	// the object passed in. Not called until the async read operation is
@@ -30,16 +34,7 @@ load = function(postData, request, response) {
 			whatKind +
 			'\" content items...');
 		
-		// For however many content items are requested, grab the appropriate files.
-		for (i = 0, len = obj.howMany; i < len; i++) {
-			
-			// Files are saved incrementally, meaning the highest number should be the
-			// most recent. We decrement from there, based on the toal number
-			// reported.
-			file = whatKind + '-' + (total - i) + '.json';
-			
-			console.log('...Grabbing content item: ' + file + '...');
-			
+		readFile = function() {
 			// Read out the file, if we can.
 			fs.readFile('./client/content/' +
 				request.headers.host +
@@ -89,7 +84,60 @@ load = function(postData, request, response) {
 					
 				}
 			});
+		};
+		
+		// For however many content items are requested, grab the appropriate files.
+		for (i = 0, len = obj.howMany; i < len; i++) {
+			
+			// Files are saved incrementally, meaning the highest number should be the
+			// most recent. We decrement from there, based on the toal number
+			// reported.
+			file = whatKind + '-' + (total - i) + '.json';
+			
+			console.log('...Grabbing content item: ' + file + '...');
+			
+			readFile();
+			
 		}
+	};
+	
+	readDir = function() {
+		// Go looking for the content type being requested for this domain,
+		// determine how much content exists, and if we can serve it.
+		fs.readdir('./client/content/' +
+			request.headers.host +
+			'/' +
+			i +
+			'/', function(error, files) {
+			if (error) {
+				
+				console.error(error);
+
+			} else {
+				// Total number of content pieces of this content type.
+				total = files.length;
+				
+				// Because this is an async operation, we need to be able to determine
+				// what kind of content we're dealing with after the loop has already
+				// finished. Since the files are named based upon their content type,
+				// we can set this when the operation finishes by testing against this
+				// with RegExp.
+				whatKind = files[0].match(/\w+/)[0];
+				
+				console.log('...' + files.length + ' \"' +
+					whatKind +
+					'\" content items total.');
+				
+				// If we have less content than they've requested, just set our target
+				// number to what we have, and load that instead.
+				if (total < postData[whatKind].howMany) {
+					postData[whatKind].howMany = total;
+				}
+				
+				// Put all the content together before sending it back as a batch.
+				aggregate(postData[whatKind], whatKind, total);
+			}
+		});
 	};
 	
 	// For every member of the content object, we need to figure out what we need
@@ -107,47 +155,12 @@ load = function(postData, request, response) {
 			// Set an array for the content objects we'll grab from the JSON files.
 			postData[i].content = [];
 			
-			// Go looking for the content type being requested for this domain,
-			// determine how much content exists, and if we can serve it.
-			fs.readdir('./client/content/' +
-				request.headers.host +
-				'/' +
-				i +
-				'/', function(error, files) {
-				if (error) {
-					
-					console.error(error);
-	
-				} else {
-					// Total number of content pieces of this content type.
-					total = files.length;
-					
-					// Because this is an async operation, we need to be able to determine
-					// what kind of content we're dealing with after the loop has already
-					// finished. Since the files are named based upon their content type,
-					// we can set this when the operation finishes by testing against this
-					// with RegExp.
-					whatKind = files[0].match(/\w+/)[0];
-					
-					console.log('...' + files.length + ' \"' +
-						whatKind +
-						'\" content items total.');
-					
-					// If we have less content than they've requested, just set our target
-					// number to what we have, and load that instead.
-					if (total < postData[whatKind].howMany) {
-						postData[whatKind].howMany = total;
-					}
-					
-					// Put all the content together before sending it back as a batch.
-					aggregate(postData[whatKind], whatKind, total);
-				}
-			});
+			readDir();
 		}
 	}
 	
 	console.log(contentTypesRequested + ' types of content have been requested.');
 	
-}
+};
 
 exports.load = load;
