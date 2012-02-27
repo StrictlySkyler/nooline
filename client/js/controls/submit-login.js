@@ -12,8 +12,8 @@
 		
 		// Grab the form field values.
 		var self = this,
-			username = self.elements["username"].value,
-			password = self.elements["password"].value;
+			username = self.elements.username.value,
+			password = self.elements.password.value;
 			
 		// Pass them to the authentication mechanism.
 		N.getCreds(username, password);

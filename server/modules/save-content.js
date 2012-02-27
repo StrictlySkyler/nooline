@@ -5,6 +5,8 @@
 'use strict';
 
 var fs = require('fs'),
+	debug = require('./logger.js').debug,
+	errlog = require('./logger.js').error,
 
 save = function(postData, request, response) {
 	
@@ -40,12 +42,12 @@ save = function(postData, request, response) {
 						
 						// If it does already exist, and we can neither read nor write to
 						// it, log the error.
-						console.error(error);
+						errlog(__filename, error);
 						
 					} else {
 						
 						// Otherwise we save away.
-						console.log('Content saved as ' + file + '.');
+						debug(__filename, 'Content saved as ' + file + '.');
 						
 						response.writeHead(201, {
 							"Content-Type" : "text/plain"

@@ -4,6 +4,7 @@
 // getElementById.
 
 (function(N) {
+	
 	// Catch for old IE, which doesn't support event.preventDefault.
 	N.closeThis = function(event) {
 		if (!event) {
@@ -60,13 +61,14 @@
 			if ((newTitle.value !== currentTitle.innerHTML) ||
 					newBody.value !== currentBody.innerHTML) {
 				
-				sure = confirm('You\'ve made some changes to this content.  ' +
+				sure = window.confirm('You\'ve made some changes to this content.  ' +
 					'Are you sure you want to abandon them?');
 				
 				if (sure) {
 					N.removeElement(parent);
 					
-					parent.parentNode.className = parent.parentNode.className.replace(' editing', '');
+					parent.parentNode.className =
+						parent.parentNode.className.replace(' editing', '');
 					
 					for (i = 0, len = content.length; i < len; i++) {
 						content[i].style.display = '';
@@ -88,7 +90,8 @@
 			} else {
 				N.removeElement(parent);
 				
-				parent.parentNode.className = parent.parentNode.className.replace(' editing', '');
+				parent.parentNode.className =
+					parent.parentNode.className.replace(' editing', '');
 				
 				for (i = 0, len = content.length; i < len; i++) {
 					content[i].style.display = '';
@@ -110,7 +113,7 @@
 		// being added. If it is, confirm that it will be abandoned.
 		} else if (N.checkForContent(self)) {
 			
-			sure = confirm('You have unsaved content.  ' +
+			sure = window.confirm('You have unsaved content.  ' +
 				'Are you sure you want to abadon this new post?');
 			
 			if (sure) {

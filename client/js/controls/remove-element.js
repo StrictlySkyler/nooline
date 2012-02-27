@@ -33,5 +33,5 @@
 			element.style.opacity = 0;
 			element.className += ' hidden';
 		}
-	}
+	};
 }(nooline));

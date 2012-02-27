@@ -3,6 +3,7 @@
 // Usually called when canceling the creation of new content.
 
 (function(N) {
+	
 	N.checkForContent = function(element) {
 		var i,
 			len,
@@ -21,5 +22,5 @@
 			}
 		}
 		return unsaved;
-	}
+	};
 }(nooline));

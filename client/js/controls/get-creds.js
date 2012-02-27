@@ -8,7 +8,9 @@
 	N.getCreds = function(username, password) {
 		var hash,
 			decrypted,
-			getHash = new XMLHttpRequest();
+			invalid,
+			getHash = new XMLHttpRequest(),
+			sjcl = window.sjcl;
 			
 		// Send the username to the server, which responds with a hash for the
 		// username, if it has one. If not, it'll respond with a 404, which means
@@ -28,7 +30,7 @@
 						decrypted = sjcl.decrypt(password, hash);
 					} catch (e) {
 						decrypted = false;
-						console.log('Wrong password.');
+						window.alert('Wrong password.');
 					}
 					// Finally, if our decryption succeeds and our password matches the
 					// decrypted hash, we login.
@@ -38,7 +40,7 @@
 						}
 					}
 				} else {
-					console.log('We\'re unable to find that user.');
+					window.alert('We\'re unable to find that user.');
 				}
 			}
 		};

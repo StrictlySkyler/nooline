@@ -3,6 +3,7 @@
 // *something* in it.
 
 (function(N) {
+	
   N.checkForEmpty = function(nodeArray) {
 		var i,
 			len,

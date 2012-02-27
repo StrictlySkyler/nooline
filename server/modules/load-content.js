@@ -5,6 +5,8 @@
 'use strict';
 
 var fs = require('fs'),
+	debug = require('./logger.js').debug,
+	errlog = require('./logger.js').error,
 
 load = function(postData, request, response) {
 	
@@ -28,7 +30,7 @@ load = function(postData, request, response) {
 	// the object passed in. Not called until the async read operation is
 	// complete.
 	aggregate = function(obj, whatKind, total) {
-		console.log('Grabbing ' +
+		debug(__filename, 'Grabbing ' +
 			obj.howMany +
 			' most recent \"' +
 			whatKind +
@@ -44,11 +46,11 @@ load = function(postData, request, response) {
 				file, 'utf8', function(error, data) {
 				if (error) {
 					
-					console.error(error);
+					errlog(__filename, error);
 					
 				} else {
 					
-					console.log('...' + whatKind + '-' +
+					debug(__filename, '...' + whatKind + '-' +
 						(total - obj.content.length) +
 						'.json grabbed...');
 					
@@ -61,7 +63,7 @@ load = function(postData, request, response) {
 					if (obj.content.length === obj.howMany) {
 						contentTypesComplete++;
 						
-						console.log('...All \"' +
+						debug(__filename, '...All \"' +
 							whatKind +
 							'\" content items have been grabbed.');
 						
@@ -69,16 +71,17 @@ load = function(postData, request, response) {
 						// requested, we've grabbed all the content, and can send it back to
 						// the client.
 						if (contentTypesComplete === contentTypesRequested) {
-							console.log('All ' +
+							debug(__filename, 'All ' +
 								contentTypesComplete +
-								' content types have been grabbed!\n' +
-								'Sending data back to client.');
+								' content types have been grabbed!');
 							
 							response.writeHead(200, {
 								'Content-Type': 'text/plain'
 							});
 							response.write(JSON.stringify(postData));
 							response.end();
+							
+							debug(__filename, 'Data sent back to client.');
 						}
 					}
 					
@@ -94,7 +97,7 @@ load = function(postData, request, response) {
 			// reported.
 			file = whatKind + '-' + (total - i) + '.json';
 			
-			console.log('...Grabbing content item: ' + file + '...');
+			debug(__filename, '...Grabbing content item: ' + file + '...');
 			
 			readFile();
 			
@@ -111,7 +114,7 @@ load = function(postData, request, response) {
 			'/', function(error, files) {
 			if (error) {
 				
-				console.error(error);
+				errlog(__filename, error);
 
 			} else {
 				// Total number of content pieces of this content type.
@@ -124,7 +127,7 @@ load = function(postData, request, response) {
 				// with RegExp.
 				whatKind = files[0].match(/\w+/)[0];
 				
-				console.log('...' + files.length + ' \"' +
+				debug(__filename, '...' + files.length + ' \"' +
 					whatKind +
 					'\" content items total.');
 				
@@ -147,7 +150,7 @@ load = function(postData, request, response) {
 			// Increment based on how many types of content are being requested.
 			contentTypesRequested++;
 			
-			console.log(postData[i].howMany +
+			debug(__filename, postData[i].howMany +
 				' \"' +
 				i +
 				'\" content items requested...');
@@ -159,7 +162,10 @@ load = function(postData, request, response) {
 		}
 	}
 	
-	console.log(contentTypesRequested + ' types of content have been requested.');
+	debug(
+		__filename,
+		contentTypesRequested +
+		' types of content have been requested.');
 	
 };
 

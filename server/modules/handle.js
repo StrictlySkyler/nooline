@@ -8,7 +8,6 @@
 // CRUD model, excepting that we also lack the ability to re-classify content
 // automatically. That, along with deletion, is forthcoming.
 
-/*jslint node: true, white: true, maxerr: 50, indent: 2 */
 'use strict';
 
 var fs = require('fs'),
@@ -17,6 +16,8 @@ var fs = require('fs'),
 	update = require('./update-content.js').update,
 	auth = require('./authenticate.js').auth,
 	path = require('path'),
+	debug = require('./logger.js').debug,
+	errlog = require('./logger.js').error,
 	i,
 	
 	// The "handle" object lets us dynamically define and export each handler we
@@ -36,9 +37,12 @@ handle["/"] = function(request, response) {
 	// Reset postData if it was modified.
 	postData = '';
 	
-	console.log('Handling default request for ' + request.headers.host + '.');
+	debug(__filename,
+		'Handling default request for ' +
+		request.headers.host + '.');
 	
-	// If there was a POST, catch the data chunks we receive and put 'em together.
+	// If there was a POST, catch the data chunks we receive and put 'em
+	// together.
 	request.setEncoding('utf8');
 	
 	request.addListener('data', function(chunk) {
@@ -53,7 +57,7 @@ handle["/"] = function(request, response) {
 		
 		if (postData !== '') {
 			
-			console.log('POST received.  Attempting to save data.');
+			debug(__filename, 'POST received.  Attempting to save data.');
 			
 			save(postData, request);
 			
@@ -61,7 +65,10 @@ handle["/"] = function(request, response) {
 		
 		// Grab the template file requested, and serve it up, if we can. Otherwise
 		// throw a 404.
-		console.log('Serving ./client/templates/' + request.headers.host + '.html.');
+		debug(
+			__filename,
+			'Serving ./client/templates/' +
+			request.headers.host + '.html.');
 				
 		fs.readFile('./client/templates/' +
 			request.headers.host +
@@ -69,7 +76,7 @@ handle["/"] = function(request, response) {
 			
 			if (error) {
 				
-				console.error(error);
+				errlog(__filename, error);
 				
 				response.writeHead(404, {
 					"Content-Type" : "text/plain"
@@ -103,14 +110,14 @@ handle["/favicon.ico"] = function(response) {
 	fs.readFile('./client/images/favicon.ico', 'base64', function(error, data) {
 		if (error) {
 			
-			console.error(error);
+			errlog(__filename, error);
 			
 			response.writeHead(404);
 			response.end();
 		
 		} else {
 			
-			console.log('Handling favicon.');
+			debug(__filename, 'Handling favicon.');
 			
 			response.writeHead(200, {
 				"Content-Type" : "image/x-icon"
@@ -127,7 +134,7 @@ handle["/favicon.ico"] = function(response) {
 // permanently back to the default path.
 handle.redirect = function(response, requestPath) {
 	
-	console.log('Couldn\'t handle request for ' +
+	debug(__filename, 'Couldn\'t handle request for ' +
 							requestPath +
 							'; redirecting to ' +
 							defaultPath +
@@ -144,7 +151,7 @@ handle.redirect = function(response, requestPath) {
 // isn't enabled.
 handle["404"] = function(response, requestPath) {
 	
-	console.log('Couldn\'t handle request for ' +
+	debug(__filename, 'Couldn\'t handle request for ' +
 							requestPath +
 							'; resource could not be found.');
 	
@@ -165,7 +172,7 @@ handle.request = function(request, response, requestPath, redirect) {
 	
 	postData = '';
 	
-	console.log('Handling request for ' + requestPath + '.');
+	debug(__filename, 'Handling request for ' + requestPath + '.');
 	
 	request.setEncoding('utf8');
 	
@@ -179,13 +186,13 @@ handle.request = function(request, response, requestPath, redirect) {
 		
 		if (postData !== '') {
 			
-			console.log('POST received.  Attempting to save data.');
+			debug(__filename, 'POST received.  Attempting to save data.');
 			
 			save(postData, request, requestPath);
 			
 		}
 		
-		console.log('Serving ' + requestPath + '.');
+		debug(__filename, 'Serving ' + requestPath + '.');
 				
 		fs.readFile('.' +
 								requestPath, function(error, content) {
@@ -195,7 +202,7 @@ handle.request = function(request, response, requestPath, redirect) {
 				
 			} else if (error) {
 				
-				console.error(error);
+				errlog(__filename, error);
 				
 				response.writeHead(404, {
 					"Content-Type" : "text/plain"
@@ -260,7 +267,7 @@ handle["/post-content"] = function(request, response, requestPath) {
 	
 	postData = '';
 	
-	console.log('Handling request for ' + requestPath + '.');
+	debug(__filename, 'Handling request for ' + requestPath + '.');
 	
 	request.setEncoding('utf8');
 	
@@ -274,7 +281,7 @@ handle["/post-content"] = function(request, response, requestPath) {
 		
 		if (postData !== '') {
 			
-			console.log('POST received.  Attempting to save data.');
+			debug(__filename, 'POST received.  Attempting to save data.');
 			
 			save(postData, request, response);
 			
@@ -289,7 +296,7 @@ handle["/update-content"] = function(request, response, requestPath) {
 	
 	postData = '';
 	
-	console.log('Handling request for ' + requestPath + '.');
+	debug(__filename, 'Handling request for ' + requestPath + '.');
 	
 	request.setEncoding('utf8');
 	
@@ -303,7 +310,7 @@ handle["/update-content"] = function(request, response, requestPath) {
 		
 		if (postData !== '') {
 			
-			console.log('POST received.  Attempting to save data.');
+			debug(__filename, 'POST received.  Attempting to save data.');
 			
 			update(postData, request, response);
 			
@@ -319,7 +326,7 @@ handle["/get-content"] = function(request, response, requestPath) {
 	
 	postData = '';
 	
-	console.log('Handling request for ' + requestPath + '.');
+	debug(__filename, 'Handling request for ' + requestPath + '.');
 	
 	request.setEncoding('utf8');
 	
@@ -333,7 +340,7 @@ handle["/get-content"] = function(request, response, requestPath) {
 		
 		if (postData !== '') {
 			
-			console.log('POST received.  Attempting to load data.');
+			debug(__filename, 'POST received.  Attempting to load data.');
 			
 			load(postData, request, response);
 		}

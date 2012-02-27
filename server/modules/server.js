@@ -3,12 +3,14 @@
 //		2. The router, which routes requests to the handler or other places
 //		3. The handler, which handles whatever the router passes to it
 
-/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
 'use strict';
 
 var http = require('http'),
+	path = require('path'),
 	router = require('./router.js'),
 	handle = require('./handle.js'),
+	debug = require('./logger.js').debug,
+	errlog = require('./logger.js').error,
 	port,
 
 // Startup our http server and pass it any custom port we've defined.
@@ -24,7 +26,7 @@ start = function(portPassed) {
 		
 	}).listen(port);
 	
-	console.log('Server started, and listening at port ' + port);
+	debug(__filename, 'Server started, and listening at port ' + port);
 	
 };
 

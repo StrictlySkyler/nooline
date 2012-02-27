@@ -18,8 +18,8 @@
 			logoutLink;
 		
 		// Set our cookie for tracking session authentication.
-		document.cookie = 'user=|' + user + '|user;'
-		document.cookie = 'tracker=|' + trackerCookie + '|tracker;'
+		document.cookie = 'user=|' + user + '|user;';
+		document.cookie = 'tracker=|' + trackerCookie + '|tracker;';
 		
 		// When we login, remove the login form.
 		N.removeElement(document.getElementById('login-form'));

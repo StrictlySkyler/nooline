@@ -16,7 +16,7 @@
 		// Make sure there isn't already a login form on the page.
 		if (document.getElementById('login-form') === null) {
 			// If there isn't, create one, along with the appropriate fields.
-			loginForm = document.createElement('form')
+			loginForm = document.createElement('form');
 
 			loginForm.id = 'login-form';
 			loginForm.action = '/login';
@@ -28,7 +28,8 @@
 				'<label for="password">Password:</label>' +
 				'<input type="password" tabindex="1" id="password" ' +
 				'class="animate-all" name="password" />' +
-				'<input type="submit" tabindex="1" class="animate-all" value="Login" />' +
+				'<input type="submit" tabindex="1" class="animate-all" ' +
+				'value="Login" />' +
 				'<button tabindex="1" class="close-button animate-all" ' +
 				'title="Close Login Form">&times;</button>';
 				

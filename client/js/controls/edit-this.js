@@ -48,14 +48,14 @@
 			} else {
 				event.preventDefault();
 			}
-		}
+		};
 		
 		
 		// Grab the new form fields...
 		//
 		// (Need to change this to getElementById)
-		newTitle = form.querySelectorAll('.title')[0]
-		newBody = form.querySelectorAll('.body')[0]
+		newTitle = form.querySelectorAll('.title')[0];
+		newBody = form.querySelectorAll('.body')[0];
 		// ...And set their values to the current ones.
 		newTitle.value = currentTitle.innerHTML;
 		newBody.value = currentBody.innerHTML;
@@ -119,6 +119,6 @@
 		// Add the form to the article parent.
 		parent.appendChild(form);
 		
-	}
+	};
 	
 }(nooline));

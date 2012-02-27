@@ -10,11 +10,15 @@
 'use strict';
 
 var fs = require('fs'),
+	debug = require('./logger.js').debug,
+	errlog = require('./logger.js').error,
 
 hash,
 creds,
 
-// Grab the username the client has sent to us, and search for the username.hash file matching the username passed to us.  Then, serve back the contents of that file, which are a crypto hash containing the user's password.
+// Grab the username the client has sent to us, and search for the username.hash
+// file matching the username passed to us. Then, serve back the contents of
+// that file, which are a crypto hash containing the user's password.
 auth = function(request, response) {
 	
 	var postData = '';
@@ -36,7 +40,7 @@ auth = function(request, response) {
 							'.hash', 'utf8', function(error, data) {
 		
 		if (error) {
-			console.log('Couldn\'t find a hash file for the user \'' +
+			debug(__filename, 'Couldn\'t find a hash file for the user \'' +
 									creds +
 									'\'.');
 			

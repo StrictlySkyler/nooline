@@ -1,5 +1,8 @@
+'use strict';
+
 // Delcare a global namespace object, in which we'll build our members.
-var nooline = {};
+var nooline = window.nooline = {},
+	readyCheck;
 
 // Some browsers don't implement the onreadystatechange event, so we'll build
 // in a timer to check for us. If it doesn't exist, we check every 50ms to see
@@ -7,7 +10,8 @@ var nooline = {};
 // below.
 if (!document.onreadystatechange) {
 	
-	var readyCheck = setInterval(function() {
+	readyCheck = setInterval(function() {
+		
 		if (document.readyState === 'complete') {
 			clearInterval(readyCheck);
 			document.onreadystatechange();
@@ -20,12 +24,17 @@ if (!document.onreadystatechange) {
 // support what we're doing here with \nooline. If not, or it's unlikely, we
 // warn them.
 document.onreadystatechange = function() {
+	
 	if (document.readyState === 'complete') {
 		(function(N) {
 			var i,
 				len,
 				legacy,
-				riskLink;
+				legacyClient,
+				riskLink,
+				ignoreRisk = function() {
+					document.body.removeChild(legacy);
+				};
 				
 			// Some preliminary browser sniffing. This should be changed to feature
 			// detection, catching to see if the client supports querySelectorAll and
@@ -51,17 +60,13 @@ document.onreadystatechange = function() {
 					document.body.insertBefore(legacy, document.body.children[0]);
 					
 					riskLink = document.getElementById('browse-risk');
-					riskLink.onclick = function(event) {
-						document.body.removeChild(legacy);
-					}
+					riskLink.onclick = ignoreRisk;
 				}
 			}
 			
 			// The initial setup properties are created.
 			N.loginLink = document.getElementById('login-link');
 			N.header = document.getElementById('header');
-			N.originalZ;
-			N.validCreds;
 			N.mainNav = document.getElementById('main-nav').children[0];
 			N.runBuildOnce = false;
 			
@@ -72,4 +77,4 @@ document.onreadystatechange = function() {
 			
 		}(nooline));
 	}
-}
+};

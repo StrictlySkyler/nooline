@@ -142,6 +142,6 @@
 				N.createAddContentButton(contentArea);
 			}
 		}
-	}
+	};
 	
 }(nooline));

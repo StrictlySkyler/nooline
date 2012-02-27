@@ -10,11 +10,12 @@
 // server, and used to create the unique key for each user. We'll write the
 // hashed key out to a file.
 
-/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
 'use strict';
 
 var sjcl = require('../../shared/js/lib/sjcl.js'),
 	fs = require('fs'),
+	debug = require('./logger.js').debug,
+	errlog = require('./logger.js').error,
 
 add = function(username, password) {
 	
@@ -27,7 +28,7 @@ add = function(username, password) {
 	fs.writeFile('./shared/creds/' +
 		username +
 		'.hash', hash, 'utf8', function() {
-		console.log('Saved!');
+		debug(__filename, 'Saved!');
 	});
 	
 };

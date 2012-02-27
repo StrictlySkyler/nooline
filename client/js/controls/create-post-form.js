@@ -33,13 +33,14 @@
 		newPost.innerHTML = '<form id="add-' + name +'-post-form"' +
 				'action="/post" method="POST" class="animate-all post-form">' +
 			'<button id="close-' + name + '-form"' +
-				'class="animate-all close-new-post new-post-controls" title="Cancel New' +
-				' Post">&times;</button>' +
+				'class="animate-all close-new-post new-post-controls" ' +
+				'title="Cancel New Post">&times;</button>' +
 			//'<button id="' + name + '-post-options"' +
-			//	'class="animate-all new-post-options new-post-controls" title="Post ' +
-			//	'Options"><div>{</div></button>' +
+			//'class="animate-all new-post-options new-post-controls" title="Post ' +
+			//'Options"><div>{</div></button>' +
 			'<button id="save-' + name + '-post"' +
-				'class="animate-all save-new-post new-post-controls" title="Save Post">Save</button>' +
+				'class="animate-all save-new-post new-post-controls" ' +
+				'title="Save Post">Save</button>' +
 			'<label for="' + name + '-post-title">Post Title:' + '</label>' +
 			'<input id="' + name + '-post-title" name="' + name + '-post-title" ' +
 				'class="animate-all userinput title" type="text" />' +
@@ -77,7 +78,7 @@
 			} else {
 				event.preventDefault();
 			}
-		}
+		};
 		
 		// Remove the add content button while we're adding content already.
 		N.removeElement(self);

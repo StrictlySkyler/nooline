@@ -534,6 +534,13 @@ body {
 
 a {
 	text-decoration: none;
+	border-bottom: 1px dashed #ccc;
+}
+
+a:hover,
+a:focus {
+	color: #f0c;
+	border-bottom: 1px solid #ccc;
 }
 
 em {
@@ -549,7 +556,9 @@ h1 {
 	color: #06f;
 	padding: 60px 0 0 50px;
 	width: 300px;
-	text-shadow: -1px 1px 1px #aaf;
+	text-shadow:
+		-1px 1px 0 #fff,
+		-3px 3px 0 #eef;
 }
 
 h1 span {
@@ -558,6 +567,11 @@ h1 span {
 
 h1 a {
 	color: #06f;
+	border: none;
+}
+
+h1 a:hover {
+	border: none;
 }
 
 h1 a:visited {
@@ -569,14 +583,17 @@ h2 {
 	font: normal 28px/28px 'Palatino', 'Palatino Linotype', 'serif';
 	width: 710px;
 	text-shadow:
-		-1px 1px 1px #ccf;
+		-1px 1px 0 #fff,
+		-3px 3px 0 #eef;
 }
 
 h3 {
 	font: bold 25px/25px 'Courier New';
 	color: #333;
 	margin: 0 0 30px;
-	text-shadow: -1px 1px 1px #ccf;
+	text-shadow:
+		-1px 1px 0 #fff,
+		-3px 3px 0 #eef;
 }
 
 h3 a {
@@ -616,17 +633,6 @@ nav ul li {
 	margin: 0 0 5px;
 }
 
-nav li a {
-	padding: 0 15px 0 0;
-	text-shadow:
-		-1px 1px 1px #aaf;
-}
-
-nav a:hover,
-nav a:focus {
-	color: #f0c;
-}
-
 nav li a:before {
 	content: "[";
 	color: #f00;
@@ -648,9 +654,8 @@ nav li a:before {
 nav li a:after {
 	content: "]";
 	color: #f00;
-	float: left;
-	position: absolute;
-	margin: 0;
+	float: right;
+	margin: -20px 0 0;
 	padding: 0;
 	text-shadow: -1px 1px 1px #000;
 	opacity: 0;
@@ -784,6 +789,11 @@ nav li a:focus:after {
 	border: 1px solid #0af;
 }
 
+.text-body:hover .add-post, 
+.article:hover .button {
+	opacity: 1;
+}
+
 .blurb .article:hover {
 	border: none;
 }
@@ -803,7 +813,6 @@ nav li a:focus:after {
 .text-body {
 	color: #333;
 	font: normal 18px/24px 'Palatino', 'Palatino Linotype', 'serif';
-	text-shadow: -1px 1px 1px #ccf;
 }
 
 .blurb.text-body {
@@ -896,7 +905,6 @@ nav li a:focus:after {
 .details {
 	font: normal 10px/10px 'Palatino', 'Palatino Linotype', 'serif';
 	color: #333;
-	text-shadow: -1px 1px 1px #aaa;
 	margin: 0 0 5px;
 }
 
@@ -986,8 +994,8 @@ nav li a:focus:after {
 
 #login-form label {
 	font: bold 16px/16px 'Courier New';
-	color: #06f;
-	text-shadow: -1px 1px 1px #ccf;
+	color: #333;
+	text-shadow: -3px 3px 0 #eef;
 	margin: 7px 0 0;
 	padding: 0;
 	height: 17px;
@@ -999,22 +1007,22 @@ nav li a:focus:after {
 	margin: 5px 15px 0 5px;
 	padding: 0 5px;
 	height: 15px;
-	background: #06f;
-	border: 1px solid #fff;
+	background: #eef;
+	border: 1px solid #6af;
 	box-shadow: -1px 1px 1px #999;
 	font: normal 14px/14px 'Courier New';
-	color: #fff;
+	color: #09f;
 	
 }
 
 #login-form input[type="submit"],
 #login-form button {
-	background: #06f;
+	background: #6af;
 	border: 1px solid #fff;
 	box-shadow: -1px 1px 1px #999;
 	font: normal 14px/14px 'Courier New';
 	margin: 5px 10px 0 0;
-	color: #0ff;
+	color: #fff;
 	padding: 0 5px;
 	height: 17px;
 }
@@ -1037,17 +1045,14 @@ nav li a:focus:after {
 #login-form input:focus,
 #login-form textarea:focus,
 #login-form button:focus {
-	color: #fff;
-}
-
-#container button:hover {
-	color: #fff;
+	color: #f0c;
 }
 
 #container input:hover,
-#container textarea:hover {
+#container textarea:hover,
+#container button:hover {
 	box-shadow: -1px 1px 1px #f0c;
-	color: #09f;
+	color: #f0c;
 }
 
 #container input:active,
@@ -1098,12 +1103,12 @@ nav li a:focus:after {
 	width: 40px;
 	height: 30px;
 	border: 1px solid #fff;
-	background: #06f;
+	background: #fa6;
 	font: normal 22px/28px 'Courier New';
 	box-shadow: -1px 1px 1px #999;
-	color: #0ff;
+	color: #fff;
 	position: absolute;
-	opacity: 0;
+	opacity: 0.1;
 	margin: -2px 0 0 500px;
 	z-index: 1000;
 }
@@ -1119,11 +1124,12 @@ nav li a:focus:after {
 	border: 1px solid #fff;
 	background: #5af;
 	font: normal 14px/14px 'Courier New';
-	color: #0ff;
+	color: #fff;
 	margin: -13px 0 0 540px;
 	box-shadow: -1px 1px 1px #999;
 	padding: 0;
 	z-index: 1000;
+	opacity: 0.1;
 }
 
 #right-sidebar .edit-post {
@@ -1169,7 +1175,6 @@ nav li a:focus:after {
 	background: #fff;
 	border: 1px solid #ccc;
 	box-shadow: -1px 1px 1px #999;
-	text-shadow: -1px 1px 1px #ccf;
 }
 
 .post-form input[type="text"] {
@@ -1208,10 +1213,10 @@ nav li a:focus:after {
 	margin: 0 0 0 145px;
 }
 
-.close-new-post:hover,
-.close-new-post:focus,
-.close-edit-post:hover,
-.close-edit-post:active {
+#container .close-new-post:hover,
+#container .close-new-post:focus,
+#container .close-edit-post:hover,
+#container .close-edit-post:active {
 	background: #f00;
 	color: #fc0;
 	border-color: #f90;

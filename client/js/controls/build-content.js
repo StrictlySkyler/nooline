@@ -1,3 +1,5 @@
+/*jslint browser: true, plusplus: true, white: true, maxerr: 50, indent: 2 */
+
 // Build out all of the content that we've grabbed.
 
 (function(N) {
@@ -16,6 +18,12 @@
 	// our content from the server; it's an object with arrays of JSON strings.
 	N.buildContent = function(aggregator) {
 		
+		var j,
+			dateSort = function(a, b) {
+				return parseInt(a.name.replace(/\w+\-/, ''), 10) -
+					Date.parse(b.name.replace(/\w+\-/, ''));
+			};
+		
 		// Some browsers execute this method more than once when the AJAX response
 		// arrives, so we set a boolean to ensure we're only running our content
 		// build once.
@@ -24,7 +32,7 @@
 			// For each property of the aggregator (i.e. each type of content), and
 			// for each of the indexes of the array of JSON strings inside that
 			// property, parse the string into an object.
-			for (var j in aggregator) {
+			for (j in aggregator) {
 				if (aggregator.hasOwnProperty(j)) {
 					
 					for (i = 0, len = aggregator[j].content.length; i < len; i++) {
@@ -33,10 +41,7 @@
 					
 					// Sort the array of our content objects based on the name/count; that
 					// is to say, the index of when the content was created.
-					aggregator[j].content.sort(function(a, b) {
-						return parseInt(a.name.replace(/\w+\-/, ''), 10) -
-							Date.parse(b.name.replace(/\w+\-/, ''));
-					});
+					aggregator[j].content.sort(dateSort);
 					
 					// Grab the target element for our content from the template based
 					// upon which property of our content aggregator we're parsing.
@@ -49,7 +54,8 @@
 					// regards to the "blurb" bits below.
 					for (i = 0, len = aggregator[j].content.length; i < len; i++) {
 						
-						// Check to see if it is a blurb or not, altering some of the elements created below.
+						// Check to see if it is a blurb or not, altering some of the
+						// elements created below.
 						blurb = aggregator[j].content[i].type === 'blurb' ? true : false;
 						
 						article = document.createElement('article');
@@ -97,6 +103,6 @@
 		// Now that we've run once, we'll ensure we don't add duplicate data to our
 		// template.
 		N.runBuildOnce = true;
-	}
+	};
 	
 }(nooline));

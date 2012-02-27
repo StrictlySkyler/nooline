@@ -50,3 +50,196 @@ TypeError: Object #<IncomingMessage> has no method 'writeHead'
     at [object Object].emit (events.js:64:17)
     at afterRead (fs.js:1111:12)
     at Object.wrapper [as oncomplete] (fs.js:254:17)
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+
+/Users/skyler/github/nooline/server/modules/handle.js:115
+			response.writeHead(200, {
+            ^
+TypeError: Object #<IncomingMessage> has no method 'writeHead'
+    at /Users/skyler/github/nooline/server/modules/handle.js:115:13
+    at [object Object].<anonymous> (fs.js:115:5)
+    at [object Object].emit (events.js:64:17)
+    at afterRead (fs.js:1111:12)
+    at Object.wrapper [as oncomplete] (fs.js:254:17)
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+
+/Users/skyler/github/nooline/server/modules/handle.js:116
+			response.writeHead(200, {
+            ^
+TypeError: Object #<IncomingMessage> has no method 'writeHead'
+    at /Users/skyler/github/nooline/server/modules/handle.js:116:13
+    at [object Object].<anonymous> (fs.js:115:5)
+    at [object Object].emit (events.js:64:17)
+    at afterRead (fs.js:1111:12)
+    at Object.wrapper [as oncomplete] (fs.js:254:17)
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './nooline.org'] errno: 34, code: 'ENOENT', path: './nooline.org' }
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+
+/Users/skyler/github/nooline/server/modules/handle.js:116
+			response.writeHead(200, {
+            ^
+TypeError: Object #<IncomingMessage> has no method 'writeHead'
+    at /Users/skyler/github/nooline/server/modules/handle.js:116:13
+    at [object Object].<anonymous> (fs.js:115:5)
+    at [object Object].emit (events.js:64:17)
+    at afterRead (fs.js:1111:12)
+    at Object.wrapper [as oncomplete] (fs.js:254:17)
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+
+/Users/skyler/github/nooline/server/modules/handle.js:116
+			response.writeHead(200, {
+            ^
+TypeError: Object #<IncomingMessage> has no method 'writeHead'
+    at /Users/skyler/github/nooline/server/modules/handle.js:116:13
+    at [object Object].<anonymous> (fs.js:115:5)
+    at [object Object].emit (events.js:64:17)
+    at afterRead (fs.js:1111:12)
+    at Object.wrapper [as oncomplete] (fs.js:254:17)
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+
+/Users/skyler/github/nooline/server/modules/handle.js:116
+			response.writeHead(200, {
+            ^
+TypeError: Object #<IncomingMessage> has no method 'writeHead'
+    at /Users/skyler/github/nooline/server/modules/handle.js:116:13
+    at [object Object].<anonymous> (fs.js:115:5)
+    at [object Object].emit (events.js:64:17)
+    at afterRead (fs.js:1111:12)
+    at Object.wrapper [as oncomplete] (fs.js:254:17)
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+
+/Users/skyler/github/nooline/server/modules/handle.js:116
+			response.writeHead(200, {
+            ^
+TypeError: Object #<IncomingMessage> has no method 'writeHead'
+    at /Users/skyler/github/nooline/server/modules/handle.js:116:13
+    at [object Object].<anonymous> (fs.js:115:5)
+    at [object Object].emit (events.js:64:17)
+    at afterRead (fs.js:1111:12)
+    at Object.wrapper [as oncomplete] (fs.js:254:17)
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+{ [Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html']
+  errno: 34,
+  code: 'ENOENT',
+  path: './client/templates/www.nooline.org.html' }
+
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+TypeError: Object function getMonth() { [native code] } has no method 'toISOString'
+    at /Users/skyler/github/nooline/server/modules/server.js:27:34
+    at Object.<anonymous> (/Users/skyler/github/nooline/index.js:21:1)
+    at Module._compile (module.js:441:26)
+    at Object..js (module.js:459:10)
+    at Module.load (module.js:348:31)
+    at Function._load (module.js:308:12)
+    at Array.0 (module.js:479:10)
+    at EventEmitter._tickCallback (node.js:192:40)
+
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+TypeError: Object 1 has no method 'toISOString'
+    at /Users/skyler/github/nooline/server/modules/server.js:27:36
+    at Object.<anonymous> (/Users/skyler/github/nooline/index.js:21:1)
+    at Module._compile (module.js:441:26)
+    at Object..js (module.js:459:10)
+    at Module.load (module.js:348:31)
+    at Function._load (module.js:308:12)
+    at Array.0 (module.js:479:10)
+    at EventEmitter._tickCallback (node.js:192:40)
+
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: listen EADDRINUSE
+    at errnoException (net.js:642:11)
+    at Array.0 (net.js:743:26)
+    at EventEmitter._tickCallback (node.js:192:40)
+[1;31m16:16:58.937 2/17/2012 handle.js:[1;33m Error: ENOENT, no such file or directory './client/templates/www.nooline.org.html'[0m
+[1;31m10:5:26.947ms 2/21/2012 handle.js:[1;33m Error: ENOENT, no such file or directory './client/templates/ultrasonicmovie.com.html'[0m
+
+/Users/skyler/github/nooline/server/modules/handle.js:122
+			response.writeHead(200, {
+            ^
+TypeError: Object #<IncomingMessage> has no method 'writeHead'
+    at /Users/skyler/github/nooline/server/modules/handle.js:122:13
+    at [object Object].<anonymous> (fs.js:115:5)
+    at [object Object].emit (events.js:64:17)
+    at afterRead (fs.js:1111:12)
+    at Object.wrapper [as oncomplete] (fs.js:254:17)
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
+This type of response MUST NOT have a body. Ignoring write() calls.
