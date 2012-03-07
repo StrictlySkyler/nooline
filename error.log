@@ -243,3 +243,25 @@ This type of response MUST NOT have a body. Ignoring write() calls.
 This type of response MUST NOT have a body. Ignoring write() calls.
 This type of response MUST NOT have a body. Ignoring write() calls.
 This type of response MUST NOT have a body. Ignoring write() calls.
+
+undefined:1
+
+^
+SyntaxError: Unexpected token e
+    at Object.parse (native)
+    at /Users/skyler/github/nooline/server/modules/save-content.js:14:21
+    at IncomingMessage.<anonymous> (/Users/skyler/github/nooline/server/modules/handle.js:191:4)
+    at IncomingMessage.emit (events.js:64:17)
+    at HTTPParser.onMessageComplete (http.js:137:23)
+    at Socket.ondata (http.js:1410:22)
+    at TCP.onread (net.js:354:27)
+
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+Error: listen EACCES
+    at errnoException (net.js:646:11)
+    at Array.0 (net.js:732:28)
+    at EventEmitter._tickCallback (node.js:192:40)
+[1;31m23:8:9.891ms 2/29/2012 load-content.js:[1;33m Error: ENOENT, no such file or directory './client/content/localhost/news/news-4.json'[0m
+[1;31m23:8:12.1ms 2/29/2012 load-content.js:[1;33m Error: ENOENT, no such file or directory './client/content/localhost/news/news-4.json'[0m

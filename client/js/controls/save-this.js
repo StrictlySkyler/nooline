@@ -60,6 +60,9 @@
 				(parseInt(contentArea.children[1].className
 					.match(new RegExp(contentArea.id + '-' + '\\d+'))[0]
 					.split('-')[1], 10) + 1);
+			// Published and visible or not? Hook for a future publish/unpublish
+			// mechanism.
+			content.published = true;
 			// The date would be a nice thing to make configurable. Perhaps accessible
 			// in a method such as N.config?
 			content.date = (new Date().getMonth() + 1) + '/' +

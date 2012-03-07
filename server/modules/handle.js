@@ -14,7 +14,9 @@ var fs = require('fs'),
 	save = require('./save-content.js').save,
 	load = require('./load-content.js').load,
 	update = require('./update-content.js').update,
+	remove = require('./remove-content.js').remove,
 	auth = require('./authenticate.js').auth,
+	publish = require('./publish-content.js').publish,
 	path = require('path'),
 	debug = require('./logger.js').debug,
 	errlog = require('./logger.js').error,
@@ -33,70 +35,39 @@ var fs = require('fs'),
 // A request with no path specified attempts to load the template file
 // associated with the hostname requested by the client.
 handle["/"] = function(request, response) {
-	
-	// Reset postData if it was modified.
-	postData = '';
-	
-	debug(__filename,
-		'Handling default request for ' +
-		request.headers.host + '.');
-	
-	// If there was a POST, catch the data chunks we receive and put 'em
-	// together.
-	request.setEncoding('utf8');
-	
-	request.addListener('data', function(chunk) {
 		
-		postData += chunk;
+	// Grab the template file requested, and serve it up, if we can. Otherwise
+	// throw a 404.
+	debug(
+		__filename,
+		'Serving ./client/templates/' +
+		request.headers.host + '.html.');
 		
-	});
-	
-	// When the request has finished, check to see if we've received anything. If
-	// so, save it.
-	request.addListener('end', function() {
+	fs.readFile('./client/templates/' +
+		request.headers.host +
+		'.html', 'utf8', function(error, content) {
 		
-		if (postData !== '') {
+		if (error) {
 			
-			debug(__filename, 'POST received.  Attempting to save data.');
+			errlog(__filename, error);
 			
-			save(postData, request);
+			response.writeHead(404, {
+				"Content-Type" : "text/plain"
+			});
+			response.write('We couldn\'t find that resource on our server.');
+			response.end();
+		
+		} else {
+							
+			response.writeHead(200, {
+				"Content-Type" : "text/html"
+			});
+			response.write(content, 'utf-8');
+			response.end();
 			
 		}
-		
-		// Grab the template file requested, and serve it up, if we can. Otherwise
-		// throw a 404.
-		debug(
-			__filename,
-			'Serving ./client/templates/' +
-			request.headers.host + '.html.');
-				
-		fs.readFile('./client/templates/' +
-			request.headers.host +
-			'.html', 'utf8', function(error, content) {
-			
-			if (error) {
-				
-				errlog(__filename, error);
-				
-				response.writeHead(404, {
-					"Content-Type" : "text/plain"
-				});
-				response.write('We couldn\'t find that resource on our server.');
-				response.end();
-			
-			} else {
-								
-				response.writeHead(200, {
-					"Content-Type" : "text/html"
-				});
-				response.write(content, 'utf-8');
-				response.end();
-				
-			}
-		});
-		
 	});
-	
+		
 };
 
 // Some browsers make an extra request for the favicon located in the docroot.
@@ -170,86 +141,62 @@ handle["404"] = function(response, requestPath) {
 // directories, and aren't split up based on domain.
 handle.request = function(request, response, requestPath, redirect) {
 	
-	postData = '';
-	
-	debug(__filename, 'Handling request for ' + requestPath + '.');
-	
-	request.setEncoding('utf8');
-	
-	request.addListener('data', function(chunk) {
-		
-		postData += chunk;
-		
-	});
-	
-	request.addListener('end', function() {
-		
-		if (postData !== '') {
+	debug(__filename, 'Serving ' + requestPath + '.');
 			
-			debug(__filename, 'POST received.  Attempting to save data.');
+	fs.readFile('.' +
+							requestPath, function(error, content) {
+		if (error && redirect) {
 			
-			save(postData, request, requestPath);
+			handle.redirect(response, requestPath);
+			
+		} else if (error) {
+			
+			errlog(__filename, error);
+			
+			response.writeHead(404, {
+				"Content-Type" : "text/plain"
+			});
+			response.write('We couldn\'t find that resource on our server.');
+			response.end();
+		
+		} else {
+			
+			// Serve up some MIME types for what we're serving. This needs to be
+			// split into its own config file/module.
+			var extension = path.extname(requestPath),
+				contentType = 'text/html';
+			
+			switch (extension) {
+				case '.js' :
+					contentType = 'text/javascript';
+					break;
+				case '.css' :
+					contentType = 'text/css';
+					break;
+				case '.svg' :
+					contentType = 'image/svg+xml';
+					break;
+				case '.eot' :
+					contentType = 'application/vnd.ms-fontobject';
+					break;
+				case '.woff' :
+					contentType = 'application/x-font-woff';
+					break;
+				case '.ttf' :
+					contentType = 'application/octet-stream';
+					break;
+				case '.png' :
+					contentType = 'image/png';
+					break;
+			}
+			
+			response.writeHead(200, {
+				"Content-Type" : contentType
+			});
+			response.write(content);
+			response.end();
 			
 		}
-		
-		debug(__filename, 'Serving ' + requestPath + '.');
-				
-		fs.readFile('.' +
-								requestPath, function(error, content) {
-			if (error && redirect) {
-				
-				handle.redirect(response, requestPath);
-				
-			} else if (error) {
-				
-				errlog(__filename, error);
-				
-				response.writeHead(404, {
-					"Content-Type" : "text/plain"
-				});
-				response.write('We couldn\'t find that resource on our server.');
-				response.end();
-			
-			} else {
-				
-				// Serve up some MIME types for what we're serving. This needs to be
-				// split into its own config file/module.
-				var extension = path.extname(requestPath),
-					contentType = 'text/html';
-				
-				switch (extension) {
-					case '.js' :
-						contentType = 'text/javascript';
-						break;
-					case '.css' :
-						contentType = 'text/css';
-						break;
-					case '.svg' :
-						contentType = 'image/svg+xml';
-						break;
-					case '.eot' :
-						contentType = 'application/vnd.ms-fontobject';
-						break;
-					case '.woff' :
-						contentType = 'application/x-font-woff';
-						break;
-					case '.ttf' :
-						contentType = 'application/octet-stream';
-						break;
-					case '.png' :
-						contentType = 'image/png';
-						break;
-				}
-				
-				response.writeHead(200, {
-					"Content-Type" : contentType
-				});
-				response.write(content);
-				response.end();
-				
-			}
-		});
-		
 	});
 		
 };
@@ -265,18 +212,23 @@ handle["/login"] = function(request, response) {
 // save it.
 handle["/post-content"] = function(request, response, requestPath) {
 	
+	// Reset postData if it was modified.
 	postData = '';
 	
 	debug(__filename, 'Handling request for ' + requestPath + '.');
 	
 	request.setEncoding('utf8');
 	
+	// If there was a POST, catch the data chunks we receive and put 'em
+	// together.
 	request.addListener('data', function(chunk) {
 		
 		postData += chunk;
 		
 	});
 	
+	// When the request has finished, check to see if we've received anything. If
+	// so, save it.
 	request.addListener('end', function() {
 		
 		if (postData !== '') {
@@ -291,7 +243,7 @@ handle["/post-content"] = function(request, response, requestPath) {
 		
 };
 
-// Just like saving content above, bit we're updating it.
+// Just like saving content above, but we're updating it.
 handle["/update-content"] = function(request, response, requestPath) {
 	
 	postData = '';
@@ -348,6 +300,58 @@ handle["/get-content"] = function(request, response, requestPath) {
 	});
 	
 };
+
+handle["/remove-content"] = function(request, response, requestPath) {
+	
+	postData = '';
+	
+	debug(__filename, 'Handling request for ' + requestPath + '.');
+	
+	request.setEncoding('utf8');
+	
+	request.addListener('data', function(chunk) {
+		
+		postData += chunk;
+		
+	});
+	
+	request.addListener('end', function() {
+		
+		if (postData !== '') {
+			
+			debug(__filename, 'POST received.  Attempting to remove content.');
+			
+			remove(postData, request, response);
+		}
+		
+	});
+}
+
+handle["/publish-content"] = function(request, response, requestPath) {
+	
+	postData = '';
+	
+	debug(__filename, 'Handling request for ' + requestPath + '.');
+	
+	request.setEncoding('utf8');
+	
+	request.addListener('data', function(chunk) {
+		
+		postData += chunk;
+		
+	});
+	
+	request.addListener('end', function() {
+		
+		if (postData !== '') {
+			
+			debug(__filename, 'POST received.  Attempting to publish content.');
+			
+			publish(postData, request, response);
+		}
+		
+	});
+}
 
 // Export all the methods in the handler.
 for (i in handle) {

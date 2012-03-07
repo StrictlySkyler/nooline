@@ -67,6 +67,9 @@
 							document.createElement('h3');
 						body = document.createElement('div');
 						
+						// Id the article.
+						article.id = aggregator[j].content[i].name;
+						
 						// Add a class to each of our articles based upon its index name.
 						article.className = 'article ' + aggregator[j].content[i].name;
 						title.className = 'title';

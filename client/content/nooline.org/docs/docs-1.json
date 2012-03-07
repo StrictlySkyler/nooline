@@ -1,7 +1,8 @@
 {
 	"type": "docs",
 	"name": "docs-1",
-	"date": "2/1/2012 at 17:29:35",
+	"published": true,
+	"date": "2/29/2012 at 23:9:50",
 	"author": "skyler",
 	"title": "Documentation",
 	"body": "<p>...Is forthcoming.</p>\n\n<p>I promise.  It's a really important piece, in my mind.</p>\n\n<p>For now, <a href=\"http://github.com/StrictlySkyler/nooline\" target=\"_blank\">the source</a> will have to do, and questions are welcome.</p>"

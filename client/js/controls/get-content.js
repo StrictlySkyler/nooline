@@ -4,6 +4,7 @@
 (function(N) {
 	
 	N.getContent = function() {
+		
 		// Some counters for our loops.
 		var i,
 			prop,
@@ -14,7 +15,6 @@
 			howMany,
 			whatKind,
 			getPosts = new XMLHttpRequest(),
-			content,
 			// We use an object to batch up our requests to the server, which it
 			// populates, and sends back.
 			aggregator = {};
@@ -35,6 +35,7 @@
 			
 		}
 		
+			
 		// Our request to the server.
 		getPosts.open('POST', '/get-content', true);
 		getPosts.setRequestHeader('Content-Type', 'text/plain');

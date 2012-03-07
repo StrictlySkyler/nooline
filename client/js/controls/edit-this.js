@@ -1,7 +1,5 @@
 // Edit an existing form, typically called from an "edit" button on a piece of
 // content.
-//
-// Need to implement an options button, along with a delete button.
 
 (function(N) {
 	
@@ -20,8 +18,8 @@
 			newTitle,
 			newBody,
 			closeButton,
-			//optionsButton,
-			updateButton;
+			updateButton,
+			removeButton;
 		
 		// If the first piece of content is being edited, remove the "add new"
 		// button while it's being edited.
@@ -32,12 +30,12 @@
 		form.className = 'animate-all post-form';
 		form.style.opacity = 0;
 		form.style.position = 'absolute';
-		form.innerHTML ='<button class="edit-controls animate-all ' +
+		form.innerHTML ='<button class="button edit-controls animate-all ' +
 			'close-edit-post">&times;</button>' +
-			//'<button class="edit-controls animate-all edit-post-options">' +
-			//	'<div>{</div></button>' +
-			'<button class="edit-controls animate-all update-edit-post">' +
+			'<button class="button edit-controls animate-all update-edit-post">' +
 				'Update</button>' +
+			'<button class="button edit-controls animate-all edit-post-remove">' +
+				'Remove</button>' +
 			'<input type="text" class="animate-all userinput title" />' +
 			'<textarea class="animate-all userinput body"></textarea>';
 		
@@ -71,10 +69,12 @@
 		// Change this to getElementById.
 		closeButton = form.querySelectorAll('.close-edit-post')[0];
 		updateButton = form.querySelectorAll('.update-edit-post')[0];
+		removeButton = form.querySelectorAll('.edit-post-remove')[0];
 		
 		// Set our event listeners.
 		closeButton.onclick = N.closeThis;
 		updateButton.onclick = N.updateThis;
+		removeButton.onclick = N.removeContent;
 		
 		// Push all the content to an array, which we'll hide.
 		//
@@ -111,7 +111,7 @@
 			for (i = 0, len = content.length; i < len; i++) {
 				content[i].style.display = 'none';
 			}
-			form.style.opacity = 1;
+			form.style.opacity = '';
 			form.style.position = '';
 			
 		}, 500);

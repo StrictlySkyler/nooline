@@ -35,9 +35,6 @@
 			'<button id="close-' + name + '-form"' +
 				'class="animate-all close-new-post new-post-controls" ' +
 				'title="Cancel New Post">&times;</button>' +
-			//'<button id="' + name + '-post-options"' +
-			//'class="animate-all new-post-options new-post-controls" title="Post ' +
-			//'Options"><div>{</div></button>' +
 			'<button id="save-' + name + '-post"' +
 				'class="animate-all save-new-post new-post-controls" ' +
 				'title="Save Post">Save</button>' +

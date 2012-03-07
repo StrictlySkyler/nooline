@@ -150,6 +150,9 @@ document.onreadystatechange = function() {
 							document.createElement('h3');
 						body = document.createElement('div');
 						
+						// Id the article.
+						article.id = aggregator[j].content[i].name;
+						
 						// Add a class to each of our articles based upon its index name.
 						article.className = 'article ' + aggregator[j].content[i].name;
 						title.className = 'title';
@@ -345,7 +348,7 @@ document.onreadystatechange = function() {
 					
 					window.setTimeout(function() {
 						for (i = 0, len = content.length; i < len; i++) {
-							content[i].style.opacity = 1;
+							content[i].style.opacity = '';
 						}
 						if (contentArea.className.match('addable')) {
 							
@@ -368,7 +371,7 @@ document.onreadystatechange = function() {
 				
 				window.setTimeout(function() {
 					for (i = 0, len = content.length; i < len; i++) {
-						content[i].style.opacity = 1;
+						content[i].style.opacity = '';
 					}
 					
 					if (contentArea.className.match('addable')) {
@@ -567,9 +570,6 @@ document.onreadystatechange = function() {
 			'<button id="close-' + name + '-form"' +
 				'class="animate-all close-new-post new-post-controls" ' +
 				'title="Cancel New Post">&times;</button>' +
-			//'<button id="' + name + '-post-options"' +
-			//'class="animate-all new-post-options new-post-controls" title="Post ' +
-			//'Options"><div>{</div></button>' +
 			'<button id="save-' + name + '-post"' +
 				'class="animate-all save-new-post new-post-controls" ' +
 				'title="Save Post">Save</button>' +
@@ -645,8 +645,6 @@ document.onreadystatechange = function() {
 
 // Edit an existing form, typically called from an "edit" button on a piece of
 // content.
-//
-// Need to implement an options button, along with a delete button.
 
 (function(N) {
 	
@@ -665,8 +663,8 @@ document.onreadystatechange = function() {
 			newTitle,
 			newBody,
 			closeButton,
-			//optionsButton,
-			updateButton;
+			updateButton,
+			removeButton;
 		
 		// If the first piece of content is being edited, remove the "add new"
 		// button while it's being edited.
@@ -677,12 +675,12 @@ document.onreadystatechange = function() {
 		form.className = 'animate-all post-form';
 		form.style.opacity = 0;
 		form.style.position = 'absolute';
-		form.innerHTML ='<button class="edit-controls animate-all ' +
+		form.innerHTML ='<button class="button edit-controls animate-all ' +
 			'close-edit-post">&times;</button>' +
-			//'<button class="edit-controls animate-all edit-post-options">' +
-			//	'<div>{</div></button>' +
-			'<button class="edit-controls animate-all update-edit-post">' +
+			'<button class="button edit-controls animate-all update-edit-post">' +
 				'Update</button>' +
+			'<button class="button edit-controls animate-all edit-post-remove">' +
+				'Remove</button>' +
 			'<input type="text" class="animate-all userinput title" />' +
 			'<textarea class="animate-all userinput body"></textarea>';
 		
@@ -716,10 +714,12 @@ document.onreadystatechange = function() {
 		// Change this to getElementById.
 		closeButton = form.querySelectorAll('.close-edit-post')[0];
 		updateButton = form.querySelectorAll('.update-edit-post')[0];
+		removeButton = form.querySelectorAll('.edit-post-remove')[0];
 		
 		// Set our event listeners.
 		closeButton.onclick = N.closeThis;
 		updateButton.onclick = N.updateThis;
+		removeButton.onclick = N.removeContent;
 		
 		// Push all the content to an array, which we'll hide.
 		//
@@ -756,7 +756,7 @@ document.onreadystatechange = function() {
 			for (i = 0, len = content.length; i < len; i++) {
 				content[i].style.display = 'none';
 			}
-			form.style.opacity = 1;
+			form.style.opacity = '';
 			form.style.position = '';
 			
 		}, 500);
@@ -789,6 +789,7 @@ document.onreadystatechange = function() {
 (function(N) {
 	
 	N.getContent = function() {
+		
 		// Some counters for our loops.
 		var i,
 			prop,
@@ -799,7 +800,6 @@ document.onreadystatechange = function() {
 			howMany,
 			whatKind,
 			getPosts = new XMLHttpRequest(),
-			content,
 			// We use an object to batch up our requests to the server, which it
 			// populates, and sends back.
 			aggregator = {};
@@ -820,6 +820,7 @@ document.onreadystatechange = function() {
 			
 		}
 		
+			
 		// Our request to the server.
 		getPosts.open('POST', '/get-content', true);
 		getPosts.setRequestHeader('Content-Type', 'text/plain');
@@ -1034,13 +1035,169 @@ document.onreadystatechange = function() {
 	};
 }(nooline));
 
+// Publish a specific piece of content.
+
+(function(N){
+	
+	N.publishContent = function(name) {
+		var publishContent = new XMLHttpRequest();
+		
+		publishContent.open('POST', '/publish-content', true);
+		publishContent.setRequestHeader('Content-Type', 'text/plain');
+		publishContent.send(name);
+		
+	};
+	
+}(nooline));
+
+// Removes a specific piece of content from display on the page.
+//
+// This should be extended into an un/publish functionality.
+
+(function(N) {
+	
+	N.removeContent = function(event) {
+		if (!event) {
+			event = window.event;
+			event.returnValue = false;
+		} else {
+			event.preventDefault();
+		}
+		
+		var self = this,
+			content = self.parentNode.parentNode,
+			contentArea = content.parentNode,
+			name = content.id,
+			contentArea = content.parentNode,
+			form = content.querySelector('.post-form'),
+			removeContent = new XMLHttpRequest(),
+			undoButton,
+			closeButton,
+			nextInLine,
+			newContent,
+			blurb,
+			article,
+			title,
+			body,
+			details;
+			
+		N.undoCache = N.undoCache || {};
+			
+		N.removeElement(form, function() {
+			
+			N.undoCache[name] = content.innerHTML;
+			
+			content.className = content.className.replace('editing', 'removed');
+			content.innerHTML = '<button id="' + name + '-undo-button"' +
+				'class="animate-all undo-button button">Undo?</button>' +
+				'<button id="' + name + '-close-undo" class="animate-all close-undo ' +
+					'button">&times;</button>' +
+				'<p>This content has been removed.</p>';
+			
+			undoButton = document.getElementById(name + '-undo-button');
+			closeButton = document.getElementById(name + '-close-undo');
+			
+			nextInLine = contentArea.lastChild.id.split('-');
+			nextInLine[1] = parseInt(nextInLine[1], 10) - 1;
+			nextInLine = nextInLine[1] > 0 ? nextInLine.join('-') : '';
+			
+			removeContent.open('POST', '/remove-content', true);
+			removeContent.setRequestHeader('Content-Type', 'text/plain');
+			removeContent.onreadystatechange = function() {
+				
+				if ((removeContent.readyState === 4) &&
+					(removeContent.status === 200)) {
+					
+					newContent = JSON.parse(removeContent.responseText);
+					
+				}
+				
+			};
+			
+			removeContent.send(name + ' ' + nextInLine);
+			
+			undoButton.onclick = function() {
+				var i,
+					len,
+					kids;
+				
+				content.className = content.className.replace(' removed', '');
+				content.innerHTML = N.undoCache[name];
+				kids = content.children;
+				
+				N.createAddContentButton(contentArea);
+				kids[0].onclick = N.editThis;
+				
+				for (i = 0, len = kids.length; i < len; i++) {
+					kids[i].style.opacity = '';
+					kids[i].style.display = '';
+				}
+				
+				N.publishContent(name);
+				
+			};
+			
+			closeButton.onclick = function() {
+				
+				// Check to see if it is a blurb or not, altering some of the
+				// elements created below.
+				blurb = newContent.type === 'blurb' ? true : false;
+				
+				article = document.createElement('article');
+				// To preserve some sanity in header heirarchy, we create an h2 for
+				// blurbs, which (for now anyway) are site taglines/descriptions
+				// near the first header.
+				title = blurb ?
+					document.createElement('h2') :
+					document.createElement('h3');
+				body = document.createElement('div');
+				
+				// Id the article.
+				article.id = newContent.name;
+				
+				// Add a class to each of our articles based upon its index name.
+				article.className = 'article ' + newContent.name;
+				title.className = 'title';
+				body.className = 'body';
+				
+				contentArea.appendChild(article);
+				article.appendChild(title);
+				article.appendChild(body);
+				
+				title.innerHTML = newContent.title;
+				body.innerHTML = newContent.body;
+				
+				// If we're not dealing with a blurb, add the content details.
+				if (!blurb) {
+					details = document.createElement('p');
+					details.className = 'details';
+					article.appendChild(details);
+					
+					details.innerHTML = 'Posted by ' +
+						newContent.author +
+						' on ' +
+						newContent.date.match(/\d+\/\d+\/\d+/)[0] +
+						'.';
+				}
+				
+				N.removeElement(content);
+				
+			};
+			
+		});
+		
+	};
+	
+}(nooline));
+
 // Removes an element passed to it from the DOM. Usually called from a close
 // button on a form.
 
 (function(N) {
-	N.removeElement = function(element) {
+	N.removeElement = function(element, callback) {
 		
-		// Next line might be deprecated.  Need to check.
+		// Recursive loop checks to see if the element still exists on the page or
+		// if it's been removed.
 		if (element) {
 			
 			// Grab the parent element, and set an interval to check on the opacity
@@ -1062,6 +1219,10 @@ document.onreadystatechange = function() {
 							
 							parent.removeChild(element);
 							window.clearInterval(interval);
+							
+							if (callback) {
+								callback();
+							}
 						}
 					}
 				}, 250);
@@ -1069,6 +1230,7 @@ document.onreadystatechange = function() {
 			element.style.opacity = 0;
 			element.className += ' hidden';
 		}
+		
 	};
 }(nooline));
 
@@ -1134,6 +1296,9 @@ document.onreadystatechange = function() {
 				(parseInt(contentArea.children[1].className
 					.match(new RegExp(contentArea.id + '-' + '\\d+'))[0]
 					.split('-')[1], 10) + 1);
+			// Published and visible or not? Hook for a future publish/unpublish
+			// mechanism.
+			content.published = true;
 			// The date would be a nice thing to make configurable. Perhaps accessible
 			// in a method such as N.config?
 			content.date = (new Date().getMonth() + 1) + '/' +
@@ -1265,7 +1430,7 @@ document.onreadystatechange = function() {
 			window.setTimeout(function() {
 				for (i = 0, len = emptyNodes.length; i < len; i++) {
 					emptyNodes[i].style.background = '';
-				emptyNodes[i].style.borderColor = '';
+					emptyNodes[i].style.borderColor = '';
 				}
 			}, 250);
 			
@@ -1289,6 +1454,9 @@ document.onreadystatechange = function() {
 				content.name = contentArea.children[1].className
 						.match(new RegExp(contentArea.id + '-' + '\\d+'))[0];
 			}
+			// Published and visible or not? Hook for a future publish/unpublish
+			// mechanism.
+			content.published = true;
 			// Setting the date; would be nice to abstract to a config or options
 			// place, such as N.config, or something similar.
 			content.date = (new Date().getMonth() + 1) + '/' +

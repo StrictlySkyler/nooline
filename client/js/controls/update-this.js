@@ -48,7 +48,7 @@
 			window.setTimeout(function() {
 				for (i = 0, len = emptyNodes.length; i < len; i++) {
 					emptyNodes[i].style.background = '';
-				emptyNodes[i].style.borderColor = '';
+					emptyNodes[i].style.borderColor = '';
 				}
 			}, 250);
 			
@@ -72,6 +72,9 @@
 				content.name = contentArea.children[1].className
 						.match(new RegExp(contentArea.id + '-' + '\\d+'))[0];
 			}
+			// Published and visible or not? Hook for a future publish/unpublish
+			// mechanism.
+			content.published = true;
 			// Setting the date; would be nice to abstract to a config or options
 			// place, such as N.config, or something similar.
 			content.date = (new Date().getMonth() + 1) + '/' +

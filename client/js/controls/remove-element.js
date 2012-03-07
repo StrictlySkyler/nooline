@@ -2,9 +2,10 @@
 // button on a form.
 
 (function(N) {
-	N.removeElement = function(element) {
+	N.removeElement = function(element, callback) {
 		
-		// Next line might be deprecated.  Need to check.
+		// Recursive loop checks to see if the element still exists on the page or
+		// if it's been removed.
 		if (element) {
 			
 			// Grab the parent element, and set an interval to check on the opacity
@@ -26,6 +27,10 @@
 							
 							parent.removeChild(element);
 							window.clearInterval(interval);
+							
+							if (callback) {
+								callback();
+							}
 						}
 					}
 				}, 250);
@@ -33,5 +38,6 @@
 			element.style.opacity = 0;
 			element.className += ' hidden';
 		}
+		
 	};
 }(nooline));

@@ -76,7 +76,7 @@
 					
 					window.setTimeout(function() {
 						for (i = 0, len = content.length; i < len; i++) {
-							content[i].style.opacity = 1;
+							content[i].style.opacity = '';
 						}
 						if (contentArea.className.match('addable')) {
 							
@@ -99,7 +99,7 @@
 				
 				window.setTimeout(function() {
 					for (i = 0, len = content.length; i < len; i++) {
-						content[i].style.opacity = 1;
+						content[i].style.opacity = '';
 					}
 					
 					if (contentArea.className.match('addable')) {

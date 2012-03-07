@@ -1,7 +1,6 @@
 // This module is responsible for loading the content requested by the client,
 // batching it up, and sending it along as JSON.
 
-/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
 'use strict';
 
 var fs = require('fs'),
@@ -19,8 +18,14 @@ load = function(postData, request, response) {
 	contentTypesRequested = 0,
 	contentTypesComplete = 0,
 	aggregate = {},
+	unpublished = {},
 	readFile,
-	readDir;
+	readDir,
+	contentFloor,
+	cache;
+	
+	unpublished.names = [];
+	unpublished.types = [];
 	
 	// Parse out what the client is looking for, based on the content passed
 	// along.
@@ -30,64 +35,103 @@ load = function(postData, request, response) {
 	// the object passed in. Not called until the async read operation is
 	// complete.
 	aggregate = function(obj, whatKind, total) {
+		
 		debug(__filename, 'Grabbing ' +
 			obj.howMany +
 			' most recent \"' +
 			whatKind +
 			'\" content items...');
 		
-		readFile = function() {
+		var readFile = function(target) {
+			
 			// Read out the file, if we can.
 			fs.readFile('./client/content/' +
 				request.headers.host +
 				'/' +
 				whatKind +
 				'/' +
-				file, 'utf8', function(error, data) {
+				target + '.json', 'utf8', function(error, data) {
 				if (error) {
 					
 					errlog(__filename, error);
 					
 				} else {
 					
-					debug(__filename, '...' + whatKind + '-' +
-						(total - obj.content.length) +
-						'.json grabbed...');
-					
-					// Push the contents of the file to the content array in our object.
-					obj.content.push(data);
-					
-					// If the length of our content array matches the number of content
-					// items requested, we increment the number of content items we've
-					// completed.
-					if (obj.content.length === obj.howMany) {
-						contentTypesComplete++;
+					if (JSON.parse(data).published) {
+						debug(__filename, '...' +
+							target +
+							'.json grabbed...');
 						
-						debug(__filename, '...All \"' +
-							whatKind +
-							'\" content items have been grabbed.');
+						// Push the contents of the file to the content array in our object.
+						obj.content.push(data);
+					} else {
+						debug(__filename, '...' +
+							target +
+							'.json not published, SKIPPING...');
 						
-						// If the number of content types we've completed matches the number
-						// requested, we've grabbed all the content, and can send it back to
-						// the client.
-						if (contentTypesComplete === contentTypesRequested) {
-							debug(__filename, 'All ' +
-								contentTypesComplete +
-								' content types have been grabbed!');
-							
-							response.writeHead(200, {
-								'Content-Type': 'text/plain'
-							});
-							response.write(JSON.stringify(postData));
-							response.end();
-							
-							debug(__filename, 'Data sent back to client.');
-						}
+						cache = JSON.parse(data);
+						unpublished.names.push(cache.name);
+						unpublished.types.push(cache.type);
+						
 					}
+					
+					checkComplete();
 					
 				}
 			});
-		};
+		},
+		
+		checkComplete = function() {
+			
+			// If the length of our content array matches the number of content
+			// items requested, we increment the number of content items we've
+			// completed.
+			if (obj.content.length === obj.howMany) {
+				
+				contentTypesComplete++;
+				
+				debug(__filename, '...All \"' +
+					whatKind +
+					'\" content items have been grabbed.');
+				
+			}
+			
+			if ((obj.nextInLine) && (unpublished.types.length > 0)) {
+				
+				contentFloor = parseInt(obj.nextInLine.match(/\d+/)[0], 10) - 1;
+				
+				for (i = 0, len = unpublished.names.length; i < len; i++) {
+					readFile(obj.nextInLine);
+					
+				}
+				
+				if (contentFloor > 0) {
+					obj.nextInLine = obj.nextInLine.replace(/\d+/, contentFloor);
+				} else {
+					delete obj.nextInLine;
+				}
+				
+			}
+			
+			// If the number of content types we've completed matches the number
+			// requested, we've grabbed all the content, and can send it back to
+			// the client.
+			if (contentTypesComplete === contentTypesRequested) {
+				unpublished.types = [];
+				
+				debug(__filename, 'All ' +
+					contentTypesComplete +
+					' content types have been grabbed!');
+				
+				response.writeHead(200, {
+					'Content-Type': 'text/plain'
+				});
+				response.write(JSON.stringify(postData));
+				response.end();
+				
+				debug(__filename, 'Data sent back to client.');
+			}
+		}
 		
 		// For however many content items are requested, grab the appropriate files.
 		for (i = 0, len = obj.howMany; i < len; i++) {
@@ -95,11 +139,11 @@ load = function(postData, request, response) {
 			// Files are saved incrementally, meaning the highest number should be the
 			// most recent. We decrement from there, based on the toal number
 			// reported.
-			file = whatKind + '-' + (total - i) + '.json';
+			file = whatKind + '-' + (total - i);
 			
 			debug(__filename, '...Grabbing content item: ' + file + '...');
 			
-			readFile();
+			readFile(file);
 			
 		}
 	};
@@ -127,7 +171,7 @@ load = function(postData, request, response) {
 				// with RegExp.
 				whatKind = files[0].match(/\w+/)[0];
 				
-				debug(__filename, '...' + files.length + ' \"' +
+				debug(__filename, '...' + total + ' \"' +
 					whatKind +
 					'\" content items total.');
 				
@@ -135,6 +179,11 @@ load = function(postData, request, response) {
 				// number to what we have, and load that instead.
 				if (total < postData[whatKind].howMany) {
 					postData[whatKind].howMany = total;
+				}
+				
+				if ((total - postData[whatKind].howMany) !== 0) {
+					postData[whatKind].nextInLine = whatKind + '-' +
+						(total - postData[whatKind].howMany);
 				}
 				
 				// Put all the content together before sending it back as a batch.

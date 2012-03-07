@@ -1,7 +1,6 @@
 // This module is responsible for saving new content, incrementally increasing
 // the file name based upon what exists in the directory already.
 
-/*jslint node: true, white: true, plusplus: true, maxerr: 50, indent: 2 */
 'use strict';
 
 var fs = require('fs'),
