@@ -1,0 +1,131 @@
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class=" js no-flexbox no-canvas no-canvastext no-webgl no-touch no-geolocation no-postmessage no-websqldatabase no-indexeddb hashchange history draganddrop websockets no-rgba no-hsla multiplebgs no-backgroundsize no-borderimage no-borderradius no-boxshadow no-textshadow opacity no-cssanimations no-csscolumns no-cssgradients no-cssreflections no-csstransforms no-csstransforms3d no-csstransitions fontface no-video no-audio localstorage sessionstorage no-webworkers no-applicationcache no-svg no-inlinesvg no-smil no-svgclippaths" lang="en">  <!--<![endif]-->
+  <head>    <!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>nooline.org</title>
+    <meta name="description" content="A CMS for the 21st Century.">
+    <meta name="author" content="Skyler Brungardt">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/client/images/nooline.org.ico">
+    <link id="main-stylesheet" rel="stylesheet" href="/client/css/nooline.org.css">
+    <script src="/client/js/lib/modernizr-1.7.min.js"></script>
+    <!--nooline scripts-->
+    <script src="/client/js/nooline.cat.js"></script>
+    <!--Encryption scripts-->
+    <script src="/shared/js/lib/sjcl.js"></script>
+</head>
+  <body class="mainIndex">    <div id="container">      <header id="header">        <h1>          <a href="/">            <span id="slash-n">\n</span>
+ooline
+					</a>
+</h1>
+        <section id="blurb" class="blurb text-body content editable count-1">          <article id="blurb-1" class="article blurb-1">
+            <h2 class="title">A New Way to Manage Content</h2>
+            <div class="body">
+              <p>Built on Node.js, HTML5, and CSS3, \nooline focuses on ease of use, scalability, and easy maintenance.  The goal is to reduce the effort needed to run and manage a CMS.</p>
+            </div>
+          </article>
+        </section>
+</header>
+      <aside id="left-sidebar">        <nav id="main-nav">          <ul>            <li>              <a id="news-link" class="animate-color" href="#news">
+								News
+							</a>
+</li>
+            <li>              <a id="about-link" class="animate-color" href="#about">
+								About
+							</a>
+</li>
+            <li>              <a id="docs-link" class="animate-color" href="#docs">
+								Docs
+							</a>
+</li>
+            <li>              <a id="download-link" class="animate-color" href="http://github.com/StrictlySkyler/nooline" target="_blank">
+								Download
+							</a>
+</li>
+</ul>
+</nav>
+</aside>
+      <aside id="right-sidebar">        <section id="notes" class="note text-body content editable addable count-1">          <article id="notes-1" class="article notes-1">
+            <h3 class="title">Say Hello!</h3>
+            <div class="body">
+              <p>Want to drop me a line?  Please do.</p>
+              <p>
+                <a href="mailto:skyler.brungardt@gmail.com">Shoot me an email.</a>
+              </p>
+            </div>
+            <p class="details">Posted by skyler on 2/2/2012.</p>
+          </article>
+        </section>
+</aside>
+      <div id="content">        <section id="news" class="main text-body content editable addable count-1">          <article id="news-2" class="article news-2">
+            <h3 class="title">Version 0.1.3</h3>
+            <div class="body">
+              <p>Mostly this involves cleaning up the code, and adding code comments.</p>
+              <p>0.1.4 should refactor some of the selection of elements under the hood, along with some general stability, like supporting symlinks for localhost.</p>
+              <p>Looking ahead, 0.2.0 should include easier user creation, some kind of WYSIWYG, and maybe file upload.</p>
+              <p>Progress!  ✌ </p>
+              <p>Also lazy-loading for methods, along with HTTP ETags.  That should go into 0.2.0.</p>
+              <p>...And while I'm thinking about it, divorcing "edited on" from "created on" is going to be a good idea for 0.2.0 also.</p>
+            </div>
+            <p class="details">Posted by skyler on 3/2/2012.</p>
+          </article>
+        </section>
+        <section id="about" class="main text-body content editable count-1">          <article id="about-1" class="article about-1">
+            <h3 class="title">A Little Bit About \nooline</h3>
+            <div class="body">
+              <p>\nooline is built on top of                 <a href="http://nodejs.org" target="_blank">node.js</a>
+, using straight-up HTML5, CSS3, and JavaScript.  It's framework agnostic, allowing for the use of a framework of any given developer's choice (jQuery, YUI, etc.), or none at all (they're all just straight JS, after all).</p>
+              <p>\nooline is built with two key driving factors in mind:</p>
+              <ol>                <li>Creating and editing content on a website should be simple enough that my mother could do it (and she ain't techy).</li>
+                <li>The bulk of the work of the CMS should be done by the Client; namely, the browser viewing the page.</li>
+</ol>
+              <p>This first factor is key; most Content Management Systems nowadays require a mixture of a back-end developer, a front-end developer, and a database admin.  While there are certainly many people who have these skills, the sad fact is that the folks who end up using the site, entering content, and generally maintaining it lack them — specifically, the "back-end" parts are uncommon amongst the content-entry user base, while HTML, CSS, and JS knowledge is a little more widespread.  \nooline attempts to address this by minimizing as much of what the server is responsible for as possible, while being built entirely out of JavaScript, markup, and styling.</p>
+              <p>As for the second factor, with the increasing speed of JavaScript engines used by modern browsers, along with the rich functionality offered by HTML5 and CSS3, the need for a server to handle the bulk of what services a rich web application might need (authentication, validation, sorting, caching, etc.) are fast reducing.  By pushing as much of this work onto the browser as possible, much less server resource is needed, while providing an opportunity for a more consistent user experience independent of whether the user's client is able to reach the server or not.</p>
+              <p>In the building of \nooline there were also a few happy discoveries which have a strong impact upon how \nooline is built; things such as sharing the same piece of code between client and server and using a single page architecture with no page refreshes are examples.</p>
+            </div>
+            <p class="details">Posted by skyler on 2/1/2012.</p>
+          </article>
+        </section>
+        <section id="docs" class="main text-body content editable count-1">          <article id="docs-1" class="article docs-1">
+            <h3 class="title">Documentation</h3>
+            <div class="body">
+              <p>...Is forthcoming.</p>
+              <p>I promise.  It's a really important piece, in my mind.</p>
+              <p>For now,                 <a href="http://github.com/StrictlySkyler/nooline" target="_blank">the source</a>
+ will have to do, and questions are welcome.</p>
+            </div>
+            <p class="details">Posted by skyler on 2/1/2012.</p>
+          </article>
+        </section>
+</div>
+      <!--end content-->
+      <footer id="footer">        <section class="support details">
+					Powered by
+					          <a class="animate-color" href="http://nodejs.org/" target="_blank">node.js</a>
+
+					and
+					          <a class="animate-color" href="https://github.com/StrictlySkyler/nooline" target="_blank">
+						\nooline</a>
+.
+				</section>
+        <section class="license details">
+					Copyleft           <a class="animate-color" href="/">Skyler Brungardt</a>
+.  No Rights
+					Reserved. Enjoy.
+				</section>
+        <section class="login details animate-opacity">
+					Click here to 
+					          <a id="login-link" class="animate-color" href="/login">login</a>
+.
+				</section>
+</footer>
+</div>
+    <!--End of Container-->
+</body>
+</html>

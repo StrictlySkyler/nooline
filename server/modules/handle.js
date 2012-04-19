@@ -58,12 +58,34 @@ handle["/"] = function(request, response) {
 			response.end();
 		
 		} else {
-							
-			response.writeHead(200, {
-				"Content-Type" : "text/html"
-			});
-			response.write(content, 'utf-8');
-			response.end();
+			
+			try {
+				response.writeHead(200, {
+					"Content-Type" : "text/html"
+				});
+				response.write(content);
+				response.end();
+			} catch (e) {
+				
+				debug(__filename, 'No response header, must be a bot!  Sending ' +
+							'cached page.');
+				fs.readFile('./client/cache/' +
+										request.headers.host +
+										'/index.html', 'utf8', function(error, content) {
+					
+					if (error) {
+						errlog(__filename, error);
+					} else {
+						
+						response.write(content);
+						response.end();
+						
+						debug(__filename, 'Cached page sent.');
+					}
+					
+				})
+				
+			}
 			
 		}
 	});
