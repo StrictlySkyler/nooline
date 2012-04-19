@@ -29,7 +29,12 @@ load = function(postData, request, response) {
 	
 	// Parse out what the client is looking for, based on the content passed
 	// along.
-	postData = JSON.parse(postData);
+	try {
+		postData = JSON.parse(postData);
+	} catch (e) {
+		errlog(__flename, 'No data posted; client script not being executed.' +
+			'  Maybe a search bot?');
+	}
 	
 	// Gather up all the content requested, and push it to the content array of
 	// the object passed in. Not called until the async read operation is

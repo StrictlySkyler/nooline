@@ -1,0 +1,4 @@
+User-agent: *
+Sitemap: http://skylerbrungardt.com/client/seo/skylerbrungardt.com/sitemap.xml
+Allow: /index.html
+Disallow: /

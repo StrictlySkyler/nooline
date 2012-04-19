@@ -10,7 +10,7 @@ var url = require('url'),
 	extension,
 	guess,
 	redirect = true, // This should eventually be implemented as a CLI flag.
-	subdomains = false, // Also should eventually be implemented as a CLI flag.
+	subdomains = true, // Also should eventually be implemented as a CLI flag.
 	newdomain,
 
 route = function(request, response, handle) {
@@ -18,17 +18,22 @@ route = function(request, response, handle) {
 	// Parse out the path being requested.
 	requestPath = url.parse(request.url).pathname;
 	
-	newdomain = request.headers.host.split('.');
-	
-	if (!subdomains && newdomain.length > 2) {
-
-		newdomain.shift();
-		
-		response.writeHead(301, {
-			"Location" : 'http://' + newdomain.join('.')
-		});
-		response.end();
-	}
+	// Subdomains impl – buggy and needs to be refactored.
+	//	try {
+	//		newdomain = request.headers.host.split('.');
+	//	} catch (e) {
+	//		errlog(__filename, e);
+	//	}
+	//	
+	//	if (!subdomains && newdomain.length > 2) {
+	//
+	//		newdomain.shift();
+	//		
+	//		response.writeHead(301, {
+	//			"Location" : 'http://' + newdomain.join('.')
+	//		});
+	//		response.end();
+	//	}
 	
 	// Test to see if the client has supplied a specific extention.
 	extension = /\.\w+/.test(requestPath);

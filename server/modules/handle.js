@@ -88,18 +88,53 @@ handle["/favicon.ico"] = function(response) {
 		
 		} else {
 			
-			debug(__filename, 'Handling favicon.');
+			// Catching browsers extra requests for the favicon, even if we can't find
+			// the asset they're looking for.
+			try {
+				debug(__filename, 'Handling favicon.');
+				
+				response.writeHead(200, {
+					"Content-Type" : "image/x-icon"
+				});
+				response.write(data);
+				response.end();
 			
-			response.writeHead(200, {
-				"Content-Type" : "image/x-icon"
-			});
-			response.write(data);
-			response.end();
+			// If we can't, just log out the error, and send a 404.
+			} catch(e) {
+				
+				try {
+					response.writeHead(404);
+					errlog(__filename, e);
+				} catch (e) {
+					errlog(__filename, e);
+				}
+				
+			}
 			
 		}
 	});
 	
 };
+
+handle["/robots.txt"] = function(request, response) {
+	
+	fs.readFile('./client/seo/' +
+							request.headers.host +
+							'/robots.txt', function(error, content) {
+		if (error) {
+			
+			errlog(__filename, error);
+			
+		} else {
+			
+			debug(__filename, 'Sending robots.txt.');
+			response.write(content);
+			response.end();
+			
+		}
+	});
+	
+}
 
 // If redirection is enabled and we can't find what was requested, send them
 // permanently back to the default path.

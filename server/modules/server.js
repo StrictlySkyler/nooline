@@ -16,7 +16,7 @@ var http = require('http'),
 // Startup our http server and pass it any custom port we've defined.
 start = function(portPassed) {
 	
-	port = portPassed || 8080;
+	port = portPassed || process.env.port || 8080;
 
 	http.createServer(function (request, response) {
 		
