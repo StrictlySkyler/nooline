@@ -16,21 +16,111 @@ var sjcl = require('../../shared/js/lib/sjcl.js'),
 	fs = require('fs'),
 	debug = require('./logger.js').debug,
 	errlog = require('./logger.js').error,
+	username
 
-add = function(username, password) {
+exports.add = function(postData, request, response) {
+	var password,
+		hash;
 	
+	debug(__filename, 'Parsing data received from client for credentials.');
+	postData = JSON.parse(postData, '\t', null);
+	username = postData.username;
+	password = postData.password;
+	
+	debug(__filename, 'Decrypting...');
 	// Encrypting the user password with the password as a key allows us to
 	// decrypt the hash on the client with the password the user supplies at that
 	// time.
-	var hash = sjcl.encrypt(password, password);
+	hash = sjcl.encrypt(password, password);
 	
-	//Write the password out to a file keyed to the username.
-	fs.writeFile('./shared/creds/' +
+	debug(__filename, '...Success.  Writing to file.');
+	
+	fs.readFile('./shared/creds/' +
 		username +
-		'.hash', hash, 'utf8', function() {
-		debug(__filename, 'Saved!');
+		'.hash', function(error) {
+		
+		if (error) {
+	
+			//Write the password out to a file keyed to the username.
+			fs.writeFile('./shared/creds/' +
+				username +
+				'.hash', hash, 'utf8', function() {
+				debug(__filename, 'New user credentials for \"' +
+							username +
+							'\" saved!');
+				
+				response.writeHead(201, {
+					"Content-Type" : "text/plain"
+				});
+				response.write('New user has been saved successfully.');
+				response.end();
+				
+			});
+		
+		} else {
+			errlog(__filename, 'User credentials already exist!');
+			
+			response.writeHead(409, {
+				"Content-Type" : "text/plain"
+			});
+			response.write('User credentials already exist.');
+			response.end();
+		}
+	
 	});
+};
+
+exports.remove = function(postData, request, response) {
+	
+	debug(__filename, 'Parsing data received from client for username.');
+	postData = JSON.parse(postData, '\t', null);
+	
+	if (postData.really && postData.sure) {
+		username = postData.username;
+		
+		debug(__filename, 'Attempting to remove user \"' + username + '\"...');
+		
+		fs.unlink('./shared/creds/' +
+							username +
+							'.hash', function(error) {
+			if (error) {
+				errlog(__filename, 'Unable to remove the user!  Try checking to see ' +
+							 'that the hash file actually exists, and that the server has ' +
+							 'permissions to access it.');
+				
+				response.writeHead(404);
+				response.end();
+			} else {
+				debug(__filename, '...User \"' +
+							username +
+							'\" has been removed successfully.');
+				
+				response.writeHead(200);
+				response.end();
+			}
+		})
+	}
 	
 };
 
-exports.add = add;
+exports.change = function(postData, request, response) {
+	
+	var old,
+		hash,
+		password;
+	
+	debug(__filename, 'Parsing data recieved from client for username and ' +
+				'proper authorization.');
+	postData = JSON.parse(postData, '\t', null);
+	
+	username = postData.username;
+	
+	fs.readFile('./shared/creds/' +
+		username +
+		'.hash', 'utf8', function(error, data) {
+			console.log(data);
+		});
+	
+	console.log(request.headers.cookie);
+	
+};

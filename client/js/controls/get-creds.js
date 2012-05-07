@@ -15,7 +15,7 @@
 		// Send the username to the server, which responds with a hash for the
 		// username, if it has one. If not, it'll respond with a 404, which means
 		// the username doesn't exist.
-		getHash.open('POST', '/login', true);
+		getHash.open('POST', '/login', false);
 		getHash.setRequestHeader('Content-Type', 'text/plain');
 		getHash.onreadystatechange = function(event) {
 

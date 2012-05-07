@@ -44,9 +44,8 @@
 			
 			if ((getPosts.readyState === 4) &&
 					(getPosts.status === 200)) {
-				
-				// When the server responds with our object, we parse the JSON and build
-				// out the content.
+				// When the server responds with our object, we parse the JSON and
+				// build out the content.
 				N.buildContent(JSON.parse(getPosts.responseText));
 				
 			}

@@ -63,5 +63,8 @@
 			}
 		}
 		
+		// Add the control panel to the page to allow for admin tasks.
+		N.createControlPanel();
+		
 	};
 }(nooline));

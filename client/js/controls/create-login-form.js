@@ -23,14 +23,14 @@
 			loginForm.method = 'POST';
 			loginForm.className = 'animate-all hidden';
 			loginForm.innerHTML = '<label for="username">Username:</label>' +
-				'<input type="text" tabindex="1" id="username" ' +
+				'<input type="text" id="username" ' +
 				'class="animate-all" name="username" />' +
 				'<label for="password">Password:</label>' +
-				'<input type="password" tabindex="1" id="password" ' +
+				'<input type="password" id="password" ' +
 				'class="animate-all" name="password" />' +
-				'<input type="submit" tabindex="1" class="animate-all" ' +
+				'<input type="submit" class="animate-all" ' +
 				'value="Login" />' +
-				'<button tabindex="1" class="close-button animate-all" ' +
+				'<button class="close-button animate-all" ' +
 				'title="Close Login Form">&times;</button>';
 				
 			// Add the form to the site header, and assign our ecent listener.

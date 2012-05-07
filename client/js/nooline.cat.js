@@ -27,7 +27,8 @@ if (!document.onreadystatechange) {
 // warn them.
 document.onreadystatechange = function() {
 	
-	if (document.readyState === 'complete') {
+	if ((document.readyState === 'complete') &&
+			(!nooline.runBuildOnce)) {
 		(function(N) {
 			var i,
 				len,
@@ -70,7 +71,7 @@ document.onreadystatechange = function() {
 			N.loginLink = document.getElementById('login-link');
 			N.header = document.getElementById('header');
 			N.mainNav = document.getElementById('main-nav').children[0];
-			N.runBuildOnce = false;
+			N.runBuildOnce = true;
 			
 			// Get our initial content, based on our template.
 			N.getContent();
@@ -80,6 +81,170 @@ document.onreadystatechange = function() {
 		}(nooline));
 	}
 };
+
+// Add a new user to the system.
+
+(function(N) {
+	N.addUser = function() {
+		var section = document.getElementById('control-panel-1').children[0],
+			panel = document.createElement('div'),
+			category = document.getElementById('users-button'),
+			existing = section.querySelectorAll('.control-panel-child'),
+			i,
+			len,
+			closePanel,
+			form,
+			username,
+			password,
+			again,
+			message,
+			creds = {},
+			sendHash = new XMLHttpRequest(),
+			sjcl = window.sjcl;
+		
+		// Remove any existing panels we might have active at the time.
+		if (existing.length > 0) {
+			for (i = 0, len = existing.length; i < len; i++) {
+				section.removeChild(existing[i]);
+			}
+		}
+		
+		section.appendChild(panel);
+		
+		category.className += ' active';
+		
+		panel.id = 'add-user-panel';
+		panel.className = 'control-panel-child add-user-panel animate-all hidden';
+		panel.innerHTML =
+			'<h1 id="panel-title">Add a new user:</h1>' +
+			'<button id="close-panel" class="close-panel button animate-all">' +
+				'&times;' +
+			'</button>' +
+			'<form id="add-user-form" method="POST" action="/add-user">' +
+				'<label for="username">Username:' +
+					'<input name="username" id="username" type="text"' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<label for="password">Password:' +
+					'<input name="password" id="password" type="password" ' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<label for="again">Again:' +
+					'<input name="again" id="again" type="password" ' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<button id="go-button" class="go-button button animate-all">' +
+					'Go!' +
+				'</button>' +
+			'</form>' +
+			'<h2 id="panel-message" class="animate-all">' +
+				'Enter credentials for the new user.' +
+			'</h2>';
+			
+		closePanel = document.getElementById('close-panel');
+		form = document.getElementById('add-user-form');
+		username = document.getElementById('username');
+		password = document.getElementById('password');
+		again = document.getElementById('again');
+		message = document.getElementById('panel-message');
+				
+		window.setTimeout(function() {
+			
+			panel.className = panel.className.replace(' hidden', '');
+			
+		}, 5);
+		
+		form.onsubmit = function(event) {
+			var empty = N.checkForEmpty([username, password, again]);
+			if (!event) {
+				event = window.event;
+				event.returnValue = false;
+			} else {
+				event.preventDefault();
+			}
+			
+			if (empty.length > 0) {
+				for (i = 0, len = empty.length; i < len; i++) {
+					if (!empty[i].className.match(/ input-error/)) {
+						empty[i].className = empty[i].className += ' input-error';
+					}
+						
+					empty[i].onblur = function() {
+						if (this.value !== '') {
+							this.className = this.className
+								.replace(' input-error', '');
+						}
+					}
+				}
+				
+				message.innerHTML = 'No fields are allowed to be blank.';
+				message.className = message.className += ' error-message';
+			} else if (password.value !== again.value) {
+				var checkMatch = function() {
+					
+					if (password.value === again.value) {
+						password.className = password.className.replace(' input-error', '');
+						again.className = again.className.replace(' input-error', '');
+					}
+				}
+				
+				if (!password.className.match(/ input-error/)) {
+					password.className = password.className += ' input-error';
+				}
+				
+				if (!again.className.match(/ input-error/)) {
+					again.className = again.className += ' input-error';
+				}
+				
+				password.onblur = checkMatch;
+				again.onblur = checkMatch;
+				
+				message.innerHTML = 'These fields must exactly match.';
+				message.className = message.className += ' error-message';
+			} else {
+				
+				creds.username = username.value;
+				creds.password = sjcl.encrypt(password.value, password.value);
+				
+				if (message.className.match(/ error-message/)) {
+					message.className = message.className.replace(' error-message', '');
+				}
+				
+				message.innerHTML = 'Working...';
+				
+				sendHash.open('POST', '/add-user', false);
+				sendHash.setRequestHeader('Content-Type', 'text/plain');
+				sendHash.onreadystatechange = function(event) {
+					
+					if (sendHash.readyState === 4) {
+						
+						if (sendHash.status === 201) {
+							
+							username.value = '';
+							password.value = '';
+							again.value = '';
+							message.innerHTML = 'Success!  Add another user?';
+							
+						} else if (sendHash.status === 409) {
+							message.innerHTML = 'Oops!  That user already exists.';
+							message.className = message.className += ' error-message';
+						}
+					}
+					
+				};
+				sendHash.send(JSON.stringify(creds));
+				
+			}
+		};
+		
+		closePanel.onclick = function(event) {
+			
+			N.removeElement(panel);
+			category.className = category.className.replace(' active', '');
+		};
+		
+	};
+}(nooline));
 
 /*jslint browser: true, plusplus: true, white: true, maxerr: 50, indent: 2 */
 
@@ -107,90 +272,257 @@ document.onreadystatechange = function() {
 					Date.parse(b.name.replace(/\w+\-/, ''));
 			};
 		
-		// Some browsers execute this method more than once when the AJAX response
-		// arrives, so we set a boolean to ensure we're only running our content
-		// build once.
-		if (!N.runBuildOnce) {
-			
-			// For each property of the aggregator (i.e. each type of content), and
-			// for each of the indexes of the array of JSON strings inside that
-			// property, parse the string into an object.
-			for (j in aggregator) {
-				if (aggregator.hasOwnProperty(j)) {
+		// For each property of the aggregator (i.e. each type of content), and
+		// for each of the indexes of the array of JSON strings inside that
+		// property, parse the string into an object.
+		for (j in aggregator) {
+			if (aggregator.hasOwnProperty(j)) {
+				
+				for (i = 0, len = aggregator[j].content.length; i < len; i++) {
+					aggregator[j].content[i] = JSON.parse(aggregator[j].content[i]);
+				}
+				
+				// Sort the array of our content objects based on the name/count; that
+				// is to say, the index of when the content was created.
+				aggregator[j].content.sort(dateSort);
+				
+				// Grab the target element for our content from the template based
+				// upon which property of our content aggregator we're parsing.
+				targetArea = document.getElementById(j);
+				
+				// For each of the objects in our content array, build out the
+				// appropriate elements for articles in that section. This would be
+				// nice to abstrace away into a modular system, allowing modification
+				// of the tags being generated with relative ease, especially with
+				// regards to the "blurb" bits below.
+				for (i = 0, len = aggregator[j].content.length; i < len; i++) {
 					
-					for (i = 0, len = aggregator[j].content.length; i < len; i++) {
-						aggregator[j].content[i] = JSON.parse(aggregator[j].content[i]);
-					}
+					// Check to see if it is a blurb or not, altering some of the
+					// elements created below.
+					blurb = aggregator[j].content[i].type === 'blurb' ? true : false;
 					
-					// Sort the array of our content objects based on the name/count; that
-					// is to say, the index of when the content was created.
-					aggregator[j].content.sort(dateSort);
+					article = document.createElement('article');
+					// To preserve some sanity in header heirarchy, we create an h2 for
+					// blurbs, which (for now anyway) are site taglines/descriptions
+					// near the first header.
+					title = blurb ?
+						document.createElement('h2') :
+						document.createElement('h3');
+					body = document.createElement('div');
 					
-					// Grab the target element for our content from the template based
-					// upon which property of our content aggregator we're parsing.
-					targetArea = document.getElementById(j);
+					// Id the article.
+					article.id = aggregator[j].content[i].name;
 					
-					// For each of the objects in our content array, build out the
-					// appropriate elements for articles in that section. This would be
-					// nice to abstrace away into a modular system, allowing modification
-					// of the tags being generated with relative ease, especially with
-					// regards to the "blurb" bits below.
-					for (i = 0, len = aggregator[j].content.length; i < len; i++) {
+					// Add a class to each of our articles based upon its index name.
+					article.className = 'article ' + aggregator[j].content[i].name;
+					title.className = 'title';
+					body.className = 'body';
+					
+					targetArea.appendChild(article);
+					article.appendChild(title);
+					article.appendChild(body);
+					
+					title.innerHTML = aggregator[j].content[i].title;
+					body.innerHTML = aggregator[j].content[i].body;
+					
+					// If we're not dealing with a blurb, add the content details.
+					if (!blurb) {
+						details = document.createElement('p');
+						details.className = 'details';
+						article.appendChild(details);
 						
-						// Check to see if it is a blurb or not, altering some of the
-						// elements created below.
-						blurb = aggregator[j].content[i].type === 'blurb' ? true : false;
-						
-						article = document.createElement('article');
-						// To preserve some sanity in header heirarchy, we create an h2 for
-						// blurbs, which (for now anyway) are site taglines/descriptions
-						// near the first header.
-						title = blurb ?
-							document.createElement('h2') :
-							document.createElement('h3');
-						body = document.createElement('div');
-						
-						// Id the article.
-						article.id = aggregator[j].content[i].name;
-						
-						// Add a class to each of our articles based upon its index name.
-						article.className = 'article ' + aggregator[j].content[i].name;
-						title.className = 'title';
-						body.className = 'body';
-						
-						targetArea.appendChild(article);
-						article.appendChild(title);
-						article.appendChild(body);
-						
-						title.innerHTML = aggregator[j].content[i].title;
-						body.innerHTML = aggregator[j].content[i].body;
-						
-						// If we're not dealing with a blurb, add the content details.
-						if (!blurb) {
-							details = document.createElement('p');
-							details.className = 'details';
-							article.appendChild(details);
-							
-							details.innerHTML = 'Posted by ' +
-							aggregator[j].content[i].author +
-							' on ' +
-							aggregator[j].content[i].date.match(/\d+\/\d+\/\d+/)[0] +
-							'.';
-						}
+						details.innerHTML = 'Posted by ' +
+						aggregator[j].content[i].author +
+						' on ' +
+						aggregator[j].content[i].date.match(/\d+\/\d+\/\d+/)[0] +
+						'.';
 					}
 				}
 			}
-			
-			// Have we logged in already or not?  Check our state.
-			N.checkState();
-			
 		}
 		
-		// Now that we've run once, we'll ensure we don't add duplicate data to our
-		// template.
-		N.runBuildOnce = true;
+		// Have we logged in already or not?  Check our state.
+		N.checkState();
+		
 	};
 	
+}(nooline));
+
+// Add a new user to the system.
+
+(function(N) {
+	N.changePassword = function() {
+		var section = document.getElementById('control-panel-1').children[0],
+			panel = document.createElement('div'),
+			category = document.getElementById('users-button'),
+			existing = section.querySelectorAll('.control-panel-child'),
+			i,
+			len,
+			closePanel,
+			form,
+			username,
+			old,
+			password,
+			again,
+			message,
+			creds = {},
+			sendHash = new XMLHttpRequest(),
+			sjcl = window.sjcl;
+		
+		// Remove any existing panels we might have active at the time.
+		if (existing.length > 0) {
+			for (i = 0, len = existing.length; i < len; i++) {
+				section.removeChild(existing[i]);
+			}
+		}
+		
+		section.appendChild(panel);
+		
+		category.className += ' active';
+		
+		panel.id = 'change-password-panel';
+		panel.className = 'control-panel-child change-password-panel animate-all ' +
+			'hidden';
+		panel.innerHTML =
+			'<h1 id="panel-title">Change a user\'s password:</h1>' +
+			'<button id="close-panel" class="close-panel button animate-all">' +
+				'&times;' +
+			'</button>' +
+			'<form id="change-password-form" method="POST" ' +
+				'action="/change-password">' +
+				'<label for="username">Username:' +
+					'<input name="username" id="username" type="text"' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<label for="old">Old one:' +
+					'<input name="old" id="old" type="password" ' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<label for="password">New one:' +
+					'<input name="password" id="password" type="password" ' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<label for="again">And again:' +
+					'<input name="again" id="again" type="password" ' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<button id="go-button" class="go-button button animate-all">' +
+					'Go!' +
+				'</button>' +
+			'</form>' +
+			'<h2 id="panel-message" class="animate-all">' +
+				'Enter the user\'s credentials.' +
+			'</h2>';
+			
+		closePanel = document.getElementById('close-panel');
+		form = document.getElementById('change-password-form');
+		username = document.getElementById('username');
+		old = document.getElementById('old');
+		password = document.getElementById('password');
+		again = document.getElementById('again');
+		message = document.getElementById('panel-message');
+				
+		window.setTimeout(function() {
+			
+			panel.className = panel.className.replace(' hidden', '');
+			
+		}, 5);
+		
+		form.onsubmit = function(event) {
+			var empty = N.checkForEmpty([username, old, password, again]);
+			if (!event) {
+				event = window.event;
+				event.returnValue = false;
+			} else {
+				event.preventDefault();
+			}
+			
+			if (empty.length > 0) {
+				for (i = 0, len = empty.length; i < len; i++) {
+					if (!empty[i].className.match(/ input-error/)) {
+						empty[i].className = empty[i].className += ' input-error';
+					}
+						
+					empty[i].onblur = function() {
+						if (this.value !== '') {
+							this.className = this.className
+								.replace(' input-error', '');
+						}
+					}
+				}
+				
+				message.innerHTML = 'No fields are allowed to be blank.';
+				message.className = message.className += ' error-message';
+			} else if (password.value !== again.value) {
+				var checkMatch = function() {
+					
+					if (password.value === again.value) {
+						password.className = password.className.replace(' input-error', '');
+						again.className = again.className.replace(' input-error', '');
+					}
+				}
+				
+				if (!password.className.match(/ input-error/)) {
+					password.className = password.className += ' input-error';
+				}
+				
+				if (!again.className.match(/ input-error/)) {
+					again.className = again.className += ' input-error';
+				}
+				
+				password.onblur = checkMatch;
+				again.onblur = checkMatch;
+				
+				message.innerHTML = 'These fields must exactly match.';
+				message.className = message.className += ' error-message';
+			} else {
+				
+				creds.username = username.value;
+				creds.old = sjcl.encrypt(old.value, old.value);
+				creds.password = sjcl.encrypt(password.value, password.value);
+				
+				if (message.className.match(/ error-message/)) {
+					message.className = message.className.replace(' error-message', '');
+				}
+				
+				message.innerHTML = 'Working...';
+				
+				sendHash.open('POST', '/change-password', false);
+				sendHash.setRequestHeader('Content-Type', 'text/plain');
+				sendHash.onreadystatechange = function(event) {
+					
+					if (sendHash.readyState === 4) {
+						
+						if (sendHash.status === 200) {
+							
+							username.value = '';
+							old.value = '';
+							password.value = '';
+							again.value = '';
+							message.innerHTML = 'Success!  Change another password?';
+							
+						} else if (sendHash.status === 404) {
+							message.innerHTML = 'Oops!  No such user exists.';
+							message.className = message.className += ' error-message';
+						} else if (sendHash.status === 401) {
+							message.innerHTML = 'Yikes!  That old password is wrong.';
+							message.className = message.className += ' error-message';
+						}
+					}
+					
+				};
+				sendHash.send(JSON.stringify(creds));
+				
+			}
+		};
+		
+		closePanel.onclick = function(event) {
+			
+			N.removeElement(panel);
+			category.className = category.className.replace(' active', '');
+		};
+		
+	};
 }(nooline));
 
 // Checks for content in an unsaved content entry form, such as when adding a
@@ -434,6 +766,138 @@ document.onreadystatechange = function() {
 	};
 }(nooline));
 
+// Create and add the button for adding more content.
+
+(function(N) {
+	N.createControlPanel = function() {
+		var panel = document.createElement('div'),
+			container = document.getElementById('container'),
+			i,
+			len,
+			buttons = [],
+			addUser,
+			removeUser,
+			usersButton,
+			subnav,
+			changePassword;
+		
+		document.body.insertBefore(panel, document.body.children[0]);
+		// Panel starts out with the "hidden" class, and opacity of 0...
+		// (See note 1.)
+		panel.className = 'control-panel-1 control-panel-wrapper animate-all ' +
+			'hidden';
+		panel.id = 'control-panel-1';
+		panel.innerHTML =
+			'<section id="control-panel-inner" class="control-panel-inner ' +
+				'animate-all">' +
+				'<ul id="control-panel-1-nav" class="control-panel-nav">' +
+					'<li>' +
+						'<button id="users-button" class="users-button nav-top hidden animate-all">' +
+							'Users' +
+						'</button>' +
+						'<ul class="control-panel-subnav">' +
+							'<li>' +
+								'<button id="add-user" class="nav-second animate-all">' +
+									'Add User' +
+								'</button>' +
+							'</li>' +
+							'<li>' +
+								'<button id="remove-user" class="nav-second animate-all">' +
+									'Remove User' +
+								'</button>' +
+							'</li>' +
+							'<li>' +
+								'<button id="change-password" class="nav-second animate-all">' +
+									'Change Password' +
+								'</button>' +
+							'</li>' +
+						'</ul>' +
+					'</li>' +
+				'</ul>' +
+			'</section>';
+		
+		container.className = container.className += ' logged-in';
+		
+		usersButton = document.getElementById('users-button');
+		addUser = document.getElementById('add-user');
+		removeUser = document.getElementById('remove-user');
+		changePassword = document.getElementById('change-password');
+		
+		addUser.onclick = N.addUser;
+		removeUser.onclick = N.removeUser;
+		changePassword.onclick = N.changePassword;
+		
+		usersButton.onfocus = function() {
+			subnav = usersButton.nextElementSibling.querySelectorAll('.nav-second');
+			usersButton.nextElementSibling.style.display = 'block';
+			
+			for (i = 0, len = subnav.length; i < len; i++) {
+				subnav[i].onblur = function() {
+					var onSubnav;
+					
+					// When using keyboard navigation, the focus goes to the document body
+					// before registering on the next element as might be expected. By
+					// building in a micro-delay, we'll catch when the browser registers
+					// the focus event on the element properly.
+					window.setTimeout(function() {
+						
+						for (i = 0, len = subnav.length; i < len; i++) {
+							if (document.activeElement === subnav[i]) {
+								onSubnav = true;
+								
+								break;
+							}
+						}
+						
+						if ((!onSubnav) &&
+								(document.activeElement !== usersButton)){
+							usersButton.nextElementSibling.style.display = '';
+						}
+						
+					});
+					
+				};
+			}
+		};
+		
+		usersButton.onblur = function() {
+			// See above statement about timeouts and window focus.
+			window.setTimeout(function() {
+				var onSubnav;
+				
+				for (i = 0, len = subnav.length;
+						 i < len;
+						 i++) {
+					
+					if (document.activeElement === subnav[i]) {
+						onSubnav = true;
+						
+						break;
+					} else {
+						usersButton.nextElementSibling.style.display = '';
+					}
+				}
+			}, 5);
+		};
+		
+		// (Note 1:)
+		// ...Which we remove very quickly, and set the opacity to 1,
+		// which allows for CSS transitions to animate. Without this delay, the
+		// transition doesn't animate properly – it appears to fire too soon,
+		// causing the element to just appear suddenly.
+		window.setTimeout(function() {
+			
+			panel.className = panel.className.replace(' hidden', '');
+			buttons = panel.querySelectorAll('.nav-top');
+			
+			for (i = 0, len = buttons.length; i < len; i++) {
+				
+				buttons[i].className = buttons[i].className.replace(' hidden', '');
+			}
+		}, 100);
+	};
+}(nooline));
+
 // Create the buttons for editing new content.
 
 (function(N) {
@@ -483,14 +947,14 @@ document.onreadystatechange = function() {
 			loginForm.method = 'POST';
 			loginForm.className = 'animate-all hidden';
 			loginForm.innerHTML = '<label for="username">Username:</label>' +
-				'<input type="text" tabindex="1" id="username" ' +
+				'<input type="text" id="username" ' +
 				'class="animate-all" name="username" />' +
 				'<label for="password">Password:</label>' +
-				'<input type="password" tabindex="1" id="password" ' +
+				'<input type="password" id="password" ' +
 				'class="animate-all" name="password" />' +
-				'<input type="submit" tabindex="1" class="animate-all" ' +
+				'<input type="submit" class="animate-all" ' +
 				'value="Login" />' +
-				'<button tabindex="1" class="close-button animate-all" ' +
+				'<button class="close-button animate-all" ' +
 				'title="Close Login Form">&times;</button>';
 				
 			// Add the form to the site header, and assign our ecent listener.
@@ -829,9 +1293,8 @@ document.onreadystatechange = function() {
 			
 			if ((getPosts.readyState === 4) &&
 					(getPosts.status === 200)) {
-				
-				// When the server responds with our object, we parse the JSON and build
-				// out the content.
+				// When the server responds with our object, we parse the JSON and
+				// build out the content.
 				N.buildContent(JSON.parse(getPosts.responseText));
 				
 			}
@@ -861,7 +1324,7 @@ document.onreadystatechange = function() {
 		// Send the username to the server, which responds with a hash for the
 		// username, if it has one. If not, it'll respond with a 404, which means
 		// the username doesn't exist.
-		getHash.open('POST', '/login', true);
+		getHash.open('POST', '/login', false);
 		getHash.setRequestHeader('Content-Type', 'text/plain');
 		getHash.onreadystatechange = function(event) {
 
@@ -973,6 +1436,9 @@ document.onreadystatechange = function() {
 			}
 		}
 		
+		// Add the control panel to the page to allow for admin tasks.
+		N.createControlPanel();
+		
 	};
 }(nooline));
 
@@ -996,6 +1462,8 @@ document.onreadystatechange = function() {
 			// Need to change this to getElementById
 			loginMeta = document.querySelectorAll('.login')[0],
 			openPosts = document.querySelectorAll('.new-post'),
+			controlPanel = document.getElementById('control-panel-1'),
+			container = document.getElementById('container'),
 			loginLink,
 			i,
 			len;
@@ -1018,6 +1486,9 @@ document.onreadystatechange = function() {
 		for (i = 0, len = openPosts.length; i < len; i++) {
 			N.removeElement(openPosts[i]);
 		}
+		
+		N.removeElement(controlPanel);
+		container.className = container.className.replace(' logged-in', '');
 		
 		// Hide the login meta field, so that it can be animated with CSS
 		// transitions if desired.
@@ -1230,6 +1701,170 @@ document.onreadystatechange = function() {
 			element.style.opacity = 0;
 			element.className += ' hidden';
 		}
+		
+	};
+}(nooline));
+
+// Add a new user to the system.
+
+(function(N) {
+	N.removeUser = function() {
+		var section = document.getElementById('control-panel-1').children[0],
+			panel = document.createElement('div'),
+			category = document.getElementById('users-button'),
+			existing = section.querySelectorAll('.control-panel-child'),
+			i,
+			len,
+			closePanel,
+			form,
+			username,
+			sure,
+			really,
+			message,
+			creds = {},
+			sendHash = new XMLHttpRequest();
+		
+		// Remove any existing panels we might have active at the time.
+		if (existing.length > 0) {
+			for (i = 0, len = existing.length; i < len; i++) {
+				section.removeChild(existing[i]);
+			}
+		}
+		
+		section.appendChild(panel);
+		
+		category.className += ' active';
+		
+		panel.id = 'remove-user-panel';
+		panel.className = 'control-panel-child remove-user-panel animate-all hidden';
+		panel.innerHTML =
+			'<h1 id="panel-title">Remove an existing user:</h1>' +
+			'<button id="close-panel" class="close-panel button animate-all">' +
+				'&times;' +
+			'</button>' +
+			'<form id="remove-user-form" method="POST" action="/remove-user">' +
+				'<label for="username">Username:' +
+					'<input name="username" id="username" type="text"' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<label for="sure">Sure?' +
+					'<input name="sure" id="sure" type="checkbox" ' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<label for="really">Really sure?' +
+					'<input name="really" id="really" type="checkbox" ' +
+					'class="animate-all" />' +
+				'</label>' +
+				'<button id="go-button" class="go-button button animate-all">' +
+					'Do it!' +
+				'</button>' +
+			'</form>' +
+			'<h2 id="panel-message" class="animate-all">' +
+				'Enter the username, and confirm.' +
+			'</h2>';
+			
+		closePanel = document.getElementById('close-panel');
+		form = document.getElementById('remove-user-form');
+		username = document.getElementById('username');
+		sure = document.getElementById('sure');
+		really = document.getElementById('really');
+		message = document.getElementById('panel-message');
+				
+		window.setTimeout(function() {
+			
+			panel.className = panel.className.replace(' hidden', '');
+			
+		}, 5);
+		
+		form.onsubmit = function(event) {
+			var empty = N.checkForEmpty([username]);
+			if (!event) {
+				event = window.event;
+				event.returnValue = false;
+			} else {
+				event.preventDefault();
+			}
+			
+			if (empty.length > 0) {
+				for (i = 0, len = empty.length; i < len; i++) {
+					if (!empty[i].className.match(/ input-error/)) {
+						empty[i].className = empty[i].className += ' input-error';
+					}
+						
+					empty[i].onblur = function() {
+						if (this.value !== '') {
+							this.className = this.className
+								.replace(' input-error', '');
+						}
+					}
+				}
+				
+				message.innerHTML = 'This field can\'t be blank.';
+				message.className = message.className += ' error-message';
+			} else if ((!sure.checked) ||
+								 !(really.checked)) {
+				var checkMatch = function() {
+					
+					if (this.checked) {
+						this.className = this.className.replace(' input-error', '');
+					}
+				}
+				
+				if (!sure.className.match(/ input-error/)) {
+					sure.className = sure.className += ' input-error';
+				}
+				
+				if (!really.className.match(/ input-error/)) {
+					really.className = really.className += ' input-error';
+				}
+				
+				sure.onblur = checkMatch;
+				really.onblur = checkMatch;
+				
+				message.innerHTML = 'Not gonna do it if you\'re not sure!';
+				message.className = message.className += ' error-message';
+			} else {
+				
+				creds.username = username.value;
+				creds.sure = sure.checked;
+				creds.really = sure.checked;
+				
+				if (message.className.match(/ error-message/)) {
+					message.className = message.className.replace(' error-message', '');
+				}
+				
+				message.innerHTML = 'Working...';
+				
+				sendHash.open('POST', '/remove-user', false);
+				sendHash.setRequestHeader('Content-Type', 'text/plain');
+				sendHash.onreadystatechange = function(event) {
+					
+					if (sendHash.readyState === 4) {
+						
+						if (sendHash.status === 200) {
+							
+							username.value = '';
+							sure.checked = false;
+							really.checked = false;
+							message.innerHTML = 'Success!  Remove another user?';
+							
+						} else if (sendHash.status === 404) {
+							message.innerHTML = 'Oops!  No such user exists.';
+							message.className = message.className += ' error-message';
+						}
+					}
+					
+				};
+				sendHash.send(JSON.stringify(creds));
+				
+			}
+		};
+		
+		closePanel.onclick = function(event) {
+			
+			N.removeElement(panel);
+			category.className = category.className.replace(' active', '');
+		};
 		
 	};
 }(nooline));

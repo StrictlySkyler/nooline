@@ -18,6 +18,8 @@
 			// Need to change this to getElementById
 			loginMeta = document.querySelectorAll('.login')[0],
 			openPosts = document.querySelectorAll('.new-post'),
+			controlPanel = document.getElementById('control-panel-1'),
+			container = document.getElementById('container'),
 			loginLink,
 			i,
 			len;
@@ -40,6 +42,9 @@
 		for (i = 0, len = openPosts.length; i < len; i++) {
 			N.removeElement(openPosts[i]);
 		}
+		
+		N.removeElement(controlPanel);
+		container.className = container.className.replace(' logged-in', '');
 		
 		// Hide the login meta field, so that it can be animated with CSS
 		// transitions if desired.

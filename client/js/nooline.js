@@ -25,7 +25,8 @@ if (!document.onreadystatechange) {
 // warn them.
 document.onreadystatechange = function() {
 	
-	if (document.readyState === 'complete') {
+	if ((document.readyState === 'complete') &&
+			(!nooline.runBuildOnce)) {
 		(function(N) {
 			var i,
 				len,
@@ -68,7 +69,7 @@ document.onreadystatechange = function() {
 			N.loginLink = document.getElementById('login-link');
 			N.header = document.getElementById('header');
 			N.mainNav = document.getElementById('main-nav').children[0];
-			N.runBuildOnce = false;
+			N.runBuildOnce = true;
 			
 			// Get our initial content, based on our template.
 			N.getContent();
