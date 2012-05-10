@@ -98,9 +98,27 @@ should be agnostic to any given framework.
 
 In theory, much of \\n could be ported to another framework outside of
 node (apache, nginx, etc.), or paired with different code (php, java,
-etc.). If TRUNCATED! Please download pandoc if you want to convert large
-files.
+etc.). If this means providing a better user experience than the
+existing platform \\n would be replacing, then by all means it’s a win.
+
+## Want to contribute?
+
+The following things are officially on the list of things which need
+doing:
+
+-   Add a WYSIWYG
+-   Flesh out the Admin Control Panel
+-   Create finer grain “edit statuses” (added vs. edited, preview, etc.)
+-   Add user roles & permissions
+-   Build better security checks
+-   Implement a drop-dead simple, super extra easy plugin system
+-   Implement cluster in node
+
+Head on over to [the github repo][] and submit a pull request!
+
+✌
 
 [“noosphere”]: http://en.wikipedia.org/wiki/Noosphere
 [Eric Raymond’s article]: http://www.catb.org/~esr/writings/homesteading/homesteading/
 [The Unix Philosophy]: http://en.wikipedia.org/wiki/Unix_philosophy
+[the github repo]: https://github.com/StrictlySkyler/nooline
