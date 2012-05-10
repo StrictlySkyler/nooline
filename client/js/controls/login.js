@@ -6,7 +6,7 @@
 // posted.
 
 (function(N) {
-	N.login = function(user, trackerCookie) {
+	N.login = function() {
 		// Grab all the content areas we'll be making editable.
 		var contentAreas = document.querySelectorAll('.editable'),
 			i,
@@ -15,11 +15,8 @@
 			lon,
 			// There should be only one of these; need to make this a getElementById
 			loginMeta = document.querySelectorAll('.login')[0],
-			logoutLink;
-		
-		// Set our cookie for tracking session authentication.
-		document.cookie = 'user=|' + user + '|user;';
-		document.cookie = 'tracker=|' + trackerCookie + '|tracker;';
+			logoutLink,
+			sjcl = window.sjcl;
 		
 		// When we login, remove the login form.
 		N.removeElement(document.getElementById('login-form'));

@@ -5,13 +5,21 @@
 // http://crypto.stanford.edu/sjcl/
 
 (function(N) {
-	N.getCreds = function(username, password) {
+	N.getCreds = function(username, password, persist) {
 		var hash,
 			decrypted,
-			invalid,
 			getHash = new XMLHttpRequest(),
-			sjcl = window.sjcl;
-			
+			sjcl = window.sjcl,
+			hash,
+			creds = {};
+		
+		creds.username = username;
+		if (!persist) {
+		 creds.password = sjcl.encrypt(password, password);
+		} else {
+			creds.password = password;
+		}
+		
 		// Send the username to the server, which responds with a hash for the
 		// username, if it has one. If not, it'll respond with a 404, which means
 		// the username doesn't exist.
@@ -22,28 +30,28 @@
 			if ((getHash.readyState === 4) && (getHash.status === 200)) {
 
 				hash = getHash.responseText;
-				invalid = /error404!/.test(hash);
 				
 				// If the username exists, let's try to decrypt it.
-				if (!invalid) {
-					try {
-						decrypted = sjcl.decrypt(password, hash);
-					} catch (e) {
-						decrypted = false;
-						window.alert('Wrong password.');
-					}
-					// Finally, if our decryption succeeds and our password matches the
-					// decrypted hash, we login.
-					finally {
-						if (decrypted === password) {
-							N.login(username, password);
-						}
-					}
+				if (hash === 'none') {
+					
+					alert('We\'re unable to find that user.');
+				} else if (hash === 'invalid') {
+					
+					alert('Wrong password.');
 				} else {
-					window.alert('We\'re unable to find that user.');
+					
+					N.login();
+					
+					// Set our cookie for tracking session authentication.
+					document.cookie = 'user=|' + creds.username + '|user;';
+					document.cookie = 'hash=|' + creds.password + '|hash;';
+					
+					N.user = creds.username;
+					N.password = creds.password;
 				}
+					
 			}
 		};
-		getHash.send(username);
+		getHash.send(JSON.stringify(creds));
 	};
 }(nooline));

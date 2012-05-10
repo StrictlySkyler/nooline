@@ -121,6 +121,9 @@
 				creds.username = username.value;
 				creds.sure = sure.checked;
 				creds.really = sure.checked;
+				creds.auth = {};
+				creds.auth.username = N.user;
+				creds.auth.password = N.password;
 				
 				if (message.className.match(/ error-message/)) {
 					message.className = message.className.replace(' error-message', '');
@@ -134,17 +137,31 @@
 					
 					if (sendHash.readyState === 4) {
 						
-						if (sendHash.status === 200) {
-							
-							username.value = '';
-							sure.checked = false;
-							really.checked = false;
-							message.innerHTML = 'Success!  Remove another user?';
-							
-						} else if (sendHash.status === 404) {
-							message.innerHTML = 'Oops!  No such user exists.';
-							message.className = message.className += ' error-message';
+						switch (sendHash.status) {
+							case 200:
+								
+								if (sendHash.responseText !== 'invalid') {
+									username.value = '';
+									sure.checked = false;
+									really.checked = false;
+									message.innerHTML = 'Success!  Remove another user?';
+								} else {
+									message.innerHTML = 'You don\'t have permission anymore.';
+									message.className = message.className += ' error-message';
+								}
+								break;
+							case 404:
+								
+								message.innerHTML = 'Oops!  No such user exists.';
+								message.className = message.className += ' error-message';
+								break;
+							case 403:
+								
+								message.innerHTML = '*Your* username doesn\'t exist.  Hacking?';
+								message.className = message.className += ' error-message';
+								break;
 						}
+						
 					}
 					
 				};

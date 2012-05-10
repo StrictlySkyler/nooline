@@ -6,22 +6,22 @@
 // It's possible to replace this with another authentication mechanism, should a
 // developer choose; right now the work is pushed off to the client.
 
-/*jslint node: true, white: true, maxerr: 50, indent: 2 */
 'use strict';
 
 var fs = require('fs'),
 	debug = require('./logger.js').debug,
 	errlog = require('./logger.js').error,
-
-hash,
-creds,
+	sjcl = require('../../shared/js/lib/sjcl.js');
 
 // Grab the username the client has sent to us, and search for the username.hash
 // file matching the username passed to us. Then, serve back the contents of
 // that file, which are a crypto hash containing the user's password.
-auth = function(request, response) {
+exports.auth = function(request, response) {
 	
-	var postData = '';
+	var postData = '',
+		store,
+		creds,
+		result;
 	
 	request.setEncoding('utf8');
 	
@@ -32,32 +32,55 @@ auth = function(request, response) {
 	});
 	
 	request.addListener('end', function() {
-				
-		creds = postData;
+		
+		debug(__filename, 'User credentials received, searching for match...');
+		
+		creds = JSON.parse(postData, null, '\t');
 		
 		fs.readFile('./shared/creds/' +
-							creds +
+							creds.username +
 							'.hash', 'utf8', function(error, data) {
 		
 		if (error) {
-			debug(__filename, 'Couldn\'t find a hash file for the user \'' +
+			debug(__filename, '...Couldn\'t find a hash file for the user \'' +
 									creds +
 									'\'.');
 			
-			hash = 'error404!';
+			result = 'none';
 			response.writeHead(200, {
 				'Content-Type' : 'text/plain'
 			});
-			response.write(hash);
+			response.write(result);
 			response.end();
 			
 		} else {
-			hash = data;
-			response.writeHead(200, {
-				'Content-Type' : 'text/plain'
-			});
-			response.write(hash);
-			response.end();
+			
+			store = JSON.parse(data, null, '\t');
+			
+			debug(__filename, '...Found a match for \"' + store.username + '\", ' +
+						'checking password...');
+			
+			try {
+				if (sjcl.decrypt(store.password, creds.password)) {
+					
+					result = 'success';
+					debug(__filename, '...Password valid.');
+					
+				}
+			} catch (e) {
+				
+				result = 'invalid';
+				debug(__filename, '...Password invalid.');
+				
+			} finally {
+				response.writeHead(200, {
+					'Content-Type' : 'text/plain'
+				});
+				response.write(result);
+				response.end();
+				
+				debug(__filename, 'Results sent back to client!');
+			}
 		}
 		
 	});
@@ -66,4 +89,33 @@ auth = function(request, response) {
 	
 };
 
-exports.auth = auth;
+exports.check = function(creds, callback) {
+	
+	var store;
+	
+	fs.readFile('./shared/creds/' +
+							creds.username +
+							'.hash', 'utf8', function(error, data) {
+		
+		if (error) {
+			
+			callback('none');
+		} else {
+			
+			store  = JSON.parse(data, null, '\t');
+			
+			try {
+				if (sjcl.decrypt(store.password, creds.password)) {
+					
+					callback('valid');
+					
+				}
+			} catch (e) {
+				
+				callback('invalid');
+			}
+			
+		}
+		
+	});
+};

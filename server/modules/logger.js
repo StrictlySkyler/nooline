@@ -33,6 +33,7 @@ exports.debug = function(file, data) {
 		path.basename(file) +
 		':' +
 		'\u001b[0m',
+		'\n',
 		data);
 	
 };
@@ -59,6 +60,7 @@ exports.error = function(file, data) {
 		path.basename(file) +
 		':' +
 		'\u001b[1;33m',
+		'\n',
 		data +
 		'\u001b[0m');
 	

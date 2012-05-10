@@ -26,7 +26,7 @@
 					
 		// Expire the cookie creds.
 		document.cookie = 'user=null;expires=Thu, 01-Jan-70 00:00:01 GMT';
-		document.cookie = 'tracker=null;expires=Thu, 01-Jan-70 00:00:01 GMT';
+		document.cookie = 'hash=null;expires=Thu, 01-Jan-70 00:00:01 GMT';
 		// Need to refactor this – see login.js for details.
 		N.validCreds = false;
 		

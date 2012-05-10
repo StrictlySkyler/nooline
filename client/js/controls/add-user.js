@@ -121,6 +121,9 @@
 				
 				creds.username = username.value;
 				creds.password = sjcl.encrypt(password.value, password.value);
+				creds.auth = {};
+				creds.auth.username = N.user;
+				creds.auth.password = N.password;
 				
 				if (message.className.match(/ error-message/)) {
 					message.className = message.className.replace(' error-message', '');
@@ -134,17 +137,34 @@
 					
 					if (sendHash.readyState === 4) {
 						
-						if (sendHash.status === 201) {
-							
-							username.value = '';
-							password.value = '';
-							again.value = '';
-							message.innerHTML = 'Success!  Add another user?';
-							
-						} else if (sendHash.status === 409) {
-							message.innerHTML = 'Oops!  That user already exists.';
-							message.className = message.className += ' error-message';
+						switch (sendHash.status) {
+							case 201:
+								
+								username.value = '';
+								password.value = '';
+								again.value = '';
+								message.innerHTML = 'Success!  Add another user?';
+								break;
+							case 409:
+								
+								message.innerHTML = 'Oops!  That user already exists.';
+								message.className = message.className += ' error-message';
+								break;
+							case 200:
+								
+								if (sendHash.responseText === 'invalid') {
+									
+									message.innerHTML = 'You don\'t have permission anymore.';
+									message.className = message.className += ' error-message';
+								}
+								break;
+							case 403:
+								
+								message.innerHTML = '*Your* username doesn\'t exist.  Hacking?';
+								message.className = message.className += ' error-message';
+								break;
 						}
+						
 					}
 					
 				};

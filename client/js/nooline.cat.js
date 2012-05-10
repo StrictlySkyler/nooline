@@ -205,6 +205,9 @@ document.onreadystatechange = function() {
 				
 				creds.username = username.value;
 				creds.password = sjcl.encrypt(password.value, password.value);
+				creds.auth = {};
+				creds.auth.username = N.user;
+				creds.auth.password = N.password;
 				
 				if (message.className.match(/ error-message/)) {
 					message.className = message.className.replace(' error-message', '');
@@ -218,17 +221,34 @@ document.onreadystatechange = function() {
 					
 					if (sendHash.readyState === 4) {
 						
-						if (sendHash.status === 201) {
-							
-							username.value = '';
-							password.value = '';
-							again.value = '';
-							message.innerHTML = 'Success!  Add another user?';
-							
-						} else if (sendHash.status === 409) {
-							message.innerHTML = 'Oops!  That user already exists.';
-							message.className = message.className += ' error-message';
+						switch (sendHash.status) {
+							case 201:
+								
+								username.value = '';
+								password.value = '';
+								again.value = '';
+								message.innerHTML = 'Success!  Add another user?';
+								break;
+							case 409:
+								
+								message.innerHTML = 'Oops!  That user already exists.';
+								message.className = message.className += ' error-message';
+								break;
+							case 200:
+								
+								if (sendHash.responseText === 'invalid') {
+									
+									message.innerHTML = 'You don\'t have permission anymore.';
+									message.className = message.className += ' error-message';
+								}
+								break;
+							case 403:
+								
+								message.innerHTML = '*Your* username doesn\'t exist.  Hacking?';
+								message.className = message.className += ' error-message';
+								break;
 						}
+						
 					}
 					
 				};
@@ -479,7 +499,10 @@ document.onreadystatechange = function() {
 				
 				creds.username = username.value;
 				creds.old = sjcl.encrypt(old.value, old.value);
-				creds.password = sjcl.encrypt(password.value, password.value);
+				creds.password = sjcl.encrypt(old.value, password.value);
+				creds.auth = {};
+				creds.auth.username = N.user;
+				creds.auth.password = N.password;
 				
 				if (message.className.match(/ error-message/)) {
 					message.className = message.className.replace(' error-message', '');
@@ -493,21 +516,37 @@ document.onreadystatechange = function() {
 					
 					if (sendHash.readyState === 4) {
 						
-						if (sendHash.status === 200) {
-							
-							username.value = '';
-							old.value = '';
-							password.value = '';
-							again.value = '';
-							message.innerHTML = 'Success!  Change another password?';
-							
-						} else if (sendHash.status === 404) {
-							message.innerHTML = 'Oops!  No such user exists.';
-							message.className = message.className += ' error-message';
-						} else if (sendHash.status === 401) {
-							message.innerHTML = 'Yikes!  That old password is wrong.';
-							message.className = message.className += ' error-message';
+						switch (sendHash.status) {
+							case 200:
+								
+								if (sendHash.responseText !== 'invalid') {
+									username.value = '';
+									old.value = '';
+									password.value = '';
+									again.value = '';
+									message.innerHTML = 'Success!  Change another password?';
+								} else {
+									message.innerHTML = 'You don\'t have permission anymore.';
+									message.className = message.className += ' error-message';
+								}
+								break;
+							case 404:
+								
+								message.innerHTML = 'Oops!  No such user exists.';
+								message.className = message.className += ' error-message';
+								break;
+							case 401:
+								
+								message.innerHTML = 'Yikes!  That old password is wrong.';
+								message.className = message.className += ' error-message';
+								break;
+							case 403:
+								
+								message.innerHTML = '*Your* username doesn\'t exist.  Hacking?';
+								message.className = message.className += ' error-message';
+								break;
 						}
+						
 					}
 					
 				};
@@ -583,20 +622,20 @@ document.onreadystatechange = function() {
 	
 	N.checkState = function() {
 		// Test to see if our credentials are in the cookie.
-		var hashCheck = /tracker=\|.+\|tracker/.test(document.cookie),
+		var hashCheck = /hash=\|.+\|hash/.test(document.cookie),
 			username = /user=\|.+\|user/.test(document.cookie);
 		
 		// If they are, grab out the value, and pass 'em to the getCreds method.
 		if (username && hashCheck) {
-			hashCheck = document.cookie.match(/tracker=\|.+\|tracker/)[0];
+			hashCheck = document.cookie.match(/hash=\|.+\|hash/)[0];
 			username = document.cookie.match(/user=\|.+\|user/)[0];
-				
-			hashCheck = hashCheck.replace('tracker=|', '');
-			hashCheck = hashCheck.replace('|tracker', '');
+			
+			hashCheck = hashCheck.replace('hash=|', '');
+			hashCheck = hashCheck.replace('|hash', '');
 			username = username.replace('user=|', '');
 			username = username.replace('|user', '');
 			
-			N.getCreds(username, hashCheck);
+			N.getCreds(username, hashCheck, true);
 		}
 		
 	};
@@ -1314,13 +1353,21 @@ document.onreadystatechange = function() {
 // http://crypto.stanford.edu/sjcl/
 
 (function(N) {
-	N.getCreds = function(username, password) {
+	N.getCreds = function(username, password, persist) {
 		var hash,
 			decrypted,
-			invalid,
 			getHash = new XMLHttpRequest(),
-			sjcl = window.sjcl;
-			
+			sjcl = window.sjcl,
+			hash,
+			creds = {};
+		
+		creds.username = username;
+		if (!persist) {
+		 creds.password = sjcl.encrypt(password, password);
+		} else {
+			creds.password = password;
+		}
+		
 		// Send the username to the server, which responds with a hash for the
 		// username, if it has one. If not, it'll respond with a 404, which means
 		// the username doesn't exist.
@@ -1331,29 +1378,29 @@ document.onreadystatechange = function() {
 			if ((getHash.readyState === 4) && (getHash.status === 200)) {
 
 				hash = getHash.responseText;
-				invalid = /error404!/.test(hash);
 				
 				// If the username exists, let's try to decrypt it.
-				if (!invalid) {
-					try {
-						decrypted = sjcl.decrypt(password, hash);
-					} catch (e) {
-						decrypted = false;
-						window.alert('Wrong password.');
-					}
-					// Finally, if our decryption succeeds and our password matches the
-					// decrypted hash, we login.
-					finally {
-						if (decrypted === password) {
-							N.login(username, password);
-						}
-					}
+				if (hash === 'none') {
+					
+					alert('We\'re unable to find that user.');
+				} else if (hash === 'invalid') {
+					
+					alert('Wrong password.');
 				} else {
-					window.alert('We\'re unable to find that user.');
+					
+					N.login();
+					
+					// Set our cookie for tracking session authentication.
+					document.cookie = 'user=|' + creds.username + '|user;';
+					document.cookie = 'hash=|' + creds.password + '|hash;';
+					
+					N.user = creds.username;
+					N.password = creds.password;
 				}
+					
 			}
 		};
-		getHash.send(username);
+		getHash.send(JSON.stringify(creds));
 	};
 }(nooline));
 
@@ -1379,7 +1426,7 @@ document.onreadystatechange = function() {
 // posted.
 
 (function(N) {
-	N.login = function(user, trackerCookie) {
+	N.login = function() {
 		// Grab all the content areas we'll be making editable.
 		var contentAreas = document.querySelectorAll('.editable'),
 			i,
@@ -1388,11 +1435,8 @@ document.onreadystatechange = function() {
 			lon,
 			// There should be only one of these; need to make this a getElementById
 			loginMeta = document.querySelectorAll('.login')[0],
-			logoutLink;
-		
-		// Set our cookie for tracking session authentication.
-		document.cookie = 'user=|' + user + '|user;';
-		document.cookie = 'tracker=|' + trackerCookie + '|tracker;';
+			logoutLink,
+			sjcl = window.sjcl;
 		
 		// When we login, remove the login form.
 		N.removeElement(document.getElementById('login-form'));
@@ -1470,7 +1514,7 @@ document.onreadystatechange = function() {
 					
 		// Expire the cookie creds.
 		document.cookie = 'user=null;expires=Thu, 01-Jan-70 00:00:01 GMT';
-		document.cookie = 'tracker=null;expires=Thu, 01-Jan-70 00:00:01 GMT';
+		document.cookie = 'hash=null;expires=Thu, 01-Jan-70 00:00:01 GMT';
 		// Need to refactor this – see login.js for details.
 		N.validCreds = false;
 		
@@ -1665,7 +1709,7 @@ document.onreadystatechange = function() {
 // button on a form.
 
 (function(N) {
-	N.removeElement = function(element, callback) {
+	N.removeElement = function(element) {
 		
 		// Recursive loop checks to see if the element still exists on the page or
 		// if it's been removed.
@@ -1691,14 +1735,12 @@ document.onreadystatechange = function() {
 							parent.removeChild(element);
 							window.clearInterval(interval);
 							
-							if (callback) {
-								callback();
-							}
 						}
 					}
 				}, 250);
 				
 			element.style.opacity = 0;
+			element.style.minHeight = 0;
 			element.className += ' hidden';
 		}
 		
@@ -1828,6 +1870,9 @@ document.onreadystatechange = function() {
 				creds.username = username.value;
 				creds.sure = sure.checked;
 				creds.really = sure.checked;
+				creds.auth = {};
+				creds.auth.username = N.user;
+				creds.auth.password = N.password;
 				
 				if (message.className.match(/ error-message/)) {
 					message.className = message.className.replace(' error-message', '');
@@ -1841,17 +1886,31 @@ document.onreadystatechange = function() {
 					
 					if (sendHash.readyState === 4) {
 						
-						if (sendHash.status === 200) {
-							
-							username.value = '';
-							sure.checked = false;
-							really.checked = false;
-							message.innerHTML = 'Success!  Remove another user?';
-							
-						} else if (sendHash.status === 404) {
-							message.innerHTML = 'Oops!  No such user exists.';
-							message.className = message.className += ' error-message';
+						switch (sendHash.status) {
+							case 200:
+								
+								if (sendHash.responseText !== 'invalid') {
+									username.value = '';
+									sure.checked = false;
+									really.checked = false;
+									message.innerHTML = 'Success!  Remove another user?';
+								} else {
+									message.innerHTML = 'You don\'t have permission anymore.';
+									message.className = message.className += ' error-message';
+								}
+								break;
+							case 404:
+								
+								message.innerHTML = 'Oops!  No such user exists.';
+								message.className = message.className += ' error-message';
+								break;
+							case 403:
+								
+								message.innerHTML = '*Your* username doesn\'t exist.  Hacking?';
+								message.className = message.className += ' error-message';
+								break;
 						}
+						
 					}
 					
 				};

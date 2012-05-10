@@ -6,7 +6,13 @@
 'use strict';
 
 var start = require('./server/modules/server.js').start
+	, browser = require('zombie')
+	, fs = require('fs')
+	, debug = require('./server/modules/logger.js').debug
+	, errlog = require('./server/modules/logger.js').error
 
+	, sites
+	, i
 	, portPassed;	// nooline defaults to port 8080 if no port is passed.
 
 // Catch the CLI flags.
@@ -18,3 +24,39 @@ if (process.argv.length > 2) {
 
 // Start the server.
 start(portPassed);
+
+fs.readdir('./client/seo', function(error, data) {
+	if (error) {
+		errlog(__filename, error);
+	} else {
+		
+		sites = data;
+		
+		for (i = 0, sites.length; i < sites.length; i++) {
+			
+			var sitename = sites[i];
+			
+			browser.visit('http://' +
+										sites[i], function(e, browser) {
+				
+				fs.writeFile('./client/cache/' +
+										 browser.window.location.host +
+										 '/index.html', browser.html(), function(error) {
+					
+					if (error) {
+						
+						errlog(__filename, error);
+						
+					} else {
+						
+						debug(__filename, 'HTML snapshot of ' +
+									browser.window.location.host +
+									' taken!');
+						
+					}
+				});
+			});
+		}
+		
+	}
+});

@@ -264,6 +264,8 @@ handle.request = function(request, response, requestPath, redirect) {
 // If we have a login request, call the authentication module.
 handle["/login"] = function(request, response) {
 	
+	debug(__filename, 'Handling request for user login.');
+	
 	auth(request, response);
 	
 };

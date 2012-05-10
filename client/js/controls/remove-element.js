@@ -2,7 +2,7 @@
 // button on a form.
 
 (function(N) {
-	N.removeElement = function(element, callback) {
+	N.removeElement = function(element) {
 		
 		// Recursive loop checks to see if the element still exists on the page or
 		// if it's been removed.
@@ -28,14 +28,12 @@
 							parent.removeChild(element);
 							window.clearInterval(interval);
 							
-							if (callback) {
-								callback();
-							}
 						}
 					}
 				}, 250);
 				
 			element.style.opacity = 0;
+			element.style.minHeight = 0;
 			element.className += ' hidden';
 		}
 		
