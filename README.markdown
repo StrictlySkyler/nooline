@@ -35,28 +35,28 @@ There is a core set of principles which guide my development with \\n.
 They are:
 
 1.  **There should be a *near-zero* amount of training time required to
-    let a content editor use the platform.** All controls should be
-        blatantly self-evident in use, and naming conventions should be
-            painstakingly easy to understand. Don’t refresh the page or go to a
-                new one unless it’s 100% unavoidable.
-                2.  **Editing and modifying the system should require *minimal* amounts
-                    of work.** Where possible, share code between client and server, and
-                        rely upon native functionality within browsers or node. Store data
-                            in simple structures.
-                            3.  **Push as much work to the *client* as is reasonably possible.**
-                                JavaScript engines in clients are blazingly fast. Save the server
-                                    the work, and let the client do as much of it as it can. This should
-                                        not compromise the end user experience.
-                                        4.  ***As few dependencies as possible* should be needed to stand up and
-                                            run and instance.** The platform should remain as agnostic as
-                                                possible with regards to other frameworks and modules, and the
-                                                    number of tightly-coupled platforms should be kept to a minimum.
-                                                    5.  **The End User Experience is *never* compromised to due technical
-                                                        challenges.** This is the most important part, and it includes web
-                                                            admins, content editors, and developers as End Users.
+let a content editor use the platform.** All controls should be
+blatantly self-evident in use, and naming conventions should be
+painstakingly easy to understand. Don’t refresh the page or go to a
+new one unless it’s 100% unavoidable.
+2.  **Editing and modifying the system should require *minimal* amounts
+of work.** Where possible, share code between client and server, and
+rely upon native functionality within browsers or node. Store data
+in simple structures.
+3.  **Push as much work to the *client* as is reasonably possible.**
+JavaScript engines in clients are blazingly fast. Save the server
+the work, and let the client do as much of it as it can. This should
+not compromise the end user experience.
+4.  ***As few dependencies as possible* should be needed to stand up and
+run and instance.** The platform should remain as agnostic as
+possible with regards to other frameworks and modules, and the
+number of tightly-coupled platforms should be kept to a minimum.
+5.  **The End User Experience is *never* compromised to due technical
+challenges.** This is the most important part, and it includes web
+admins, content editors, and developers as End Users.
 
-                                                            For a related and simple set of informing guidelines, see [The Unix
-                                                            Philosophy][].
+For a related and simple set of informing guidelines, see [The Unix
+Philosophy][].
 
 #### How it works
 
