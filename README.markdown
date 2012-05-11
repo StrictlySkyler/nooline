@@ -125,7 +125,11 @@ doing:
 -   Add user roles & permissions
 -   Build better security checks
 -   Implement a drop-dead simple, super extra easy plugin system
--   Implement cluster in nodeHead on over to [the github repo][] and submit a pull request!
+-   Implement cluster in node
+-   Add periodic HTML snapshotting, rather than at startup
+-   Rename process (once working in Mac OS)
+
+Head on over to [the github repo][] and submit a pull request!
 
 ✌
 
