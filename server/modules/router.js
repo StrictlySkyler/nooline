@@ -41,33 +41,44 @@ route = function(request, response, handle) {
 	debug(__filename, requestPath +
 		' has been requested.');
 	
-	// If the request has a behavior defined in the handler, execute it, and pass
-	// along the request and response to maintain async.
-	if (typeof handle[requestPath] === 'function') {
-				
-		handle[requestPath](request, response, requestPath);
+	debug(__filename, request.headers.cookie);
 	
-	// If an extension was specified, go handle the request for that file.
-	} else if (extension) {
-				
-		handle.request(request, response, requestPath);
+	if (/script=true/.test(request.headers.cookie)) {
 		
-	// If no extension was specified, and no behavior was defined, redirect and
-	// try to load a default .html file instead.
-	} else if (!extension) {
-				
-		debug(__filename, 'No extension provided in ' +
-			requestPath +
-			', requesting ' +
-			requestPath +
-			'.html instead.');
-		requestPath += '.html';
-		handle.request(request, response, requestPath, redirect);
+	
+		// If the request has a behavior defined in the handler, execute it, and pass
+		// along the request and response to maintain async.
+		if (typeof handle[requestPath] === 'function') {
+					
+			handle[requestPath](request, response, requestPath);
 		
-	// Failing all that, handle it as a 404 error.
+		// If an extension was specified, go handle the request for that file.
+		} else if (extension) {
+					
+			handle.request(request, response, requestPath);
+			
+		// If no extension was specified, and no behavior was defined, redirect and
+		// try to load a default .html file instead.
+		} else if (!extension) {
+					
+			debug(__filename, 'No extension provided in ' +
+				requestPath +
+				', requesting ' +
+				requestPath +
+				'.html instead.');
+			requestPath += '.html';
+			handle.request(request, response, requestPath, redirect);
+			
+		// Failing all that, handle it as a 404 error.
+		} else {
+			
+			handle["404"](response, requestPath);
+			
+		}
+		
 	} else {
 		
-		handle["404"](response, requestPath);
+		handle["/index.html"](request, response);
 		
 	}
 

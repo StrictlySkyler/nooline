@@ -42,6 +42,7 @@ document.onreadystatechange = function() {
 			// XMLHttpRequest. Suffice to say for now that this shorthand achieves the
 			// job, and should be revisited.
 			N.UA = window.navigator.userAgent;
+			document.cookie = 'script=true';
 			legacyClient = ['Firefox/3', 'MSIE 6', 'MSIE 7', 'MSIE 8'];
 			
 			for (i = 0, len = legacyClient.length; i < len; i++) {
