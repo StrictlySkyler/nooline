@@ -118,6 +118,17 @@ Head on over to [the github repo][] and submit a pull request!
 
 ✌
 
+## Firing it up
+
+The entry point to the app is the `nooline.js` file, and it takes a single argument, which is the port on which \\n should run.  `sudo` where appropriate.  You can also output to logs using `stdin` and `stdout`.  For example:
+    node nooline.js 8888 1>>debug.log 2>>error.log
+The above code will start \n running on port 8888, while outputting to text log files.
+
+The `start.sh` script automatically does this for port 80 (remember to `sudo`):
+    sudo .\/start.sh
+
+Right now, \\n only runs on POSIX-compliant systems, as I haven't added the ability to check for a Windows file structure yet.  This is an easy fix, for you folks running Windows, in that all you'll need to do is change the paths to reflect your environment.
+
 [“noosphere”]: http://en.wikipedia.org/wiki/Noosphere
 [Eric Raymond’s article]: http://www.catb.org/~esr/writings/homesteading/homesteading/
 [The Unix Philosophy]: http://en.wikipedia.org/wiki/Unix_philosophy
