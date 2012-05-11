@@ -111,7 +111,7 @@ The above code will start \n running on port 8888, while outputting to text log 
 
 The `start.sh` script automatically does this for port 80 (remember to `sudo`):
 
-    sudo .\/start.sh
+    sudo ./start.sh
 
 Right now, \\n only runs on POSIX-compliant systems, as I haven't added the ability to check for a Windows file structure yet.  This is an easy fix, for you folks running Windows, in that all you'll need to do is change the paths to reflect your environment.
 
