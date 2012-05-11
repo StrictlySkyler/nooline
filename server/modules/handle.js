@@ -161,6 +161,23 @@ handle["/robots.txt"] = function(request, response) {
 	
 }
 
+handle["/index.html"] = function(request, response) {
+	
+	fs.readFile('./client/cache/' +
+							request.headers.host +
+							'/index.html', function(error, content) {
+		if (error) {
+			
+			errlog(__filename, error);
+		} else {
+			
+			debug(__filename, 'Sending HTML snapshot.');
+			response.write(content);
+			response.end();
+		}
+	});
+}
+
 // If redirection is enabled and we can't find what was requested, send them
 // permanently back to the default path.
 handle.redirect = function(response, requestPath) {

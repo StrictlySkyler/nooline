@@ -6,14 +6,19 @@
 'use strict';
 
 var start = require('./server/modules/server.js').start
-	, browser = require('zombie')
+	, Browser = require('zombie')
 	, fs = require('fs')
 	, debug = require('./server/modules/logger.js').debug
 	, errlog = require('./server/modules/logger.js').error
 
 	, sites
 	, i
-	, portPassed;	// nooline defaults to port 8080 if no port is passed.
+	, portPassed	// nooline defaults to port 8080 if no port is passed.
+	, browser = new Browser({
+		debug : true,
+		runScripts : true,
+		waitFor : 2000
+	});
 
 // Catch the CLI flags.
 if (process.argv.length > 2) {
