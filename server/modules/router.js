@@ -41,13 +41,14 @@ route = function(request, response, handle) {
 	debug(__filename, requestPath +
 		' has been requested.');
 	
-	debug(__filename, request.headers.cookie);
-	
-	if (/script=true/.test(request.headers.cookie)) {
+	if ((/Mozilla/.test(request.headers['user-agent'])) ||
+      (/Opera/.test(request.headers['user-agent'])) ||
+      (/Webkit/.test(request.headers['user-agent'])) ||
+      (/MSIE/.test(request.headers['user-agent']))) {
 		
 	
-		// If the request has a behavior defined in the handler, execute it, and pass
-		// along the request and response to maintain async.
+		// If the request has a behavior defined in the handler, execute it, and
+		// pass along the request and response to maintain async.
 		if (typeof handle[requestPath] === 'function') {
 					
 			handle[requestPath](request, response, requestPath);
