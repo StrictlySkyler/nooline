@@ -68,6 +68,10 @@ native capabilities. All content loading, updating, and creating is done
 via AJAX, and html snapshots are taken to provide support for those web
 bots that don’t do it themselves, or aren’t headless browsers.
 
+*"But AJAX means that search bots won't do anything, and SEO is out the window!  No way!"*
+
+Not entirely true.  By providing snapshots of a completed HTML page, gathered by a headless browser, we can still provide all the SEO goodness that any other page might have otherwise.  (Google is already doing this, FWIW; their bot renders the whole page as if it was a browser anyway.)
+
 The following are key components of the \\n stack:
 
 ### node.js
