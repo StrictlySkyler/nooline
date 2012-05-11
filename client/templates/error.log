@@ -1,9 +1,0 @@
-
-node.js:201
-        throw e; // process.nextTick error, or 'error' event on first tick
-              ^
-Error: Cannot find module '/Users/skyler/github/nooline/client/templates/nooline.js'
-    at Function._resolveFilename (module.js:332:11)
-    at Function._load (module.js:279:25)
-    at Array.0 (module.js:479:10)
-    at EventEmitter._tickCallback (node.js:192:40)
