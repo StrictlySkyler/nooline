@@ -40,6 +40,7 @@ exports.auth = function(request, response) {
     } catch (e) {
       errlog(__filename, e);
     }
+
 		fs.readFile('./server/creds/' +
 							creds.username +
 							'.hash', 'utf8', function(error, data) {

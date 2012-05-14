@@ -1,7 +1,7 @@
 {
   "name": "nooline",
   "preferGlobal": "false",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "Skyler Brungardt <skyler.brungardt@gmail.com> (skylerbrungardt.com)",
   "description": "A CMS focused on ease of use, scalability, and easy maintenance.",
   "contributors": [],
