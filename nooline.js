@@ -30,7 +30,7 @@ if (process.argv.length > 2) {
 // Start the server.
 start(portPassed);
 
-fs.readdir('./client/seo', function(error, data) {
+fs.readdir('./client/sites', function(error, data) {
 	if (error) {
 		errlog(__filename, error);
 	} else {
@@ -39,28 +39,31 @@ fs.readdir('./client/seo', function(error, data) {
 		
 		for (i = 0, sites.length; i < sites.length; i++) {
 			
-			var sitename = sites[i];
-			
-			browser.visit('http://' +
-										sites[i], function(e, browser) {
+			if (sites[i] !== 'localhost') {
+				var sitename = sites[i];
 				
-				fs.writeFile('./client/cache/' +
-										 browser.window.location.host +
-										 '/index.html', browser.html(), function(error) {
+				browser.visit('http://' +
+											sites[i], function(e, browser) {
 					
-					if (error) {
+					fs.writeFile('./client/sites/' +
+						browser.window.location.host +
+						'/snapshots/' +
+						'index.html', browser.html(), function(error) {
 						
-						errlog(__filename, error);
-						
-					} else {
-						
-						debug(__filename, 'HTML snapshot of ' +
-									browser.window.location.host +
-									' taken!');
-						
-					}
+						if (error) {
+							
+							errlog(__filename, error);
+							
+						} else {
+							
+							debug(__filename, 'HTML snapshot of ' +
+										browser.window.location.host +
+										' taken!');
+							
+						}
+					});
 				});
-			});
+			}
 		}
 		
 	}

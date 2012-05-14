@@ -50,9 +50,9 @@ load = function(postData, request, response) {
 		var readFile = function(target) {
 			
 			// Read out the file, if we can.
-			fs.readFile('./client/content/' +
+			fs.readFile('./client/sites/' +
 				request.headers.host +
-				'/' +
+				'/content/' +
 				whatKind +
 				'/' +
 				target + '.json', 'utf8', function(error, data) {
@@ -156,9 +156,9 @@ load = function(postData, request, response) {
 	readDir = function() {
 		// Go looking for the content type being requested for this domain,
 		// determine how much content exists, and if we can serve it.
-		fs.readdir('./client/content/' +
+		fs.readdir('./client/sites/' +
 			request.headers.host +
-			'/' +
+			'/content/' +
 			i +
 			'/', function(error, files) {
 			if (error) {

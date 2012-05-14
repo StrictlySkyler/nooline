@@ -9,12 +9,14 @@ var fs = require('fs'),
 exports.remove = function(postData, request, response) {
 	
 	postData = postData.split(' ');
-	unpublished = './client/content/' +
-		request.headers.host + '/' +
+	unpublished = './client/' +
+		request.headers.host +
+		'/content/' +
 		postData[0].split('-')[0] + '/' +
 		postData[0] + '.json';
-	nextInLine = './client/content/' +
-		request.headers.host + '/' +
+	nextInLine = './client/' +
+		request.headers.host +
+		'/content/' +
 		postData[1].split('-')[0] + '/' +
 		postData[1] + '.json';
 		
@@ -53,8 +55,9 @@ exports.remove = function(postData, request, response) {
 					
 					postData[1] = cache > 0 ? postData[1].replace(/\d+/, cache) : '';
 					
-					nextInLine = './client/content/' +
-						request.headers.host + '/' +
+					nextInLine = './client/' +
+						request.headers.host +
+						'/content/' +
 						postData[1].split('-')[0] + '/' +
 						postData[1] + '.json';
 					

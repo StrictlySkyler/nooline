@@ -41,14 +41,14 @@ exports.add = function(postData, request, response) {
 				
 				debug(__filename, '...Success.  Writing to file.');
 				
-				fs.readFile('./shared/creds/' +
+				fs.readFile('./server/creds/' +
 					username +
 					'.hash', function(error) {
 					
 					if (error) {
 				
 						//Write the password out to a file keyed to the username.
-						fs.writeFile('./shared/creds/' +
+						fs.writeFile('./server/creds/' +
 							username +
 							'.hash', JSON.stringify(store), 'utf8', function() {
 							debug(__filename, 'New user credentials for \"' +
@@ -120,7 +120,7 @@ exports.remove = function(postData, request, response) {
 					
 					debug(__filename, 'Attempting to remove user \"' + username + '\"...');
 					
-					fs.unlink('./shared/creds/' +
+					fs.unlink('./server/creds/' +
 										username +
 										'.hash', function(error) {
 						if (error) {
@@ -187,7 +187,7 @@ exports.change = function(postData, request, response) {
 		switch (status) {
 			case 'valid':
 				
-				fs.readFile('./shared/creds/' +
+				fs.readFile('./server/creds/' +
 					username +
 					'.hash', 'utf8', function(error, data) {
 						
@@ -205,7 +205,7 @@ exports.change = function(postData, request, response) {
 							if (sjcl.decrypt(store.password, old)) {
 								store.password = sjcl.decrypt(store.password, password);
 								
-								fs.writeFile('./shared/creds/' +
+								fs.writeFile('./server/creds/' +
 									username +
 									'.hash', JSON.stringify(store), 'utf8', function() {
 										

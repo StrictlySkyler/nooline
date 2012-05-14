@@ -1,0 +1,302 @@
+<!--[if lt IE 7 ]> <html id="html" class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html id="html" class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html id="html" class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html id="html" class=" js no-flexbox no-canvas no-canvastext no-webgl no-touch no-geolocation no-postmessage no-websqldatabase no-indexeddb hashchange history draganddrop websockets no-rgba no-hsla multiplebgs no-backgroundsize no-borderimage no-borderradius no-boxshadow no-textshadow opacity no-cssanimations no-csscolumns no-cssgradients no-cssreflections no-csstransforms no-csstransforms3d no-csstransitions fontface no-video no-audio localstorage sessionstorage no-webworkers no-applicationcache no-svg no-inlinesvg no-smil no-svgclippaths" lang="en">  <!--<![endif]-->
+  <head>    <!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>nooline.org</title>
+    <meta name="description" content="A CMS for the 21st Century.">
+    <meta name="author" content="Skyler Brungardt">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/client/images/nooline.org.ico">
+    <link id="main-stylesheet" rel="stylesheet" href="/client/css/nooline.org.css">
+    <script src="/client/js/lib/modernizr-1.7.min.js"></script>
+    <!--nooline scripts-->
+    <script src="/client/js/nooline.cat.js"></script>
+    <!--Encryption scripts-->
+    <script src="/shared/js/lib/sjcl.js"></script>
+</head>
+  <body id="body">    <div id="container" class="animate-all">      <header id="header">        <h1>          <a href="/">            <span id="slash-n">\n</span>
+ooline
+					</a>
+</h1>
+        <!--
+        **********
+          Looking for some nice pretty "View Source" action?
+          
+          If you hit the same url with a browser that doesn't support JS, 
+          you'll be able to see the markup built out.  For example:
+
+            wget http://nooline.org
+
+          And then:
+
+            vi index.html
+
+          And you should be good to go!
+        **********
+        -->
+        <section id="blurb" class="blurb text-body content editable count-1">          <article id="blurb-1" class="article blurb-1">
+            <h2 class="title">A New Way to Manage Content</h2>
+            <div class="body">
+              <p>Built on Node.js, HTML5, and CSS3, \nooline focuses on ease of use, scalability, and easy maintenance.  The goal is to reduce the effort needed to run and manage a CMS.</p>
+            </div>
+          </article>
+          <article id="blurb-1" class="article blurb-1">
+            <h2 class="title">A New Way to Manage Content</h2>
+            <div class="body">
+              <p>Built on Node.js, HTML5, and CSS3, \nooline focuses on ease of use, scalability, and easy maintenance.  The goal is to reduce the effort needed to run and manage a CMS.</p>
+            </div>
+          </article>
+        </section>
+</header>
+      <footer id="footer">        <section class="support details">
+					Powered by
+					          <a class="animate-color" href="http://nodejs.org/" target="_blank">node.js</a>
+
+					and
+					          <a class="animate-color" href="https://github.com/StrictlySkyler/nooline" target="_blank">
+						\nooline</a>
+.
+				</section>
+        <section class="license details">
+					Copyleft           <a class="animate-color" href="/">Skyler Brungardt</a>
+.  No Rights
+					Reserved. Enjoy.
+				</section>
+        <section class="login details animate-opacity">
+					Click here to 
+					          <a id="login-link" class="animate-color" href="/login">login</a>
+.
+				</section>
+</footer>
+      <aside id="left-sidebar">        <nav id="main-nav">          <ul>            <li>              <a id="news-link" class="animate-color" href="#news">
+								News
+							</a>
+</li>
+            <li>              <a id="about-link" class="animate-color" href="#about">
+								About
+							</a>
+</li>
+            <li>              <a id="docs-link" class="animate-color" href="#docs">
+								Docs
+							</a>
+</li>
+            <li>              <a id="download-link" class="animate-color" href="http://github.com/StrictlySkyler/nooline" target="_blank">
+								Download
+							</a>
+</li>
+</ul>
+</nav>
+</aside>
+      <aside id="right-sidebar">        <section id="notes" class="note text-body content editable addable count-1">          <article id="notes-1" class="article notes-1">
+            <h3 class="title">Say Hello!</h3>
+            <div class="body">
+              <p>Want to drop me a line?  Please do.</p>
+              <p>
+                <a href="mailto:skyler.brungardt@gmail.com">Shoot me an email.</a>
+              </p>
+            </div>
+            <p class="details">Posted by skyler on 2/2/2012.</p>
+          </article>
+          <article id="notes-1" class="article notes-1">
+            <h3 class="title">Say Hello!</h3>
+            <div class="body">
+              <p>Want to drop me a line?  Please do.</p>
+              <p>
+                <a href="mailto:skyler.brungardt@gmail.com">Shoot me an email.</a>
+              </p>
+            </div>
+            <p class="details">Posted by skyler on 2/2/2012.</p>
+          </article>
+        </section>
+</aside>
+      <div id="content">        <section id="news" class="main text-body content editable addable count-1">          <article id="news-4" class="article news-4">
+            <h3 class="title">Version 0.1.8</h3>
+            <div class="body">
+              <p>User management, security refinements, and a control panel made it into this release.</p>
+            </div>
+            <p class="details">Posted by skyler on 5/11/2012.</p>
+          </article>
+          <article id="news-4" class="article news-4">
+            <h3 class="title">Version 0.1.8</h3>
+            <div class="body">
+              <p>User management, security refinements, and a control panel made it into this release.</p>
+            </div>
+            <p class="details">Posted by skyler on 5/11/2012.</p>
+          </article>
+        </section>
+        <section id="about" class="main text-body content editable count-1">          <article id="about-1" class="article about-1">
+            <h3 class="title">A Little Bit About \nooline</h3>
+            <div class="body">
+              <p>\nooline is built on top of                 <a href="http://nodejs.org" target="_blank">node.js</a>
+, using straight-up HTML5, CSS3, and JavaScript.  It's framework agnostic, allowing for the use of a framework of any given developer's choice (jQuery, YUI, etc.), or none at all (they're all just straight JS, after all).</p>
+              <p>\nooline is built with two key driving factors in mind:</p>
+              <ol>                <li>Creating and editing content on a website should be simple enough that my mother could do it (and she ain't techy).</li>
+                <li>The bulk of the work of the CMS should be done by the Client; namely, the browser viewing the page.</li>
+</ol>
+              <p>This first factor is key; most Content Management Systems nowadays require a mixture of a back-end developer, a front-end developer, and a database admin.  While there are certainly many people who have these skills, the sad fact is that the folks who end up using the site, entering content, and generally maintaining it lack them — specifically, the "back-end" parts are uncommon amongst the content-entry user base, while HTML, CSS, and JS knowledge is a little more widespread.  \nooline attempts to address this by minimizing as much of what the server is responsible for as possible, while being built entirely out of JavaScript, markup, and styling.</p>
+              <p>As for the second factor, with the increasing speed of JavaScript engines used by modern browsers, along with the rich functionality offered by HTML5 and CSS3, the need for a server to handle the bulk of what services a rich web application might need (authentication, validation, sorting, caching, etc.) are fast reducing.  By pushing as much of this work onto the browser as possible, much less server resource is needed, while providing an opportunity for a more consistent user experience independent of whether the user's client is able to reach the server or not.</p>
+              <p>In the building of \nooline there were also a few happy discoveries which have a strong impact upon how \nooline is built; things such as sharing the same piece of code between client and server and using a single page architecture with no page refreshes are examples.</p>
+            </div>
+            <p class="details">Posted by skyler on 2/1/2012.</p>
+          </article>
+          <article id="about-1" class="article about-1">
+            <h3 class="title">A Little Bit About \nooline</h3>
+            <div class="body">
+              <p>\nooline is built on top of                 <a href="http://nodejs.org" target="_blank">node.js</a>
+, using straight-up HTML5, CSS3, and JavaScript.  It's framework agnostic, allowing for the use of a framework of any given developer's choice (jQuery, YUI, etc.), or none at all (they're all just straight JS, after all).</p>
+              <p>\nooline is built with two key driving factors in mind:</p>
+              <ol>                <li>Creating and editing content on a website should be simple enough that my mother could do it (and she ain't techy).</li>
+                <li>The bulk of the work of the CMS should be done by the Client; namely, the browser viewing the page.</li>
+</ol>
+              <p>This first factor is key; most Content Management Systems nowadays require a mixture of a back-end developer, a front-end developer, and a database admin.  While there are certainly many people who have these skills, the sad fact is that the folks who end up using the site, entering content, and generally maintaining it lack them — specifically, the "back-end" parts are uncommon amongst the content-entry user base, while HTML, CSS, and JS knowledge is a little more widespread.  \nooline attempts to address this by minimizing as much of what the server is responsible for as possible, while being built entirely out of JavaScript, markup, and styling.</p>
+              <p>As for the second factor, with the increasing speed of JavaScript engines used by modern browsers, along with the rich functionality offered by HTML5 and CSS3, the need for a server to handle the bulk of what services a rich web application might need (authentication, validation, sorting, caching, etc.) are fast reducing.  By pushing as much of this work onto the browser as possible, much less server resource is needed, while providing an opportunity for a more consistent user experience independent of whether the user's client is able to reach the server or not.</p>
+              <p>In the building of \nooline there were also a few happy discoveries which have a strong impact upon how \nooline is built; things such as sharing the same piece of code between client and server and using a single page architecture with no page refreshes are examples.</p>
+            </div>
+            <p class="details">Posted by skyler on 2/1/2012.</p>
+          </article>
+        </section>
+        <section id="docs" class="main text-body content editable count-1">          <article id="docs-1" class="article docs-1">
+            <h3 class="title">Documentation</h3>
+            <div class="body">
+              <h4>What is nooline?</h4>
+              <p>It's a content management system focused on making managing content drop-dead simple, super-extra easy.  The goal of the platform is to reduce the time it takes not only to push out new content, but also update and modify the platform itself to be used in a new context.</p>
+              <h4>A note on pronunciation</h4>
+              <p>When talking about "\nooline", I always tend to pronounce it phonetically, as in "NEW-line", and its eponymous character.  It's worth calling out, however, that there could be a case made for calling it "NO-align", as the name is common in structure to                 <a href="http://en.wikipedia.org/wiki/Noosphere" target="_blank">"noosphere"</a>
+, and indeed the idea for the project was influenced by that concept and                 <a href="http://www.catb.org/~esr/writings/homesteading/homesteading/" target="_blank">Eric Raymond's article</a>
+ about it.</p>
+              <p>All of that said, pronunciation isn't so big a deal as to pick a nit over it.</p>
+              <h4>Another CMS?  WTF.</h4>
+              <p>There are plenty of other CMS platforms out in the wild today, and even a few running on node.js (which \n runs on also), but none that hit quite the right sweet spot for my taste.  Having worked on a number of these over the years, and being possessed of a desire to dive into and learn new tech, I decided I'd scratch my particular itch myself.</p>
+              <p>\n will attempt to do things that those platforms are unable to accomplish due to technical reasons, lack of support, divergence in philosophy, or any number of other reasons.</p>
+              <h4>The Philosophy</h4>
+              <p>There is a core set of principles which guide my development with \n.  They are:</p>
+              <ol>                <li>
+                  <strong>There should be a                     <em>near-zero</em>
+ amount of training time required to let a content editor use the platform.</strong>
+  All controls should be blatantly self-evident in use, and naming conventions should be painstakingly easy to understand.  Don't refresh the page or go to a new one unless it's 100% unavoidable.</li>
+                <li>
+                  <strong>Editing and modifying the system should require                     <em>minimal</em>
+ amounts of work.</strong>
+  Where possible, share code between client and server, and rely upon native functionality within browsers or node.  Store data in simple structures.</li>
+                <li>
+                  <strong>Push as much work to the                     <em>client</em>
+ as is reasonably possible.</strong>
+  JavaScript engines in clients are blazingly fast.  Save the server the work, and let the client do as much of it as it can.  This should not compromise the end user experience.</li>
+                <li>
+                  <strong>
+                    <em>As few dependencies as possible</em>
+ should be needed to stand up and run and instance.</strong>
+  The platform should remain as agnostic as possible with regards to other frameworks and modules, and the number of tightly-coupled platforms should be kept to a minimum.</li>
+                <li>
+                  <strong>The End User Experience is                     <em>never</em>
+ compromised to due technical challenges.</strong>
+  This is the most important part, and it includes web admins, content editors, and developers as End Users.</li>
+</ol>
+              <p>For a related and simple set of informing guidelines, see                 <a href="http://en.wikipedia.org/wiki/Unix_philosophy" target="_blank">The Unix Philosophy</a>
+.</p>
+              <h4>How it works</h4>
+              <p>\n is built on a straight node.js stack, and is independent of any specific frameworks.  It is built using html5, CSS3, and JavaScript, transmits and stores its data in JSON and flat text files, and defers as much work as is possible on the back-end to the operating system's native capabilities.  All content loading, updating, and creating is done via AJAX, and html snapshots are taken to provide support for those web bots that don't do it themselves, or aren't headless browsers.</p>
+              <p>The following are key components of the \n stack:</p>
+              <h5>node.js</h5>
+              <p>The asynchronous, fast, JavaScript-based environment of node seemed like an obvious choice for this platform.  Sharing code between client and server brings the potential to make plugins rapidly and quickly, and reduces the level of effort or number of people required to modify the system.  Where possible, keeping node as the primary server-side tech is ideal.</p>
+              <h5>html5 &amp; Modern Browsers</h5>
+              <p>There's really no reason not to use html5 nowadays, in my opinion.  :-)  There are plenty of polyfills available for anyone who wants to include out-of-date browsers.  The core of \n, however, should stay current with the latest browsers, and leave dinosaurs to become extinct where applicable.</p>
+              <h5>Straight-up JS</h5>
+              <p>Frameworks are excellent.  You should use one.  \n doesn't advocate any one framework in favor of another; this choice should be left up to the development team.  For this reason, any plugins/extensions/core-parts should be agnostic to any given framework.</p>
+              <h4>Theoretical Applications</h4>
+              <p>In theory, much of \n could be ported to another framework outside of node (apache, nginx, etc.), or paired with different code (php, java, etc.).  If this means providing a better user experience than the existing platform \n would be replacing, then by all means it's a win.</p>
+              <h4>Want to contribute?</h4>
+              <p>The following things are officially on the list of things which need doing:</p>
+              <ul>                <li>Add a WYSIWYG</li>
+                <li>Flesh out the Admin Control Panel</li>
+                <li>Create finer grain "edit statuses" (added vs. edited, preview, etc.)</li>
+                <li>Add user roles &amp; permissions</li>
+                <li>Build better security checks</li>
+                <li>Implement a drop-dead simple, super extra easy plugin system</li>
+                <li>Implement cluster in node</li>
+</ul>
+              <p>Head on over to                 <a href="https://github.com/StrictlySkyler/nooline" target="_blank">the github repo</a>
+ and submit a pull request!</p>
+              <p>✌</p>
+            </div>
+            <p class="details">Posted by skyler on 5/10/2012.</p>
+          </article>
+          <article id="docs-1" class="article docs-1">
+            <h3 class="title">Documentation</h3>
+            <div class="body">
+              <h4>What is nooline?</h4>
+              <p>It's a content management system focused on making managing content drop-dead simple, super-extra easy.  The goal of the platform is to reduce the time it takes not only to push out new content, but also update and modify the platform itself to be used in a new context.</p>
+              <h4>A note on pronunciation</h4>
+              <p>When talking about "\nooline", I always tend to pronounce it phonetically, as in "NEW-line", and its eponymous character.  It's worth calling out, however, that there could be a case made for calling it "NO-align", as the name is common in structure to                 <a href="http://en.wikipedia.org/wiki/Noosphere" target="_blank">"noosphere"</a>
+, and indeed the idea for the project was influenced by that concept and                 <a href="http://www.catb.org/~esr/writings/homesteading/homesteading/" target="_blank">Eric Raymond's article</a>
+ about it.</p>
+              <p>All of that said, pronunciation isn't so big a deal as to pick a nit over it.</p>
+              <h4>Another CMS?  WTF.</h4>
+              <p>There are plenty of other CMS platforms out in the wild today, and even a few running on node.js (which \n runs on also), but none that hit quite the right sweet spot for my taste.  Having worked on a number of these over the years, and being possessed of a desire to dive into and learn new tech, I decided I'd scratch my particular itch myself.</p>
+              <p>\n will attempt to do things that those platforms are unable to accomplish due to technical reasons, lack of support, divergence in philosophy, or any number of other reasons.</p>
+              <h4>The Philosophy</h4>
+              <p>There is a core set of principles which guide my development with \n.  They are:</p>
+              <ol>                <li>
+                  <strong>There should be a                     <em>near-zero</em>
+ amount of training time required to let a content editor use the platform.</strong>
+  All controls should be blatantly self-evident in use, and naming conventions should be painstakingly easy to understand.  Don't refresh the page or go to a new one unless it's 100% unavoidable.</li>
+                <li>
+                  <strong>Editing and modifying the system should require                     <em>minimal</em>
+ amounts of work.</strong>
+  Where possible, share code between client and server, and rely upon native functionality within browsers or node.  Store data in simple structures.</li>
+                <li>
+                  <strong>Push as much work to the                     <em>client</em>
+ as is reasonably possible.</strong>
+  JavaScript engines in clients are blazingly fast.  Save the server the work, and let the client do as much of it as it can.  This should not compromise the end user experience.</li>
+                <li>
+                  <strong>
+                    <em>As few dependencies as possible</em>
+ should be needed to stand up and run and instance.</strong>
+  The platform should remain as agnostic as possible with regards to other frameworks and modules, and the number of tightly-coupled platforms should be kept to a minimum.</li>
+                <li>
+                  <strong>The End User Experience is                     <em>never</em>
+ compromised to due technical challenges.</strong>
+  This is the most important part, and it includes web admins, content editors, and developers as End Users.</li>
+</ol>
+              <p>For a related and simple set of informing guidelines, see                 <a href="http://en.wikipedia.org/wiki/Unix_philosophy" target="_blank">The Unix Philosophy</a>
+.</p>
+              <h4>How it works</h4>
+              <p>\n is built on a straight node.js stack, and is independent of any specific frameworks.  It is built using html5, CSS3, and JavaScript, transmits and stores its data in JSON and flat text files, and defers as much work as is possible on the back-end to the operating system's native capabilities.  All content loading, updating, and creating is done via AJAX, and html snapshots are taken to provide support for those web bots that don't do it themselves, or aren't headless browsers.</p>
+              <p>The following are key components of the \n stack:</p>
+              <h5>node.js</h5>
+              <p>The asynchronous, fast, JavaScript-based environment of node seemed like an obvious choice for this platform.  Sharing code between client and server brings the potential to make plugins rapidly and quickly, and reduces the level of effort or number of people required to modify the system.  Where possible, keeping node as the primary server-side tech is ideal.</p>
+              <h5>html5 &amp; Modern Browsers</h5>
+              <p>There's really no reason not to use html5 nowadays, in my opinion.  :-)  There are plenty of polyfills available for anyone who wants to include out-of-date browsers.  The core of \n, however, should stay current with the latest browsers, and leave dinosaurs to become extinct where applicable.</p>
+              <h5>Straight-up JS</h5>
+              <p>Frameworks are excellent.  You should use one.  \n doesn't advocate any one framework in favor of another; this choice should be left up to the development team.  For this reason, any plugins/extensions/core-parts should be agnostic to any given framework.</p>
+              <h4>Theoretical Applications</h4>
+              <p>In theory, much of \n could be ported to another framework outside of node (apache, nginx, etc.), or paired with different code (php, java, etc.).  If this means providing a better user experience than the existing platform \n would be replacing, then by all means it's a win.</p>
+              <h4>Want to contribute?</h4>
+              <p>The following things are officially on the list of things which need doing:</p>
+              <ul>                <li>Add a WYSIWYG</li>
+                <li>Flesh out the Admin Control Panel</li>
+                <li>Create finer grain "edit statuses" (added vs. edited, preview, etc.)</li>
+                <li>Add user roles &amp; permissions</li>
+                <li>Build better security checks</li>
+                <li>Implement a drop-dead simple, super extra easy plugin system</li>
+                <li>Implement cluster in node</li>
+</ul>
+              <p>Head on over to                 <a href="https://github.com/StrictlySkyler/nooline" target="_blank">the github repo</a>
+ and submit a pull request!</p>
+              <p>✌</p>
+            </div>
+            <p class="details">Posted by skyler on 5/10/2012.</p>
+          </article>
+        </section>
+</div>
+      <!--end content-->
+</div>
+    <!--End of Container-->
+</body>
+</html>

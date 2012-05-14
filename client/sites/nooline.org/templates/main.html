@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html id=html class="no-js ie6" lang=en> <![endif]-->
+<!--[if IE 7 ]>    <html id=html class="no-js ie7" lang=en> <![endif]-->
+<!--[if IE 8 ]>    <html id=html class="no-js ie8" lang=en> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html id=html class=no-js lang=en> <!--<![endif]-->
+	<head>
+		<!--[if IE]>
+		<meta http-equiv=X-UA-Compatible content=IE=edge,chrome=1>
+		<![endif]-->
+		<meta charset=UTF-8>
+		<meta name=viewport content=width=device-width>
+		<title>nooline.org</title>
+		<meta name=description content="A CMS for the 21st Century.">
+		<meta name=author content="Skyler Brungardt">
+		<meta name=viewport content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon"
+			href=/client/sites/nooline.org/images/nooline.org.ico>
+		<link id=main-stylesheet rel=stylesheet
+			href=/client/sites/nooline.org/css/nooline.org.css>
+			
+		<script src=/client/common/js/lib/modernizr-1.7.min.js></script>
+		<!--nooline scripts-->
+		<script src=/client/common/js/nooline.cat.js></script>
+		<!--Encryption scripts-->
+		<script src=/shared/js/lib/sjcl.js></script>
+		
+	</head>
+	<body id=body>
+		<div id=container class=animate-all>
+			<header id=header>
+				<h1>
+					<a href=/>
+						<span id=slash-n>\n</span>ooline
+					</a>
+				</h1>	
+
+        <!--
+        **********
+          Looking for some nice pretty "View Source" action?
+          
+          If you hit the same url with a browser that doesn't support JS, 
+          you'll be able to see the markup built out.  For example:
+
+            wget http://nooline.org
+
+          And then:
+
+            vi index.html
+
+          And you should be good to go!
+        **********
+        -->
+				
+				<section id=blurb class="blurb text-body content editable count-1">
+				</section>
+				
+			</header>
+			
+			<footer id=footer>
+				<section class="support details">
+					Powered by
+					<a class=animate-color href=http://nodejs.org/
+						target=_blank>node.js</a>
+					and
+					<a class=animate-color
+						href=https://github.com/StrictlySkyler/nooline target=_blank>
+						\nooline</a>.
+				</section>
+				<section class="license details">
+					Copyleft <a class=animate-color href=/>Skyler Brungardt</a>.  No
+					Rights Reserved. Enjoy.
+				</section>
+				<section class="login details animate-opacity">
+					Click here to 
+					<a id=login-link class=animate-color href=/login>login</a>.
+				</section>
+			</footer>	
+			
+			<aside id=left-sidebar>
+				<nav id=main-nav>
+					<ul>
+						<li>
+							<a id=news-link class=animate-color href=#news>
+								News
+							</a>
+						</li>
+						<li>
+							<a id=about-link class=animate-color href=#about>
+								About
+							</a>
+						</li>
+						<li>
+							<a id=docs-link class=animate-color href=#docs>
+								Docs
+							</a>
+						</li>
+						<li>
+							<a id=download-link class=animate-color
+								href=http://github.com/StrictlySkyler/nooline target=_blank>
+								Download
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			
+			<aside id=right-sidebar>
+				<section id=notes
+					class="note text-body content editable addable count-1">
+				</section>
+			</aside>
+			
+			<div id=content>
+				<section id=news
+					class="main text-body content editable addable count-1">
+				</section>
+				
+				<section id=about
+					class="main text-body content editable count-1">
+				</section>
+				
+				<section id=docs
+					class="main text-body content editable count-1">
+				</section>
+				
+			</div>
+			
+			<!--end content-->
+	
+		</div>
+		<!--End of Container-->
+		
+	</body>
+</html>

@@ -14,9 +14,9 @@ save = function(postData, request, response) {
 	// Count starts at 1, for the first piece of content.
 	count = 1,
 	// The initial file we're going to try to modify.
-	file = './client/content/' +
+	file = './client/' +
 		request.headers.host +
-		'/' +
+		'/content/' +
 		content.type +
 		'/' +
 		content.type +
@@ -61,9 +61,9 @@ save = function(postData, request, response) {
 				// If our file does already exist, and we can read from it, increment
 				// the count and try again.
 				count++;
-				file = './client/content/' +
+				file = './client/' +
 					request.headers.host +
-					'/' +
+					'/content/' +
 					content.type +
 					'/' +
 					content.type +

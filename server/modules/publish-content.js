@@ -4,9 +4,9 @@ var fs = require('fs'),
 
 exports.publish = function(postData, request, response) {
 	
-	var file = './client/content/' +
+	var file = './client/' +
 		request.headers.host +
-		'/' +
+		'/content/' +
 		postData.match(/\w+/)[0] +
 		'/' +
 		postData +

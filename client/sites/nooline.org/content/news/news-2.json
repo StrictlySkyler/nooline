@@ -1,0 +1,9 @@
+{
+	"type": "news",
+	"name": "news-2",
+	"published" : true,
+	"date": "3/2/2012 at 15:30:53",
+	"author": "skyler",
+	"title": "Version 0.1.3",
+	"body": "<p>Mostly this involves cleaning up the code, and adding code comments.</p>\n\n<p>0.1.4 should refactor some of the selection of elements under the hood, along with some general stability, like supporting symlinks for localhost.</p>\n\n<p>Looking ahead, 0.2.0 should include easier user creation, some kind of WYSIWYG, and maybe file upload.</p>\n\n<p>Progress!  ✌ </p>\n\n<p>Also lazy-loading for methods, along with HTTP ETags.  That should go into 0.2.0.</p>\n\n<p>...And while I'm thinking about it, divorcing \"edited on\" from \"created on\" is going to be a good idea for 0.2.0 also.</p>"
+}

@@ -43,12 +43,13 @@ handle["/"] = function(request, response) {
 	// throw a 404.
 	debug(
 		__filename,
-		'Serving ./client/templates/' +
-		request.headers.host + '.html.');
-		
-	fs.readFile('./client/templates/' +
+		'Serving ./client/' +
 		request.headers.host +
-		'.html', 'utf8', function(error, content) {
+		'/templates/main.html.');
+		
+	fs.readFile('./client/sites/'+
+		request.headers.host +
+		'/templates/main.html', 'utf8', function(error, content) {
 		
 		if (error) {
 			
@@ -71,10 +72,10 @@ handle["/"] = function(request, response) {
 			} catch (e) {
 				
 				debug(__filename, 'No response header, must be a bot!  Sending ' +
-							'cached page.');
-				fs.readFile('./client/cache/' +
-										request.headers.host +
-										'/index.html', 'utf8', function(error, content) {
+					'cached page.');
+				fs.readFile('./client/sites/' +
+					request.headers.host +
+					'/snapshots/index.html', 'utf8', function(error, content) {
 					
 					if (error) {
 						errlog(__filename, error);
@@ -101,9 +102,11 @@ handle["/"] = function(request, response) {
 // This implementation is deprecated, and needs to be either updated to look for
 // the host.name.ico file, or removed entirely to rely solely upon the templates
 // including the favicon in a link tag.
-handle["/favicon.ico"] = function(response) {
+handle["/favicon.ico"] = function(request, response) {
 	
-	fs.readFile('./client/images/favicon.ico', 'base64', function(error, data) {
+	fs.readFile('./client/sites/' +
+		request.headers.host +
+		'/images/favicon.ico', 'base64', function(error, data) {
 		if (error) {
 			
 			errlog(__filename, error);
@@ -129,6 +132,7 @@ handle["/favicon.ico"] = function(response) {
 				
 				try {
 					response.writeHead(404);
+					response.end();
 					errlog(__filename, e);
 				} catch (e) {
 					errlog(__filename, e);
@@ -143,9 +147,10 @@ handle["/favicon.ico"] = function(response) {
 
 handle["/robots.txt"] = function(request, response) {
 	
-	fs.readFile('./client/seo/' +
-							request.headers.host +
-							'/robots.txt', function(error, content) {
+	fs.readFile('./client/sites/' +
+		request.headers.host +
+		'/seo/' +
+		'robots.txt', function(error, content) {
 		if (error) {
 			
 			errlog(__filename, error);
@@ -163,9 +168,9 @@ handle["/robots.txt"] = function(request, response) {
 
 handle["/index.html"] = function(request, response) {
 	
-	fs.readFile('./client/cache/' +
-							request.headers.host +
-							'/index.html', function(error, content) {
+	fs.readFile('./client/sites/' +
+		request.headers.host +
+		'/snapshots/index.html', function(error, content) {
 		if (error) {
 			
 			errlog(__filename, error);
