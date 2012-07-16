@@ -67,7 +67,7 @@
 			
 			panel.className = panel.className.replace(' hidden', '');
 			
-		}, 5);
+		}, 0);
 		
 		form.onsubmit = function(event) {
 			var empty = N.checkForEmpty([username]);

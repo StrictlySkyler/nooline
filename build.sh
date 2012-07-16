@@ -1,8 +1,8 @@
 FUNCTION_START='(function(N) {\n'
 FUNCTION_END='\n}(window.nooline));'
-CATFILE=./client/js/nooline.cat.js
-NOOLINE_INIT_JS=./client/js/nooline.js
-CONTROLS=./client/js/controls/*.js
+CATFILE=./client/common/js/nooline.cat.js
+NOOLINE_INIT_JS=./client/common/js/nooline.js
+CONTROLS=./client/common/js/controls/*.js
 
 echo -e $FUNCTION_START > $CATFILE
 

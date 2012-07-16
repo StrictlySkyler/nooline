@@ -18,6 +18,6 @@
 		// element to just "appear".
 		window.setTimeout(function() {
 			addPost.className = addPost.className.replace(' hidden', '');
-		}, 5);
+		}, 0);
 	};
 }(nooline));

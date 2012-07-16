@@ -2,6 +2,7 @@
 
 (function(N) {
 	N.addUser = function() {
+    console.log(true);
 		var section = document.getElementById('control-panel-1').children[0],
 			panel = document.createElement('div'),
 			category = document.getElementById('users-button'),
@@ -68,7 +69,7 @@
 			
 			panel.className = panel.className.replace(' hidden', '');
 			
-		}, 5);
+		}, 0);
 		
 		form.onsubmit = function(event) {
 			var empty = N.checkForEmpty([username, password, again]);

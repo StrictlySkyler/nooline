@@ -104,6 +104,6 @@
 			window.setTimeout(function() {
 				newPost.style.opacity = 1;
 			}, 250);
-		}, 5);
+		}, 0);
 	};
 }(nooline));

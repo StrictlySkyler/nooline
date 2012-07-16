@@ -18,6 +18,6 @@
 		// properly, as they try to animate before the element is ready.
 		window.setTimeout(function() {
 			editPost.className = editPost.className.replace(' hidden', '');
-		}, 5);
+		}, 0);
 	};
 }(nooline));

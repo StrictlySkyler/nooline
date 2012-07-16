@@ -86,7 +86,7 @@
 							usersButton.nextElementSibling.style.display = '';
 						}
 						
-					});
+					}, 0);
 					
 				};
 			}
@@ -109,14 +109,9 @@
 						usersButton.nextElementSibling.style.display = '';
 					}
 				}
-			}, 5);
+			}, 0);
 		};
 		
-		// (Note 1:)
-		// ...Which we remove very quickly, and set the opacity to 1,
-		// which allows for CSS transitions to animate. Without this delay, the
-		// transition doesn't animate properly – it appears to fire too soon,
-		// causing the element to just appear suddenly.
 		window.setTimeout(function() {
 			
 			panel.className = panel.className.replace(' hidden', '');
@@ -126,6 +121,6 @@
 				
 				buttons[i].className = buttons[i].className.replace(' hidden', '');
 			}
-		}, 100);
+		}, 0);
 	};
 }(nooline));
