@@ -1,9 +1,9 @@
 {
   "name": "nooline",
   "preferGlobal": "false",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "author": "Skyler Brungardt <skyler.brungardt@gmail.com> (skylerbrungardt.com)",
-  "description": "A CMS focused on ease of use, scalability, and easy maintenance.",
+  "description": "A CMS to tell the story you want to tell.",
   "contributors": [],
   "bin": {},
   "scripts": {
@@ -22,7 +22,14 @@
     "drupal"
   ],
   "dependencies": {
-    "zombie" : ">=0.12.15"
+    "express" : ">= 3.2.5",
+    "underscore": ">= 1.4.4",
+    "async": ">= 0.2.8",
+    "winston": ">= 0.7.1",
+    "express-winston": ">= 0.2.0",
+    "require-directory": ">= 1.0.0",
+    "consolidate": ">= 0.9.1",
+    "hogan.js": ">= 2.0.0"
   },
   "noAnalyze": false,
   "devDependencies": {},

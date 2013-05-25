@@ -1,9 +1,0 @@
-{
-	"type": "blurb",
-	"name": "blurb-1",
-	"published": true,
-	"date": "5/6/2012 at 18:19:1",
-	"author": "admin",
-	"title": "A New Way to Manage Content",
-	"body": "<p>Built on node.js, nooline focuses on ease of use, and ease of maintenance.  The goal is to reduce the effort needed to run and manage a CMS.</p>"
-}
