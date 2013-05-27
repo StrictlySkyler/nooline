@@ -22,14 +22,13 @@
     "drupal"
   ],
   "dependencies": {
-    "express" : ">= 3.2.5",
+    "express": ">= 3.2.5",
     "underscore": ">= 1.4.4",
     "async": ">= 0.2.8",
-    "winston": ">= 0.7.1",
-    "express-winston": ">= 0.2.0",
     "require-directory": ">= 1.0.0",
     "consolidate": ">= 0.9.1",
-    "hogan.js": ">= 2.0.0"
+    "hogan.js": ">= 2.0.0",
+    "grunt": "~0.4.1"
   },
   "noAnalyze": false,
   "devDependencies": {},

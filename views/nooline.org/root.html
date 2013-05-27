@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>\nooline</title>
+    <link rel='stylesheet' href='/nooline.org/css/nooline.css'>
+    <link rel="icon" 
+      type="image/png" 
+      href="/nooline.org/images/favicon.ico">
+  </head>
+  <body>
+    <h1><span class="logo">\n</span>ooline</h1>
+    <p class="tag">Content Made Easy Peasy ✌</p>
+    
+    <!-- Scripts -->
+    <script src="/common/js/bower/requirejs/require.js"></script>
+    <script>
+      requirejs.config({
+        baseUrl: '/',
+        paths: {
+          common: '/common/js/bower',
+          nooline: '/nooline.org/js/'
+        }
+      });
+      requirejs([
+        'common/jquery/jquery',
+        'common/modernizr/modernizr',
+        'common/underscore/underscore',
+        'common/backbone/backbone',
+        '/common/js/timelinejs/compiled/js/storyjs-embed.js'
+      ], function () {
+        debugger;
+      });
+    </script>
+  </body>
+</html>
