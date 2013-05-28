@@ -1,0 +1,13 @@
+{
+  "startDate": "2013,5,27",
+  "endDate": "",
+  "headline": "Reboot!",
+  "text": "Now using Express, Hogan, others, et al.  Should remove the dependency on a headless browser, and expedite development time.  More to come!",
+  "tag": "nooline",
+  "asset": {
+    "media": "",
+    "thumbnail": "",
+    "credit": "",
+    "caption": ""
+  }
+}
