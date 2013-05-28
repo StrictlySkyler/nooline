@@ -85,8 +85,10 @@
 
 body {
   padding: 0;
-  margin: 0 40px;
-  font: 18px "QuicksandLight";
+  margin: 0;
+  width: 100%;
+  font: 18px/1.5 "QuicksandLight";
+  color: #333;
 }
 
 a {
@@ -111,10 +113,25 @@ a:hover {
   border-radius: 2px;
 }
 
+.global-header {
+  text-align: center;
+  border-bottom: 15px solid #333;
+  padding: 0 0 20px;
+}
+
 h1 {
   padding: 0;
   margin: 0;
   font: normal 48px/1.5 'Courier New';
+}
+
+h2 {
+  font: 36px/1.5 'QuicksandBook';
+}
+
+h3 {
+  font: 36px/1.5 'QuicksandBook';
+  margin: 20px 0 0;
 }
 
 .logo {
@@ -124,4 +141,36 @@ h1 {
 
 .tag {
   margin: 0 0 0 40px;
+}
+
+.storyjs-embed .start {
+  margin: 20px 0 0;
+}
+
+.storyjs-embed .start + p {
+  margin: 0 0 0 20px;
+}
+
+.storyjs-embed .date {
+  font: 16px/1.5 'QuicksandLight';
+  color: #999;
+  margin: 0;
+}
+
+.storyjs-embed .slide-tag {
+  background: #dedede;
+  padding: 2px 2px 0;
+  border-radius: 2px;
+  color: #fff;
+  margin: 0 10px;
+}
+
+.storyjs-embed h3 + p {
+  margin: 10px 0 0;
+  padding: 0 0 0 20px;
+  text-indent: -20px;
+}
+
+.storyjs-embed .flag-content h3 {
+  font: 12px/1.5 'QuicksandLight';
 }

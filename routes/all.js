@@ -1,5 +1,5 @@
 
-exports.root = function (req, res) {
+exports.root = function root (req, res) {
   var site = req.host;
   var nooline = req.app;
   

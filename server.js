@@ -47,6 +47,7 @@ nooline.set('prettyport', function () {
 }());
 
 nooline.get('/', routes.all.root);
+nooline.get('/content/*/timeline', routes.content.timeline);
 
 http.createServer(nooline).listen(nooline.settings.port, function started() {
   console.log('Nooline started listening on ' + nooline.settings.port);

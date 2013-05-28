@@ -4,4 +4,5 @@
 guard 'livereload' do
   watch(%r{public/(.+\.(css|js|html))})
   watch(%r{views/(.+\.(css|js|html))})
+  watch(%r{content/(.+\.(json))})
 end
