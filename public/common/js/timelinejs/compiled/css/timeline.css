@@ -111,14 +111,6 @@
     margin-top: 20px;
 }
 
-.vco-storyjs .hyphenate {
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    word-wrap: break-word;
-}
-
 .vco-storyjs h1 a,.vco-storyjs h2 a,.vco-storyjs h3 a,.vco-storyjs h4 a,.vco-storyjs h5 a,.vco-storyjs h6 a {
     color: #999999;
 }
@@ -336,15 +328,6 @@
     max-width: 100%;
     min-width: 120px;
     display: block;
-}
-
-.vco-skinny .vco-slider .slider-item .content .content-container .text .container {
-    display: block;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    word-wrap: break-word;
 }
 
 .vco-skinny .vco-slider .slider-item .content .content-container .media {
@@ -671,14 +654,6 @@
     text-align: left;
 }
 
-.vco-slider .slider-item .content .content-container .text .container p {
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    word-wrap: break-word;
-}
-
 .vco-slider .slider-item .content .content-container .media {
     width: 100%;
     min-width: 50%;
@@ -720,36 +695,6 @@
     position: relative;
     z-index: 1;
     background: #ffffff;
-}
-
-.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow:before,.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow:after {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 15px;
-    left: 10px;
-    width: 50%;
-    top: 80%;
-    max-width: 300px;
-    background: #999999;
-    -webkit-box-shadow: 0 15px 10px #999999;
-    -moz-box-shadow: 0 15px 10px #999999;
-    box-shadow: 0 15px 10px #999999;
-    -webkit-transform: rotate(-2deg);
-    -moz-transform: rotate(-2deg);
-    -ms-transform: rotate(-2deg);
-    -o-transform: rotate(-2deg);
-    transform: rotate(-2deg);
-}
-
-.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-shadow::after {
-    -webkit-transform: rotate(2deg);
-    -moz-transform: rotate(2deg);
-    -ms-transform: rotate(2deg);
-    -o-transform: rotate(2deg);
-    transform: rotate(2deg);
-    right: 10px;
-    left: auto;
 }
 
 .vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .plain-text {
@@ -1052,14 +997,6 @@
     max-width: 100%;
     display: block;
     text-align: center;
-}
-
-.vco-slider .slider-item .content .content-container.layout-media .text .container {
-    display: block;
-    text-align: center;
-    width: 100%;
-    margin-left: none;
-    margin-right: none;
 }
 
 .vco-slider .slider-item .content .content-container.layout-media .media {
@@ -2296,11 +2233,6 @@
     border-right: 1px solid rgba(0, 170, 255, 0.05);
 }
 
-.vco-timeline .vco-navigation .timenav .content .era6 div h3,.vco-timeline .vco-navigation .timenav .content .era6 div h4 {
-    color: rgba(0, 136, 204, 0.35);
-    text-shadow: 0px 1px 1px #ffffff;
-}
-
 .vco-timeline .vco-navigation .timenav .time {
     position: absolute;
     left: 0px;
@@ -2320,48 +2252,11 @@
     z-index: 10;
 }
 
-.vco-timeline .vco-navigation .timenav .time .time-interval-minor .minor {
-    position: relative;
-    top: 2px;
-    display: inline-block;
-    background-image: url(data:image/png;
-    base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAMCAMAAACdvocfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFzMzM////040VdgAAAAJ0Uk5T/wDltzBKAAAAEklEQVR42mJgYAQCBopJgAADAAbwADHy2qHzAAAAAElFTkSuQmCC);width: 100px;
-    height: 6px;
-    background-position: center top;
-    white-space: nowrap;
-    color: #666666;
-    margin-top: 0px;
-    padding-top: 0px;
-}
-
 .vco-timeline .vco-navigation .timenav .time .time-interval {
     white-space: nowrap;
     position: absolute;
     top: 5px;
     left: 0px;
-}
-
-.vco-timeline .vco-navigation .timenav .time .time-interval div {
-    background-image: url(data:image/png;
-    base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAMCAMAAACdvocfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFzMzM////040VdgAAAAJ0Uk5T/wDltzBKAAAAEklEQVR42mJgYAQCBopJgAADAAbwADHy2qHzAAAAAElFTkSuQmCC);background-position: left top;
-    background-repeat: no-repeat;
-    padding-top: 6px;
-    position: absolute;
-    height: 3px;
-    left: 0px;
-    display: block;
-    font-weight: normal;
-    font-size: 10px;
-    line-height: 20px;
-    text-transform: uppercase;
-    text-align: left;
-    text-indent: 0px;
-    white-space: nowrap;
-    color: #666666;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    z-index: 2;
 }
 
 .vco-timeline .vco-navigation .timenav .time .time-interval div strong {
@@ -2430,29 +2325,6 @@
     position: absolute;
     top: 5px;
     left: 0px;
-}
-
-.vco-timeline .vco-navigation .timenav .time .time-interval-major div {
-    background-image: url(data:image/png;
-    base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAQAQMAAADtUYf0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyOTAzRjI3REIzNDcxMUUxQUQ3QUZCOThEODQ1NDhCNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyOTAzRjI3RUIzNDcxMUUxQUQ3QUZCOThEODQ1NDhCNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI5MDNGMjdCQjM0NzExRTFBRDdBRkI5OEQ4NDU0OEI3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjI5MDNGMjdDQjM0NzExRTFBRDdBRkI5OEQ4NDU0OEI3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+DPWNfQAAAANQTFRFzMzMylJEJwAAAAtJREFUCB1jYMAPAAAgAAHDvpOtAAAAAElFTkSuQmCC);background-position: left top;
-    background-repeat: no-repeat;
-    padding-top: 15px;
-    position: absolute;
-    height: 15px;
-    left: 0px;
-    display: block;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 20px;
-    text-transform: uppercase;
-    text-align: left;
-    text-indent: 0px;
-    white-space: nowrap;
-    color: #333333;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 1px;
-    z-index: 5;
 }
 
 .vco-timeline .vco-navigation .timenav .time .time-interval-major div strong {

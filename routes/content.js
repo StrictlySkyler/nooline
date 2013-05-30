@@ -1,55 +1,16 @@
 
-exports.timeline = function timeline (req, res) {
+module.exports = function content (req, res, receiver, type) {
   var fs = require('fs');
-  var path = '.' + req.path;
-  var dates = path + 'dates/';
-  var setup;
-  var totalFiles;
-  var currentIndex;
+  var buildMeta = require('../controllers/build-meta');
+  var info = {};
   
-  // TODO: Maybe consider using 'stewardess' module for this?
-  function buildTimeline(error, data) {
-    if (error) {
-      console.error(error);
-    } else {
-      try {
-        setup = JSON.parse(data);
-      } catch (error) {
-        console.error(error);
-      }
-      
-      fs.readdir(dates, getDateIndex);
-    }
-  }
+  info.type = req.query.type || type;
+  info.domain = './content/' + req.host,
+  info.meta = info.domain + '/meta/' + info.type + '.json';
+  info.receiver = receiver;
   
-  function getDateIndex(error, files) {
-    var i = 0;
-    totalFiles= files.length;
-    currentIndex = 0;
+  fs.readFile(info.meta, 'utf8', function reportMeta (error, data) {
     
-    for (i, files; i < files.length; i++) {
-      fs.readFile(dates + files[i], 'utf8', parseDates);
-    }
-  }
-  
-  function parseDates(error, data) {
-    if (error) {
-      console.error(error);
-    } else {
-      try {
-        data = JSON.parse(data);
-      } catch (error) {
-        console.error(error);
-      }
-      setup.source.timeline.date.push(data);
-      currentIndex++;
-      
-      if (currentIndex === totalFiles) {
-        res.send(JSON.stringify(setup));
-      }
-    }
-    
-  }
-
-  fs.readFile(path + 'setup.json', 'utf8', buildTimeline);
+    buildMeta(error, data, req, res, info);
+  });
 };

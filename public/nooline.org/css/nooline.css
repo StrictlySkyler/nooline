@@ -174,3 +174,19 @@ h3 {
 .storyjs-embed .flag-content h3 {
   font: 12px/1.5 'QuicksandLight';
 }
+
+.storyjs-embed .time-interval div {
+  padding-top: 6px;
+  position: absolute;
+  font: 10px/1.5 'QuicksandLight';
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+  color: #666666;
+}
+
+.storyjs-embed .time-interval-major div {
+  position: absolute;
+  font: 16px/1.5 'QuicksandLight';
+  top: 15px;
+}

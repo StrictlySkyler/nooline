@@ -30,10 +30,18 @@
       '/common/js/timelinejs/compiled/js/storyjs-embed.js',
       'nooline/get-content',
       'nooline/error-handler',
-      'nooline/build-timeline'
+      'nooline/build-timeline',
+      'nooline/build-scroll'
     ], function setupContent(){
       
-      N.getContent('timeline', N.buildTimeline);
+      // TODO: This content isn't currently indexable for SEO.  Need to make
+      // this a headless snapshot instead. 
+      // 
+      // TODO: Need to extend this  server-
+      // side functionality to include the ability to specify the number of
+      // content to get.
+      N.getContent({type: 'dates'}, N.buildTimeline);
+      // N.getContent({type: 'scroll'}, N.buildScroll);
       
     });
   }

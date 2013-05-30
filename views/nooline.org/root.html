@@ -15,7 +15,15 @@
       <p class="tag">Content Made Easy Peasy ✌</p>
     </header>
     
-    <div id="timeline"></div>
+    <section id="timeline"></section>
+    <section id="scroll">
+      {{#scroll}}
+        <article>
+          <h3>{{headline}}</h3>
+          <p>{{text}}</p>
+        </article>
+      {{/scroll}}
+    </section>
     <!-- Scripts -->
     <script src="/common/js/bower/requirejs/require.js"></script>
     <script src="/common/js/nooline/start.js"></script>
