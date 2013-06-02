@@ -9,7 +9,7 @@ nooline.use(chromelogger.middleware);
 nooline.use(nooline.router);
 nooline.use(express.logger('dev'));
 nooline.use(express.bodyParser());
-// nooline.use(express.static('public'));
+nooline.use(express.static('public'));
 nooline.use(function set404 (req, res) {
   res.status(404).render('error', {
     status: '404',
@@ -46,7 +46,7 @@ nooline.set('prettyport', function () {
   }
 }());
 
-// nooline.get('/', routes.root);
+nooline.get('/', routes.root);
 nooline.get('/content', routes.content);
 
 http.createServer(nooline).listen(nooline.settings.port, function started() {

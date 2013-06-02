@@ -1,6 +1,5 @@
 
 module.exports = function root (req, res) {
-  // var fetchContent = require('../controllers/fetch-content');
   var content = require('./content');
   var domain = req.host;
   var nooline = req.app;
@@ -10,6 +9,7 @@ module.exports = function root (req, res) {
     + "class=\"tech-term\">root"
     + "</span> (" + domain + " + /).  Otherwise, perhaps the specific "
     + "route for this domain and path are missing.";
+  var next = {};
   
   function renderError (error) {
     console.error(error);
@@ -23,7 +23,7 @@ module.exports = function root (req, res) {
     });
   }
   
-  function renderRoot (scroll) {
+  next.followup = function renderRoot (scroll) {
     
     res.render(domain + '/root', scroll, function(error, html) {
       if (error) {
@@ -32,8 +32,9 @@ module.exports = function root (req, res) {
         res.send(html);
       }
     });
-  }
+  };
+  next.type = 'scroll';
   
-  content(req, res, null, renderRoot, 'scroll');
+  content(req, null, next);
   
 };

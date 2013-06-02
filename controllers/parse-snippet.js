@@ -23,16 +23,14 @@ module.exports = function parseSnippet (error, data, req, res, info) {
     info.currentIndex++;
     
     if (info.currentIndex === info.totalFiles) {
-      content = JSON.stringify(info.setup);
-      
-      if (info.receiver) {
-        info.receiver(content);
-      }
-      
+      content = info.setup;
       if (res) {
-        res.send(content);
+        res.send(JSON.stringify(content));
       }
       
+      if (info.next) {
+        info.next(content);
+      }
     }
   }
 };

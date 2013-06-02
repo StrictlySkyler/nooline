@@ -16,13 +16,13 @@
     </header>
     
     <section id="timeline"></section>
-    <section id="scroll">
-      {{#scroll}}
+    <section id="scroll" class="scroll content">
+      {{#snippets}}
         <article>
-          <h3>{{headline}}</h3>
-          <p>{{text}}</p>
+          <h3>{{{headline}}}</h3>
+          <p>{{{text}}}</p>
         </article>
-      {{/scroll}}
+      {{/snippets}}
     </section>
     <!-- Scripts -->
     <script src="/common/js/bower/requirejs/require.js"></script>

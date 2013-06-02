@@ -82,6 +82,18 @@
 
 }
 
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.eot');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/fontawesome-webfont.woff') format('woff'),
+         url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+         url('../fonts/fontawesome-webfont.svg#QuicksandDash') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 body {
   padding: 0;
@@ -115,8 +127,11 @@ a:hover {
 
 .global-header {
   text-align: center;
-  border-bottom: 15px solid #333;
-  padding: 0 0 20px;
+}
+
+section {
+  border-top: 15px solid #333;
+  margin: 20px 0 0;
 }
 
 h1 {
@@ -132,6 +147,10 @@ h2 {
 h3 {
   font: 36px/1.5 'QuicksandBook';
   margin: 20px 0 0;
+}
+
+h4 {
+  font: bold 18px/1.5 'QuicksandBook';
 }
 
 .logo {
@@ -160,7 +179,6 @@ h3 {
 .storyjs-embed .slide-tag {
   background: #dedede;
   padding: 2px 2px 0;
-  border-radius: 2px;
   color: #fff;
   margin: 0 10px;
 }
@@ -189,4 +207,333 @@ h3 {
   position: absolute;
   font: 16px/1.5 'QuicksandLight';
   top: 15px;
+}
+
+.scroll {
+  padding: 50px 175px;
+}
+
+.scroll p {
+  text-indent: -20px;
+  padding: 0 0 0 20px;
+}
+
+.storyjs-embed .nav-container {
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  min-height: 100px;
+  width: 100px;
+  position: absolute;
+}
+
+.storyjs-embed .nav-container:hover {
+  background: #eee;
+}
+
+.storyjs-embed .nav-previous,
+.storyjs-embed .nav-next {
+  width: 0;
+  top: 0;
+  position: absolute;
+}
+
+.storyjs-embed .nav-previous .nav-container {
+  padding: 0 0 0 20px;
+}
+
+.storyjs-embed .nav-next .nav-container {
+  padding: 0 20px 0 0;
+  margin: 0 0 0 -20px;
+}
+
+.storyjs-embed .nav-container .icon {
+  width: 25px;
+  height: 60px;
+}
+
+.storyjs-embed .nav-previous .icon:before {
+  content: '<';
+  font: 48px/1.5 'QuicksandBook';
+  color: #999;
+  -webkit-transition: all 0.25s ease;
+}
+
+.storyjs-embed .nav-next {
+  text-align: right;
+}
+
+.storyjs-embed .nav-next .icon {
+  width: 100%;
+}
+
+.storyjs-embed .nav-next .icon:before {
+  content: '>';
+  font: 48px/1.5 'QuicksandBook';
+  color: #999;
+  -webkit-transition: all 0.25s ease;
+  position: absolute;
+  right: 15px;
+}
+
+.storyjs-embed .nav-previous:hover .icon:before{
+  color: #000;
+  margin: 0 0 0 -10px;
+}
+
+.storyjs-embed .nav-next:hover .icon:before {
+  color: #000;
+  right: 5px;
+}
+
+.storyjs-embed .nav-container .date {
+  font: 12px/1.5 'QuicksandLight';
+}
+
+.storyjs-embed .nav-container .title {
+  font: 12px/1.5 'QuicksandBook';
+  color: #ccc;
+  -webkit-transition: all 0.25s ease;
+}
+
+.storyjs-embed .nav-container:hover .title {
+  color: #333;
+}
+
+.storyjs-embed .vco-toolbar {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  background: #333;
+  padding: 0 5px 5px 10px;
+}
+
+.storyjs-embed .vco-toolbar .icon {
+  width: 24px;
+  height: 24px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.storyjs-embed .vco-toolbar .icon:before {
+  font: 18px/1.5 'FontAwesome';
+  color: #999;
+  -webkit-transition: all 0.25s ease;
+}
+
+.storyjs-embed .vco-toolbar .icon:hover:before {
+  color: #fff;
+}
+
+.storyjs-embed .back-home .icon:before {
+  content: '\f049';
+}
+
+.storyjs-embed .zoom-in .icon:before {
+  content: '\f00e';
+}
+
+.storyjs-embed .zoom-out .icon:before {
+  content: '\f010';
+}
+
+.timeline-tooltip {
+  position: absolute;
+  z-index: 205;
+  padding: 5px;
+  font: 14px/1.5 'QuicksandLight';
+  margin: 0 0 0 2px;
+}
+
+.timeline-tooltip .timeline-tooltip-arrow {
+  top: 50%;
+  left: -2px;
+  margin-top: -5px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 7px solid #000000;
+}
+
+.timeline-tooltip-inner {
+    max-width: 200px;
+    padding: 3px 8px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000000;
+}
+
+.timeline-tooltip-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.timenav-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #666;
+}
+
+.vco-navigation {
+    clear: both;
+    cursor: move;
+    width: 100%;
+    height: 200px;
+    position: relative
+}
+
+.timenav-tag:nth-child(odd) {
+  background: rgba(0,0,0,0.15);
+}
+
+.timenav-tag div h3 {
+  padding-left: 65px;
+  color: rgba(255,255,255,0.25);
+  font: 18px/1 'QuicksandLight';
+}
+
+.timenav-interval-background {
+  position: absolute;
+  top: 150px;
+  background: #ffffff;
+  width: 100%;
+  height: 50px;
+}
+
+.timenav .marker {
+  position: absolute;
+}
+
+.timenav .marker.active {
+  z-index: 99999;
+}
+
+.timenav .marker.active h3 {
+  color: #0af;
+}
+
+.timenav .flag h3 {
+  position: absolute;
+  top: 0;
+  margin: 0 0 0 5px;
+  padding: 5px 15px;
+  background: #333;
+  color: #aaa;
+  border: 1px solid #666;
+  -webkit-transition: all 0.25s ease;
+  min-width: 100px;
+}
+
+.timenav .flag h3:before {
+  content: '';
+  border-top: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #666;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  -webkit-transition: all 0.25s ease;
+}
+
+.timenav .flag h3:after {
+  content: '';
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #333;
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  -webkit-transition: all 0.25s ease;
+}
+
+.timenav .flag h3:hover {
+  z-index: 99999;
+  color: #0af;
+  cursor: pointer;
+  background: #666;
+  border: 1px solid #333;
+}
+
+.timenav .flag h3:hover:before {
+  content: '';
+  border-top: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #333;
+  position: absolute;
+  left: -1px;
+  bottom: -8px;
+}
+
+.timenav .flag h3:hover:after {
+  content: '';
+  border-top: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 9px solid #666;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+
+.vco-timeline .vco-navigation .timenav .content .marker .line {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    width: 1px;
+    height: 150px;
+    background-color: #cccccc;
+}
+
+.storyjs-embed .timenav-indicator {
+    position: absolute;
+}
+
+.storyjs-embed .timenav-indicator:before {
+  content: '';
+  border-top: 10px solid #fff;
+  border-right:10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  left: 3px;
+  z-index: 99999;
+}
+
+.storyjs-embed .timenav-line {
+  position: absolute;
+  width: 2px;
+  height: 150px;
+  margin-left: 2px;
+  background-color: #000;
+}
+
+.storyjs-embed .marker.active .dot {
+  border-bottom-color: #0af;
+  border-left-color: #0af;
+  border-left: 5px solid transparent;
+  left: 0;
+  z-index: 99999;
+}
+
+.storyjs-embed .marker .dot {
+  position: absolute;
+  top: 150px;
+  left: 5px;
+  border-top: 0 solid transparent;
+  border-right: 5px solid transparent;
+  border-left: 1px solid #333;
+  border-bottom: 6px solid #333;
+}
+
+.storyjs-embed .marker.active .event-line {
+  background: #0af;
+}
+
+.storyjs-embed .marker .event-line {
+  position: absolute;
+  background: #333;
 }

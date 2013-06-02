@@ -2,7 +2,7 @@
   
   N.errorHandler = function errorHandler (error) {
     console.error(error);
-    debugger;
+    // debugger;
   };
   
 }(window.Nooline));
