@@ -1,3 +1,4 @@
+
 !(function start(root) {
   
   function Nooline () {
@@ -8,15 +9,15 @@
         nooline: '/common/js/nooline'
       },
       shim: {
-        'common/backbone/backbone': {
-          deps: ['common/underscore/underscore', 'common/jquery/jquery'],
+        'bower/backbone/backbone': {
+          deps: ['bower/underscore/underscore', 'bower/jquery/jquery'],
           exports: 'Backbone'
         },
         'underscore': {
           exports: '_'
         },
-        '/common/js/timelinejs/compiled/js/timeline-min.js': {
-          deps: ['/common/js/timelinejs/compiled/js/storyjs-embed.js']
+        'bower/TimelineJS/compiled/js/timeline-min': {
+          deps: ['bower/TimelineJS/compiled/js/storyjs-embed']
         }
       }
     });
@@ -26,8 +27,8 @@
       'bower/modernizr/modernizr',
       'bower/underscore/underscore',
       'bower/backbone/backbone',
-      '/common/js/timelinejs/compiled/js/timeline-min.js',
-      '/common/js/timelinejs/compiled/js/storyjs-embed.js',
+      'bower/TimelineJS/compiled/js/timeline-min',
+      'bower/TimelineJS/compiled/js/storyjs-embed',
       'nooline/get-content',
       'nooline/error-handler',
       'nooline/build-timeline',

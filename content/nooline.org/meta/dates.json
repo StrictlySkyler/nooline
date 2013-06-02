@@ -18,7 +18,7 @@
   "start_at_end": "true",
   "hash_bookmark": "true",
   "embed_path": "/common/js/timelinejs/compiled",
-  "css": "/common/js/timelinejs/compiled/css/timeline.css",
+  "css": "/nooline.org/css/nooline.css",
   "js": "/common/js/timelinejs/compiled/js/timeline-min.js",
   "source": {
     "timeline": {
