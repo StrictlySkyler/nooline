@@ -209,8 +209,12 @@ h4 {
   top: 15px;
 }
 
-.scroll {
-  padding: 50px 175px;
+.scroll article {
+  padding: 20px 175px;
+}
+
+.scroll article:nth-child(odd) {
+  background: #eee;
 }
 
 .scroll p {
