@@ -37,6 +37,7 @@ nooline.engine('html', require('consolidate')[engine]);
 nooline.set('express', express);
 nooline.set('views', __dirname + '/views');
 nooline.set('redirect', 'nooline.org');
+nooline.set('partials', '/views/partials');
 nooline.set('prettyport', function () {
   if (nooline.settings.port !== 80
     || nooline.settings.port !== 443) {
@@ -48,6 +49,8 @@ nooline.set('prettyport', function () {
 
 nooline.get('/', routes.root);
 nooline.get('/content', routes.content);
+nooline.get('/:category', routes.category);
+nooline.get('/:category/:index', routes.category);
 
 http.createServer(nooline).listen(nooline.settings.port, function started() {
   console.log('Nooline started listening on ' + nooline.settings.port);

@@ -3,19 +3,23 @@ module.exports = function buildMeta (error, data, req, res, info) {
   
   var fs = require('fs');
   var getIndex = require('./get-index');
-  info.index = info.domain + '/index.json';
+  var renderError = require('../routes/render-error');
+  
+  function reportIndex (error, data) {
+    getIndex(error, data, req, res, info);
+  }
+  
+  info.index = info.contentPath + '/index.json';
   
   if (error) {
-    console.error(error);
+    renderError(error, info);
   } else {
     try {
       info.setup = JSON.parse(data);
     } catch (fail) {
-      console.error(fail);
+      renderError(fail, info);
     }
     
-    fs.readFile(info.index, 'utf8', function reportIndex (error, data) {
-      getIndex(error, data, req, res, info);
-    });
+    fs.readFile(info.index, 'utf8', reportIndex);
   }
-}
+};

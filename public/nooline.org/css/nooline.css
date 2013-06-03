@@ -1,3 +1,10 @@
+/*
+TODO:  Add header, and style index.
+ */
+
+/**********
+  Fonts
+ **********/
 @font-face {
     font-family: 'QuicksandLight';
     src: url('../fonts/Quicksand_Light-webfont.eot');
@@ -94,6 +101,14 @@
 
 }
 
+/**********
+  General Purpose Styles
+ **********/
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 body {
   padding: 0;
@@ -118,15 +133,24 @@ a:hover {
 }
 
 .files {
+  font: 18px 'Courier New';
   background: #333;
   color: #fff;
-  padding: 0 2px;
+  padding: 0 5px;
   display: inline-block;
-  border-radius: 2px;
 }
 
 .global-header {
   text-align: center;
+}
+
+.global-footer {
+  border-top: 15px solid #0af;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  font: 12px/1.5 'QuicksandLight';
+  padding: 0 0 5px;
 }
 
 section {
@@ -161,6 +185,41 @@ h4 {
 .tag {
   margin: 0 0 0 40px;
 }
+
+/**********
+  Error Pages
+ **********/
+
+.error {
+  padding: 50px 175px;
+}
+
+/**********
+  Main Content
+ **********/
+
+.content article {
+  padding: 20px 175px;
+}
+
+.content article:nth-child(even) {
+  background: #eee;
+}
+
+.content p {
+  text-indent: -20px;
+  padding: 0 0 0 20px;
+}
+
+.content footer {
+  font: 12px/1.5 'QuicksandLight';
+  color: #aaa;
+  text-align: right;
+}
+
+/**********
+  The Narrative Timeline
+ **********/
 
 .storyjs-embed .start {
   margin: 20px 0 0;
@@ -207,19 +266,6 @@ h4 {
   position: absolute;
   font: 16px/1.5 'QuicksandLight';
   top: 15px;
-}
-
-.scroll article {
-  padding: 20px 175px;
-}
-
-.scroll article:nth-child(odd) {
-  background: #eee;
-}
-
-.scroll p {
-  text-indent: -20px;
-  padding: 0 0 0 20px;
 }
 
 .storyjs-embed .nav-container {
@@ -303,28 +349,28 @@ h4 {
   color: #333;
 }
 
-.storyjs-embed .vco-toolbar {
+.storyjs-embed .toolbar {
   position: absolute;
   left: 0;
-  z-index: 1;
+  z-index: 10;
   background: #333;
   padding: 0 5px 5px 10px;
 }
 
-.storyjs-embed .vco-toolbar .icon {
+.storyjs-embed .toolbar .icon {
   width: 24px;
   height: 24px;
   margin: 5px 0;
   cursor: pointer;
 }
 
-.storyjs-embed .vco-toolbar .icon:before {
+.storyjs-embed .toolbar .icon:before {
   font: 18px/1.5 'FontAwesome';
   color: #999;
   -webkit-transition: all 0.25s ease;
 }
 
-.storyjs-embed .vco-toolbar .icon:hover:before {
+.storyjs-embed .toolbar .icon:hover:before {
   color: #fff;
 }
 
@@ -415,7 +461,7 @@ h4 {
 }
 
 .timenav .marker.active {
-  z-index: 99999;
+  z-index: 1;
 }
 
 .timenav .marker.active h3 {

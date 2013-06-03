@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  {{> head}}
+  <body class="category">
+    {{> global-header}}
+    
+    <section id="{{type}}" class="{{type}} content">
+      {{#snippets}}
+        <article>
+          <h3>{{{headline}}}</h3>
+          <p>{{{text}}}</p>
+          <footer>
+            {{#author}}
+              By {{author}}
+            {{/author}}
+            
+            {{#prettyStartDate}}
+              on {{prettyStartDate}}
+            {{/prettyStartDate}}
+            
+            {{#prettyStartTime}} 
+              at {{prettyStartTime}}
+            {{/prettyStartTime}}
+          </footer>
+        </article>
+      {{/snippets}}
+    </section>
+    
+    {{> global-footer}}
+    
+    {{> global-scripts}}
+  </body>
+</html>

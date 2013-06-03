@@ -1,9 +1,13 @@
 {
   "startDate": "2012,5,7",
   "endDate": "",
+  "prettyStartDate": "May 7th, 2012",
+  "prettyEndDate": "",
   "startTime": "16:13:39",
   "endTime": "",
-  "author": "skyler",
+  "prettyStartTime": "4:13pm",
+  "prettyEndTime": "",
+  "author": "Skyler",
   "published": true,
   "tag": "nooline",
   "asset": {

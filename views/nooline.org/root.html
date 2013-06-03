@@ -1,29 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>nooline</title>
-    <link rel='stylesheet' href='/nooline.org/css/nooline.css'>
-    <link rel="icon" 
-      type="image/png" 
-      href="/nooline.org/images/favicon.ico">
-  </head>
-  <body>
-    <header class="global-header">
-      <h1><span class="logo">\n</span>ooline</h1>
-      <p class="tag">Content Made Easy Peasy ✌</p>
-    </header>
+  {{> head}}
+  <body class="main-page timeline scroll">
+    {{> global-header}}
     
-    <section id="timeline"></section>
-    <section id="scroll" class="scroll content">
-      {{#snippets}}
-        <article>
-          <h3>{{{headline}}}</h3>
-          <p>{{{text}}}</p>
-        </article>
-      {{/snippets}}
-    </section>
-    <!-- Scripts -->
-    <script src="/common/js/bower/requirejs/require.js"></script>
-    <script src="/common/js/nooline/start.js"></script>
+    {{> timeline}}
+    {{> scroll}}
+    
+    {{> global-footer}}
+    
+    {{> global-scripts}}
   </body>
 </html>

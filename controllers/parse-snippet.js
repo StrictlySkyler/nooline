@@ -1,19 +1,21 @@
 
 module.exports = function parseSnippet (error, data, req, res, info) {
   var content;
+  var renderError = require('../routes/render-error');
   
   if (error) {
-    console.error(error);
+    renderError(error, info);
   } else {
     try {
       data = JSON.parse(data);
     } catch (fail) {
-      console.error(fail);
+      renderError(fail, info);
     }
     
     switch (info.type) {
       case 'dates':
         info.setup.source.timeline.date.push(data);
+        info.setup.snippets.push(data);
         break;
       default:
         info.setup.snippets.push(data);
@@ -29,7 +31,7 @@ module.exports = function parseSnippet (error, data, req, res, info) {
       }
       
       if (info.next) {
-        info.next(content);
+        info.next(content, info);
       }
     }
   }

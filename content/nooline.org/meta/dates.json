@@ -19,7 +19,7 @@
   "hash_bookmark": "true",
   "embed_path": "/common/js/timelinejs/compiled",
   "css": "/nooline.org/css/nooline.css",
-  "js": "/common/js/timelinejs/compiled/js/timeline-min.js",
+  "js": "/common/js/bower/TimelineJS/compiled/js/timeline-min.js",
   "source": {
     "timeline": {
       "headline": "The Narrative",
