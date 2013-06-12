@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OMGWTFERROR!!!!1!one</title>
-    <link rel='stylesheet' href='/{{redirect}}/css/nooline.css' />
-    <link rel="icon" 
-      type="image/png" 
-      href="/{{redirect}}/images/favicon.ico">
-  </head>
+  {{> head}}
+  
   <body class="error {{status}}">
-    <h1>{{status}}</h1>
-    <p>{{message}}</p>
-    <p>Maybe you wanna try visiting <a href="http://{{redirect}}{{port}}">{{redirect}}</a>?</p>
-    <p class="error-detail">{{{error}}}</p> <!-- Optional, and unescaped -->
+    {{> global-header}}
+    
+    <section class="content">
+      <article>
+        <h1>{{status}}</h1>
+        <p>{{message}}</p>
+        <p>Maybe you wanna try visiting <a href="http://{{redirect}}{{port}}">{{redirect}}</a>?</p>
+        <p class="error-detail">{{{error}}}</p> <!-- Optional, and unescaped -->
+      </article>
+    </section>
+    
+    {{> global-footer}}
   </body>
 </html>

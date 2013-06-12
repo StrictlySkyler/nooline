@@ -9,6 +9,7 @@ module.exports = function renderTemplate (content, info) {
     'timeline': 'partials/timeline',
     'scroll': 'partials/scroll',
     'global-header': 'partials/global-header',
+    'meta': 'partials/meta',
     'global-footer': 'partials/global-footer',
     'global-scripts': 'partials/global-scripts'
   };

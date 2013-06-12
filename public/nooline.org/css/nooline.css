@@ -110,6 +110,11 @@ TODO:  Add header, and style index.
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #fa0;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -128,6 +133,14 @@ a:hover {
   color: #fa0;
 }
 
+input {
+  border: none;
+  height: 25px;
+  width: 200px;
+  font: 14px/1.5 "QuicksandBook";
+  padding: 0 5px;
+}
+
 .tech-term {
   font: 18px 'Courier New';
 }
@@ -135,13 +148,112 @@ a:hover {
 .files {
   font: 18px 'Courier New';
   background: #333;
-  color: #fff;
+  color: #0f0;
   padding: 0 5px;
   display: inline-block;
+  text-indent: 0;
+}
+
+.login {
+  height: 50px;
+  width: 100%;
+  background: #0af;
+  color: #fff;
+  margin: 20px 0 -20px;
+  font: 18px/2 'QuicksandLight';
+  -webkit-transition: all 0.25s ease;
+}
+
+/*
+  Utility class for animating elements in with CSS.  Define the animation transitons on the other CSS rules, and define how they should be hidden 
+  (and thus revealed) here.
+ */
+.building {
+  overflow: hidden;
+  height: 0;
+  border-width: 0;
 }
 
 .global-header {
   text-align: center;
+}
+
+.meta {
+  margin: 0 0 -20px;
+}
+
+.meta ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 5px;
+  text-align: right;
+}
+
+.meta .nav-item {
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+}
+
+.meta .button {
+  background: none;
+  border: 0 solid transparent;
+  color: #0af;
+  cursor: pointer;
+  font: 12px/1 'QuicksandLight';
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all 0.25s ease;
+}
+
+.meta .button:hover,
+.meta .button.active {
+  color: #fa0;
+}
+
+.meta .contact-button:before  {
+  content: '\f0e0';
+  font: 12px/1 'FontAwesome';
+  position: absolute;
+  color: transparent;
+  left: 0;
+  top: 8px;
+  -webkit-transition: all 0.25s ease;
+}
+
+.meta .contact-button:hover:before {
+  left: -15px;
+  color: #fa0;
+}
+
+.meta .login-button:before  {
+  content: '\f145';
+  font: 12px/1 'FontAwesome';
+  position: absolute;
+  color: transparent;
+  left: 0;
+  top: 8px;
+  -webkit-transition: all 0.25s ease;
+}
+
+.meta .login-button:hover:before,
+.meta .login-button.active:before {
+  left: -15px;
+  color: #fa0;
+}
+
+.meta .active {
+  margin: 0 0 -30px;
+  padding: 0 0 6px;
+  border-bottom: 15px solid #0af;
+}
+
+.login label {
+  margin: 0 5px 0 0;
+}
+
+.login .username {
+  margin: 0 40px 0 0;
 }
 
 .global-footer {
@@ -189,9 +301,15 @@ h4 {
 /**********
   Error Pages
  **********/
+ 
+.error .content article {
+  margin: 0 0 100px;
+}
 
-.error {
-  padding: 50px 175px;
+.error .global-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 /**********
@@ -293,7 +411,6 @@ h4 {
 
 .storyjs-embed .nav-next .nav-container {
   padding: 0 20px 0 0;
-  margin: 0 0 0 -20px;
 }
 
 .storyjs-embed .nav-container .icon {

@@ -45,6 +45,8 @@
         N.getContent({type: 'dates'}, N.buildTimeline);
       }
       
+      requirejs(['nooline/build-components']);
+      
       
     });
   }
