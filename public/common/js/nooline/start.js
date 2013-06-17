@@ -18,11 +18,17 @@
         },
         'bower/TimelineJS/compiled/js/timeline-min': {
           deps: ['bower/TimelineJS/compiled/js/storyjs-embed']
+        },
+        'nooline/timeline': {
+          deps: [
+            'bower/TimelineJS/compiled/js/timeline-min',
+            'bower/TimelineJS/compiled/js/storyjs-embed'
+          ]
         }
       }
     });
     
-    requirejs([
+    require([
       'bower/jquery/jquery',
       'bower/modernizr/modernizr',
       'bower/underscore/underscore',
@@ -31,26 +37,10 @@
       'bower/TimelineJS/compiled/js/storyjs-embed',
       'nooline/get-content',
       'nooline/error-handler',
-      'nooline/build-timeline',
-      'nooline/build-scroll'
-    ], function setupContent(){
-      
-      // TODO: This content isn't currently indexable for SEO.  Need to make
-      // this a headless snapshot instead. 
-      // 
-      // TODO: Need to extend this  server-
-      // side functionality to include the ability to specify the number of
-      // content to get.
-      if ($('#timeline').length) {
-        N.getContent({type: 'dates'}, N.buildTimeline);
-      }
-      
-      requirejs(['nooline/build-components']);
-      
-      
-    });
+      'nooline/load-components'
+    ]);
   }
   
-  var N = root.Nooline = new Nooline();
+  root.Nooline = new Nooline();
   
 }(window));

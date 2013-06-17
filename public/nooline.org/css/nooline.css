@@ -112,7 +112,7 @@ TODO:  Add header, and style index.
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #fa0;
+  box-shadow: 0 0 0 2px #ff8d00;
 }
 
 body {
@@ -130,7 +130,7 @@ a {
 }
 
 a:hover {
-  color: #fa0;
+  color: #ff8d00;
 }
 
 input {
@@ -139,6 +139,7 @@ input {
   width: 200px;
   font: 14px/1.5 "QuicksandBook";
   padding: 0 5px;
+  -webkit-transition: all 0.25s ease;
 }
 
 .tech-term {
@@ -164,18 +165,36 @@ input {
   -webkit-transition: all 0.25s ease;
 }
 
+.login.invalid input {
+  box-shadow: 0 0 0 2px #f00;
+}
+
+.error-message {
+  position: absolute;
+  padding: 0 50px;
+  margin: 0;
+  font: 14px/1.5 'QuicksandBook';
+  background: #333;
+  -webkit-transition: all 0.25s ease;
+}
+
 /*
   Utility class for animating elements in with CSS.  Define the animation transitons on the other CSS rules, and define how they should be hidden 
   (and thus revealed) here.
  */
-.building {
+.hidden {
   overflow: hidden;
   height: 0;
   border-width: 0;
+  opacity: 0;
 }
 
 .global-header {
   text-align: center;
+}
+
+.button {
+  cursor: pointer;
 }
 
 .meta {
@@ -208,7 +227,7 @@ input {
 
 .meta .button:hover,
 .meta .button.active {
-  color: #fa0;
+  color: #ff8d00;
 }
 
 .meta .contact-button:before  {
@@ -223,7 +242,7 @@ input {
 
 .meta .contact-button:hover:before {
   left: -15px;
-  color: #fa0;
+  color: #ff8d00;
 }
 
 .meta .login-button:before  {
@@ -239,7 +258,7 @@ input {
 .meta .login-button:hover:before,
 .meta .login-button.active:before {
   left: -15px;
-  color: #fa0;
+  color: #ff8d00;
 }
 
 .meta .active {
@@ -254,6 +273,43 @@ input {
 
 .login .username {
   margin: 0 40px 0 0;
+}
+
+.login .button {
+  width: 25px;
+  height: 25px;
+  font: 24px/1 'FontAwesome';
+  background: transparent;
+  border: none;
+  color: #0077b2;
+  position: absolute;
+  padding: 0;
+  -webkit-transition: color 0.25s ease;
+}
+
+.login .button:hover {
+  color: #fff;
+}
+
+.login .button:active {
+  color: #ff8d00;
+}
+
+.login .close-section-button {
+  right: 0;
+  margin: 5px 10px 0 0;
+}
+
+.login .go-button {
+  margin: 5px 10px;
+}
+
+.close-section-button:before {
+  content: '\f00d';
+}
+
+.go-button:before {
+  content: '\f061';
 }
 
 .global-footer {
