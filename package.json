@@ -27,7 +27,9 @@
     "require-directory": ">= 1.0.0",
     "consolidate": ">= 0.9.1",
     "hogan.js": ">= 2.0.0",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "express-chrome-logger": "~0.1.2",
+    "crypto-js": "~3.1.2"
   },
   "noAnalyze": false,
   "devDependencies": {},

@@ -1,0 +1,16 @@
+{
+  "name": "sjcl",
+  "version": "0.0.0",
+  "main": [
+    "./sjcl.js"
+  ],
+  "gitHead": "28d8573235787113fd60daf9d786418695797824",
+  "_id": "sjcl@1.0.0",
+  "readme": "ERROR: No README.md file found!",
+  "description": "ERROR: No README.md file found!",
+  "commit": "28d8573235787113fd60daf9d786418695797824",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bitwiseshiftleft/sjcl.git"
+  }
+}

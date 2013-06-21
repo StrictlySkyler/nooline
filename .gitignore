@@ -7,8 +7,6 @@ autolint.js
 # OS Specific
 .DS_Store*
 
-# Other node modules
-node_modules
-
 # User credentials - remember that admin.hash should remain part of the repo, but the password should be changed.
 *.hash
+!admin.hash

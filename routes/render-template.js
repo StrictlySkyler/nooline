@@ -15,7 +15,10 @@ module.exports = function renderTemplate (content, info) {
   };
   content.type = info.type;
   
-  info.res.render(info.domain + info.template, content, function(error, html) {
+  info.res.render('sites/' 
+    + info.domain 
+    + '/views'
+    + info.template, content, function(error, html) {
     if (error) {
       renderError(error, info);
     } else {
