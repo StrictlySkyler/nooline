@@ -1,5 +1,5 @@
 
-!(function buildValidate (N) {
+;(function buildValidate (N) {
   
   N.validate = function validate (strings) {
     

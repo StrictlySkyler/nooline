@@ -1,10 +1,10 @@
 
 module.exports = function getIndex (error, data, req, res, info) {
   var loadSnippets = require('./load-snippets');
-  var renderError = require('../routes/render-error');
+  var error404 = require('../routes/error-404');
     
   if (error) {
-    renderError(error, info);
+    error404(error, info);
   } else {
     
     try {
@@ -13,7 +13,7 @@ module.exports = function getIndex (error, data, req, res, info) {
       loadSnippets(data[info.type], req, res, info);
       
     } catch (fail) {
-      renderError(fail, info);
+      error404(fail, info);
     }
   }
     

@@ -7,6 +7,8 @@ module.exports = function category (req, res) {
   
   info.domain = req.host;
   info.nooline = req.app;
+  // TODO:
+  // Put thse strings into the config json.
   info.errorMessage = "Looks like there isn't any content for that yet.  "
     + "Are you sure you typed the url correctly?";
   info.errorDetail = "For the techies:  "

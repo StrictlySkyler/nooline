@@ -1,15 +1,15 @@
 
 module.exports = function parseSnippet (error, data, req, res, info) {
   var content;
-  var renderError = require('../routes/render-error');
+  var error404 = require('../routes/error-404');
   
   if (error) {
-    renderError(error, info);
+    error404(error, info);
   } else {
     try {
       data = JSON.parse(data);
     } catch (fail) {
-      renderError(fail, info);
+      error404(fail, info);
     }
     
     switch (info.type) {

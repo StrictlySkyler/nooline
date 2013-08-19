@@ -1,5 +1,5 @@
 
-!(function buildRejectLogin (N) {
+;(function buildRejectLogin (N) {
   
   N.rejectLogin = function rejectLogin ($section) {
     var $error = $('<p class="error-message hidden"></p>')
@@ -18,8 +18,12 @@
       .addClass('invalid')
       .append($error);
     
+    console.log('Credentials rejected.');
+    
     setTimeout(function showError () {
       $error.removeClass('hidden');
+      
+      delete N.$activeLogin;
     }, 0);
   };
   

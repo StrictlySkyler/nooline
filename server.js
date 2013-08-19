@@ -4,8 +4,14 @@ var nooline = express();
 var http = require('http');
 var routes = require('./routes');
 
+var nomo = require('node-monkey').start();
+
+var engine;
+
 nooline.use(require('express-chrome-logger'));
 nooline.use(express.logger('dev'));
+nooline.use(express.compress());
+nooline.use(express.cookieParser());
 nooline.use(express.bodyParser());
 nooline.use(nooline.router);
 nooline.use('/common', express.static(__dirname + '/common'));
@@ -31,13 +37,14 @@ nooline.use(function set500 (error, req, res, next) {
 });
 
 // TODO: Turn these into a settings json file.
-var engine = 'hogan';
+engine = 'hogan';
 nooline.set('port', process.env.PORT || 3000);
 nooline.set('view engine', 'html');
 nooline.engine('html', require('consolidate')[engine]);
 nooline.set('express', express);
 nooline.set('views', __dirname + '/');
 nooline.set('redirect', 'nooline.org');
+nooline.set('EXPIRY', 3600000); // 1 hour = 3600000ms
 nooline.set('prettyport', function () {
   if (nooline.settings.port !== 80
     || nooline.settings.port !== 443) {
@@ -47,11 +54,14 @@ nooline.set('prettyport', function () {
   }
 }());
 
-// TODO: Turn these routes into a JSON file.
+// Static gets
 nooline.get('/', routes.root);
 nooline.get('/content', routes.content);
+nooline.get('/bootstrap', routes.bootstrap);
+// Dynamic gets
 nooline.get('/:category', routes.category);
 nooline.get('/:category/:index', routes.category);
+// Static posts
 nooline.post('/login', routes.login);
 
 http.createServer(nooline).listen(nooline.settings.port, function started() {

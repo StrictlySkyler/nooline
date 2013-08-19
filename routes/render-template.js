@@ -1,6 +1,6 @@
 
 module.exports = function renderTemplate (content, info) {
-  var renderError = require('./render-error');
+  var error404 = require('./error-404');
   
   content.currentYear = new Date().getFullYear();
   // TODO: set this elsewhere, probably as a config?
@@ -20,7 +20,7 @@ module.exports = function renderTemplate (content, info) {
     + '/views'
     + info.template, content, function(error, html) {
     if (error) {
-      renderError(error, info);
+      error404(error, info);
     } else {
       info.res.send(html);
     }

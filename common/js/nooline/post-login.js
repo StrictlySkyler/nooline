@@ -1,17 +1,26 @@
 
-!(function buildPostLogin (N) {
+;(function buildPostLogin (N) {
   
-  N.postLogin = function receiveLogin (username, password) {
+  N.postLogin = function receiveLogin (username, password, type) {
+    
+    var lastLoginAttempt = {
+      'username': username,
+      'password': password,
+      timestamp: Date.now()
+    };
+    
+    sessionStorage.setItem(
+      'lastLoginAttempt', 
+      JSON.stringify(lastLoginAttempt)
+    );
     
     console.log('Posting credentials...');
     
-    $.ajax({
-      type: 'POST',
-      url: '/login',
-      data: 'foo',
-      success: N.receiveLogin,
-      error: N.receiveLogin
-    });
+    $.post('/login', {
+      'username': username,
+      'password': password,
+      'type': type
+    }, N.receiveLogin);
     
   };
   

@@ -112,7 +112,12 @@ TODO:  Add header, and style index.
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #ff8d00;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.15);
+}
+
+*:active {
+  outline: none;
+  box-shadow: none;
 }
 
 body {
@@ -139,7 +144,7 @@ input {
   width: 200px;
   font: 14px/1.5 "QuicksandBook";
   padding: 0 5px;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .tech-term {
@@ -162,7 +167,7 @@ input {
   color: #fff;
   margin: 20px 0 -20px;
   font: 18px/2 'QuicksandLight';
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .login.invalid input {
@@ -175,7 +180,7 @@ input {
   margin: 0;
   font: 14px/1.5 'QuicksandBook';
   background: #333;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .error-message em {
@@ -187,7 +192,7 @@ input {
   Utility class for animating elements in with CSS.  Define the animation transitons on the other CSS rules, and define how they should be hidden 
   (and thus revealed) here.
  */
-.hidden {
+#nooline .hidden {
   overflow: hidden;
   height: 0;
   border-width: 0;
@@ -203,7 +208,7 @@ input {
 }
 
 .meta {
-  margin: 0 0 -20px;
+  margin: -20px 0 0;
 }
 
 .meta ul {
@@ -227,7 +232,7 @@ input {
   font: 12px/1 'QuicksandLight';
   margin: 0;
   padding: 0;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .meta .button:hover,
@@ -242,7 +247,7 @@ input {
   color: transparent;
   left: 0;
   top: 8px;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .meta .contact-button:hover:before {
@@ -257,7 +262,7 @@ input {
   color: transparent;
   left: 0;
   top: 8px;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .meta .login-button:hover:before,
@@ -266,10 +271,25 @@ input {
   color: #ff8d00;
 }
 
-.meta .active {
-  margin: 0 0 -30px;
-  padding: 0 0 6px;
-  border-bottom: 15px solid #0af;
+.meta button:after {
+  content: '';
+  position: absolute;
+  border-top: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 0 solid #0af;
+  border-left: 15px solid transparent;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 100%;
+  transition: all 0.25s ease;
+}
+
+.meta .active:after {
+  border-width: 15px;
+  border-top-width: 0;
+  top: 100%;
+  transition: all 0.25s ease 0.25s;
 }
 
 .login label {
@@ -288,14 +308,14 @@ input {
   color: transparent;
   position: absolute;
   padding: 0;
-  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
   font: 14px/1 'QuicksandBook';
 }
 
 .login .button:before {
   font: 24px/1 'FontAwesome';
   color: #0077b2;
-  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .login .button:hover,
@@ -310,7 +330,7 @@ input {
 
 .login .close-section-button {
   right: 0;
-  margin: 5px 10px 0 0;
+  margin: 5px 18px 0 0;
 }
 
 .login .go-button {
@@ -349,7 +369,11 @@ input {
 
 section {
   border-top: 15px solid #333;
-  margin: 20px 0 0;
+  padding: 0 0 20px;
+}
+
+header, section {
+  position: relative;
 }
 
 h1 {
@@ -378,6 +402,44 @@ h4 {
 
 .tag {
   margin: 0 0 0 40px;
+}
+
+/**********
+  Controls
+ **********/
+
+.control {
+  margin: 0 5px;
+  height: 100%;
+  border: none;
+  background: #0af;
+  font: 14px/1.5 'QuicksandBook';
+  color: #fff;
+  transition: all 0.25s ease;
+  padding: 0 10px;
+  right: 0;
+}
+
+.control:hover {
+  box-shadow: 0 0 0 5px #ff8d00;
+}
+
+.control:active {
+  color: #333;
+  box-shadow: 0 0 0 5px #333;
+}
+
+.controls {
+  width: 100%;
+  height: 35px;
+  transition: all 0.25s ease;
+  padding: 0;
+  text-align: left
+}
+
+section .controls {
+  position: absolute;
+  z-index: 999;
 }
 
 /**********
@@ -470,7 +532,7 @@ h4 {
 
 .storyjs-embed .nav-container {
   cursor: pointer;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
   min-height: 100px;
   width: 100px;
   position: absolute;
@@ -504,7 +566,7 @@ h4 {
   content: '<';
   font: 48px/1.5 'QuicksandBook';
   color: #999;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .storyjs-embed .nav-next {
@@ -519,7 +581,7 @@ h4 {
   content: '>';
   font: 48px/1.5 'QuicksandBook';
   color: #999;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
   position: absolute;
   right: 15px;
 }
@@ -541,7 +603,7 @@ h4 {
 .storyjs-embed .nav-container .title {
   font: 12px/1.5 'QuicksandBook';
   color: #ccc;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .storyjs-embed .nav-container:hover .title {
@@ -566,7 +628,7 @@ h4 {
 .storyjs-embed .toolbar .icon:before {
   font: 18px/1.5 'FontAwesome';
   color: #999;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .storyjs-embed .toolbar .icon:hover:before {
@@ -675,7 +737,7 @@ h4 {
   background: #333;
   color: #aaa;
   border: 1px solid #666;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
   min-width: 100px;
 }
 
@@ -688,7 +750,7 @@ h4 {
   position: absolute;
   left: 0;
   bottom: -8px;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .timenav .flag h3:after {
@@ -700,7 +762,7 @@ h4 {
   position: absolute;
   left: 0;
   bottom: -7px;
-  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .timenav .flag h3:hover {

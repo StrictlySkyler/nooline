@@ -1,5 +1,5 @@
 
-!(function start() {
+;(function start() {
   
   function Nooline () {
     requirejs.config({
@@ -10,10 +10,6 @@
         shared: '/node_modules'
       },
       shim: {
-        'bower/backbone/backbone': {
-          deps: ['bower/underscore/underscore', 'bower/jquery/jquery'],
-          exports: 'Backbone'
-        },
         'underscore': {
           exports: '_'
         },
@@ -25,11 +21,16 @@
             'bower/TimelineJS/compiled/js/timeline-min',
             'bower/TimelineJS/compiled/js/storyjs-embed'
           ]
+        },
+        'nooline/load-components': {
+          deps: [
+            'bower/jquery/jquery'
+          ]
         }
       }
     });
     
-    // TODO: Add configuration loading to the list! 
+    // TODO: Add configuration loading to the list!
     // Need to handle some of the
     // modules, like Crypto, which export rather than adding to global scope
     // automatically.
@@ -38,7 +39,6 @@
       'bower/jquery/jquery',
       'bower/modernizr/modernizr',
       'bower/underscore/underscore',
-      'bower/backbone/backbone',
       'bower/TimelineJS/compiled/js/timeline-min',
       'bower/TimelineJS/compiled/js/storyjs-embed',
       'nooline/get-content',

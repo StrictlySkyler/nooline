@@ -1,5 +1,5 @@
 
-!(function buildHashThis (N) {
+;(function buildHashThis (N) {
   
   N.hashThis = function hashThis (string) {
     

@@ -1,5 +1,5 @@
 
-!(function buildCloseSection (N) {
+;(function buildCloseSection (N) {
   
   N.closeSection = function closeSection (e) {
   

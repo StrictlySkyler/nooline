@@ -1,4 +1,4 @@
-!(function loadBuildTimeline(N) {
+;(function loadBuildTimeline(N) {
   
   N.buildTimeline = function buildTimeline (data) {
     data = JSON.parse(data);
