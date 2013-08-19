@@ -1,0 +1,45 @@
+{
+  "control-data": {
+    "create-account": {
+      "text": "Create Account",
+      "title": "Add a user account.  Yeah!"
+    },
+    "delete-account": {
+      "text": "Delete Account",
+      "title": "Remove a user account.  Didn't need it anyway."
+    },
+    "edit-account": {
+      "text": "Edit Account",
+      "title": "Change all the user things!"
+    },
+    "create-content": {
+      "text": "Create Content",
+      "title": "Tap tappity tap on the keyboard."
+    },
+    "delete-content": {
+      "text": "Delete Content",
+      "title": "It's okay.  We don't *have* to call it censorship."
+    },
+    "edit-content": {
+      "text": "Edit Content",
+      "title": "Everyone can use a good editor."
+    }
+  },
+  "control-locations": {
+    "global-header": {
+      "create-account": true,
+      "delete-account": true,
+      "edit-account": true
+    },
+    "timeline": {
+      "create-content": true,
+      "delete-content": true,
+      "edit-content": true
+    },
+    "scroll": {
+      "create-content": true,
+      "delete-content": true,
+      "edit-content": true
+    }
+  }
+}

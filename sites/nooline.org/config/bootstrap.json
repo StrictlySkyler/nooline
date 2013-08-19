@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "allow-signup": true,
+    "EXPIRY": 3600000
+  },
+  "files": [
+    "nooline/show-login-panel",
+    "nooline/close-section",
+    "nooline/timeline",
+    "nooline/attempt-login",
+    "nooline/assign-listeners"
+  ]
+}
