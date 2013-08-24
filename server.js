@@ -4,8 +4,6 @@ var nooline = express();
 var http = require('http');
 var routes = require('./routes');
 
-var nomo = require('node-monkey').start();
-
 var engine;
 
 nooline.use(require('express-chrome-logger'));

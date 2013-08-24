@@ -15,7 +15,7 @@
           $button = $('<button></button>')
             .attr({
               id: spot + '-' + permission,
-              class: 'hidden control button ' + permission,
+              class: 'control button ' + permission,
               title: N.controls['control-data'][permission].title
             })
             .html(N.controls['control-data'][permission].text);
@@ -40,9 +40,6 @@
         if ($button) {
           $button.prependTo($container);
 
-          requestAnimationFrame(function showButton () {
-            $button.removeClass('hidden');
-          });
         }
         
       });

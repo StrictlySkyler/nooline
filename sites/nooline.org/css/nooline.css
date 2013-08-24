@@ -1,3 +1,4 @@
+
 /*
 TODO:  Add header, and style index.
  */
@@ -165,7 +166,7 @@ input {
   width: 100%;
   background: #0af;
   color: #fff;
-  margin: 20px 0 -20px;
+  margin: 0;
   font: 18px/2 'QuicksandLight';
   transition: all 0.25s ease;
 }
@@ -229,7 +230,7 @@ input {
   border: 0 solid transparent;
   color: #0af;
   cursor: pointer;
-  font: 12px/1 'QuicksandLight';
+  font: 14px/1 'QuicksandLight';
   margin: 0;
   padding: 0;
   transition: all 0.25s ease;
@@ -255,6 +256,7 @@ input {
   color: #ff8d00;
 }
 
+.meta .logout-button:before,
 .meta .login-button:before  {
   content: '\f145';
   font: 12px/1 'FontAwesome';
@@ -265,6 +267,8 @@ input {
   transition: all 0.25s ease;
 }
 
+.meta .logout-button:hover:before,
+.meta .logout-button.active:before,
 .meta .login-button:hover:before,
 .meta .login-button.active:before {
   left: -15px;
@@ -274,22 +278,23 @@ input {
 .meta button:after {
   content: '';
   position: absolute;
-  border-top: 15px solid transparent;
+  border-top: 0 solid transparent;
   border-right: 15px solid transparent;
   border-bottom: 0 solid #0af;
   border-left: 15px solid transparent;
   width: 0;
   height: 0;
   left: 0;
-  top: 100%;
+  bottom: 0;
+  z-index: 99999;
   transition: all 0.25s ease;
 }
 
 .meta .active:after {
   border-width: 15px;
   border-top-width: 0;
-  top: 100%;
-  transition: all 0.25s ease 0.25s;
+  bottom: -15px;
+  transition: border-width 0.25s ease 0.25s;
 }
 
 .login label {
@@ -305,7 +310,7 @@ input {
   height: 25px;
   background: transparent;
   border: none;
-  color: transparent;
+  color: rgba(255,255,255,0.25);
   position: absolute;
   padding: 0;
   transition: color 0.25s ease;
@@ -404,6 +409,15 @@ h4 {
   margin: 0 0 0 40px;
 }
 
+.peace {
+  font-size: 32px;
+  position: absolute;
+  margin: -10px 0 0 5px;
+  -webkit-transform: rotateZ(10deg);
+  -moz-transform: rotateZ(10deg);
+  transform: rotateZ(10deg);
+}
+
 /**********
   Controls
  **********/
@@ -412,7 +426,7 @@ h4 {
   margin: 0 5px;
   height: 100%;
   border: none;
-  background: #0af;
+  background: #333;
   font: 14px/1.5 'QuicksandBook';
   color: #fff;
   transition: all 0.25s ease;
@@ -420,8 +434,15 @@ h4 {
   right: 0;
 }
 
-.control:hover {
-  box-shadow: 0 0 0 5px #ff8d00;
+header:hover .control,
+section:hover .control {
+  background: #0af;
+}
+
+header:hover .control:hover,
+section:hover .control:hover {
+  /*box-shadow: 0 0 0 5px #ff8d00;*/
+  color: #333;
 }
 
 .control:active {
@@ -434,7 +455,7 @@ h4 {
   height: 35px;
   transition: all 0.25s ease;
   padding: 0;
-  text-align: left
+  text-align: center;
 }
 
 section .controls {

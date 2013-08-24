@@ -2,7 +2,5 @@
 # More info at https://github.com/guard/guard#readme
 
 guard 'livereload' do
-  watch(%r{public/(.+\.(css|js|html))})
-  watch(%r{views/(.+\.(css|js|html))})
-  watch(%r{content/(.+\.(json))})
+  watch(%r{./(.+\.(css|js|html|json))})
 end

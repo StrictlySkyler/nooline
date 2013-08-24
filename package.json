@@ -29,7 +29,8 @@
     "hogan.js": ">= 2.0.0",
     "grunt": "~0.4.1",
     "express-chrome-logger": "~0.1.2",
-    "crypto-js": "~3.1.2"
+    "crypto-js": "~3.1.2",
+    "express-route": "~0.1.4"
   },
   "noAnalyze": false,
   "devDependencies": {},
