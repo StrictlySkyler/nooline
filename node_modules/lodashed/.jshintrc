@@ -1,0 +1,16 @@
+{
+    "eqnull": true,
+    "eqeqeq": true,
+    "undef": true,
+    "strict": true,
+    "curly": true,
+    "expr": true,
+    "quotmark": "double",
+
+    "predef": [
+        "suite",
+        "test"
+    ],
+
+    "node": true
+}
