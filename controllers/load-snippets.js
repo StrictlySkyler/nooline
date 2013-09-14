@@ -11,9 +11,9 @@ module.exports = function loadSnippets (list, req, res, info) {
   info.snippets = info.contentPath + '/snippets/';
   info.currentIndex = 0;
   
-  if (!info.setup.snippets) {
-    info.setup.snippets = [];
-  }
+  // if (!info.setup.snippets) {
+  //   info.setup.snippets = new SnippetsCollection();
+  // }
   
   if (info.specific) {
     info.totalFiles = 1;

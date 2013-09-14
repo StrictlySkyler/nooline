@@ -6,7 +6,7 @@
   "files": [
     "nooline/show-login-panel",
     "nooline/close-section",
-    "nooline/timeline",
+    "nooline/build-timeline",
     "nooline/attempt-login",
     "nooline/assign-listeners"
   ]

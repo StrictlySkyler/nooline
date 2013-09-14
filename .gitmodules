@@ -1,0 +1,6 @@
+[submodule "common/js/submodules/TimelineJS"]
+	path = common/js/submodules/TimelineJS
+	url = https://github.com/StrictlySkyler/TimelineJS
+[submodule "common/js/submodules/StoryJS-Core"]
+	path = common/js/submodules/StoryJS-Core
+	url = https://github.com/StrictlySkyler/StoryJS-Core

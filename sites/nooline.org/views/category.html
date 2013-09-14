@@ -5,25 +5,25 @@
     {{> global-header}}
     
     <section id="{{type}}" class="{{type}} content">
-      {{#snippets}}
-        <article>
-          <h3>{{{headline}}}</h3>
-          <p>{{{text}}}</p>
+      {{#snippets.models}}
+        <article id="{{{attributes.uuid}}}">
+          <h3>{{{attributes.headline}}}</h3>
+          <p>{{{attributes.text}}}</p>
           <footer>
-            {{#author}}
-              By {{author}}
-            {{/author}}
+            {{#attributes.author}}
+              By {{attributes.author}}
+            {{/attributes.author}}
             
-            {{#prettyStartDate}}
-              on {{prettyStartDate}}
-            {{/prettyStartDate}}
+            {{#attributes.prettyStartDate}}
+              on {{attributes.prettyStartDate}}
+            {{/attributes.prettyStartDate}}
             
-            {{#prettyStartTime}} 
-              at {{prettyStartTime}}
-            {{/prettyStartTime}}
+            {{#attributes.prettyStartTime}} 
+              at {{attributes.prettyStartTime}}
+            {{/attributes.prettyStartTime}}
           </footer>
         </article>
-      {{/snippets}}
+      {{/snippets.models}}
     </section>
     
     {{> global-footer}}

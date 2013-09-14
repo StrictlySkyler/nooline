@@ -25,7 +25,9 @@
     // TODO: Need to extend this  server-
     // side functionality to include the ability to specify the number of
     // content to get.
-    N.getContent({type: 'dates'}, N.buildTimeline);
+    N.getContent({type: 'timeline'}, N.buildTimeline);
+
+    N.getContent({type: 'scroll'});
   });
   
     

@@ -18,7 +18,7 @@ module.exports = function renderTemplate (content, info) {
   info.res.render('sites/' 
     + info.domain 
     + '/views'
-    + info.template, content, function(error, html) {
+    + info.template, content, function sendRendering (error, html) {
     if (error) {
       error404(error, info);
     } else {
