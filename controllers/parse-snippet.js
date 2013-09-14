@@ -2,13 +2,8 @@
 module.exports = function parseSnippet (error, data, req, res, info) {
   var content;
   var error404 = require('../routes/error-404');
-  var Backbone = require('backbone');
 
-  var ContentSnippet = Backbone.Model.extend({
-    constructor: function ContentSnippet () {
-      Backbone.Model.apply(this, arguments);
-    }
-  });
+  var ContentSnippet = require('../common/js/nooline/models/content-snippet');
 
   var snippet;
   

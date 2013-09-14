@@ -1,0 +1,25 @@
+
+;(function buildSnippetsCollection () {
+  
+  var root = this;
+  var N = root.Nooline;
+  var Backbone = root.Backbone || require('backbone');
+
+  var Snippets = Backbone.Collection.extend({
+    constructor: function Snippets () {
+      Backbone.Collection.apply(this, arguments);
+    }
+  });
+
+  if (typeof module !== 'undefined') {
+
+    module.exports = Snippets;
+
+  } else {
+
+    N.Collections = N.Collections || {};
+    N.Collections.Snippets = Snippets;
+
+  }
+  
+}).call(this);
