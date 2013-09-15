@@ -7,9 +7,9 @@
     var $panel = $('<section id="main-login" class="login hidden"></section>');
     
     require([
-      'shared/crypto-js/core',
-      'shared/crypto-js/sha3',
-      'shared/crypto-js/enc-base64',
+      'sharedlibs/crypto-js/core',
+      'sharedlibs/crypto-js/sha3',
+      'sharedlibs/crypto-js/enc-base64',
       'nooline/validate',
       'nooline/reject-login',
       'nooline/hash-this',
