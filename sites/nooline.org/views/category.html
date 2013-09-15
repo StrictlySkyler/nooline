@@ -5,7 +5,7 @@
     {{> global-header}}
     
     <section id="{{type}}" class="{{type}} content">
-      {{#snippets.models}}
+      {{#attributes.snippets.models}}
         <article id="{{{attributes.uuid}}}">
           <h3>{{{attributes.headline}}}</h3>
           <p>{{{attributes.text}}}</p>
@@ -23,7 +23,7 @@
             {{/attributes.prettyStartTime}}
           </footer>
         </article>
-      {{/snippets.models}}
+      {{/attributes.snippets.models}}
     </section>
     
     {{> global-footer}}

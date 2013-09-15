@@ -6,6 +6,7 @@ module.exports = function buildMeta (error, data, info) {
   var error404 = require('../routes/error-404');
   
   var Snippets = require('../common/js/nooline/collections/snippets');
+  var Category = require('../common/js/nooline/models/category');
   
   function reportIndex (error, data) {
     getIndex(error, data, info);
@@ -17,11 +18,11 @@ module.exports = function buildMeta (error, data, info) {
     error404(error, info);
   } else {
     try {
-      data = JSON.parse(data);
+      data = new Category(JSON.parse(data));
 
-      info.setup[data.type] = data;
-
-      info.setup[data.type].snippets = new Snippets();
+      data.set('snippets', new Snippets());
+      
+      info.setup.add(data);
 
       info.metaLoaded++;
 

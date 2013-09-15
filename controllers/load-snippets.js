@@ -13,8 +13,8 @@ module.exports = function loadSnippets (list, info, category) {
     currentIndex: 0
   };
   
-  if (info.specific) {
-    info.totalFiles = 1;
+  if (typeof info.specific === 'number') {
+    info.categories[category].totalFiles = 1;
     
     fs.readFile(info.snippets + list[info.specific - 1] + '.json', 'utf8', reportSnippets);
     

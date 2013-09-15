@@ -1,12 +1,12 @@
 
 module.exports = function category (req, res) {
+  
   var content = require('./content');
-  var renderTemplate = require('./render-template');
+  var renderTemplate = require('../controllers/render-template');
   var info = {};
   var index = parseInt(req.params.index, 10);
-  
+
   info.domain = req.host;
-  info.nooline = req.app;
   // TODO:
   // Put thse strings into the config json.
   info.errorMessage = "Looks like there isn't any content for that yet.  "
@@ -18,10 +18,9 @@ module.exports = function category (req, res) {
     + "<span class=\"files\">[nooline root folder]/content/" + info.domain 
     + "</span> to ensure it has a reference for this category.";
   info.template = '/category';
-  info.res = res;
   info.next = renderTemplate;
-  info.type = req.params.category;
-  info.specific = Number.isNaN(index) ? null : index;
+  info.categories = [req.params.category];
+  info.specific = Number.isNaN(index) ? 'all' : index;
   
-  content(req, null, info);
+  content(req, res, info);
 };

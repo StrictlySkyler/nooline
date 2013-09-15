@@ -59,6 +59,8 @@ nooline.set('prettyport', function () {
 nooline.get('/', routes.root);
 nooline.get('/content', routes.content);
 nooline.get('/bootstrap', routes.bootstrap);
+nooline.get('/feed', routes.feed);
+nooline.get('/favicon.ico', routes.favicon);
 // Dynamic gets
 nooline.get('/:category', routes.category);
 nooline.get('/:category/:index', routes.category);

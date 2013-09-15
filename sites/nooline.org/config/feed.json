@@ -1,0 +1,12 @@
+{
+  "title": "\\nooline – Content Made Easy Peasy",
+  "description": "The regular updates for nooline.",
+  "feed_url": "http://nooline.org/feed",
+  "site_url": "http://nooline.org",
+  "image_url": "http://nooline.org/sites/nooline.org/images/favicon.ico",
+  "author": "Skyler Brungardt",
+  "categories": [
+    "timeline", 
+    "scroll"
+  ]
+}

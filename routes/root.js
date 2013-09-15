@@ -14,15 +14,14 @@ module.exports = function root (req, res) {
     + "</span> (" + info.domain + " + /) view.  Otherwise, perhaps the "
     + "specific route for this domain and path are missing.";
   info.template = '/root';
-  info.res = res;
-  info.req = req;
   
   info.next = renderTemplate;
+  // TODO: This needs to come from a JSON file.
   info.categories = [
     'timeline',
     'scroll'
   ];
   
-  content(null, null, info);
+  content(req, res, info);
   
 };
