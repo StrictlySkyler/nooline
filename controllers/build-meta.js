@@ -1,5 +1,5 @@
 
-module.exports = function buildMeta (error, data, req, res, info) {
+module.exports = function buildMeta (error, data, info) {
   
   var fs = require('fs');
   var getIndex = require('./get-index');
@@ -8,7 +8,7 @@ module.exports = function buildMeta (error, data, req, res, info) {
   var Snippets = require('../common/js/nooline/collections/snippets');
   
   function reportIndex (error, data) {
-    getIndex(error, data, req, res, info);
+    getIndex(error, data, info);
   }
   
   info.index = info.contentPath + '/index.json';
@@ -19,20 +19,23 @@ module.exports = function buildMeta (error, data, req, res, info) {
     try {
       data = JSON.parse(data);
 
-      if (data.source) {
-        info.setup = data;
-      } else {
-        info.setup = {
-          type: info.type
-        };
-      }
+      info.setup[data.type] = data;
 
-      info.setup.snippets = new Snippets(data.snippets);
+      info.setup[data.type].snippets = new Snippets();
+
+      info.metaLoaded++;
 
     } catch (fail) {
       error404(fail, info);
     }
+
+    if (info.metaLoaded === info.categories.length) {
+
+      info.categoriesLoaded = 0;
+
+      fs.readFile(info.index, 'utf8', reportIndex);
+
+    }
     
-    fs.readFile(info.index, 'utf8', reportIndex);
   }
 };

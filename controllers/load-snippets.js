@@ -1,19 +1,17 @@
 
-module.exports = function loadSnippets (list, req, res, info) {
+module.exports = function loadSnippets (list, info, category) {
   var fs = require('fs');
   var parseSnippet = require('./parse-snippet');
   var i = 0;
   
-  function reportSnippets(error, data) { 
-    parseSnippet(error, data, req, res, info);
+  function reportSnippets(error, data) {
+    parseSnippet(error, data, info, category);
   }
   
   info.snippets = info.contentPath + '/snippets/';
-  info.currentIndex = 0;
-  
-  // if (!info.setup.snippets) {
-  //   info.setup.snippets = new SnippetsCollection();
-  // }
+  info.categories[category] = {
+    currentIndex: 0
+  };
   
   if (info.specific) {
     info.totalFiles = 1;
@@ -21,9 +19,9 @@ module.exports = function loadSnippets (list, req, res, info) {
     fs.readFile(info.snippets + list[info.specific - 1] + '.json', 'utf8', reportSnippets);
     
   } else {
-    info.totalFiles = list.length;
+    info.categories[category].totalFiles = list.length;
     
-    for (i, list; i < info.totalFiles; i++) {
+    for (i; i < info.categories[category].totalFiles; i++) {
       fs.readFile(info.snippets + list[i] + '.json', 'utf8', reportSnippets);
     }
     

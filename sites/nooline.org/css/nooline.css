@@ -504,6 +504,10 @@ section .controls {
   The Narrative Timeline
  **********/
 
+#timeline-placeholder {
+  opacity: 0;
+}
+
 .storyjs-embed .start {
   margin: 20px 0 0;
 }

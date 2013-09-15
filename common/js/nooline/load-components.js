@@ -21,12 +21,12 @@
 
     require(data.bootstrap.files, function setup() {
     
-    // TODO: This content isn't currently indexable for SEO.  Need to make
-    // this a headless snapshot instead. 
+    // TODO: This content isn't currently indexable for SEO.  Need to make this
+    // a headless snapshot instead.   
     // 
-    // TODO: Need to extend this  server-
-    // side functionality to include the ability to specify the number of
-    // content to get.
+    // TODO: Need to extend this  server- side functionality to include the
+    // ability to specify the number of content items to get, and multiple 
+    // types.
     N.getContent({type: 'timeline'}, N.buildTimeline);
 
     N.getContent({type: 'scroll'});

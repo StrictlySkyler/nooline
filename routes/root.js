@@ -1,7 +1,7 @@
 
 module.exports = function root (req, res) {
   var content = require('./content');
-  var renderTemplate = require('./render-template');
+  var renderTemplate = require('../controllers/render-template');
   var info = {};
   
   info.domain = req.host;
@@ -15,10 +15,14 @@ module.exports = function root (req, res) {
     + "specific route for this domain and path are missing.";
   info.template = '/root';
   info.res = res;
+  info.req = req;
   
   info.next = renderTemplate;
-  info.type = 'scroll';
+  info.categories = [
+    'timeline',
+    'scroll'
+  ];
   
-  content(req, null, info);
+  content(null, null, info);
   
 };

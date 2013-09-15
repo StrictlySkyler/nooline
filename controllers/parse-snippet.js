@@ -1,5 +1,6 @@
 
-module.exports = function parseSnippet (error, data, req, res, info) {
+module.exports = function parseSnippet (error, data, info, category) {
+
   var content;
   var error404 = require('../routes/error-404');
 
@@ -19,24 +20,35 @@ module.exports = function parseSnippet (error, data, req, res, info) {
       error404(fail, info);
     }
     
-    switch (info.type) {
+    // Theoretically specific things could be needed for each category.
+    // This should be abstracted away, or normalized.
+    // Look into this later.
+    switch (category) {
       case 'timeline':
-        info.setup.source.timeline.date.push(data);
-        info.setup.snippets.add(snippet);
+        info.setup[category].source.timeline.date.push(data);
         break;
       default:
-        info.setup.snippets.add(snippet);
         break;
     }
+
+    info.setup[category].snippets.add(snippet);
     
-    info.currentIndex++;
+    info.categories[category].currentIndex++;
     
-    if (info.currentIndex === info.totalFiles) {
+    if (info.categories[category].currentIndex 
+        === info.categories[category].totalFiles) {
+
+      info.categoriesLoaded++;
+    }
+
+    if (info.categoriesLoaded === info.categories.length) {
+
       content = info.setup;
-      if (res) {
-        res.send(JSON.stringify(content));
+
+      if (info.ajax) {
+        info.res.send(JSON.stringify(content));
       }
-      
+
       if (info.next) {
         info.next(content, info);
       }
