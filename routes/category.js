@@ -18,6 +18,7 @@ module.exports = function category (req, res) {
     + "<span class=\"files\">[nooline root folder]/content/" + info.domain 
     + "</span> to ensure it has a reference for this category.";
   info.template = '/category';
+  info.nooline = req.app;
   info.next = renderTemplate;
   info.categories = [req.params.category];
   info.specific = Number.isNaN(index) ? 'all' : index;
