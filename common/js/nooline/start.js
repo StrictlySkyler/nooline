@@ -49,7 +49,8 @@
           // Eventually, when these versions reach parity, the same source
           // should be used for both client and server.
           // 2013-09-13
-            'bower/jquery/jquery'
+            'bower/jquery/jquery',
+            'sharedlibs/socket.io-client/dist/socket.io'
           ]
         },
         'nooline/get-content': {
@@ -73,7 +74,7 @@
     ]);
 
     // For those modules which explicitly require definition via AMD.
-    // A CJS loader for browser, without compile, would be so nice.
+    // A CJS loader for browser, without needing to compile, would be so nice.
     define([
       'sharedlibs/node-uuid/uuid'
     ], function (uuid) {

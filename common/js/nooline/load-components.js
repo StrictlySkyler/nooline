@@ -9,6 +9,8 @@
     id: 'nooline'
   });
 
+  N.io = io.connect();
+
   // This should eventually be loading only things specific to this site.
   // Right now it doesn't.
   $.get('/bootstrap', function bootstrap (data) { 

@@ -1,8 +1,11 @@
 
 var express = require('express');
 var nooline = express();
-var http = require('http');
+var server = require('http').createServer(nooline);
 var routes = require('./routes');
+var io = require('socket.io').listen(server, {
+  'log level': 2
+});
 
 var engine;
 
@@ -62,6 +65,11 @@ nooline.get('/:category/:index', routes.category);
 // Static posts
 nooline.post('/login', routes.login);
 
-http.createServer(nooline).listen(nooline.settings.port, function started() {
+server.listen(nooline.settings.port, function started() {
   console.log('Nooline started listening on ' + nooline.settings.port);
+});
+
+io.sockets.on('connection', function (socket) {
+  // Not sure this is needed.  Might be able to simply emit events later,
+  // e.g. when a content piece is saved.
 });

@@ -505,7 +505,7 @@ section .controls {
  **********/
 
 #timeline-placeholder {
-  opacity: 0;
+  display: none;
 }
 
 .storyjs-embed .start {
