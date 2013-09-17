@@ -34,7 +34,9 @@
     "jquery": "~1.8.3",
     "socket.io": "~0.9.16",
     "socket.io-client": "~0.9.16",
-    "rss": "~0.2.1"
+    "rss": "~0.2.1",
+    "gitty": "~1.2.5",
+    "socket.io-clusterhub": "~0.2.0"
   },
   "noAnalyze": false,
   "devDependencies": {},

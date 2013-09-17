@@ -9,6 +9,7 @@ var server;
 var routes;
 var io;
 var engine;
+var store = new (require('socket.io-clusterhub'));
 
 if (cluster.isMaster) {
 
@@ -32,6 +33,10 @@ if (cluster.isMaster) {
   routes = require('./routes');
   io = require('socket.io').listen(server, {
     'log level': 2
+  });
+
+  io.configure(function() {
+    io.set('store', store);
   });
 
   nooline.use(require('express-chrome-logger'));
