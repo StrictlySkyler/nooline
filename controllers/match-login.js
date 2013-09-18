@@ -50,7 +50,7 @@ module.exports = function matchLogin (data, info) {
       
       info.res.send(results);
       
-      startSession(data);
+      startSession(data, info);
       
     } else {
       error = {
@@ -67,7 +67,7 @@ module.exports = function matchLogin (data, info) {
       code: 'expiry'
     };
     
-    startSession(data);
+    startSession(data, info);
     
     errorLogin(error, info);
     

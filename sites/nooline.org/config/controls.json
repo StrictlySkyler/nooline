@@ -32,14 +32,10 @@
       "edit-account": true
     },
     "timeline": {
-      "create-content": true,
-      "delete-content": true,
-      "edit-content": true
+      "create-content": true
     },
     "scroll": {
-      "create-content": true,
-      "delete-content": true,
-      "edit-content": true
+      "create-content": true
     }
   }
 }

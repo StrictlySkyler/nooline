@@ -1,5 +1,5 @@
 
-module.exports = function startSession (data) {
+module.exports = function startSession (data, info) {
   
   var fs = require('fs');
   var state;
@@ -12,7 +12,9 @@ module.exports = function startSession (data) {
     console.error(error);
   }
   
-  fs.writeFile('./users/' 
+  fs.writeFile('./sites/' 
+    + info.req.host
+    + '/users/'
     + data.username 
     + '.hash', state,
     function logTimestamp (error) {

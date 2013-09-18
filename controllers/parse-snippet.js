@@ -46,13 +46,14 @@ module.exports = function parseSnippet (error, data, info, category) {
     }
 
     if (info.categoriesLoaded === info.categories.length) {
-
-      if (info.query) {
-        info.res.send(JSON.stringify(info.content));
-      }
-
+      
       if (info.specific) {
         info.content = info.content[category];
+      }
+
+      if (info.query) {
+        debugger;
+        info.res.send(JSON.stringify(info.content));
       }
 
       if (info.next) {

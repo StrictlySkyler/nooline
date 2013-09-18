@@ -10,6 +10,12 @@ module.exports = function content (req, res, info) {
     buildMeta(error, data, info);
   }
   
+  if (typeof info !== 'object') {
+    info = {
+      specific: true
+    };
+  }
+
   info.req = req ? req : info.req;
   info.res = res ? res : info.res;
   info.metaLoaded = 0;

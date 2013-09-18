@@ -4,7 +4,7 @@
   N.buildTimeline = function buildTimeline (data) {
     data = JSON.parse(data);
     
-    createStoryJS(data.timeline);
+    createStoryJS(data);
   };
   
 }(window.Nooline));
