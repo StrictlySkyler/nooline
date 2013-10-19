@@ -8,7 +8,14 @@
   var ContentCategories = Backbone.Collection.extend({
     constructor: function ContentCategories () {
       Backbone.Collection.apply(this, arguments);
-    }
+
+      if (typeof module === 'undefined') {
+        this.bindEvents();
+      }
+      
+    },
+
+    url: '/content-categories'
   });
 
   if (typeof module !== 'undefined') {
@@ -20,7 +27,7 @@
     N.Collections = N.Collections || {};
     N.Collections.ContentCategories = ContentCategories;
 
-    N.contentCategories = new ContentCategories();
+    require(['nooline/collections/content-categories/setup']);
 
   }
 

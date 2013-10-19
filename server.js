@@ -10,8 +10,11 @@ var routes;
 var io;
 var engine;
 var store = new (require('socket.io-clusterhub'));
+var program  = require('commander');
 
-if (cluster.isMaster) {
+program.option('-s, --single', 'Start without clustering').parse(process.argv);
+
+if (cluster.isMaster && !program.single) {
 
   cpus = require('os').cpus();
 
@@ -87,21 +90,29 @@ if (cluster.isMaster) {
 
   // Static gets
   nooline.get('/', routes.root);
-  nooline.get('/content', routes.content);
+  nooline.get('/content-categories', routes.content);
   nooline.get('/bootstrap', routes.bootstrap);
   nooline.get('/feed', routes.feed);
   nooline.get('/favicon.ico', routes.favicon);
   // Dynamic gets
-  nooline.get('/:category', routes.category);
-  nooline.get('/:category/:index', routes.category);
+  nooline.get('/:category', routes['get-category']);
+  nooline.get('/:category/:index', routes['get-category']);
   // Static posts
   nooline.post('/login', routes.login);
+  // Dynamic posts
+  nooline.post('/:category', routes['post-category']);
 
   server.listen(nooline.settings.port, function started() {
-    console.log('Nooline worker ' 
-      + cluster.worker.id 
-      + ' started listening on ' 
-      + nooline.settings.port);
+    if (!program.single) {
+      console.log('Nooline worker ' 
+        + cluster.worker.id
+        + ' started listening on ' 
+        + nooline.settings.port);  
+    } else {
+      console.log('Nooline started listening single-threaded on '
+        + nooline.settings.port);
+    }
+    
   });
 
   io.sockets.on('connection', function (socket) {

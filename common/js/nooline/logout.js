@@ -9,7 +9,7 @@
 
     $('.logged-in-panel')
       .addClass('hidden')
-      .one('webkitTransitionEnd', function hidePanel() {
+      .one('transitionend webkitTransitionEnd', function removePanel () {
         $(this).remove();
     });
 
@@ -17,6 +17,8 @@
       .removeClass('logout-button')
       .addClass('login-button')
       .html('Login');
+
+    N.removeControls();
 
     $(document.body).removeClass('logged-in');
   };

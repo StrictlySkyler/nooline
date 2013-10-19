@@ -11,6 +11,8 @@
 
   N.io = io.connect();
 
+  N.$document = $(document);
+
   // This should eventually be loading only things specific to this site.
   // Right now it doesn't.
   $.get('/bootstrap', function bootstrap (data) {
@@ -29,13 +31,19 @@
     // ability to specify the number of content items to get, and multiple 
     // types.
     
-    if ($placeholder.length) {
-      $('#timeline-placeholder').remove();
+    N.$document.on('components:complete', function initializeContent () {
 
-      N.getContent({type: 'timeline'}, N.buildTimeline);
-    }
+      N.contentCategories = new N.Collections.ContentCategories();
 
-    N.getContent({type: 'scroll'});
+      if ($placeholder.length) {
+        $('#timeline-placeholder').remove();
+
+        N.getContent({type: 'timeline'}, N.buildTimeline);
+      }
+
+      N.getContent({type: 'scroll'});
+    });
+    
   });
   
     

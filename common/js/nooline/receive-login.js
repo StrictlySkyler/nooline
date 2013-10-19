@@ -14,7 +14,8 @@
       require([
         'nooline/build-controls',
         'nooline/logout',
-        'nooline/show-login-success'
+        'nooline/show-login-success',
+        'nooline/remove-controls'
       ], function acceptLogin () {
 
         N.showLoginSuccess(data);

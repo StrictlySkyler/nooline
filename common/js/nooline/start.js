@@ -50,7 +50,8 @@
           // should be used for both client and server.
           // 2013-09-13
             'bower/jquery/jquery',
-            'sharedlibs/socket.io-client/dist/socket.io'
+            'sharedlibs/socket.io-client/dist/socket.io',
+            'nooline/get-content'
           ]
         },
         'nooline/get-content': {

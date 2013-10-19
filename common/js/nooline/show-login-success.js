@@ -12,15 +12,17 @@
     
     $('.login')
       .addClass('hidden')
-      .one('webkitTransitionEnd', function hidePanel() {
+      .one(
+        'transitionend webkitTransitionEnd', function removeLogin () {
         $(this).remove();
     });
     
     N.expireLogin = setTimeout(function expireLogin () {
       
       delete sessionStorage.lastLoginAttempt;
-      
-    }, 3600000);
+    
+    // TODO: Separate this from idle-timeout, which should be ~10min.
+    }, 3600000); 
     
     N.buildControls(data);
     

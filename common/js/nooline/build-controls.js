@@ -2,6 +2,19 @@
 ;(function buildBuildControls (N) {
   
   N.buildControls = function buildControls (data) {
+
+    var allSnippets = N.contentCategories.findAllContent();
+
+    require([
+      // TODO: Wrap this into an extension to allow for swapping out WYSIWYGs.
+      // Probably swap out for 
+      'bower/eo-ckeditor/ckeditor'
+    ], function notifyAllSnippets () {
+
+      allSnippets.each(function notifyEachSnippet (snippet) {
+        snippet.trigger('login');
+      });
+    });
   
     _.each(data.permissions, function addPermission (permission) {
 

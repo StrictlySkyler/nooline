@@ -4,7 +4,7 @@
   var root = this;
   var N = root.Nooline;
   var Backbone = root.Backbone || require('backbone');
-  var SnippetView;
+  var ContentSnippetView;
 
   var ContentSnippet = Backbone.Model.extend({
     constructor: function ContentSnippet () {
@@ -16,11 +16,13 @@
       if (typeof root.document !== 'undefined') {
 
         id = document.getElementById(this.get('uuid'));
-        SnippetView = N.Views.SnippetView;
+        ContentSnippetView = N.Views.ContentSnippetView;
+
+        this.bindEvents();
 
       } else {
 
-        SnippetView = require('../views/snippet-view');
+        ContentSnippetView = require('../views/content-snippet-view');
         // Right now jQuery for node is out of date.
         // Current node version ~= 1.8.x
         // Current client version on Bower = ~= 2.0.x
@@ -29,7 +31,7 @@
         Backbone.$ = require('jquery');
       }
 
-      this.view = new SnippetView({
+      this.view = new ContentSnippetView({
         model: this,
         el: id
       });
@@ -44,6 +46,8 @@
 
     N.Models = N.Models || {};
     N.Models.ContentSnippet = ContentSnippet;
+
+    require(['nooline/models/content-snippet/setup']);
 
   }
 

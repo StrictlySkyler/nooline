@@ -102,6 +102,18 @@ TODO:  Add header, and style index.
 
 }
 
+@font-face {
+    font-family: 'FoundiconsGeneral';
+    src: url('../fonts/general_foundicons.eot');
+    src: url('../fonts/general_foundicons.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/general_foundicons.woff') format('woff'),
+         url('../fonts/general_foundicons.ttf') format('truetype'),
+         url('../fonts/general_foundicons.svg#QuicksandDash') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /**********
   General Purpose Styles
  **********/
@@ -125,7 +137,7 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-  font: 18px/1.5 "QuicksandLight";
+  font: 14px/1.5 "QuicksandLight";
   color: #333;
 }
 
@@ -149,11 +161,11 @@ input {
 }
 
 .tech-term {
-  font: 18px 'Courier New';
+  font: 14px 'Courier New';
 }
 
 .files {
-  font: 18px 'Courier New';
+  font: 14px 'Courier New';
   background: #333;
   color: #0f0;
   padding: 0 5px;
@@ -167,7 +179,7 @@ input {
   background: #0af;
   color: #fff;
   margin: 0;
-  font: 18px/2 'QuicksandLight';
+  font: 14px/2 'QuicksandLight';
   transition: all 0.25s ease;
 }
 
@@ -209,7 +221,8 @@ input {
 }
 
 .meta {
-  margin: -20px 0 0;
+  margin: -10px 0 0;
+  position: relative;
 }
 
 .meta ul {
@@ -258,7 +271,7 @@ input {
 
 .meta .logout-button:before,
 .meta .login-button:before  {
-  content: '\f145';
+  content: '\f023';
   font: 12px/1 'FontAwesome';
   position: absolute;
   color: transparent;
@@ -318,7 +331,6 @@ input {
 }
 
 .login .button:before {
-  font: 24px/1 'FontAwesome';
   color: #0077b2;
   transition: color 0.25s ease;
 }
@@ -335,32 +347,46 @@ input {
 
 .login .close-section-button {
   right: 0;
-  margin: 5px 18px 0 0;
+  margin: 5px 14px 0 0;
+  text-indent: -99999px;
 }
 
 .login .go-button {
-  margin: 5px 10px;
+  margin: 5px 35px;
+  width: auto;
+  padding: 5px 0 0;
 }
 
 .login .create-account-button {
-  left: 0;
-  margin: 7px 10px 0;
+  left: 10px;
+  margin: 7px 10px 0 5px;
   padding: 0 0 0 25px;
   width: auto;
 }
 
 .create-account-button:before {
-  content: '\f148';
+  content: '\f084';
   position: absolute;
-  margin: -7px 0 0 -25px;
+  left: 0;
+  top: 0;
+  font: 32px/1 'FontAwesome';
 }
 
 .close-section-button:before {
-  content: '\f00d';
+  content: '\f006';
+  text-indent: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: 32px/1 'FoundiconsGeneral'
 }
 
 .go-button:before {
-  content: '\f061';
+  content: '\f014';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: 32px/1 'FoundiconsGeneral';
 }
 
 .global-footer {
@@ -370,6 +396,7 @@ input {
   text-align: center;
   font: 12px/1.5 'QuicksandLight';
   padding: 0 0 5px;
+  margin: -20px 0 0;
 }
 
 section {
@@ -388,16 +415,16 @@ h1 {
 }
 
 h2 {
-  font: 36px/1.5 'QuicksandBook';
+  font: 24px/1 'QuicksandBook';
 }
 
 h3 {
-  font: 36px/1.5 'QuicksandBook';
+  font: 24px/1 'QuicksandBook';
   margin: 20px 0 0;
 }
 
 h4 {
-  font: bold 18px/1.5 'QuicksandBook';
+  font: bold 14px/1.5 'QuicksandBook';
 }
 
 .logo {
@@ -406,7 +433,7 @@ h4 {
 }
 
 .tag {
-  margin: 0 0 0 40px;
+  margin: 0;
 }
 
 .peace {
@@ -432,21 +459,25 @@ h4 {
   transition: all 0.25s ease;
   padding: 0 10px;
   right: 0;
+  z-index: 999;
+}
+
+.control:focus {
+  box-shadow: 0 0 0 2px rgba(0,170,255,0.5);
 }
 
 header:hover .control,
 section:hover .control {
-  background: #0af;
+  box-shadow: 0 0 0 2px rgba(0,170,255,0.15);
 }
 
 header:hover .control:hover,
 section:hover .control:hover {
-  /*box-shadow: 0 0 0 5px #ff8d00;*/
-  color: #333;
+  color: #0af;
 }
 
-.control:active {
-  color: #333;
+header .control:active,
+section .control:active {
   box-shadow: 0 0 0 5px #333;
 }
 
@@ -461,6 +492,44 @@ section:hover .control:hover {
 section .controls {
   position: absolute;
   z-index: 999;
+}
+
+.control.content-snippet {
+  position: absolute;
+  height: 35px;
+  width: 50px;
+  text-indent: -99999px;
+  left: 50%;
+  top: 0;
+  margin: 0 0 0 -150px;
+}
+
+.control.content-snippet:before {
+  text-indent: 0;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.edit-content-button:before {
+  content: '\f01a';
+  font: 24px/0.5 'FoundiconsGeneral';
+}
+
+.commit-changes-button:before {
+  content: '\f005';
+  font: 24px/0.5 'FoundiconsGeneral';
+}
+
+.control.content-snippet.cancel-editing-button {
+  left: 100%;
+  margin: 0 0 0 -50px;
+}
+
+.cancel-editing-button:before {
+  content: '\f006';
+  font: 24px/0.5 'FoundiconsGeneral';
 }
 
 /**********
@@ -481,11 +550,21 @@ section .controls {
   Main Content
  **********/
 
+.content article,
+.content .slider-item {
+  transition: box-shadow 0.25s ease;
+}
+
+.content .snippet {
+  position: relative;
+}
+
 .content article {
   padding: 20px 175px;
 }
 
-.content article:nth-child(even) {
+.content .slider-item:nth-last-child(even),
+.content .snippet:nth-last-child(odd) {
   background: #eee;
 }
 
@@ -498,6 +577,10 @@ section .controls {
   font: 12px/1.5 'QuicksandLight';
   color: #aaa;
   text-align: right;
+}
+
+.editing footer {
+  display: none;
 }
 
 /**********
@@ -520,6 +603,7 @@ section .controls {
   font: 16px/1.5 'QuicksandLight';
   color: #999;
   margin: 0;
+  padding: 0 5px;
 }
 
 .storyjs-embed .slide-tag {
@@ -564,7 +648,7 @@ section .controls {
 }
 
 .storyjs-embed .nav-container:hover {
-  background: #eee;
+  background: rgba(0,0,0,0.05);
 }
 
 .storyjs-embed .nav-previous,
@@ -651,7 +735,7 @@ section .controls {
 }
 
 .storyjs-embed .toolbar .icon:before {
-  font: 18px/1.5 'FontAwesome';
+  font: 14px/1.5 'FontAwesome';
   color: #999;
   transition: all 0.25s ease;
 }
@@ -731,7 +815,7 @@ section .controls {
 .timenav-tag div h3 {
   padding-left: 65px;
   color: rgba(255,255,255,0.25);
-  font: 18px/1 'QuicksandLight';
+  font: 14px/1 'QuicksandLight';
 }
 
 .timenav-interval-background {
@@ -911,4 +995,229 @@ section .controls {
 .timenav .time {
     position: absolute;
     top: 150px;
+}
+
+/**********
+  While Editing
+ **********/
+
+.content .editing {
+  box-shadow: inset 0 0 25px rgba(0, 170, 255, 1);
+}
+
+.content .editing * {
+  -webkit-transition: all 0.2s ease;
+}
+
+.content .editing *:not(.control):active {
+  box-shadow: 0 0 0 2px rgba(255, 141, 0, 0.15);
+}
+
+.slider-item.editing .container h2 {
+  display: none;
+}
+
+/**********
+  Media Queries
+ **********/
+
+@media (max-width: 960px) {
+  .meta .nav-item {
+    position: static;
+  }
+
+  .meta .contact-button {
+    position: absolute;
+    left: 0;
+    margin: -10px 10px 0;
+  }
+
+  .meta .contact-button:before {
+    top: 0;
+    right: 0;
+  }
+
+  .meta .contact-button:hover:before {
+    right: -15px;
+  }
+
+  .meta .login-button,
+  .meta .logout-button {
+    position: relative;
+  }
+
+  .meta .login-button:before,
+  .meta .logout-button:before {
+    margin: -7px 0 0 0;
+  }
+
+  .meta .active {
+    position: relative;
+  }
+
+  .meta .active:after {
+    bottom: -20px;
+  }
+
+  .login {
+    height: 100px;
+  }
+
+  .login-form.label {
+    display: inline-block;
+    width: 20%;
+    margin: 0 0 0 10%;
+    min-width: 100px;
+  }
+
+  .login-form.label:first-child {
+    padding: 10px 0 5px;
+  }
+
+  .login-form.input {
+    width: 40%;
+    margin: 0 15% 0 0;
+  }
+
+  .login-form .button {
+    width: 60px;
+    text-indent: -99999px;
+    margin: 0;
+    height: 100%;
+    top: 0;
+    padding: 0;
+  }
+
+  .login-form .button:before {
+    text-indent: 0;
+    position: absolute;
+  }
+
+  .login .go-button {
+    right: 15%;
+    
+  }
+
+  .login .close-section-button:before {
+    left: 0;
+  }
+
+  .slider-item {
+    padding: 0 35px;
+  }
+
+  .storyjs-embed .nav-container {
+    width: 30px;
+    min-height: 65px;
+  }
+
+  .storyjs-embed .nav-previous .nav-container {
+    padding: 0 0 0 10px;
+  }
+
+  .storyjs-embed .nav-next {
+    margin: 0 0 0 70px;
+  }
+
+  .storyjs-embed .nav-next .nav-container {
+    padding: 0 10px 0 0;
+  }
+
+  .storyjs-embed .nav-next .nav-container .icon:before {
+    right: 5px;
+  }
+
+  .storyjs-embed .nav-next:hover .nav-container .icon:before {
+    right: -5px;
+  }
+
+  .nav-container .date,
+  .nav-container .title {
+    display: none;
+  }
+
+  .content article {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .meta .contact-button {
+    -webkit-transform: rotateZ(-90deg);
+    -moz-transform: rotateZ(-90deg);
+    transform: rotateZ(-90deg);
+    margin: 0;
+    left: -15px;
+    top: -30px;
+  }
+
+  .meta .login-button,
+  .meta .logout-button {
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+    margin: 0;
+    right: -10px;
+    position: absolute;
+    top: -30px;
+  }
+
+  .meta .login-button:before,
+  .meta .logout-button:before {
+    top: 7px;
+  }
+
+  .meta .login-button:after {
+    display: none;
+  }
+
+  .login-form .button {
+    width: 30px;
+    text-indent: -99999px;
+    margin: 0;
+    height: 30px;
+    top: 0;
+    padding: 0;
+  }
+
+  .login-form .button:before {
+    text-indent: 0;
+    position: absolute;
+  }
+
+  .login .go-button {
+    top: 50%;
+    right: 5%;
+  }
+
+  .login .create-account-button {
+    top: 24px;
+  }
+
+  .login .close-section-button {
+    right: 5%;
+    top: 8px;
+  }
+
+  #global-header-controls {
+    background: #333;
+  }
+
+  .control {
+    padding: 0 5px;
+    margin: 0 0.5px;
+    font: 12px/1 'QuicksandBook';
+  }
+
+  section .controls {
+    position: relative;
+    background: #666;
+  }
+
+  .control.content-snippet {
+    left: 0;
+    margin: 0;
+  }
+
 }

@@ -6,7 +6,8 @@
     $(e.target)
       .parents('section')
       .addClass('hidden')
-      .one('webkitTransitionEnd', function hidePanel() {
+      .one('transitionend webkitTransitionEnd', function removeSection () {
+        
         $(this).remove();
     });
   

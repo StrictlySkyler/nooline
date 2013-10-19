@@ -52,7 +52,6 @@ module.exports = function parseSnippet (error, data, info, category) {
       }
 
       if (info.query) {
-        debugger;
         info.res.send(JSON.stringify(info.content));
       }
 

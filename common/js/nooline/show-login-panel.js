@@ -51,9 +51,9 @@
       .append('<input class="login-form input password" ' 
         + 'name="password-input" type="password" placeholder="It\'s a secret!">')
       .append('<button class="go-button button" '
-        + 'title="Go!"></button>')
+        + 'title="Go!">Login</button>')
       .append('<button class="close-section-button button" '
-        + 'title="Cancel"></button>');
+        + 'title="Cancel">Close Login Section</button>');
     
     if (N.settings['allow-signup']) {
       $panel

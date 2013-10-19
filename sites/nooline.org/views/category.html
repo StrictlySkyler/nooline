@@ -7,8 +7,10 @@
     <section id="{{type}}" class="{{type}} content">
       {{#attributes.snippets.models}}
         <article id="{{{attributes.uuid}}}">
-          <h3>{{{attributes.headline}}}</h3>
-          <p>{{{attributes.text}}}</p>
+          <h3 class="headline">{{{attributes.headline}}}</h3>
+          <div class="text">
+            <p>{{{attributes.text}}}</p>
+          </div>
           <footer>
             {{#attributes.author}}
               By {{attributes.author}}

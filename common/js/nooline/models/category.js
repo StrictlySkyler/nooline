@@ -8,6 +8,10 @@
   var Category = Backbone.Model.extend({
     constructor: function Category () {
       Backbone.Model.apply(this, arguments);
+
+      if (typeof module === 'undefined') {
+        this.bindEvents();
+      }
     }
   });
 
@@ -19,6 +23,8 @@
 
     N.Models = N.Models || {};
     N.Models.Category = Category;
+
+    require(['nooline/models/category/setup']);
 
   }
 

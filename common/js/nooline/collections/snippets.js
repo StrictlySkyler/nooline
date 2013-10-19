@@ -8,6 +8,10 @@
   var Snippets = Backbone.Collection.extend({
     constructor: function Snippets () {
       Backbone.Collection.apply(this, arguments);
+
+      if (typeof module === 'undefined') {
+        this.bindEvents();
+      }
     }
   });
 
@@ -19,6 +23,8 @@
 
     N.Collections = N.Collections || {};
     N.Collections.Snippets = Snippets;
+
+    require(['nooline/collections/snippets/setup']);
 
   }
   
