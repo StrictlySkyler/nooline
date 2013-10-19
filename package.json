@@ -7,7 +7,7 @@
   "contributors": [],
   "bin": {},
   "scripts": {
-    "start": "nooline.js"
+    "start": "node nooline.js"
   },
   "main": "./nooline.js",
   "repository": {
@@ -25,7 +25,7 @@
     "express": ">= 3.2.5",
     "underscore": ">= 1.4.4",
     "require-directory": ">= 1.0.0",
-    "consolidate": ">= 0.9.1",
+    "consolidate": "~0.9.1",
     "hogan.js": ">= 2.0.0",
     "grunt": "~0.4.1",
     "express-chrome-logger": "~0.1.2",
@@ -37,7 +37,8 @@
     "rss": "~0.2.1",
     "gitty": "~1.2.5",
     "socket.io-clusterhub": "~0.2.0",
-    "commander": "~2.0.0"
+    "commander": "~2.0.0",
+    "backbone": "~1.1.0"
   },
   "noAnalyze": false,
   "devDependencies": {},

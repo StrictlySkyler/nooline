@@ -3,7 +3,7 @@ module.exports = function getcategory (req, res) {
   
   var content = require('./content');
   var renderTemplate = require('../controllers/render-template');
-  var info = {};
+  var info = req.info || {};
   var index = parseInt(req.params.index, 10);
 
   info.domain = req.host;

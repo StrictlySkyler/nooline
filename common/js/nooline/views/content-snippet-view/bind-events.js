@@ -67,7 +67,7 @@
 
       'editor:commit': function postChanges () {
         
-        this.sync();
+        this.save();
       }
     });
 
