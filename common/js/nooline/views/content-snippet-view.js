@@ -7,14 +7,14 @@
 
   var ContentSnippetView = Backbone.View.extend({
     constructor: function ContentSnippetView () {
-      var _this = this;
 
       Backbone.View.apply(this, arguments);
 
       if (typeof module === 'undefined') {
         this.bindEvents();  
       }
-    }
+    },
+    options: {}
   });
 
   if (typeof module !== 'undefined') {

@@ -4,7 +4,7 @@ module.exports = function getcategory (req, res) {
   var content = require('./content');
   var renderTemplate = require('../controllers/render-template');
   var info = req.info || {};
-  var index = parseInt(req.params.index, 10);
+  var index = req.body.index || parseInt(req.params.index, 10);
 
   info.domain = req.host;
   // TODO:
@@ -19,7 +19,7 @@ module.exports = function getcategory (req, res) {
     + "</span> to ensure it has a reference for this category.";
   info.template = '/category';
   info.nooline = req.app;
-  info.next = renderTemplate;
+  info.next = info.next || renderTemplate;
   info.categories = [req.params.category];
   info.specific = Number.isNaN(index) ? 'all' : index;
   

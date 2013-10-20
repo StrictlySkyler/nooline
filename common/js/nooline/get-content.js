@@ -12,9 +12,9 @@
     });
 
     var snippets = new N.Collections.Snippets(content.snippets, {
-      model: N.Models.ContentSnippet,
-      url: '/' + content.type
+      model: N.Models.ContentSnippet
     });
+    snippets.url = '/' + content.type;
 
     snippets.each(function setType (snippet) {
       snippet.set({
