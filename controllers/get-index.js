@@ -10,11 +10,11 @@ module.exports = function getIndex (error, data, info) {
   } else {
     
     try {
-      data = JSON.parse(data);
+      info.indexList = JSON.parse(data);
 
       for (i = 0; i < info.categories.length; i++) {
         loadSnippets(
-          data[info.categories[i]],
+          info.indexList[info.categories[i]],
           info, 
           info.categories[i]
         );

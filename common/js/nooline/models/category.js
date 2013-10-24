@@ -4,14 +4,33 @@
   var root = this;
   var N = root.Nooline;
   var Backbone = root.Backbone || require('backbone');
+  var CategoryView;
 
   var Category = Backbone.Model.extend({
     constructor: function Category () {
+
+      var id;
+
       Backbone.Model.apply(this, arguments);
 
-      if (typeof module === 'undefined') {
+      if (typeof root.document !== 'undefined') {
+
+        id = document.getElementById(this.get('type'));
+        CategoryView = N.Views.CategoryView;
+
         this.bindEvents();
+
+      } else {
+
+        CategoryView = require('../views/category-view');
+
+        Backbone.$ = require('jquery');
       }
+
+      this.view = new CategoryView({
+        model: this,
+        el: id
+      });
     }
   });
 

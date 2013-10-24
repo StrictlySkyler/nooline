@@ -8,13 +8,19 @@
   var ContentSnippetView = Backbone.View.extend({
     constructor: function ContentSnippetView () {
 
+      var element;
+
       Backbone.View.apply(this, arguments);
 
       if (typeof module === 'undefined') {
-        this.bindEvents();  
+
+        this.options = {};
+
+        element = document.getElementById(this.model.get('uuid'));
+
+        this.bindEvents(element);
       }
-    },
-    options: {}
+    }
   });
 
   if (typeof module !== 'undefined') {

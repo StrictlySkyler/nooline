@@ -2,12 +2,13 @@
 module.exports = function loadSnippets (list, info, category) {
   var fs = require('fs');
   var parseSnippet = require('./parse-snippet');
+  var updateIndex = require('./update-index');
   var _  = require('underscore');
   var i = 0;
   var target = list[info.specific - 1];
   
   function reportSnippets(error, data) {
-    parseSnippet(error, data, info, category);
+      parseSnippet(error, data, info, category);
   }
   
   info.snippets = info.contentPath + '/snippets/';
@@ -23,6 +24,15 @@ module.exports = function loadSnippets (list, info, category) {
     target = _.find(list, function findIndex (index) {
       return index === info.specific;
     });
+  }
+  // If there was no match in the index, it must be new content, so it'll be
+  // our target (to make).
+  if (!target && info.req.method === 'POST') {
+    info.setup.models[0].get('snippets').add(info.req.body);
+    info.next(info.setup.models[0], info);
+    updateIndex(category, info);
+
+    return;
   }
   
   if (typeof info.specific === 'number') {

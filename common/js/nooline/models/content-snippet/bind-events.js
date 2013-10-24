@@ -8,9 +8,7 @@
 
       'logout': this.disableEditing,
 
-      'change': function () {
-        
-      }
+      'create': this.create
     });
   };
 

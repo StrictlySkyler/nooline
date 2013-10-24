@@ -13,7 +13,9 @@
     'nooline/views/content-snippet-view/hide-editor',
     'nooline/views/content-snippet-view/disable-editing',
     'nooline/views/content-snippet-view/commit-changes',
-    'nooline/views/content-snippet-view/save'
+    'nooline/views/content-snippet-view/save',
+    'nooline/views/content-snippet-view/create',
+    'nooline/views/content-snippet-view/wait-for-visibility'
   ];
 
   N.componentsLoading = N.componentsLoading || [];

@@ -12,7 +12,10 @@ var engine;
 var store = new (require('socket.io-clusterhub'));
 var program  = require('commander');
 
-program.option('-s, --single', 'Start without clustering').parse(process.argv);
+program
+  .option('-s, --single', 'Start without clustering')
+  .option('-p, --port <n>', 'Port on which Nooline should listen', parseInt)
+  .parse(process.argv);
 
 if (cluster.isMaster && !program.single) {
 
@@ -72,7 +75,7 @@ if (cluster.isMaster && !program.single) {
 
   // TODO: Turn these into a settings json file.
   engine = 'hogan';
-  nooline.set('port', process.env.PORT || 3000);
+  nooline.set('port', program.port || 3000);
   nooline.set('view engine', 'html');
   nooline.engine('html', require('consolidate')[engine]);
   nooline.set('express', express);

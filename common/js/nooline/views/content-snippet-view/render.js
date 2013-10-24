@@ -2,6 +2,11 @@
 ;(function buildRender (N) {
   
   N.Views.ContentSnippetView.prototype.render = function () {
+
+    if (this.getOption('create')) {
+      this.create();
+      return;
+    }
     
     if (this.getOption('editable') 
       && this.getOption('editor') === undefined) {
@@ -9,7 +14,7 @@
       this.enableEditing();
     }
 
-    if (!this.getOption('editable')) {
+    if (this.getOption('editable') === false) {
       this.disableEditing();
     }
 
@@ -20,6 +25,11 @@
     } else if (this.getOption('editor') === false) {
 
       this.hideEditor();
+    }
+
+    if (this.getOption('added')) {
+      
+      this.waitForVisibility(this);
     }
   };
 

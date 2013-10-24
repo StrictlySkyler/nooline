@@ -1111,8 +1111,6 @@ legend.cke_voice_label {
 }
 
 .cke_button__showblocks_icon:before {
-  /*content: '\f05a';*/
-  /*content: '\f0c3';*/
   content: '\f0e8';
   font: 14px/1 'FontAwesome';
 }

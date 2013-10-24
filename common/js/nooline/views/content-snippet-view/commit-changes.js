@@ -1,10 +1,9 @@
 
 ;(function buildCommitChanges (N) {
   
-  N.Views.ContentSnippetView.prototype.commitChanges = function (e) {
+  N.Views.ContentSnippetView.prototype.commitChanges = function () {
 
-    e.data.this.trigger('editor:commit');
-    e.data.this.trigger('editor:disable');
+    this.trigger('editor:commit editor:disable');
 
   };
 

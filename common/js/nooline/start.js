@@ -8,7 +8,8 @@
         bower: '/common/js/bower',
         nooline: '/common/js/nooline',
         sharedlibs: '/node_modules',
-        submodules: '/common/js/submodules'
+        submodules: '/common/js/submodules',
+        "moment": '/node_modules/moment/moment'
       },
       shim: {
         'sharedlibs/node-uuid/uuid': {
@@ -77,8 +78,11 @@
     // For those modules which explicitly require definition via AMD.
     // A CJS loader for browser, without needing to compile, would be so nice.
     define([
+      'moment',
       'sharedlibs/node-uuid/uuid'
-    ], function (uuid) {
+    ], function (moment, uuid) {
+      
+      window.moment = moment;
       window.uuid = uuid;
     });
   }

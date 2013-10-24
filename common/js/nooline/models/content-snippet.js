@@ -5,17 +5,15 @@
   var N = root.Nooline;
   var Backbone = root.Backbone || require('backbone');
   var ContentSnippetView;
+  var uuid = root.uuid || require('node-uuid');
 
   var ContentSnippet = Backbone.Model.extend({
     constructor: function ContentSnippet () {
-
-      var id;
 
       Backbone.Model.apply(this, arguments);
 
       if (typeof root.document !== 'undefined') {
 
-        id = document.getElementById(this.get('uuid'));
         ContentSnippetView = N.Views.ContentSnippetView;
 
         this.bindEvents();
@@ -29,13 +27,37 @@
         // When these versions reach parity, they should use the same source.
         // 2013-09-13
         Backbone.$ = require('jquery');
+
       }
 
       this.view = new ContentSnippetView({
-        model: this,
-        el: id
+        model: this
       });
 
+    },
+
+    defaults: {
+      asset: {
+        caption: '',
+        credit: '',
+        media: '',
+        thumbnail: ''
+      },
+      author: '',
+      endDate: '',
+      headline: '',
+      index: this.collection ? this.collection.first().get('index') + 1 : null,
+      prettyStartDate: '',
+      prettyStartTime: '',
+      startDate: '',
+      startTime: '',
+      tag: '',
+      text: '',
+      type: '',
+      url: this.collection ? 
+        this.collection.url + '/' + this.collection.first().get('index') + 1 
+        : '',
+      uuid: uuid()
     }
   });
 

@@ -7,7 +7,6 @@
 
     require([
       // TODO: Wrap this into an extension to allow for swapping out WYSIWYGs.
-      // Probably swap out for 
       'bower/eo-ckeditor/ckeditor'
     ], function notifyAllSnippets () {
 
@@ -18,7 +17,8 @@
   
     _.each(data.permissions, function addPermission (permission) {
 
-      _.each(N.controls['control-locations'], function addControl (types, spot) {
+      _.each(N.controls['control-locations'], 
+        function addControl (types, spot) {
 
         var $button;
         var $container;

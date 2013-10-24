@@ -25,16 +25,18 @@
 
     this.$editableElement.attr('contenteditable', true);
 
-    CKEDITOR.inline(this.$editableElement.attr('id'), {
-      customConfig: '/common/js/nooline/config/ckeditor/config.js',
-      floatSpaceDockedOffsetY: offset
-    });
+    if (!CKEDITOR.instances[this.model.get('uuid') + '-article']) {
+      CKEDITOR.inline(this.$editableElement.attr('id'), {
+        customConfig: '/common/js/nooline/config/ckeditor/config.js',
+        floatSpaceDockedOffsetY: offset
+      });
+    }
 
     this.$edit.addClass('hidden');
 
     this.$commit.removeClass('hidden');
 
     this.$cancel.removeClass('hidden');
-  }
+  };
 
 }(window.Nooline));

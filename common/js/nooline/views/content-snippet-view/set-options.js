@@ -4,15 +4,16 @@
   N.Views.ContentSnippetView.prototype.setOptions = function () {
     var key;
     var value;
+    var _this = this;
 
     switch (arguments.length) {
       case 1:
 
         value = arguments[0];
 
-        _.each(value, function (key, newValue) {
+        _.each(value, function (newValue, key) {
 
-          this.options[key] = newValue;
+          _this.options[key] = newValue;
         });
         break;
 

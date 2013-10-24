@@ -1,9 +1,9 @@
 
 ;(function buildStartEditing (N) {
   
-  N.Views.ContentSnippetView.prototype.startEditing = function (e) {
+  N.Views.ContentSnippetView.prototype.startEditing = function () {
     
-    e.data.this.trigger('editor:enable');
+    this.trigger('editor:enable');
   };
 
 }(window.Nooline));

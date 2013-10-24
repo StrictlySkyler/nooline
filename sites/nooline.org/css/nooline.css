@@ -619,6 +619,10 @@ section .controls {
   text-indent: -20px;
 }
 
+.storyjs-embed .cke_show_blocks h3 + p {
+  text-indent: 0;
+}
+
 .storyjs-embed .flag-content h3 {
   font: 12px/1.5 'QuicksandLight';
 }

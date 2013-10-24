@@ -10,6 +10,8 @@ module.exports = function parseSnippet (error, data, info, category) {
   info.content = info.content || {};
   
   if (error) {
+    // TODO: Add better error handling here, in case some snippets are present,
+    // but not all.
     error404(error, info);
   } else {
     try {

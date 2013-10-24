@@ -12,6 +12,12 @@
       if (typeof module === 'undefined') {
         this.bindEvents();
       }
+    },
+    comparator: function (a, b) {
+
+      if (a.get('index') < b.get('index')) {
+        return 1;
+      }
     }
   });
 

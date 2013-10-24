@@ -1,15 +1,21 @@
 {
-  "startDate": "2013,5,27",
-  "endDate": "",
-  "headline": "Reboot!",
-  "text": "Now using Express, Hogan, others, et al.  Should remove the dependency on a headless browser, and expedite development time.  More to come!",
-  "tag": "nooline",
-  "asset": {
-    "media": "",
-    "thumbnail": "",
-    "credit": "",
-    "caption": ""
-  },
-  "index": 8,
-  "uuid": "cccba0b1-fe53-418a-a5ca-71459bf17df9"
+	"startDate": "2013,5,27",
+	"endDate": "",
+	"headline": "Reboot!",
+	"text": "Now using Express, Hogan, others, et al. Should remove the dependency on a headless browser, and expedite development time. More to come!",
+	"tag": "nooline",
+	"asset": {
+		"media": "",
+		"thumbnail": "",
+		"credit": "",
+		"caption": ""
+	},
+	"index": 8,
+	"uuid": "cccba0b1-fe53-418a-a5ca-71459bf17df9",
+	"type": "timeline",
+	"url": "/timeline/8",
+	"author": "admin",
+	"prettyStartDate": "",
+	"prettyStartTime": "",
+	"startTime": ""
 }

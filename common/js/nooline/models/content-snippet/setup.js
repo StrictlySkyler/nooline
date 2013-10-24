@@ -4,7 +4,8 @@
   var components = [
     'nooline/models/content-snippet/bind-events',
     'nooline/models/content-snippet/enable-editing',
-    'nooline/models/content-snippet/disable-editing'
+    'nooline/models/content-snippet/disable-editing',
+    'nooline/models/content-snippet/create'
   ];
 
   N.componentsLoading = N.componentsLoading || [];
