@@ -2,7 +2,7 @@
   "username": "admin",
   "password": "Rkp/CeavYinbF7VaJGSJQYR/fQ2saSIz1r3AoGNirpo2GBSXCBOFW1JnbzE/nR2pap3AkbpF1SuaCxhUGBRTHg==",
   "salt": "bb1725f727261f853a58f7111159640f",
-  "timestamp": 1382658602423,
+  "timestamp": 1382659522536,
   "permissions": [
     "create-account",
     "delete-account",
