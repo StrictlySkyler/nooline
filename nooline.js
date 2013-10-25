@@ -96,6 +96,7 @@ if (cluster.isMaster && !program.single) {
   nooline.get('/content-categories', routes.content);
   nooline.get('/bootstrap', routes.bootstrap);
   nooline.get('/feed', routes.feed);
+  nooline.get('/rss', routes.feed);
   nooline.get('/favicon.ico', routes.favicon);
   // Dynamic gets
   nooline.get('/:category', routes['get-category']);
