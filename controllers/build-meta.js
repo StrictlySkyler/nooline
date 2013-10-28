@@ -7,6 +7,10 @@ module.exports = function buildMeta (error, data, info) {
   
   var Snippets = require('../common/js/nooline/collections/snippets');
   var Category = require('../common/js/nooline/models/category');
+
+  var errorMessage = 'No content found for: ' + info.domain
+    + '\n  Usually this is because the domain is wrong.'
+    + '\n  Check your hosts file, and that this domain folder has content.';
   
   function reportIndex (error, data) {
     getIndex(error, data, info);
@@ -15,6 +19,7 @@ module.exports = function buildMeta (error, data, info) {
   info.index = info.contentPath + '/index.json';
   
   if (error) {
+    console.error(errorMessage);
     error404(error, info);
   } else {
     try {
