@@ -29,7 +29,6 @@ module.exports = function loadSnippets (list, info, category) {
   // our target (to make).
   if (!target && info.req.method === 'POST') {
     info.setup.models[0].get('snippets').add(info.req.body);
-    info.next(info.setup.models[0], info);
     updateIndex(category, info);
 
     return;

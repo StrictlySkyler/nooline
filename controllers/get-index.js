@@ -14,7 +14,7 @@ module.exports = function getIndex (error, data, info) {
 
       for (i = 0; i < info.categories.length; i++) {
         loadSnippets(
-          info.indexList[info.categories[i]],
+          info.indexList.categories[info.categories[i]],
           info, 
           info.categories[i]
         );

@@ -43,6 +43,7 @@
 
           if (_this.getOption('editable')) {
             _this.$el.append(_this.$edit, _this.$commit, _this.$cancel);
+            _this.$edit.removeClass('hidden');
           }
 
           // Event listeners haven't been assigned properly

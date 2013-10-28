@@ -23,6 +23,10 @@ module.exports = function saveContent (category, info) {
       + info.specific 
       + '.json';
     snippet.set(info.req.body);
+    snippet.set({
+      index: info.specific,
+      url: '/' + snippet.get('type') + '/' + info.specific
+    });
 
     content = JSON.stringify(snippet.toJSON(), null, '\t');
     

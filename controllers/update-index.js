@@ -1,5 +1,5 @@
 
-module.exports = function updateIndex (category, info) {
+module.exports = function updateIndex (type, info) {
   var fs = require('fs');
   var newIndex;
 
@@ -7,7 +7,7 @@ module.exports = function updateIndex (category, info) {
     // TODO: Add versioning here.  
     // Cross-reference against when snippet is saved.
     var update = 'Index updated:  \n'
-      +'  Category: ' + category + '\n'
+      +'  Category: ' + type + '\n'
       +'  Snippet: ' + info.specific;
     if (error) {
       console.error(error);
@@ -16,7 +16,14 @@ module.exports = function updateIndex (category, info) {
     }
   }
 
-  info.indexList[category].push(info.specific);
+  if (info.specific <= info.indexList.count) {
+    info.indexList.count++;
+    info.specific = info.indexList.count;
+  }
+
+  info.next(info.setup.models[0], info);
+
+  info.indexList.categories[type].push(info.specific);
 
   newIndex = JSON.stringify(info.indexList, null, '\t');
 
