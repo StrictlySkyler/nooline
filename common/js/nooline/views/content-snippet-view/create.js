@@ -11,7 +11,7 @@
       + '</h3>';
     var text = '<p class="text">' + this.model.get('text') + '</p>';
 
-    if (this.model.get('type') === 'timeline') {
+    if (category === 'timeline') {
       $('#narrative').remove();
 
       N.buildTimeline(this.model.collection.category.attributes);

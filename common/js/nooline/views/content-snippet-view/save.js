@@ -10,6 +10,8 @@
     var date = now.format('YYYY,M,D');
     var time = now.format('HH:m:s');
 
+    this.setOptions('saved', true);
+
     this.model.save({
       headline: this.$editableElement.children('.headline').text(),
       text: this.$editableElement.children('.text').html(),

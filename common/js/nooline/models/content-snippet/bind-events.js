@@ -9,6 +9,7 @@
       'logout': this.disableEditing,
 
       'create': this.create
+
     });
   };
 

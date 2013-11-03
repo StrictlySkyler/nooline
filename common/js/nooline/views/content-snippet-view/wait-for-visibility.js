@@ -14,7 +14,8 @@
 
       _this.setOptions({
         editor: true,
-        added: false
+        added: false,
+        saved: false
       });
     }
 

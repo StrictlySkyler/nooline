@@ -62,10 +62,7 @@
       this.setOptions('bound', true);
     
       this.on({
-        'options:change': function renderChanges () {
-          
-          this.render();
-        },
+        'options:change': this.render,
 
         'editor:enable': function enableEditor () {
           
@@ -77,10 +74,9 @@
           this.setOptions('editor', false);
         },
 
-        'editor:commit': function postChanges () {
-          
-          this.save();
-        }
+        'editor:commit': this.save,
+
+        'remove': this.remove
       });
     }
 

@@ -34,6 +34,7 @@
     }
 
     newSnippet.trigger('create');
+    
   };
 
 }(window.Nooline));

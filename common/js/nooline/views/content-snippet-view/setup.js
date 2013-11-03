@@ -15,7 +15,8 @@
     'nooline/views/content-snippet-view/commit-changes',
     'nooline/views/content-snippet-view/save',
     'nooline/views/content-snippet-view/create',
-    'nooline/views/content-snippet-view/wait-for-visibility'
+    'nooline/views/content-snippet-view/wait-for-visibility',
+    'nooline/views/content-snippet-view/remove'
   ];
 
   N.componentsLoading = N.componentsLoading || [];
