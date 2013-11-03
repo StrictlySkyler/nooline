@@ -30,12 +30,12 @@
   }
 
   require([
-    'nooline/collections/content-categories',
-    'nooline/collections/snippets',
-    'nooline/models/category',
-    'nooline/models/content-snippet',
-    'nooline/views/category-view',
-    'nooline/views/content-snippet-view'
+    'common/js/nooline/collections/content-categories',
+    'common/js/nooline/collections/snippets',
+    'common/js/nooline/models/category',
+    'common/js/nooline/models/content-snippet',
+    'common/js/nooline/views/category-view',
+    'common/js/nooline/views/content-snippet-view'
   ]);
 
   N.getContent = function (meta, next) {

@@ -2,8 +2,8 @@
 ;(function extendCategory (N) {
   
   var components = [
-    'nooline/models/category/bind-events',
-    'nooline/models/category/create-snippet'
+    'common/js/nooline/models/category/bind-events',
+    'common/js/nooline/models/category/create-snippet'
   ];
 
   N.componentsLoading = N.componentsLoading || [];

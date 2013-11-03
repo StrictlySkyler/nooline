@@ -2,8 +2,8 @@
 ;(function extendContentCategories (N) {
   
   var components = [
-    'nooline/collections/content-categories/bind-events',
-    'nooline/collections/content-categories/find-all-content'
+    'common/js/nooline/collections/content-categories/bind-events',
+    'common/js/nooline/collections/content-categories/find-all-content'
   ];
 
   N.componentsLoading = N.componentsLoading || [];

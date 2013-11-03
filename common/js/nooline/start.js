@@ -4,45 +4,38 @@
   function Nooline () {
     requirejs.config({
       baseUrl: '/',
-      paths: {
-        bower: '/common/js/bower',
-        nooline: '/common/js/nooline',
-        sharedlibs: '/node_modules',
-        submodules: '/common/js/submodules',
-        "moment": '/node_modules/moment/moment'
-      },
       shim: {
-        'sharedlibs/node-uuid/uuid': {
+        'node_modules/node-uuid/uuid': {
           exports: 'uuid'
         },
-        'sharedlibs/backbone/backbone': {
+        'node_modules/backbone/backbone': {
           deps: [
-            'sharedlibs/underscore/underscore',
-            'bower/jquery/jquery'
+            'node_modules/underscore/underscore',
+            'common/js/bower/jquery/jquery'
           ]
         },
-        'submodules/StoryJS-Core/VMM.StoryJS': {
+        'common/js/submodules/StoryJS-Core/VMM.StoryJS': {
           deps: [
-            'submodules/StoryJS-Core/Core/VMM.Browser',
-            'submodules/StoryJS-Core/Core/VMM.Core',
-            'submodules/StoryJS-Core/Core/VMM.Date',
-            'submodules/StoryJS-Core/Core/VMM.FileExtention',
-            'submodules/StoryJS-Core/Core/VMM',
-            'submodules/StoryJS-Core/Core/VMM.Library',
-            'submodules/StoryJS-Core/Core/VMM.LoadLib',
-            'submodules/StoryJS-Core/Core/VMM.Util',
-            'submodules/StoryJS-Core/Embed/Embed',
-            'submodules/StoryJS-Core/Embed/Embed.LoadLib',
-            'submodules/TimelineJS/compiled/js/timeline',
-            'submodules/StoryJS-Core/Library/LazyLoad'
+            'common/js/submodules/StoryJS-Core/Core/VMM.Browser',
+            'common/js/submodules/StoryJS-Core/Core/VMM.Core',
+            'common/js/submodules/StoryJS-Core/Core/VMM.Date',
+            'common/js/submodules/StoryJS-Core/Core/VMM.FileExtention',
+            'common/js/submodules/StoryJS-Core/Core/VMM',
+            'common/js/submodules/StoryJS-Core/Core/VMM.Library',
+            'common/js/submodules/StoryJS-Core/Core/VMM.LoadLib',
+            'common/js/submodules/StoryJS-Core/Core/VMM.Util',
+            'common/js/submodules/StoryJS-Core/Embed/Embed',
+            'common/js/submodules/StoryJS-Core/Embed/Embed.LoadLib',
+            'common/js/submodules/TimelineJS/compiled/js/timeline',
+            'common/js/submodules/StoryJS-Core/Library/LazyLoad'
           ]
         },
-        'nooline/build-timeline': {
+        'common/js/nooline/build-timeline': {
           deps: [
-            'submodules/StoryJS-Core/VMM.StoryJS',
+            'common/js/submodules/StoryJS-Core/VMM.StoryJS',
           ]
         },
-        'nooline/load-components': {
+        'common/js/nooline/load-components': {
           deps: [
           // Right now, jQuery in Bower and npm aren't the same version.
           // Bower ~= 2.0.x
@@ -50,14 +43,14 @@
           // Eventually, when these versions reach parity, the same source
           // should be used for both client and server.
           // 2013-09-13
-            'bower/jquery/jquery',
-            'sharedlibs/socket.io-client/dist/socket.io',
-            'nooline/get-content'
+            'common/js/bower/jquery/jquery',
+            'node_modules/socket.io-client/dist/socket.io',
+            'common/js/nooline/get-content'
           ]
         },
-        'nooline/get-content': {
+        'common/js/nooline/get-content': {
           deps: [
-            'sharedlibs/backbone/backbone'
+            'node_modules/backbone/backbone'
           ]
         }
       }
@@ -65,21 +58,21 @@
     
     // Also see load-components.js.
     require([
-      'bower/jquery/jquery',
-      'bower/modernizr/modernizr',
-      'submodules/StoryJS-Core/VMM.StoryJS',
-      'sharedlibs/underscore/underscore',
-      'sharedlibs/backbone/backbone',
-      'nooline/get-content',
-      'nooline/error-handler',
-      'nooline/load-components'
+      'common/js/bower/jquery/jquery',
+      'common/js/bower/modernizr/modernizr',
+      'common/js/submodules/StoryJS-Core/VMM.StoryJS',
+      'common/js/nooline/get-content',
+      'common/js/nooline/error-handler',
+      'common/js/nooline/load-components'
     ]);
 
     // For those modules which explicitly require definition via AMD.
     // A CJS loader for browser, without needing to compile, would be so nice.
     define([
-      'moment',
-      'sharedlibs/node-uuid/uuid'
+      'node_modules/moment/moment',
+      'node_modules/node-uuid/uuid',
+      'node_modules/underscore/underscore',
+      'node_modules/backbone/backbone'
     ], function (moment, uuid) {
       
       window.moment = moment;

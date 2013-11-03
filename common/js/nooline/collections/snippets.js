@@ -30,7 +30,7 @@
     N.Collections = N.Collections || {};
     N.Collections.Snippets = Snippets;
 
-    require(['nooline/collections/snippets/setup']);
+    require(['common/js/nooline/collections/snippets/setup']);
 
   }
   

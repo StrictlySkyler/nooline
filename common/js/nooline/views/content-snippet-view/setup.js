@@ -2,21 +2,21 @@
 ;(function extendContentSnippetView (N) {
   
   var components = [
-    'nooline/views/content-snippet-view/bind-events',
-    'nooline/views/content-snippet-view/set-options',
-    'nooline/views/content-snippet-view/get-option',
-    'nooline/views/content-snippet-view/render',
-    'nooline/views/content-snippet-view/enable-editing',
-    'nooline/views/content-snippet-view/start-editing',
-    'nooline/views/content-snippet-view/show-editor',
-    'nooline/views/content-snippet-view/stop-editing',
-    'nooline/views/content-snippet-view/hide-editor',
-    'nooline/views/content-snippet-view/disable-editing',
-    'nooline/views/content-snippet-view/commit-changes',
-    'nooline/views/content-snippet-view/save',
-    'nooline/views/content-snippet-view/create',
-    'nooline/views/content-snippet-view/wait-for-visibility',
-    'nooline/views/content-snippet-view/remove'
+    'common/js/nooline/views/content-snippet-view/bind-events',
+    'common/js/nooline/views/content-snippet-view/set-options',
+    'common/js/nooline/views/content-snippet-view/get-option',
+    'common/js/nooline/views/content-snippet-view/render',
+    'common/js/nooline/views/content-snippet-view/enable-editing',
+    'common/js/nooline/views/content-snippet-view/start-editing',
+    'common/js/nooline/views/content-snippet-view/show-editor',
+    'common/js/nooline/views/content-snippet-view/stop-editing',
+    'common/js/nooline/views/content-snippet-view/hide-editor',
+    'common/js/nooline/views/content-snippet-view/disable-editing',
+    'common/js/nooline/views/content-snippet-view/commit-changes',
+    'common/js/nooline/views/content-snippet-view/save',
+    'common/js/nooline/views/content-snippet-view/create',
+    'common/js/nooline/views/content-snippet-view/wait-for-visibility',
+    'common/js/nooline/views/content-snippet-view/remove'
   ];
 
   N.componentsLoading = N.componentsLoading || [];

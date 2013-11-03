@@ -25,7 +25,7 @@
 
     N.Views = N.Views || {};
     N.Views.CategoryView = CategoryView;
-    require(['nooline/views/category-view/setup']);
+    require(['common/js/nooline/views/category-view/setup']);
 
   }
 

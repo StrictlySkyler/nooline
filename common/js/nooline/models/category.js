@@ -43,7 +43,7 @@
     N.Models = N.Models || {};
     N.Models.Category = Category;
 
-    require(['nooline/models/category/setup']);
+    require(['common/js/nooline/models/category/setup']);
 
   }
 

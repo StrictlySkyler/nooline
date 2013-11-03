@@ -2,11 +2,11 @@
 ;(function extendContentSnippet (N) {
   
   var components = [
-    'nooline/models/content-snippet/bind-events',
-    'nooline/models/content-snippet/enable-editing',
-    'nooline/models/content-snippet/disable-editing',
-    'nooline/models/content-snippet/create',
-    'nooline/models/content-snippet/remove'
+    'common/js/nooline/models/content-snippet/bind-events',
+    'common/js/nooline/models/content-snippet/enable-editing',
+    'common/js/nooline/models/content-snippet/disable-editing',
+    'common/js/nooline/models/content-snippet/create',
+    'common/js/nooline/models/content-snippet/remove'
   ];
 
   N.componentsLoading = N.componentsLoading || [];

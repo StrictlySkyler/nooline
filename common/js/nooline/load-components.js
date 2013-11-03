@@ -25,7 +25,13 @@
     N.controls = data.controls;
     localStorage.controls = JSON.stringify(data.controls);
 
-    require(data.bootstrap.files, function setup() {
+    require([
+      'common/js/nooline/show-login-panel',
+      'common/js/nooline/close-section',
+      'common/js/nooline/build-timeline',
+      'common/js/nooline/attempt-login',
+      'common/js/nooline/assign-listeners'
+    ], function setup() {
     
     // TODO: Need to extend this  server- side functionality to include the
     // ability to specify the number of content items to get, and multiple 

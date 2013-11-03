@@ -12,10 +12,10 @@
     } else {
       
       require([
-        'nooline/build-controls',
-        'nooline/logout',
-        'nooline/show-login-success',
-        'nooline/remove-controls'
+        'common/js/nooline/build-controls',
+        'common/js/nooline/logout',
+        'common/js/nooline/show-login-success',
+        'common/js/nooline/remove-controls'
       ], function acceptLogin () {
 
         N.showLoginSuccess(data);

@@ -2,7 +2,7 @@
 ;(function extendSnippets (N) {
   
   var components = [
-    'nooline/collections/snippets/bind-events'
+    'common/js/nooline/collections/snippets/bind-events'
   ];
 
   N.componentsLoading = N.componentsLoading || [];

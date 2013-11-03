@@ -7,7 +7,7 @@
 
     require([
       // TODO: Wrap this into an extension to allow for swapping out WYSIWYGs.
-      'bower/eo-ckeditor/ckeditor'
+      'common/js/bower/eo-ckeditor/ckeditor'
     ], function notifyAllSnippets () {
 
       allSnippets.each(function notifyEachSnippet (snippet) {

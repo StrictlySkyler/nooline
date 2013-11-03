@@ -69,7 +69,7 @@
     N.Models = N.Models || {};
     N.Models.ContentSnippet = ContentSnippet;
 
-    require(['nooline/models/content-snippet/setup']);
+    require(['common/js/nooline/models/content-snippet/setup']);
 
   }
 

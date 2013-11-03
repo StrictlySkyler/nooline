@@ -31,7 +31,7 @@
 
     N.Views = N.Views || {};
     N.Views.ContentSnippetView = ContentSnippetView;
-    require(['nooline/views/content-snippet-view/setup']);
+    require(['common/js/nooline/views/content-snippet-view/setup']);
 
   }
 

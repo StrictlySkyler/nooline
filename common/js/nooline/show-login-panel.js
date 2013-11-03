@@ -7,14 +7,14 @@
     var $panel = $('<section id="main-login" class="login hidden"></section>');
     
     require([
-      'sharedlibs/crypto-js/core',
-      'sharedlibs/crypto-js/sha3',
-      'sharedlibs/crypto-js/enc-base64',
-      'nooline/validate',
-      'nooline/reject-login',
-      'nooline/hash-this',
-      'nooline/post-login',
-      'nooline/receive-login'
+      'node_modules/crypto-js/core',
+      'node_modules/crypto-js/sha3',
+      'node_modules/crypto-js/enc-base64',
+      'common/js/nooline/validate',
+      'common/js/nooline/reject-login',
+      'common/js/nooline/hash-this',
+      'common/js/nooline/post-login',
+      'common/js/nooline/receive-login'
     ], function validateLoaded (Crypto) {
       
       window.Crypto = Crypto;

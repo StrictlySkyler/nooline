@@ -27,7 +27,7 @@
     N.Collections = N.Collections || {};
     N.Collections.ContentCategories = ContentCategories;
 
-    require(['nooline/collections/content-categories/setup']);
+    require(['common/js/nooline/collections/content-categories/setup']);
 
   }
 

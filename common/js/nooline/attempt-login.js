@@ -37,10 +37,10 @@
 
   if (timediff < N.settings.EXPIRY) {
     require([
-      'nooline/validate',
-      'nooline/reject-login',
-      'nooline/post-login',
-      'nooline/receive-login'
+      'common/js/nooline/validate',
+      'common/js/nooline/reject-login',
+      'common/js/nooline/post-login',
+      'common/js/nooline/receive-login'
     ], function autoLogin () {
 
       N.postLogin(lastLoginAttempt.username, 
