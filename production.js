@@ -9,17 +9,13 @@
  */
 ({
 
-  // appDir: 'common/',
-
   baseUrl: './',
 
   mainConfigFile: 'common/js/nooline/start.js',
 
-  // dir: 'production/common',
+  optimize: 'uglify2',
 
-  optimize: 'none',
-
-  optimizeCss: 'none',
+  optimizeCss: 'standard',
 
   useStrict: true,
 
@@ -29,17 +25,11 @@
 
   dir: './production',
 
-  // out: './common/js/production/nooline.js',
-
   modules: [
     {
       name: 'common/js/nooline/start'
     }
   ],
-
-  // include: 'common/js/nooline/start',
-
-  // cjsTranslate: true,
 
   onBuildRead: function (moduleName, path, contents) {
 
@@ -49,5 +39,4 @@
 
   fileExclusionRegExp: /^\.|controllers|logs|routes|\.json/
 
-  // skipModuleInsertion: true
 })
