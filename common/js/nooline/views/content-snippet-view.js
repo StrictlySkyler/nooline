@@ -1,38 +1,40 @@
 
-;(function buildContentSnippetView () {
-  
-  var root = this;
-  var N = root.Nooline;
-  var Backbone = root.Backbone || require('backbone');
+define("common/js/nooline/views/content-snippet-view", function(){
+  ;(function buildContentSnippetView () {
+    
+    var root = this;
+    var N = root.Nooline;
+    var Backbone = root.Backbone || require('backbone');
 
-  var ContentSnippetView = Backbone.View.extend({
-    constructor: function ContentSnippetView () {
+    var ContentSnippetView = Backbone.View.extend({
+      constructor: function ContentSnippetView () {
 
-      var element;
+        var element;
 
-      Backbone.View.apply(this, arguments);
+        Backbone.View.apply(this, arguments);
 
-      if (typeof module === 'undefined') {
+        if (typeof module === 'undefined') {
 
-        this.options = {};
+          this.options = {};
 
-        element = document.getElementById(this.model.get('uuid'));
+          element = document.getElementById(this.model.get('uuid'));
 
-        this.bindEvents(element);
+          this.bindEvents(element);
+        }
       }
+    });
+
+    if (typeof module !== 'undefined') {
+
+      module.exports = ContentSnippetView;
+
+    } else {
+
+      N.Views = N.Views || {};
+      N.Views.ContentSnippetView = ContentSnippetView;
+      require(['common/js/nooline/views/content-snippet-view/setup']);
+
     }
-  });
 
-  if (typeof module !== 'undefined') {
-
-    module.exports = ContentSnippetView;
-
-  } else {
-
-    N.Views = N.Views || {};
-    N.Views.ContentSnippetView = ContentSnippetView;
-    require(['common/js/nooline/views/content-snippet-view/setup']);
-
-  }
-
-}).call(this);
+  }).call(this);
+});

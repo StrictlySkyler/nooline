@@ -54,6 +54,7 @@ if (cluster.isMaster && !program.single) {
   nooline.use('/common', express.static(__dirname + '/common'));
   nooline.use('/sites', express.static(__dirname + '/sites'));
   nooline.use('/node_modules', express.static(__dirname + '/node_modules'));
+  nooline.use('/production', express.static(__dirname + '/production'));
   nooline.use(function set404 (req, res) {
     res.status(404).render('common/views/error', {
       status: '404',

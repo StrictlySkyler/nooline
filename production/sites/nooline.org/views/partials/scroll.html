@@ -1,0 +1,26 @@
+<section id="scroll" class="scroll content">
+  {{#scroll.attributes.snippets.models}}
+    <div id="{{{attributes.uuid}}}" class="snippet">
+      <article id="{{{attributes.uuid}}}-article">
+        <h3 class="headline">{{{attributes.headline}}}</h3>
+        <div class="text">
+          {{{attributes.text}}}
+        </div>
+        <footer>
+            {{#attributes.author}}
+              By {{attributes.author}}
+            {{/attributes.author}}
+            
+            {{#attributes.prettyStartDate}}
+              on {{attributes.prettyStartDate}}
+            {{/attributes.prettyStartDate}}
+            
+            {{#attributes.prettyStartTime}} 
+              at {{attributes.prettyStartTime}}
+            {{/attributes.prettyStartTime}}
+          </footer>
+        </article>
+      </article>
+    </div>
+  {{/scroll.attributes.snippets.models}}
+</section>

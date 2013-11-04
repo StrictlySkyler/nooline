@@ -12,7 +12,11 @@
           deps: [
             'node_modules/underscore/underscore',
             'common/js/bower/jquery/jquery'
-          ]
+          ],
+          exports: 'Backbone'
+        },
+        'node_modules/underscore/underscore': {
+          exports: '_'
         },
         'common/js/submodules/StoryJS-Core/VMM.StoryJS': {
           deps: [
@@ -52,6 +56,11 @@
           deps: [
             'node_modules/backbone/backbone'
           ]
+        },
+        'common/js/nooline/models/content-snippet': {
+          deps: [
+            'node_modules/node-uuid/uuid'
+          ]
         }
       }
     });
@@ -63,7 +72,7 @@
       'common/js/submodules/StoryJS-Core/VMM.StoryJS',
       'common/js/nooline/get-content',
       'common/js/nooline/error-handler',
-      'common/js/nooline/load-components'
+      'common/js/nooline/load-components',
     ]);
 
     // For those modules which explicitly require definition via AMD.
@@ -73,7 +82,7 @@
       'node_modules/node-uuid/uuid',
       'node_modules/underscore/underscore',
       'node_modules/backbone/backbone'
-    ], function (moment, uuid) {
+    ], function (moment, uuid, _, backbone) {
       
       window.moment = moment;
       window.uuid = uuid;
