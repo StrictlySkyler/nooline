@@ -76,15 +76,22 @@
     ]);
 
     // For those modules which explicitly require definition via AMD.
+    // Some of these, such as moment, need to be required to be initialized.
+    // Others don't add themselves to global scope, and we need some of them 
+    // to do so, such as uuid.
+    // 
     // A CJS loader for browser, without needing to compile, would be so nice.
     define([
-      'node_modules/moment/moment',
       'node_modules/node-uuid/uuid',
+      'node_modules/moment/moment',
       'node_modules/underscore/underscore',
       'node_modules/backbone/backbone'
-    ], function (moment, uuid, _, backbone) {
+    ], function (uuid) {
       
-      window.moment = moment;
+      require([
+        'moment'
+      ]);
+
       window.uuid = uuid;
     });
   }
