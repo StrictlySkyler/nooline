@@ -1,6 +1,11 @@
 
-define("common/js/nooline/views/content-snippet-view", function(){
-  ;(function buildContentSnippetView () {
+({ define: typeof define === "function"
+  ? define
+  : function(A,F) { 
+    exports = module.exports = F(); 
+  } 
+}).define("common/js/nooline/views/content-snippet-view", function(){
+  return (function buildContentSnippetView () {
     
     var root = this;
     var N = root.Nooline;
@@ -27,6 +32,7 @@ define("common/js/nooline/views/content-snippet-view", function(){
     if (typeof module !== 'undefined') {
 
       module.exports = ContentSnippetView;
+      return module.exports;
 
     } else {
 

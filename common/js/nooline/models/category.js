@@ -1,6 +1,11 @@
 
-define("common/js/nooline/models/category", function(){
-  ;(function buildCategoryModel () {
+({ define: typeof define === "function"
+  ? define
+  : function(A,F) { 
+    exports = module.exports = F(); 
+  } 
+}).define("common/js/nooline/models/category", function(){
+  return (function buildCategoryModel () {
     
     var root = this;
     var N = root.Nooline;
@@ -38,6 +43,7 @@ define("common/js/nooline/models/category", function(){
     if (typeof module !== 'undefined') {
 
       module.exports = Category;
+      return module.exports;
 
     } else {
 

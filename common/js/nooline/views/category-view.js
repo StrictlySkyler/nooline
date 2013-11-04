@@ -1,6 +1,11 @@
 
-define("common/js/nooline/views/category-view", function(){
-  ;(function buildCategoryView () {
+({ define: typeof define === "function"
+  ? define
+  : function(A,F) { 
+    exports = module.exports = F(); 
+  } 
+}).define("common/js/nooline/views/category-view", function(){
+  return (function buildCategoryView () {
     
     var root = this;
     var N = root.Nooline;
@@ -21,6 +26,7 @@ define("common/js/nooline/views/category-view", function(){
     if (typeof module !== 'undefined') {
 
       module.exports = CategoryView;
+      return module.exports;
 
     } else {
 

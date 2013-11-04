@@ -1,6 +1,11 @@
 
-define("common/js/nooline/collections/snippets", function(){
-  ;(function buildSnippetsCollection () {
+({ define: typeof define === "function"
+  ? define
+  : function(A,F) { 
+    exports = module.exports = F(); 
+  } 
+}).define("common/js/nooline/collections/snippets", function(){
+  return (function buildSnippetsCollection () {
     
     var root = this;
     var N = root.Nooline;
@@ -25,6 +30,7 @@ define("common/js/nooline/collections/snippets", function(){
     if (typeof module !== 'undefined') {
 
       module.exports = Snippets;
+      return module.exports;
 
     } else {
 

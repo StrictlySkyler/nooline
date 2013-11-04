@@ -1,8 +1,13 @@
 
-define("common/js/nooline/models/content-snippet", [
+({ define: typeof define === "function"
+  ? define
+  : function(A,D,F) {
+    exports = module.exports = F(); 
+  } 
+}).define("common/js/nooline/models/content-snippet", [
     'node_modules/node-uuid/uuid'
   ], function(){
-  ;(function buildContentSnippetModel () {
+  return (function buildContentSnippetModel () {
     
     var root = this;
     var N = root.Nooline;
@@ -67,6 +72,8 @@ define("common/js/nooline/models/content-snippet", [
     if (typeof module !== 'undefined') {
 
       module.exports = ContentSnippet;
+      return module.exports;
+
     } else {
 
       N.Models = N.Models || {};

@@ -1,6 +1,11 @@
 
-define("common/js/nooline/collections/content-categories", function(){
-  ;(function buildContentCategoriesCollection () {
+({ define: typeof define === "function"
+  ? define
+  : function(A,F) { 
+    exports = module.exports = F(); 
+  } 
+}).define("common/js/nooline/collections/content-categories", function(){
+  return (function buildContentCategoriesCollection () {
     
     var root = this;
     var N = root.Nooline;
@@ -22,6 +27,7 @@ define("common/js/nooline/collections/content-categories", function(){
     if (typeof module !== 'undefined') {
 
       module.exports = ContentCategories;
+      return module.exports;
 
     } else {
 
