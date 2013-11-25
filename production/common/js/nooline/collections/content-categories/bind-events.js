@@ -1,0 +1,1 @@
+define([],function(){var n=window.Nooline;return n.Collections.ContentCategories.prototype.bindEvents=function(){this.on({})},"collections/content-categories/bind-events"});

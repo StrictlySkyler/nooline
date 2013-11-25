@@ -1,0 +1,1 @@
+var http=null,host="0.0.0.0",port=9320,config;http.createServer(function(t,e){t.on("end",function(){var t="500 server error";e.writeHead(500,{"Content-Type":"text/plain","Content-Length":t.length}),e.write(t,"utf8"),e.end()})}).listen(port,host),console.log("Server running at http://"+host+":"+port+"/");

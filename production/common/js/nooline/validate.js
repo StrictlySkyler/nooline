@@ -1,0 +1,1 @@
+define([],function(){var n=window.Nooline;n.validate=function(n){var e={username:function(n){return n.length>2&&/^[\w\d\s]+$/.test(n)?!0:void 0},password:function(n){return n.length>12&&/^[\w\d\s!@#$%^&*?<>]+$/.test(n)?!0:void 0}},t=_.every(n,function(n,t){return e[t]?e[t](n):!1});return t}});

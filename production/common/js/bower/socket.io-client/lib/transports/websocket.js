@@ -1,0 +1,7 @@
+/**
+ * socket.io
+ * Copyright(c) 2011 LearnBoost <dev@learnboost.com>
+ * MIT Licensed
+ */
+
+!function(t,e,o){function n(){e.Transport.apply(this,arguments)}t.websocket=n,e.util.inherit(n,e.Transport),n.prototype.name="websocket",n.prototype.open=function(){var t,n=e.util.query(this.socket.options.query),s=this;return t=null,t||(t=o.MozWebSocket||o.WebSocket),this.websocket=new t(this.prepareUrl()+n),this.websocket.onopen=function(){s.onOpen(),s.socket.setBuffer(!1)},this.websocket.onmessage=function(t){s.onData(t.data)},this.websocket.onclose=function(){s.onClose(),s.socket.setBuffer(!0)},this.websocket.onerror=function(t){s.onError(t)},this},n.prototype.send=e.util.ua.iDevice?function(t){var e=this;return setTimeout(function(){e.websocket.send(t)},0),this}:function(t){return this.websocket.send(t),this},n.prototype.payload=function(t){for(var e=0,o=t.length;o>e;e++)this.packet(t[e]);return this},n.prototype.close=function(){return this.websocket.close(),this},n.prototype.onError=function(t){this.socket.onError(t)},n.prototype.scheme=function(){return this.socket.options.secure?"wss":"ws"},n.check=function(){return!0},n.xdomainCheck=function(){return!0},e.transports.push("websocket")}("undefined"!=typeof io?io.Transport:module.exports,"undefined"!=typeof io?io:module.parent.exports,this);

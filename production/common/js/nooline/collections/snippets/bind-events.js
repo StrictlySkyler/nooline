@@ -1,0 +1,1 @@
+define([],function(){var n=window.Nooline;return n.Collections.Snippets.prototype.bindEvents=function(){this.on({})},"collections/snippets/bind-events"});

@@ -1,0 +1,1 @@
+!function(){function n(n){log("STILL GOOD, inner define: "+n)}if("function"!=typeof n)var n=window.badDefine;n("four.js script")}();

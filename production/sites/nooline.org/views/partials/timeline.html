@@ -1,0 +1,12 @@
+<section id="timeline" class="timeline content">
+  <div id="timeline-placeholder">
+    {{#timeline.attributes.snippets.models}}
+      <article id="{{{attributes.uuid}}}" class="timeline-placeholder-item">
+        <h3 class="headline">{{{attributes.headline}}}</h3>
+        <div class="text">
+          <p>{{{attributes.text}}}</p>
+        </div>
+      </article>
+    {{/timeline.attributes.snippets.models}}
+  </div>
+</section>

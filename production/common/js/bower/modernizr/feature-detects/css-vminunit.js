@@ -1,0 +1,1 @@
+Modernizr.addTest("cssvminunit",function(){var n;return Modernizr.testStyles("#modernizr { width: 50vmin; }",function(t){var e=window.innerWidth/100,i=window.innerHeight/100,r=parseInt((window.getComputedStyle?getComputedStyle(t,null):t.currentStyle).width,10);n=parseInt(50*Math.min(e,i),10)==r}),n});

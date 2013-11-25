@@ -1,0 +1,1 @@
+define(["require"],function(l){return{dotPath:l.toUrl("."),html:null,auxHtml:null,thing:null}});

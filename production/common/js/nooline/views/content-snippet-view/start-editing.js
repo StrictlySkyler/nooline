@@ -1,0 +1,1 @@
+define([],function(){var t=window.Nooline;return t.Views.ContentSnippetView.prototype.startEditing=function(){this.trigger("editor:enable")},"views/content-snippet-view/start-editing"});

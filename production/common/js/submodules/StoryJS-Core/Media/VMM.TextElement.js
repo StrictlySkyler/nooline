@@ -1,0 +1,1 @@
+"undefined"!=typeof VMM&&void 0===VMM.TextElement&&(VMM.TextElement={init:function(){return this},create:function(e){return e}}.init());

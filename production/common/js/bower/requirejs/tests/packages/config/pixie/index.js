@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,i,n){return{apiKey:n.config().apiKey}});

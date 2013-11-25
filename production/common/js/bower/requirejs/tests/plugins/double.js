@@ -1,0 +1,1 @@
+define({load:function(n,d,e){e("x")}});

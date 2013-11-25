@@ -1,0 +1,7 @@
+/*!
+ * socket.io-node
+ * Copyright(c) 2011 LearnBoost <dev@learnboost.com>
+ * MIT Licensed
+ */
+
+var vm=null,should=null;exports.env=function(){var e={location:{port:8080,host:"www.example.org",hostname:"www.example.org",href:"http://www.example.org/example/",pathname:"/example/",protocol:"http:",search:"",hash:""},console:{log:function(){},info:function(){},warn:function(){},error:function(){}},navigator:{userAgent:"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.27 (KHTML, like Gecko) Chrome/12.0.716.0 Safari/534.27",appName:"socket.io",platform:process.platform,appVersion:process.version},name:"socket.io",innerWidth:1024,innerHeight:768,length:1,outerWidth:1024,outerHeight:768,pageXOffset:0,pageYOffset:0,screenX:0,screenY:0,screenLeft:0,screenTop:0,scrollX:0,scrollY:0,scrollTop:0,scrollLeft:0,screen:{width:0,height:0}};return e.window=e.self=e.contentWindow=e,e.Image=e.scrollTo=e.scrollBy=e.scroll=e.resizeTo=e.resizeBy=e.prompt=e.print=e.open=e.moveTo=e.moveBy=e.focus=e.createPopup=e.confirm=e.close=e.blur=e.alert=e.clearTimeout=e.clearInterval=e.setInterval=e.setTimeout=e.XMLHttpRequest=e.getComputedStyle=e.trigger=e.dispatchEvent=e.removeEventListener=e.addEventListener=function(){},e.frames=[e],e.document=e,e.document.domain=e.location.href,e},exports.execute=function(e){var o=exports.env(),t=vm.createScript(e);return t.runInNewContext(o),o};

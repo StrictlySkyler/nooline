@@ -1,0 +1,1 @@
+!function(e,n){"undefined"!=typeof module?module.exports=n():"function"==typeof define&&"object"==typeof define.amd?define("tail",[],function(){return n()}):this[e]=n()}("tail",function(){return{name:"tail"}});

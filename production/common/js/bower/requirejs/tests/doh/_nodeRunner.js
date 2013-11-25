@@ -1,0 +1,1 @@
+var oldReport,aps=Array.prototype.slice;doh.debug=function(){var o=aps.call(arguments,0).join(" ");console.log(o)},oldReport=doh._report,doh._report=function(){oldReport.apply(doh,arguments),(this._failureCount>0||this._errorCount>0)&&process.exit(1)};

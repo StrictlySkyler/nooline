@@ -1,0 +1,1 @@
+define([],function(){var i=window.Nooline;return i.Views.ContentSnippetView.prototype.disableEditing=function(){var i=this;this.hideEditor(),this.$edit.addClass("hidden").one("transitionend webkitTransitionEnd",function(){i.$commit.remove(),i.$cancel.remove(),i.$edit.remove()})},"views/content-snippet-view/disable-editing"});

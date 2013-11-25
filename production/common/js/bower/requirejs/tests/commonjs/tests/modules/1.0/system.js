@@ -1,0 +1,1 @@
+define({stdio:{print:function(n,o){console.log(n,o)}}});

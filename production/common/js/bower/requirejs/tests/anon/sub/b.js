@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,n){n.f=function(){return"sub/b"}});

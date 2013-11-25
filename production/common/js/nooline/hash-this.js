@@ -1,0 +1,1 @@
+define([],function(){var n=window.Nooline;n.hashThis=function(n){var o=Crypto.SHA3(n),i=o.toString(Crypto.enc.Base64);return i}});

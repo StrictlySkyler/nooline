@@ -1,0 +1,1 @@
+define({load:function(i,n,a){i?"/"===i.charAt(0)&&(i="main"+i):i="main",i=i.split("/").shift(),i="plug/"+i,n([i],a)}});

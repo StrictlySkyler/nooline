@@ -1,0 +1,1 @@
+define(["require"],function(){return{name:"toolbar",template:null}});

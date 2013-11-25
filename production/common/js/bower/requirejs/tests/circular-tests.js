@@ -1,0 +1,1 @@
+require({baseUrl:"./"},["require","two","funcTwo","funcThree"],function(r,e,i,n){var o=e.doSomething(),u=new i("TWO");doh.register("circular",[function(r){r.is("small",o.size),r.is("redtwo",o.color)}]),doh.run(),doh.register("circularFunc",[function(r){r.is("TWO",u.name),r.is("ONE-NESTED",u.oneName()),r.is("THREE-THREE_SUFFIX",n("THREE"))}]),doh.run()});

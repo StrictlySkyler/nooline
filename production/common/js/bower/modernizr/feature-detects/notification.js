@@ -1,0 +1,1 @@
+Modernizr.addTest("notification",!!Modernizr.prefixed("Notifications",window));

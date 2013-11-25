@@ -1,0 +1,1 @@
+require({baseUrl:"./",paths:{"bar/foo":"foo2"}},["require","bar/baz"],function(o,e){doh.register("relativeNormalize",[function(o){o.is("baz",e.name),o.is("foo2",e.foo.name)}]),doh.run()});

@@ -1,0 +1,1 @@
+define([],function(){var i=window.Nooline;return i.Views.ContentSnippetView.prototype.stopEditing=function(){this.trigger("editor:disable")},"views/content-snippet-view/stop-editing"});

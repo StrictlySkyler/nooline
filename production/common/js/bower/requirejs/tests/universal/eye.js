@@ -1,0 +1,1 @@
+!function(e,n){"undefined"!=typeof module?module.exports=n():"function"==typeof define&&"object"==typeof define.amd?define(e,n):this[e]=n()}("eye",function(){return{name:"eye"}});

@@ -1,0 +1,1 @@
+define([],function(){var e=window.Nooline;return e.Models.ContentSnippet.prototype.create=function(){this.view.setOptions("create",!0)},"models/content-snippet/create"});

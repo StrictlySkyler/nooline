@@ -1,0 +1,1 @@
+define(["text!component.html"],function(n){return{name:"component",html:n}});

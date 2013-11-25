@@ -1,0 +1,1 @@
+!function(e){e("spell",["require"],function(){var e=null;return{name:"spell",newtName:e.name,tailName:e.tailName,eyeName:e.eyeName}})}("function"==typeof define&&define.amd?define:function(e,n){"undefined"!=typeof module&&module.exports?module.exports=n(require):window.myGlobal=n(function(e){return window[e]})});

@@ -1,0 +1,1 @@
+require({baseUrl:requirejs.isBrowser?"./":"./plugins/fromText",paths:{text:"../../../../text/text"}},["refine!a"],function(){doh.register("pluginsFromTextNoDefine",[function(e){e.is("a",a.name)}]),doh.run()});

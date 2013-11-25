@@ -1,0 +1,1 @@
+require({baseUrl:"./"},["require","map","simple","dimple","func"],function(e,i,l,o,n){doh.register("simple",[function(e){e.is("map",i.name),e.is("blue",l.color),e.is("dimple-blue",o.color),e.is("You called a function",n())}]),"undefined"==typeof moreSimpleTests&&doh.run()});

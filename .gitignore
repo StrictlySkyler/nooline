@@ -9,7 +9,3 @@ autolint.js
 
 # User credentials - remember that admin.hash should remain part of the repo, but the password should be changed.
 **/*.hash
-
-# Production code - for now, it's not needed in the repo, and should be generated.
-# This is expected to change when flipping between dev and prod modes is enabled.
-production/

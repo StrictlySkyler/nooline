@@ -1,0 +1,1 @@
+require({baseUrl:requirejs.isBrowser?"./":"./plugins/pluginShim",paths:{text:"../../../../text/text",refine:"../fromText/refine"},shim:{"refine!a":["!legacy"]}},["refine!a"],function(e){doh.register("pluginShim",[function(i){i.is("alegacy",e.name)}]),doh.run()});

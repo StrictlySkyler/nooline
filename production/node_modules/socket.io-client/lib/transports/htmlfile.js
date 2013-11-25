@@ -1,0 +1,7 @@
+/**
+ * socket.io
+ * Copyright(c) 2011 LearnBoost <dev@learnboost.com>
+ * MIT Licensed
+ */
+
+!function(t,e){function i(){e.Transport.XHR.apply(this,arguments)}t.htmlfile=i,e.util.inherit(i,e.Transport.XHR),i.prototype.name="htmlfile",i.prototype.get=function(){var t,i,o;this.doc=new ActiveXObject("htmlfile"),this.doc.open(),this.doc.write("<html></html>"),this.doc.close(),this.doc.parentWindow.s=this,t=this.doc.createElement("div"),t.className="socketio",this.doc.body.appendChild(t),this.iframe=this.doc.createElement("iframe"),t.appendChild(this.iframe),i=this,o=e.util.query(this.socket.options.query,"t="+ +new Date),this.iframe.src=this.prepareUrl()+o,e.util.on(window,"unload",function(){i.destroy()})},i.prototype._=function(t,e){t=t.replace(/\\\//g,"/"),this.onData(t);try{var i=e.getElementsByTagName("script")[0];i.parentNode.removeChild(i)}catch(o){}},i.prototype.destroy=function(){if(this.iframe){try{this.iframe.src="about:blank"}catch(t){}this.doc=null,this.iframe.parentNode.removeChild(this.iframe),this.iframe=null,CollectGarbage()}},i.prototype.close=function(){return this.destroy(),e.Transport.XHR.prototype.close.call(this)},i.check=function(t){if("undefined"!=typeof window&&"ActiveXObject"in window)try{var i=new ActiveXObject("htmlfile");return i&&e.Transport.XHR.check(t)}catch(o){}return!1},i.xdomainCheck=function(){return!1},e.transports.push("htmlfile")}("undefined"!=typeof io?io.Transport:module.exports,"undefined"!=typeof io?io:module.parent.exports);

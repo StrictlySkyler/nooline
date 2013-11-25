@@ -1,0 +1,1 @@
+define([],function(){var e=window.Nooline;return e.Views.CategoryView.prototype.bindEvents=function(){var e=this;this.$el.on("click",".create-content",function(){e.createSnippet()}),this.on({"options:change":function(){this.render()}})},"views/category-view/bind-events"});
