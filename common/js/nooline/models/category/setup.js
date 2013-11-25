@@ -19,6 +19,7 @@ define(function () {
     N.componentsLoading = _.difference(N.componentsLoading, components);
 
     if (!N.componentsLoading.length) {
+      
       N.$document.trigger('components:complete');
     }
   });

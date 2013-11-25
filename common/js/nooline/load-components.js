@@ -52,7 +52,7 @@ define(function () {
       'common/js/nooline/assign-listeners'
     ], function setup() {
 
-      if (N.componentsComplete) {
+      if (!N.componentsLoading.length) {
 
         initializeContent();
       } else {

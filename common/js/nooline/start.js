@@ -64,10 +64,6 @@
         }
       }
     });
-
-    $(document).on('components:complete', function registerComponents () {
-      Nooline.componentsComplete = true;
-    });
     
     // Also see load-components.js.
     require([
