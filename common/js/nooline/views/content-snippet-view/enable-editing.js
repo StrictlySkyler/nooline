@@ -1,11 +1,12 @@
 
-;(function buildEnableEditing (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.enableEditing = function () {
 
-    var _this = this;
     var buttonTag = '<button></button>';
-    var generalClassNames = ' control button content-snippet hidden'
+    var generalClassNames = ' control button content-snippet hidden';
     var editClassNames = 'edit-content-button' + generalClassNames;
     var commitClassNames = 'commit-changes-button' + generalClassNames;
     var cancelClassNames = 'cancel-editing-button' + generalClassNames;
@@ -39,4 +40,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/enable-editing';
+
+});

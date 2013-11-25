@@ -1,5 +1,7 @@
 
-;(function buildBindEvents (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.CategoryView.prototype.bindEvents = function () {
 
@@ -18,4 +20,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/category-view/bind-events';
+
+});

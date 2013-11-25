@@ -1,5 +1,7 @@
 
-;(function buildCreate (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.waitForVisibility = function (_this) {
 
@@ -21,4 +23,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/wait-for-visibility';
+
+});

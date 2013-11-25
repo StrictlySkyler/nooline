@@ -1,5 +1,7 @@
 
-;(function buildCreate (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.create = function () {
 
@@ -41,4 +43,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/create';
+
+});

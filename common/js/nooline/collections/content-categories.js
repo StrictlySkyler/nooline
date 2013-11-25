@@ -1,42 +1,41 @@
 
 ({ define: typeof define === "function"
   ? define
-  : function(A,F) { 
+  : function(F) { 
     exports = module.exports = F(); 
   } 
-}).define("common/js/nooline/collections/content-categories", function(){
-  return (function buildContentCategoriesCollection () {
+}).define('common/js/nooline/collections/content-categories', [], function () {
     
-    var root = this;
-    var N = root.Nooline;
-    var Backbone = root.Backbone || require('backbone');
+  var root = this;
+  var N = this.window ? root.Nooline : null;
+  var Backbone = root.Backbone || require('backbone');
 
-    var ContentCategories = Backbone.Collection.extend({
-      constructor: function ContentCategories () {
-        Backbone.Collection.apply(this, arguments);
+  var ContentCategories = Backbone.Collection.extend({
+    constructor: function ContentCategories () {
+      Backbone.Collection.apply(this, arguments);
 
-        if (typeof module === 'undefined') {
-          this.bindEvents();
-        }
-        
-      },
+      if (typeof module === 'undefined') {
+        this.bindEvents();
+      }
+      
+    },
 
-      url: '/content-categories'
-    });
+    url: '/content-categories'
+  });
 
-    if (typeof module !== 'undefined') {
+  if (typeof module !== 'undefined') {
 
-      module.exports = ContentCategories;
-      return module.exports;
+    module.exports = ContentCategories;
+    return module.exports;
 
-    } else {
+  } else {
 
-      N.Collections = N.Collections || {};
-      N.Collections.ContentCategories = ContentCategories;
+    N.Collections = N.Collections || {};
+    N.Collections.ContentCategories = ContentCategories;
 
-      require(['common/js/nooline/collections/content-categories/setup']);
+    require(['common/js/nooline/collections/content-categories/setup']);
 
-    }
+  }
 
-  }).call(this);
+  return 'collections/content-categories';
 });

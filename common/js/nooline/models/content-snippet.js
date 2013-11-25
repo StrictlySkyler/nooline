@@ -1,16 +1,15 @@
 
 ({ define: typeof define === "function"
   ? define
-  : function(A,D,F) {
+  : function(D,F) {
     exports = module.exports = F(); 
   } 
-}).define("common/js/nooline/models/content-snippet", [
+}).define('common/js/nooline/models/content-snippet', [
     'node_modules/node-uuid/uuid'
   ], function(){
-  return (function buildContentSnippetModel () {
     
     var root = this;
-    var N = root.Nooline;
+    var N = root.window ? root.Nooline : null;
     var Backbone = root.Backbone || require('backbone');
     var ContentSnippetView;
     var uuid = root.uuid || require('node-uuid');
@@ -83,5 +82,6 @@
 
     }
 
-  }).call(this);
+    return 'models/content-snippet';
+
 });

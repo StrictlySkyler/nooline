@@ -1,11 +1,10 @@
 
-define("common/js/nooline/build-timeline", function(){
-  ;(function loadBuildTimeline(N) {
+define(function () {
+  var N = window.Nooline;
     
-    N.buildTimeline = function buildTimeline (data) {
+  N.buildTimeline = function buildTimeline (data) {
 
-      createStoryJS(data);
-    };
+    createStoryJS(data);
+  };
     
-  }(window.Nooline));
 });

@@ -1,8 +1,12 @@
 
-;(function buildCreateSnippet (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.CategoryView.prototype.createSnippet = function () {
     this.model.trigger('create');
   };
 
-}(window.Nooline));
+  return 'views/category-view/create-snippet';
+
+});

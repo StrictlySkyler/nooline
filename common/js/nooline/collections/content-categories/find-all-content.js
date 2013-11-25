@@ -1,7 +1,8 @@
 
+define(function () {
 
-;(function buildFindAllContent (N) {
-  
+  var N = window.Nooline;
+
   N.Collections.ContentCategories.prototype.findAllContent = function () {
 
     var allContent = new Backbone.Collection();
@@ -14,4 +15,6 @@
     return allContent;
   };
 
-}(window.Nooline));
+  return 'collections/content-categories/find-all-content';
+
+});

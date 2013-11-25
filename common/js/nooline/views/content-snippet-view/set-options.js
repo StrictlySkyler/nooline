@@ -1,5 +1,7 @@
 
-;(function buildSetOptions (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.setOptions = function () {
     var key;
@@ -33,4 +35,6 @@
     return value;
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/set-options';
+
+});

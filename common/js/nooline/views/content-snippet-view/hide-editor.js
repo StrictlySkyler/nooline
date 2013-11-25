@@ -1,5 +1,7 @@
 
-;(function buildHideEditor (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.hideEditor = function () {
 
@@ -28,4 +30,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/hide-editor';
+
+});

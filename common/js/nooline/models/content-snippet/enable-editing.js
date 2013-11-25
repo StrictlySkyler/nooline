@@ -1,9 +1,14 @@
 
-;(function buildEnableEditing (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Models.ContentSnippet.prototype.enableEditing = function () {
 
     this.view.setOptions('editable', true);
 
-  }
-}(window.Nooline));
+  };
+
+  return 'models/content-snippet/enable-editing';
+  
+});

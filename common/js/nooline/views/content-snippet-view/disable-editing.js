@@ -1,5 +1,7 @@
 
-;(function buildDisableEditing (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.disableEditing = function () {
 
@@ -23,4 +25,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/disable-editing';
+
+});

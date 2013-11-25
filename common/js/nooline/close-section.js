@@ -1,18 +1,18 @@
 
-define("common/js/nooline/close-section", function(){
-  ;(function buildCloseSection (N) {
+define(function () {
+  
+  var N = window.Nooline;
     
-    N.closeSection = function closeSection (e) {
+  N.closeSection = function closeSection (e) {
+  
+    $(e.target)
+      .parents('section')
+      .addClass('hidden')
+      .one('transitionend webkitTransitionEnd', function removeSection () {
+        
+        $(this).remove();
+    });
+  
+  };
     
-      $(e.target)
-        .parents('section')
-        .addClass('hidden')
-        .one('transitionend webkitTransitionEnd', function removeSection () {
-          
-          $(this).remove();
-      });
-    
-    };
-    
-  }(window.Nooline));
 });

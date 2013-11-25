@@ -1,5 +1,7 @@
 
-;(function buildCommitChanges (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.commitChanges = function () {
 
@@ -7,4 +9,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/commit-changes';
+
+});

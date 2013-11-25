@@ -1,40 +1,40 @@
 
 ({ define: typeof define === "function"
   ? define
-  : function(A,F) { 
+  : function(F) { 
     exports = module.exports = F(); 
   } 
-}).define("common/js/nooline/views/category-view", function(){
-  return (function buildCategoryView () {
+}).define('common/js/nooline/views/category-view', [], function () {
     
-    var root = this;
-    var N = root.Nooline;
-    var Backbone = root.Backbone || require('backbone');
+  var root = this;
+  var N = root.window ? root.Nooline : null;
+  var Backbone = root.Backbone || require('backbone');
 
-    var CategoryView = Backbone.View.extend({
-      constructor: function CategoryView () {
+  var CategoryView = Backbone.View.extend({
+    constructor: function CategoryView () {
 
-        Backbone.View.apply(this, arguments);
+      Backbone.View.apply(this, arguments);
 
-        if (typeof module === 'undefined') {
-          this.bindEvents();
-        }
-      },
-      options: {}
-    });
+      if (typeof module === 'undefined') {
+        this.bindEvents();
+      }
+    },
+    options: {}
+  });
 
-    if (typeof module !== 'undefined') {
+  if (typeof module !== 'undefined') {
 
-      module.exports = CategoryView;
-      return module.exports;
+    module.exports = CategoryView;
+    return module.exports;
 
-    } else {
+  } else {
 
-      N.Views = N.Views || {};
-      N.Views.CategoryView = CategoryView;
-      require(['common/js/nooline/views/category-view/setup']);
+    N.Views = N.Views || {};
+    N.Views.CategoryView = CategoryView;
+    require(['common/js/nooline/views/category-view/setup']);
 
-    }
+  }
 
-  }).call(this);
+  return 'views/category-view';
+
 });

@@ -1,24 +1,26 @@
 
-define("common/js/nooline/models/category/setup", function(){
-  ;(function extendCategory (N) {
+define(function () {
+  var N = window.Nooline;
     
-    var components = [
-      'common/js/nooline/models/category/bind-events',
-      'common/js/nooline/models/category/create-snippet'
-    ];
+  var components = [
+    'models/category/bind-events',
+    'models/category/create-snippet'
+  ];
 
-    N.componentsLoading = N.componentsLoading || [];
+  N.componentsLoading = N.componentsLoading || [];
 
-    N.componentsLoading = N.componentsLoading.concat(components);
+  N.componentsLoading = N.componentsLoading.concat(components);
 
-    require(components, function () {
+  require([
+    'common/js/nooline/models/category/bind-events',
+    'common/js/nooline/models/category/create-snippet'
+  ], function () {
 
-      N.componentsLoading = _.difference(N.componentsLoading, components);
+    N.componentsLoading = _.difference(N.componentsLoading, components);
 
-      if (!N.componentsLoading.length) {
-        N.$document.trigger('components:complete');
-      }
-    });
+    if (!N.componentsLoading.length) {
+      N.$document.trigger('components:complete');
+    }
+  });
 
-  }(window.Nooline));
 });

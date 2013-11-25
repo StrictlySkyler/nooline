@@ -1,5 +1,7 @@
 
-;(function buildBindEvents (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Collections.Snippets.prototype.bindEvents = function () {
     
@@ -7,4 +9,6 @@
     });
   };
 
-}(window.Nooline));
+  return 'collections/snippets/bind-events';
+
+});

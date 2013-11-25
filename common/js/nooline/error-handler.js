@@ -1,10 +1,9 @@
 
-define("common/js/nooline/error-handler", function(){
-  ;(function buildErrorHandler(N) {
+define(function () {
+  var N = window.Nooline;
     
-    N.errorHandler = function errorHandler (error) {
-      console.error(error);
-    };
-    
-  }(window.Nooline));
+  N.errorHandler = function errorHandler (error) {
+    console.error(error);
+  };
+  
 });

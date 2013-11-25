@@ -1,16 +1,15 @@
 
-define("common/js/nooline/remove-controls", function(){
-  ;(function buildRemoveControls (N) {
+define(function () {
+  var N = window.Nooline;
     
-    N.removeControls = function removeControls () {
+  N.removeControls = function removeControls () {
 
-      var allSnippets = N.contentCategories.findAllContent();
+    var allSnippets = N.contentCategories.findAllContent();
 
-      allSnippets.each(function notifyEachSnippet (snippet) {
-        snippet.trigger('logout');
-      });
-      
-    };
+    allSnippets.each(function notifyEachSnippet (snippet) {
+      snippet.trigger('logout');
+    });
     
-  }(window.Nooline));
+  };
+  
 });

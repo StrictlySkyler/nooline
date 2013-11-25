@@ -1,14 +1,13 @@
 
 ({ define: typeof define === "function"
   ? define
-  : function(A,F) { 
+  : function(F) { 
     exports = module.exports = F(); 
   } 
-}).define("common/js/nooline/views/content-snippet-view", function(){
-  return (function buildContentSnippetView () {
+}).define('common/js/nooline/views/content-snippet-view', [], function(){
     
     var root = this;
-    var N = root.Nooline;
+    var N = root.window ? root.Nooline : null;
     var Backbone = root.Backbone || require('backbone');
 
     var ContentSnippetView = Backbone.View.extend({
@@ -42,5 +41,5 @@
 
     }
 
-  }).call(this);
+  return 'views/content-snippet-view';
 });

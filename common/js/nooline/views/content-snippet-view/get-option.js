@@ -1,5 +1,7 @@
 
-;(function buildGetOption (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.getOption = function (option) {
     
@@ -7,4 +9,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/get-option';
+
+});

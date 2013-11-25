@@ -1,54 +1,53 @@
 
-define("common/js/nooline/attempt-login", function(){
-  ;(function buildAttemptLogin (N) {
+define(function () {
+  var N = window.Nooline;
     
-    var lastLoginAttempt;
-    var timediff;
+  var lastLoginAttempt;
+  var timediff;
 
-    N.attemptLogin = function attemptLogin (e) {
-      var $this = $(e.target);
-      var username = $this.siblings('.username').val();
-      var password = $this.siblings('.password').val();
+  N.attemptLogin = function attemptLogin (e) {
+    var $this = $(e.target);
+    var username = $this.siblings('.username').val();
+    var password = $this.siblings('.password').val();
+    
+    var valid = N.validate({
+      username: username,
+      password: password
+    });
+    
+    N.$activeLogin = $this.parents('.login');
+    
+    if (!valid) {
       
-      var valid = N.validate({
-        username: username,
-        password: password
-      });
+      N.rejectLogin(N.$activeLogin);
       
-      N.$activeLogin = $this.parents('.login');
+    } else {
       
-      if (!valid) {
-        
-        N.rejectLogin(N.$activeLogin);
-        
-      } else {
-        
-        password = N.hashThis(password);
-        
-        N.postLogin(username, password, 'initial');
-        
-      }
+      password = N.hashThis(password);
       
-    };
-
-    if (sessionStorage.lastLoginAttempt) {
-      lastLoginAttempt = JSON.parse(sessionStorage.lastLoginAttempt);
-      timediff = Date.now() - lastLoginAttempt.timestamp;
-    }
-
-    if (timediff < N.settings.EXPIRY) {
-      require([
-        'common/js/nooline/validate',
-        'common/js/nooline/reject-login',
-        'common/js/nooline/post-login',
-        'common/js/nooline/receive-login'
-      ], function autoLogin () {
-
-        N.postLogin(lastLoginAttempt.username, 
-          lastLoginAttempt.password, 
-          'initial');
-      });
+      N.postLogin(username, password, 'initial');
+      
     }
     
-  }(window.Nooline));
+  };
+
+  if (sessionStorage.lastLoginAttempt) {
+    lastLoginAttempt = JSON.parse(sessionStorage.lastLoginAttempt);
+    timediff = Date.now() - lastLoginAttempt.timestamp;
+  }
+
+  if (timediff < N.settings.EXPIRY) {
+    require([
+      'common/js/nooline/validate',
+      'common/js/nooline/reject-login',
+      'common/js/nooline/post-login',
+      'common/js/nooline/receive-login'
+    ], function autoLogin () {
+
+      N.postLogin(lastLoginAttempt.username, 
+        lastLoginAttempt.password, 
+        'initial');
+    });
+  }
+    
 });

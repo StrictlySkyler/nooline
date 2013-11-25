@@ -1,10 +1,14 @@
 
-;(function buildBindEvents (N) {
-  
+define(function () {  
+
+  var N = window.Nooline;
+    
   N.Collections.ContentCategories.prototype.bindEvents = function () {
     
     this.on({
     });
   };
 
-}(window.Nooline));
+  return 'collections/content-categories/bind-events';
+
+});

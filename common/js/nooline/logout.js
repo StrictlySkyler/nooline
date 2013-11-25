@@ -1,28 +1,27 @@
 
-define("common/js/nooline/logout", function(){
-  ;(function buildLogout (N) {
+define(function () {
+  var N = window.Nooline;
     
-    N.logout = function () {
+  N.logout = function () {
 
-      clearTimeout(N.expireLogin);
+    clearTimeout(N.expireLogin);
 
-      delete sessionStorage.lastLoginAttempt;
+    delete sessionStorage.lastLoginAttempt;
 
-      $('.logged-in-panel')
-        .addClass('hidden')
-        .one('transitionend webkitTransitionEnd', function removePanel () {
-          $(this).remove();
-      });
+    $('.logged-in-panel')
+      .addClass('hidden')
+      .one('transitionend webkitTransitionEnd', function removePanel () {
+        $(this).remove();
+    });
 
-      $('.logout-button')
-        .removeClass('logout-button')
-        .addClass('login-button')
-        .html('Login');
+    $('.logout-button')
+      .removeClass('logout-button')
+      .addClass('login-button')
+      .html('Login');
 
-      N.removeControls();
+    N.removeControls();
 
-      $(document.body).removeClass('logged-in');
-    };
+    $(document.body).removeClass('logged-in');
+  };
 
-  }(window.Nooline));
 });

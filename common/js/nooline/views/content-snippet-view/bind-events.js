@@ -1,5 +1,7 @@
 
-;(function buildBindEvents (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.bindEvents = function (element) {
 
@@ -82,4 +84,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/bind-events';
+
+});

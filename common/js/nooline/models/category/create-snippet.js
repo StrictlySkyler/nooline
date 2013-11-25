@@ -1,5 +1,7 @@
 
-;(function buildCreateSnippet (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Models.Category.prototype.createSnippet = function () {
     
@@ -37,4 +39,6 @@
     
   };
 
-}(window.Nooline));
+  return 'models/category/create-snippet';
+
+});

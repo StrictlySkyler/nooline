@@ -1,5 +1,7 @@
 
-;(function buildRender (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.render = function () {
 
@@ -33,4 +35,6 @@
     }
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/render';
+
+});

@@ -1,5 +1,7 @@
 
-;(function buildRemove (N) {
+define(function () {
+
+  var N = window.Nooline;
   
   N.Views.ContentSnippetView.prototype.remove = function () {
 
@@ -41,4 +43,6 @@
 
   };
 
-}(window.Nooline));
+  return 'views/content-snippet-view/remove';
+
+});

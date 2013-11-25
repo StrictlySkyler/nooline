@@ -1,23 +1,25 @@
 
-define("common/js/nooline/collections/snippets/setup", function(){
-  ;(function extendSnippets (N) {
+define(function (){
+
+  var N = window.Nooline;
     
-    var components = [
-      'common/js/nooline/collections/snippets/bind-events'
-    ];
+  var components = [
+    'collections/snippets/bind-events'
+  ];
 
-    N.componentsLoading = N.componentsLoading || [];
+  N.componentsLoading = N.componentsLoading || [];
 
-    N.componentsLoading = N.componentsLoading.concat(components);
+  N.componentsLoading = N.componentsLoading.concat(components);
 
-    require(components, function () {
+  require([
+    'common/js/nooline/collections/snippets/bind-events'
+  ], function () {
 
-      N.componentsLoading = _.difference(N.componentsLoading, components);
+    N.componentsLoading = _.difference(N.componentsLoading, components);
 
-      if (!N.componentsLoading.length) {
-        N.$document.trigger('components:complete');
-      }
-    });
+    if (!N.componentsLoading.length) {
+      N.$document.trigger('components:complete');
+    }
+  });
 
-  }(window.Nooline));
 });

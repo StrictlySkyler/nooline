@@ -1,36 +1,52 @@
 
-define("common/js/nooline/views/content-snippet-view/setup", function(){
-  ;(function extendContentSnippetView (N) {
+define(function () {
+  var N = window.Nooline;
     
-    var components = [
-      'common/js/nooline/views/content-snippet-view/bind-events',
-      'common/js/nooline/views/content-snippet-view/set-options',
-      'common/js/nooline/views/content-snippet-view/get-option',
-      'common/js/nooline/views/content-snippet-view/render',
-      'common/js/nooline/views/content-snippet-view/enable-editing',
-      'common/js/nooline/views/content-snippet-view/start-editing',
-      'common/js/nooline/views/content-snippet-view/show-editor',
-      'common/js/nooline/views/content-snippet-view/stop-editing',
-      'common/js/nooline/views/content-snippet-view/hide-editor',
-      'common/js/nooline/views/content-snippet-view/disable-editing',
-      'common/js/nooline/views/content-snippet-view/commit-changes',
-      'common/js/nooline/views/content-snippet-view/save',
-      'common/js/nooline/views/content-snippet-view/create',
-      'common/js/nooline/views/content-snippet-view/wait-for-visibility',
-      'common/js/nooline/views/content-snippet-view/remove'
-    ];
+  var components = [
+    'views/content-snippet-view/bind-events',
+    'views/content-snippet-view/set-options',
+    'views/content-snippet-view/get-option',
+    'views/content-snippet-view/render',
+    'views/content-snippet-view/enable-editing',
+    'views/content-snippet-view/start-editing',
+    'views/content-snippet-view/show-editor',
+    'views/content-snippet-view/stop-editing',
+    'views/content-snippet-view/hide-editor',
+    'views/content-snippet-view/disable-editing',
+    'views/content-snippet-view/commit-changes',
+    'views/content-snippet-view/save',
+    'views/content-snippet-view/create',
+    'views/content-snippet-view/wait-for-visibility',
+    'views/content-snippet-view/remove'
+  ];
 
-    N.componentsLoading = N.componentsLoading || [];
+  N.componentsLoading = N.componentsLoading || [];
 
-    N.componentsLoading = N.componentsLoading.concat(components);
+  N.componentsLoading = N.componentsLoading.concat(components);
 
-    require(components, function () {
+  require([
+    'common/js/nooline/views/content-snippet-view/bind-events',
+    'common/js/nooline/views/content-snippet-view/set-options',
+    'common/js/nooline/views/content-snippet-view/get-option',
+    'common/js/nooline/views/content-snippet-view/render',
+    'common/js/nooline/views/content-snippet-view/enable-editing',
+    'common/js/nooline/views/content-snippet-view/start-editing',
+    'common/js/nooline/views/content-snippet-view/show-editor',
+    'common/js/nooline/views/content-snippet-view/stop-editing',
+    'common/js/nooline/views/content-snippet-view/hide-editor',
+    'common/js/nooline/views/content-snippet-view/disable-editing',
+    'common/js/nooline/views/content-snippet-view/commit-changes',
+    'common/js/nooline/views/content-snippet-view/save',
+    'common/js/nooline/views/content-snippet-view/create',
+    'common/js/nooline/views/content-snippet-view/wait-for-visibility',
+    'common/js/nooline/views/content-snippet-view/remove'
+  ], function () {
 
-      N.componentsLoading = _.difference(N.componentsLoading, components);
+    N.componentsLoading = _.difference(N.componentsLoading, components);
 
-      if (!N.componentsLoading.length) {
-        N.$document.trigger('components:complete');
-      }
-    });
-  }(window.Nooline));
+    if (!N.componentsLoading.length) {
+      N.$document.trigger('components:complete');
+    }
+  });
+  
 });

@@ -1,29 +1,28 @@
 
-define("common/js/nooline/post-login", function(){
-  ;(function buildPostLogin (N) {
+define(function () {
+  var N = window.Nooline;
     
-    N.postLogin = function receiveLogin (username, password, type) {
-      
-      var lastLoginAttempt = {
-        'username': username,
-        'password': password,
-        timestamp: Date.now()
-      };
-      
-      sessionStorage.setItem(
-        'lastLoginAttempt', 
-        JSON.stringify(lastLoginAttempt)
-      );
-      
-      console.log('Posting credentials...');
-      
-      $.post('/login', {
-        'username': username,
-        'password': password,
-        'type': type
-      }, N.receiveLogin);
-      
+  N.postLogin = function receiveLogin (username, password, type) {
+    
+    var lastLoginAttempt = {
+      'username': username,
+      'password': password,
+      timestamp: Date.now()
     };
     
-  }(window.Nooline));
+    sessionStorage.setItem(
+      'lastLoginAttempt', 
+      JSON.stringify(lastLoginAttempt)
+    );
+    
+    console.log('Posting credentials...');
+    
+    $.post('/login', {
+      'username': username,
+      'password': password,
+      'type': type
+    }, N.receiveLogin);
+    
+  };
+  
 });
