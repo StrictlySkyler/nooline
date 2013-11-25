@@ -1,8 +1,8 @@
 
 ({ define: typeof define === "function"
   ? define
-  : function(D,F) {
-    exports = module.exports = F(); 
+  : function(name, deps, func) {
+    exports = module.exports = func(); 
   } 
 }).define('common/js/nooline/models/content-snippet', [
     'node_modules/node-uuid/uuid'
