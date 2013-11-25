@@ -2,6 +2,23 @@
 define(function () {
 
   var N = window.Nooline;
+  var $placeholder;
+
+  // TODO: Need to extend this  server- side functionality to include the
+  // ability to specify the number of content items to get, and multiple 
+  // types.
+  function initializeContent () {
+
+    N.contentCategories = new N.Collections.ContentCategories();
+
+    if ($placeholder.length) {
+      $('#timeline-placeholder').remove();
+
+      N.getContent({type: 'timeline'}, N.buildTimeline);
+    }
+
+    N.getContent({type: 'scroll'});
+  }
 
   window.requestAnimationFrame = window.requestAnimationFrame 
     || window.webkitRequestAnimationFrame
@@ -19,7 +36,7 @@ define(function () {
   // Right now it doesn't.
   $.get('/bootstrap', function bootstrap (data) {
 
-    var $placeholder = $('#timeline-placeholder');
+    $placeholder = $('#timeline-placeholder');
 
     N.settings = data.bootstrap.settings;
     sessionStorage.settings = JSON.stringify(data.bootstrap.settings);
@@ -34,23 +51,14 @@ define(function () {
       'common/js/nooline/attempt-login',
       'common/js/nooline/assign-listeners'
     ], function setup() {
-      
-      // TODO: Need to extend this  server- side functionality to include the
-      // ability to specify the number of content items to get, and multiple 
-      // types.
-      
-      N.$document.on('components:complete', function initializeContent () {
 
-        N.contentCategories = new N.Collections.ContentCategories();
+      if (N.componentsComplete) {
 
-        if ($placeholder.length) {
-          $('#timeline-placeholder').remove();
+        initializeContent();
+      } else {
 
-          N.getContent({type: 'timeline'}, N.buildTimeline);
-        }
-
-        N.getContent({type: 'scroll'});
-      });
+        N.$document.on('components:complete', initializeContent);
+      }
       
     });
     
