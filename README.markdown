@@ -76,7 +76,7 @@ The entry point to the app is the `nooline.js` file, and it takes a single argum
 
     node nooline.js
 
-The above code will start \n running on port 3000, while outputting to text log files.
+The above code will start nooline running on port 3000, while outputting to text log files.
 
 For port 80, try:
 
