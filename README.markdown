@@ -94,7 +94,7 @@ doing:
 -   Implement a drop-dead simple, super extra easy plugin system
 -   ~~Implement cluster in node~~
 -   ~~Add periodic HTML snapshotting, rather than at startup~~
--   Rename process
+-   ~~Rename process~~
 
 Fork the repo and submit a pull request!
 

@@ -17,6 +17,8 @@ program
   .option('-p, --port <n>', 'Port on which Nooline should listen', parseInt)
   .parse(process.argv);
 
+process.title = 'nooline';
+
 if (cluster.isMaster && !program.single) {
 
   cpus = require('os').cpus();
