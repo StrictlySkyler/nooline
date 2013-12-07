@@ -94,9 +94,9 @@ doing:
 -   Implement a drop-dead simple, super extra easy plugin system
 -   ~~Implement cluster in node~~
 -   ~~Add periodic HTML snapshotting, rather than at startup~~
--   ~~Rename process (once working in Mac OS)~~
+-   Rename process
 
-Head on over to [the github repo][] and submit a pull request!
+Fork the repo and submit a pull request!
 
 ✌
 
