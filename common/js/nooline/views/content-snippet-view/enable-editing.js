@@ -3,6 +3,15 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * enableEditing
+   * Allow editing for a snippet.
+   *
+   * Builds the appropriate elements, attaches them to the view, and reveals
+   * them.
+   *
+   * @return  None.
+   */
   N.Views.ContentSnippetView.prototype.enableEditing = function () {
 
     var buttonTag = '<button></button>';

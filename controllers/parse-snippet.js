@@ -1,4 +1,21 @@
 
+/**
+ * parseSnippet
+ * Parses a snippet, and loads it into its category.
+ *
+ * This method is called on each snippet file, as specified upstream, either
+ * from the index or a specific request.  The snippet is added to the 
+ * category relevant to it, and some specific considerations are given to
+ * Timeline snippets.  Finally, if all of the snippets have been loaded, and
+ * all of the categories are loaded, we'll send the response back to the
+ * client.
+ *
+ * @param error     {Object}  Likely unable to find a specific snippet file.
+ * @param data      {String}  JSON containing the snippet content itself.
+ * @param info      {Object}  Context object containing references.
+ * @param category  {String}  The category to which the snippet will be added.
+ * @return                    None.
+ */
 module.exports = function parseSnippet (error, data, info, category) {
 
   var error404 = require('../routes/error-404');
@@ -11,7 +28,7 @@ module.exports = function parseSnippet (error, data, info, category) {
   
   if (error) {
     // TODO: Add better error handling here, in case some snippets are present,
-    // but not all.
+    // but not all.  Same goes for one below.
     error404(error, info);
   } else {
     try {
@@ -24,8 +41,7 @@ module.exports = function parseSnippet (error, data, info, category) {
     }
     
     // Theoretically specific things could be needed for each category.
-    // This should be abstracted away, or normalized.
-    // Look into this later.
+    // TODO: This should be abstracted away.  Look into this later.
     switch (category) {
       case 'timeline':
         info.setup.findWhere({type: category})

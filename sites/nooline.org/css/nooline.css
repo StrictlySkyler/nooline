@@ -137,7 +137,8 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-  font: 14px/1.5 "QuicksandLight";
+  min-width: 320px;
+  font: 18px/1.5 "QuicksandBook";
   color: #333;
 }
 
@@ -154,7 +155,7 @@ a:hover {
 input {
   border: none;
   height: 25px;
-  width: 200px;
+  width: 125px;
   font: 14px/1.5 "QuicksandBook";
   padding: 0 5px;
   transition: all 0.25s ease;
@@ -174,12 +175,12 @@ input {
 }
 
 .login {
-  height: 50px;
+  min-height: 50px;
   width: 100%;
   background: #0af;
   color: #fff;
   margin: 0;
-  font: 14px/2 'QuicksandLight';
+  font: 16px/2 'QuicksandLight';
   transition: all 0.25s ease;
 }
 
@@ -222,7 +223,6 @@ input {
 
 .meta {
   margin: -10px 0 0;
-  position: relative;
 }
 
 .meta ul {
@@ -235,7 +235,6 @@ input {
 .meta .nav-item {
   display: inline-block;
   margin: 0 10px;
-  position: relative;
 }
 
 .meta .button {
@@ -243,10 +242,12 @@ input {
   border: 0 solid transparent;
   color: #0af;
   cursor: pointer;
-  font: 14px/1 'QuicksandLight';
+  font: 16px/1 'QuicksandLight';
   margin: 0;
   padding: 0;
   transition: all 0.25s ease;
+  z-index: 99999;
+  position: absolute;
 }
 
 .meta .button:hover,
@@ -256,36 +257,76 @@ input {
 
 .meta .contact-button:before  {
   content: '\f0e0';
-  font: 12px/1 'FontAwesome';
+  font: 94px/1 'FontAwesome';
   position: absolute;
   color: transparent;
-  left: 0;
-  top: 8px;
+  left: -5px;
+  top: -125px;
   transition: all 0.25s ease;
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  transform: rotate(60deg);
 }
 
 .meta .contact-button:hover:before {
   left: -15px;
-  color: #ff8d00;
+  color: #ddd;
+  z-index: -1;
+  top: -5px;
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+
+.meta .contact-button {
+  -webkit-transform: rotateZ(-90deg);
+  -moz-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+  margin: 0;
+  left: -15px;
+  top: 50px;
+}
+
+.meta .login-button,
+.meta .logout-button {
+  -webkit-transform: rotateZ(90deg);
+  -moz-transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
+  margin: 0;
+  right: -10px;
+  position: absolute;
+  top: 50px;
+}
+
+.meta .login-button:after {
+  display: none;
 }
 
 .meta .logout-button:before,
 .meta .login-button:before  {
   content: '\f023';
-  font: 12px/1 'FontAwesome';
   position: absolute;
   color: transparent;
-  left: 0;
-  top: 8px;
+  right: 0px;
+  top: -125px;
   transition: all 0.25s ease;
+  font: normal 116px/1 'FontAwesome';
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  transform: rotate(-60deg);
 }
 
 .meta .logout-button:hover:before,
 .meta .logout-button.active:before,
 .meta .login-button:hover:before,
 .meta .login-button.active:before {
-  left: -15px;
-  color: #ff8d00;
+  color: #ddd;
+  z-index: -1;
+  right: -15px;
+  top: -25px;
+  -webkit-transform: rotate(-110deg);
+  -moz-transform: rotate(-110deg);
+  transform: rotate(-110deg);
 }
 
 .meta button:after {
@@ -312,26 +353,31 @@ input {
 
 .login label {
   margin: 0 5px 0 0;
+  width: 100px;
+  display: inline-block;
+  text-align: right;
 }
 
-.login .username {
-  margin: 0 40px 0 0;
+.login input {
+  margin: 0 10px 0;
 }
 
 .login .button {
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   background: transparent;
   border: none;
   color: rgba(255,255,255,0.25);
-  position: absolute;
   padding: 0;
   transition: color 0.25s ease;
   font: 14px/1 'QuicksandBook';
+  text-indent: -99999px;
+  position: absolute;
 }
 
 .login .button:before {
   color: #0077b2;
+  text-indent: 0;
   transition: color 0.25s ease;
 }
 
@@ -346,22 +392,22 @@ input {
 }
 
 .login .close-section-button {
-  right: 0;
-  margin: 5px 14px 0 0;
+  right: 5px;
+  top: 5px;
+  margin: 0;
   text-indent: -99999px;
 }
 
 .login .go-button {
-  margin: 5px 35px;
-  width: auto;
-  padding: 5px 0 0;
+  margin: 0;
+  padding: 0;
+  right: 5px;
 }
 
 .login .create-account-button {
   left: 10px;
-  margin: 7px 10px 0 5px;
-  padding: 0 0 0 25px;
-  width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 .create-account-button:before {
@@ -401,7 +447,6 @@ input {
 
 section {
   border-top: 15px solid #333;
-  padding: 0 0 20px;
 }
 
 header, section {
@@ -424,7 +469,8 @@ h3 {
 }
 
 h4 {
-  font: bold 14px/1.5 'QuicksandBook';
+  font: normal 18px/1.5 'QuicksandBold';
+  margin: 20px 0 0;
 }
 
 .logo {
@@ -532,6 +578,11 @@ section .controls {
   font: 24px/0.5 'FoundiconsGeneral';
 }
 
+
+.logged-in .meta .button {
+  top: 80px;
+}
+
 /**********
   Error Pages
  **********/
@@ -560,7 +611,7 @@ section .controls {
 }
 
 .content article {
-  padding: 20px 175px;
+  padding: 20px 15px;
 }
 
 .content .slider-item:nth-last-child(even),
@@ -569,8 +620,9 @@ section .controls {
 }
 
 .content p {
-  text-indent: -20px;
-  padding: 0 0 0 20px;
+  text-indent: -15px;
+  padding: 0 0 0 15px;
+  margin: 10px 0 0;
 }
 
 .content footer {
@@ -603,7 +655,7 @@ section .controls {
   font: 16px/1.5 'QuicksandLight';
   color: #999;
   margin: 0;
-  padding: 0 5px;
+  /* padding: 0 5px; */
 }
 
 .storyjs-embed .slide-tag {
@@ -646,13 +698,9 @@ section .controls {
 .storyjs-embed .nav-container {
   cursor: pointer;
   transition: all 0.25s ease;
-  min-height: 100px;
-  width: 100px;
+  min-height: 50px;
+  width: 30px;
   position: absolute;
-}
-
-.storyjs-embed .nav-container:hover {
-  background: rgba(0,0,0,0.05);
 }
 
 .storyjs-embed .nav-previous,
@@ -663,11 +711,12 @@ section .controls {
 }
 
 .storyjs-embed .nav-previous .nav-container {
-  padding: 0 0 0 20px;
+  /* padding: 0 0 0 20px; */
 }
 
 .storyjs-embed .nav-next .nav-container {
   padding: 0 20px 0 0;
+  position: absolute;
 }
 
 .storyjs-embed .nav-container .icon {
@@ -677,17 +726,15 @@ section .controls {
 
 .storyjs-embed .nav-previous .icon:before {
   content: '<';
-  font: 48px/1.5 'QuicksandBook';
+  font: normal 48px/1 'QuicksandBook';
   color: #999;
   transition: all 0.25s ease;
+  position: absolute;
+  top: 0;
 }
 
 .storyjs-embed .nav-next {
-  text-align: right;
-}
-
-.storyjs-embed .nav-next .icon {
-  width: 100%;
+  margin: 0 0 0 85px;
 }
 
 .storyjs-embed .nav-next .icon:before {
@@ -696,30 +743,57 @@ section .controls {
   color: #999;
   transition: all 0.25s ease;
   position: absolute;
-  right: 15px;
+  right: 10px;
+  top: -11px;
 }
 
-.storyjs-embed .nav-previous:hover .icon:before{
-  color: #000;
-  margin: 0 0 0 -10px;
+.storyjs-embed .nav-container:hover .icon:before{
+  color: #cacaca;
+  top: 20px;
+  -webkit-transform: scale(5);
 }
 
 .storyjs-embed .nav-next:hover .icon:before {
-  color: #000;
-  right: 5px;
+  right: -10px;
+  top: 11px;
 }
 
 .storyjs-embed .nav-container .date {
-  font: 12px/1.5 'QuicksandLight';
+  font: 16px/1 'QuicksandLight';
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+  top: -75px;
+  width: 150px;
+  -moz-transform: rotate(-90deg);
+  transform:  rotate(-90deg);
+  text-align: right;
+  color: #ccc;
+  left: -70px;
 }
 
 .storyjs-embed .nav-container .title {
-  font: 12px/1.5 'QuicksandBook';
+  font: 16px/1 'QuicksandLight';
   color: #ccc;
   transition: all 0.25s ease;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  width: 130px;
+  position: absolute;
+  top: 105px;
+  left: -60px;
 }
 
-.storyjs-embed .nav-container:hover .title {
+.storyjs-embed .nav-previous .date {
+  left: -60px;
+}
+
+.storyjs-embed .nav-previous .title {
+  left: -50px;
+}
+
+.storyjs-embed .nav-container:hover .title,
+.storyjs-embed .nav-container:hover .date {
   color: #333;
 }
 
@@ -984,6 +1058,7 @@ section .controls {
 .storyjs-embed .slider-item .content .container {
   width: 90%;
   margin: 0 auto;
+  padding: 0 25px;
 }
 
 .vco-storyjs {
@@ -1021,207 +1096,56 @@ section .controls {
   display: none;
 }
 
+#global-header-controls {
+  background: #333;
+}
+
+.control {
+  padding: 0 5px;
+  margin: 0 0.5px;
+  font: 12px/1 'QuicksandBook';
+}
+
+section .controls {
+  position: relative;
+  background: #666;
+}
+
+.control.content-snippet {
+  left: 0;
+  margin: 0;
+}
+
+
 /**********
   Media Queries
  **********/
 
-@media (max-width: 960px) {
-  .meta .nav-item {
-    position: static;
-  }
 
-  .meta .contact-button {
-    position: absolute;
-    left: 0;
-    margin: -10px 10px 0;
-  }
-
-  .meta .contact-button:before {
-    top: 0;
-    right: 0;
-  }
-
-  .meta .contact-button:hover:before {
-    right: -15px;
-  }
-
-  .meta .login-button,
-  .meta .logout-button {
-    position: relative;
-  }
-
-  .meta .login-button:before,
-  .meta .logout-button:before {
-    margin: -7px 0 0 0;
-  }
-
-  .meta .active {
-    position: relative;
-  }
-
-  .meta .active:after {
-    bottom: -20px;
-  }
-
-  .login {
-    height: 100px;
-  }
-
-  .login-form.label {
-    display: inline-block;
-    width: 20%;
-    margin: 0 0 0 10%;
-    min-width: 100px;
-  }
-
-  .login-form.label:first-child {
-    padding: 10px 0 5px;
-  }
-
-  .login-form.input {
-    width: 40%;
-    margin: 0 15% 0 0;
-  }
-
-  .login-form .button {
-    width: 60px;
-    text-indent: -99999px;
-    margin: 0;
-    height: 100%;
-    top: 0;
-    padding: 0;
-  }
-
-  .login-form .button:before {
-    text-indent: 0;
-    position: absolute;
-  }
-
-  .login .go-button {
-    right: 15%;
-    
-  }
-
-  .login .close-section-button:before {
-    left: 0;
-  }
-
-  .slider-item {
-    padding: 0 35px;
-  }
-
-  .storyjs-embed .nav-container {
-    width: 30px;
-    min-height: 65px;
-  }
-
-  .storyjs-embed .nav-previous .nav-container {
-    padding: 0 0 0 10px;
-  }
-
-  .storyjs-embed .nav-next {
-    margin: 0 0 0 70px;
-  }
-
-  .storyjs-embed .nav-next .nav-container {
-    padding: 0 10px 0 0;
-  }
-
-  .storyjs-embed .nav-next .nav-container .icon:before {
-    right: 5px;
-  }
-
-  .storyjs-embed .nav-next:hover .nav-container .icon:before {
-    right: -5px;
-  }
-
-  .nav-container .date,
-  .nav-container .title {
-    display: none;
-  }
-
-  .content article {
-    padding: 25px;
+@media all and (min-width: 22rem) {
+  .login input {
+    width: 45%;
   }
 }
 
-@media (max-width: 480px) {
-
-  .meta .contact-button {
-    -webkit-transform: rotateZ(-90deg);
-    -moz-transform: rotateZ(-90deg);
-    transform: rotateZ(-90deg);
-    margin: 0;
-    left: -15px;
-    top: -30px;
+@media all and (min-width: 26rem) {
+  .login input {
+    width: 55%;
   }
+}
 
-  .meta .login-button,
-  .meta .logout-button {
-    -webkit-transform: rotateZ(90deg);
-    -moz-transform: rotateZ(90deg);
-    transform: rotateZ(90deg);
-    margin: 0;
-    right: -10px;
-    position: absolute;
-    top: -30px;
+@media all and (min-width: 32rem) {
+  .login input {
+    width: 65%;
   }
+}
 
-  .meta .login-button:before,
-  .meta .logout-button:before {
-    top: 7px;
-  }
-
-  .meta .login-button:after {
-    display: none;
-  }
-
-  .login-form .button {
-    width: 30px;
-    text-indent: -99999px;
-    margin: 0;
-    height: 30px;
-    top: 0;
-    padding: 0;
-  }
-
-  .login-form .button:before {
-    text-indent: 0;
-    position: absolute;
+@media all and (min-width: 40rem) {
+  .login input {
+    width: 125px;
   }
 
   .login .go-button {
-    top: 50%;
-    right: 5%;
-  }
-
-  .login .create-account-button {
-    top: 24px;
-  }
-
-  .login .close-section-button {
-    right: 5%;
-    top: 8px;
-  }
-
-  #global-header-controls {
-    background: #333;
-  }
-
-  .control {
-    padding: 0 5px;
-    margin: 0 0.5px;
-    font: 12px/1 'QuicksandBook';
-  }
-
-  section .controls {
     position: relative;
-    background: #666;
   }
-
-  .control.content-snippet {
-    left: 0;
-    margin: 0;
-  }
-
 }

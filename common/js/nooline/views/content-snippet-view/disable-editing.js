@@ -3,6 +3,14 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * disableEditing
+   * Turn off editing.
+   *
+   * Disables the ability to edit a ContentSnippet.
+   *
+   * @return  None.
+   */
   N.Views.ContentSnippetView.prototype.disableEditing = function () {
 
     var _this = this;
@@ -15,6 +23,14 @@ define(function () {
       // should suffice.
       .one(
         'transitionend webkitTransitionEnd',
+        /**
+         * removeControls
+         * Animate out the controls for editing.
+         *
+         * Removes them from the DOM when finished.
+         *
+         * @return  None.
+         */
         function removeControls () {
 
         _this.$commit.remove();

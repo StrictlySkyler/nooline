@@ -1,4 +1,15 @@
 
+/**
+ * startSession
+ * Logs the start of a user session.
+ *
+ * When a user's credentials match with a successful login, the timestamp is
+ * recorded for checking against a timeout.
+ *
+ * @param data  {Object}  The user credentials loaded from file.
+ * @param info  {Object}  Context object containing references we need.
+ * @return
+ */
 module.exports = function startSession (data, info) {
   
   var fs = require('fs');
@@ -17,6 +28,13 @@ module.exports = function startSession (data, info) {
     + '/users/'
     + data.username 
     + '.hash', state,
+    /**
+     * logTimestamp
+     * Log the new timestamp out to file.
+     *
+     * @param error {Object}  Permissions?  File vanished while you blinked?
+     * @return                None.
+     */
     function logTimestamp (error) {
     
     if (error) {

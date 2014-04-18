@@ -3,6 +3,16 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * create
+   * Add a new piece of content.
+   *
+   * When we want to create a new piece of content, we've been notified by
+   * the Category, which then creates a ContentSnippet and notifies it to
+   * create the appropriate editable view.
+   *
+   * @return  None.
+   */
   N.Views.ContentSnippetView.prototype.create = function () {
 
     var category = this.model.get('type');

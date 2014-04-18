@@ -20,7 +20,16 @@ define(function () {
     'common/js/nooline/models/content-snippet/disable-editing',
     'common/js/nooline/models/content-snippet/create',
     'common/js/nooline/models/content-snippet/remove'
-  ], function () {
+  /**
+   * removeLoaded
+   * Remove loaded components from the queue.
+   *
+   * Once they've loaded, remove them from the queue, and notify the app if
+   * there is nothing left in the queue.
+   *
+   * @return  None.
+   */
+  ], function removeLoaded () {
 
     N.componentsLoading = _.difference(N.componentsLoading, components);
 

@@ -1,4 +1,16 @@
 
+/**
+ * @route getcategory
+ * Gets the content for a specific category.
+ *
+ * Called from the client when a specific category is requested.
+ *
+ * TODO: Add support for ranges.
+ *
+ * @param req {Object}    Express request object from the client.
+ * @param res {Object}    Express response object to send back.
+ * @return                None.
+ */
 module.exports = function getcategory (req, res) {
   
   var content = require('./content');

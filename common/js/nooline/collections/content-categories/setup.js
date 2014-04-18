@@ -15,7 +15,17 @@ define(function (){
   require([
     'common/js/nooline/collections/content-categories/bind-events',
     'common/js/nooline/collections/content-categories/find-all-content'
-  ], function () {
+  /**
+   * removeLoaded
+   * Remove loaded components from the queue.
+   *
+   * Once the components above are loaded, subtract them from the queue of
+   * components still loading.  If there are none in the queue, trigger that
+   * the loading of components is complete.
+   *
+   * @return  None.
+   */
+  ], function removeLoaded () {
 
     N.componentsLoading = _.difference(N.componentsLoading, components);
 

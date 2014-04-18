@@ -3,6 +3,14 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * hideEditor
+   * Hide the WYSIWYG.
+   *
+   * If the WYSIWYG editor is present, hide it, and cleanup after it.
+   *
+   * @return  None.
+   */
   N.Views.ContentSnippetView.prototype.hideEditor = function () {
 
     var editor;

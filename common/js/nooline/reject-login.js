@@ -2,6 +2,15 @@
 define(function () {
   var N = window.Nooline;
     
+  /**
+   * rejectLogin
+   * Reject the user login attempt.
+   *
+   * Invalid credentials for some reason or another.  Notify the user.
+   *
+   * @param $section  {Object}  jQuery object of the active login section.
+   * @return                    None.
+   */
   N.rejectLogin = function rejectLogin ($section) {
     var message = 'Looks like those credentials are invalid.  '
       + 'Make sure that the '
@@ -22,6 +31,12 @@ define(function () {
     
     console.log('Credentials rejected.');
     
+    /**
+     * showError
+     * Unhide the error, animating it in if applicable.
+     *
+     * TODO: Swap this for requestAnimationFrame.
+     */
     setTimeout(function showError () {
       $error.removeClass('hidden');
       

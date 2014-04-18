@@ -4,13 +4,35 @@
   : function(name, deps, func) { 
     exports = module.exports = func(); 
   } 
-}).define('common/js/nooline/views/content-snippet-view', [], function(){
+}).define('common/js/nooline/views/content-snippet-view', [], function (){
     
     var root = this;
     var N = root.window ? root.Nooline : null;
     var Backbone = root.Backbone || require('backbone');
 
+    /**
+     * @view ContentSnippetView
+     * Rendered view for a content snippet.
+     *
+     * Renders the data contained in a ContentSnippet, and manages all 
+     * interactions with that data.
+     *
+     * TODO: Add the server-side assembly to this, for both RSS and template
+     * rendering.
+     *
+     * @return  {Object|undefined}  Module exports if we're on the server.
+     */
     var ContentSnippetView = Backbone.View.extend({
+      /**
+       * ContentSnippetView
+       * Set up all the view things.
+       *
+       * Bind some initial events to the element by its uuid.  In some cases,
+       * the view may not be finished setting up, so we don't necessarily
+       * have it set as the `$el` or `el` on this view yet.
+       *
+       * @return  None.
+       */
       constructor: function ContentSnippetView () {
 
         var element;

@@ -3,6 +3,16 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * setOptions
+   * Set view options.
+   *
+   * Setter for view state.  Accepts one or two arguments: either an object
+   * containing a hash of the new properties to set, or the key to set as a
+   * first argument with the new value as the second.
+   *
+   * @return  {Object|Number|String|Array|RegExp} The value set.
+   */
   N.Views.ContentSnippetView.prototype.setOptions = function () {
     var key;
     var value;

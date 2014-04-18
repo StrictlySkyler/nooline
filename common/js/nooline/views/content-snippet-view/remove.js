@@ -3,6 +3,15 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * remove
+   * Remove a ContentSnippetView from the DOM.
+   *
+   * Yanks out the DOM elements, and cleans up after them, removing any extra
+   * references.
+   *
+   * @return  None.
+   */
   N.Views.ContentSnippetView.prototype.remove = function () {
 
     var category = this.model.get('type');

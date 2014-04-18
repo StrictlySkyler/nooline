@@ -8,5 +8,5 @@
     'global-footer': 'partials/global-footer',
     'global-scripts': 'partials/global-scripts'
   },
-  mode: 'production'
+  mode: 'debug'
 })

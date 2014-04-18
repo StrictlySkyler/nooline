@@ -1,5 +1,12 @@
 
-define(function () {
+/**
+ * globalEvents
+ * Defines our global event listeners.
+ *
+ * See comments below.  This file will go away.
+ *
+ */
+define(function globalEvents () {
   var N = window.Nooline;
     
   // TODO: Refactor this.

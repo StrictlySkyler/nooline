@@ -13,7 +13,16 @@ define(function (){
 
   require([
     'common/js/nooline/collections/snippets/bind-events'
-  ], function () {
+  /**
+   * removeLoaded
+   * Remove loaded components from the queue.
+   *
+   * Subtract any components finished from the loading queue, and notify the
+   * app if there are none left.
+   *
+   * @return  None.
+   */
+  ], function removeLoaded () {
 
     N.componentsLoading = _.difference(N.componentsLoading, components);
 

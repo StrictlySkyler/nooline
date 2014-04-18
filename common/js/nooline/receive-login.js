@@ -2,6 +2,16 @@
 define(function () {
   var N = window.Nooline;
     
+  /**
+   * receiveLogin
+   * Deal with login attempt response from server.
+   *
+   * Either we tell 'em they need to login again, or we load the components
+   * needed and let 'em know.
+   *
+   * @param data  {Object}  Server response object.
+   * @return                None.
+   */
   N.receiveLogin = function receiveLogin (data) {
     
     console.log('...Response received.  Status is:', data.status);

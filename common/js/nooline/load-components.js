@@ -4,9 +4,23 @@ define(function () {
   var N = window.Nooline;
   var $placeholder;
 
-  // TODO: Need to extend this  server- side functionality to include the
-  // ability to specify the number of content items to get, and multiple 
-  // types.
+  /**
+   * initializeContent
+   * Initialize the content for a page.
+   *
+   * Sets up the Models and Collections, and gets content relevant to the 
+   * page.
+   *
+   * TODO: This is hardcoded right now.  Need to put it in the config 
+   * (probably the bootstrap process).  Also, find a better way to deal with
+   * the timeline's placeholder.  This should also be able to make a single
+   * request for multiple content types, along with ranges of content.
+   * 
+   * TODO: Move the setup which happens here to someplace that makes more
+   * sense.
+   *
+   * @return  None.
+   */
   function initializeContent () {
 
     N.contentCategories = new N.Collections.ContentCategories();
@@ -32,8 +46,6 @@ define(function () {
 
   N.$document = $(document);
 
-  // This should eventually be loading only things specific to this site.
-  // Right now it doesn't.
   $.get('/bootstrap', function bootstrap (data) {
 
     $placeholder = $('#timeline-placeholder');
@@ -50,6 +62,16 @@ define(function () {
       'common/js/nooline/build-timeline',
       'common/js/nooline/attempt-login',
       'common/js/nooline/assign-listeners'
+    /**
+     * setup
+     * Setup the content we've loaded.
+     *
+     * When the components have all finished loading, they'll have removed
+     * themselves from the `componentsLoading` queue, and we can init the
+     * content.  Otherwise we listen until that happens, and do it then.
+     *
+     * @return  None.
+     */
     ], function setup() {
 
       if (!N.componentsLoading.length) {

@@ -1,4 +1,4 @@
-
+// Boilerplate for both AMD and CJS.
 ({ define: typeof define === "function"
   ? define
   : function(name, deps, func) { 
@@ -11,7 +11,29 @@
   var Backbone = root.Backbone || require('backbone');
   var CategoryView;
 
+  /**
+   * @model Category
+   * Data model for a type of content.
+   *
+   * This is essentially a "Type" of content, such as "post" or "feed" or
+   * whathaveyou.  Each Category contains a Snippets Collection, which is
+   * comprised of individual Snippet Models.  Category Models are contained
+   * by the ContentCategory Collection.
+   *
+   * @return  {Object|undefined}  Module export, or nothing for clients.
+   */
   var Category = Backbone.Model.extend({
+    /**
+     * @constructor Category
+     * Setup the Category based on context.
+     *
+     * If we're on the server, we stub out jQuery, and attach a view for
+     * assembly.  If we're on the client, we grab the pre-rendered element
+     * for this category's view, and assign a reference on our model to the
+     * view, binding the markup to the View at the same time.
+     *
+     * @return  None.
+     */
     constructor: function Category () {
 
       var id;

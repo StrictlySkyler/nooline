@@ -40,7 +40,17 @@ define(function () {
     'common/js/nooline/views/content-snippet-view/create',
     'common/js/nooline/views/content-snippet-view/wait-for-visibility',
     'common/js/nooline/views/content-snippet-view/remove'
-  ], function () {
+  /**
+   * removeLoaded
+   * Remove loaded components from the queue.
+   *
+   * After the various parts of the view have finished loading, yank them
+   * from the queue of components still loading.  If there are none left,
+   * notify the app that all components have finished.
+   *
+   * @return  None.
+   */
+  ], function removeLoaded () {
 
     N.componentsLoading = _.difference(N.componentsLoading, components);
 
