@@ -190,11 +190,12 @@ input {
 
 .error-message {
   position: absolute;
-  padding: 0 50px;
+  padding: 10px 50px;
   margin: 0;
   font: 14px/1.5 'QuicksandBook';
   background: #333;
   transition: all 0.25s ease;
+  z-index: 999;
 }
 
 .error-message em {
