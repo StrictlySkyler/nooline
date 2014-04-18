@@ -37,6 +37,7 @@ module.exports = function renderTemplate (content, info) {
     content.currentYear = new Date().getFullYear();
     content.partials = data.partials;
 
+    // TODO: Make this configurable.
     if (data.mode === 'production') {
       content.startPath = '/production/common/js/nooline/start';
 
