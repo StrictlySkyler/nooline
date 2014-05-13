@@ -3,6 +3,20 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * getOption
+   * Get an option on the View.
+   *
+   * Simple getter for view state.
+   *
+   * @param option  {String}  Key for the value of the desired option.
+   * @return        {Number
+   *                |String
+   *                |Object
+   *                |Array
+   *                |Boolean
+   *                |undefined}  Desired option.
+   */
   N.Views.ContentSnippetView.prototype.getOption = function (option) {
     
     return this.options[option];

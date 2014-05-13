@@ -1,4 +1,3 @@
-
 var cluster = require('cluster');
 var cpus;
 var i;
@@ -9,8 +8,8 @@ var server;
 var routes;
 var io;
 var engine;
-var store = new (require('socket.io-clusterhub'));
-var program  = require('commander');
+var store = new(require('socket.io-clusterhub'));
+var program = require('commander');
 
 program
   .option('-s, --single', 'Start without clustering')
@@ -19,6 +18,7 @@ program
 
 process.title = 'nooline';
 
+// Capitalize on multiple CPUs, if we can.
 if (cluster.isMaster && !program.single) {
 
   cpus = require('os').cpus();
@@ -27,7 +27,8 @@ if (cluster.isMaster && !program.single) {
     cluster.fork();
   }
 
-  cluster.on('exit', function (worker) {
+  // If one of the workers dies for some reason, spin up a new one.
+  cluster.on('exit', function replaceWorker (worker) {
     console.log('Worker ' + worker.id + ' died!  Sad trombone.');
 
     cluster.fork();
@@ -43,7 +44,9 @@ if (cluster.isMaster && !program.single) {
     'log level': 2
   });
 
-  io.configure(function() {
+  // Allow for a messaging store, so socket connections can communicate
+  // accross worker threads.
+  io.configure(function setWorkerMessageStore () {
     io.set('store', store);
   });
 
@@ -57,6 +60,8 @@ if (cluster.isMaster && !program.single) {
   nooline.use('/sites', express.static(__dirname + '/sites'));
   nooline.use('/node_modules', express.static(__dirname + '/node_modules'));
   nooline.use('/production', express.static(__dirname + '/production'));
+  // Set our common 404.
+  // TODO: Move this out into its own module.
   nooline.use(function set404 (req, res) {
     res.status(404).render('common/views/error', {
       status: '404',
@@ -65,7 +70,9 @@ if (cluster.isMaster && !program.single) {
       port: nooline.settings.prettyport
     });
   });
-  nooline.use(function set500 (error, req, res, next) {
+  // Set a generic 500.
+  // TODO: Move this out into its own module.
+  nooline.use(function set500(error, req, res, next) {
     res.status(500).render('common/views/error', {
       status: '500',
       message: 'Boom.  The dynamite has dropped.  On the server.  And this is your error.',
@@ -85,9 +92,8 @@ if (cluster.isMaster && !program.single) {
   nooline.set('views', __dirname + '/');
   nooline.set('redirect', 'nooline.org');
   nooline.set('EXPIRY', 3600000); // 1 hour = 3600000ms
-  nooline.set('prettyport', function () {
-    if (nooline.settings.port !== 80
-      || nooline.settings.port !== 443) {
+  nooline.set('prettyport', function() {
+    if (nooline.settings.port !== 80 || nooline.settings.port !== 443) {
       return ':' + nooline.settings.port;
     } else {
       return '';
@@ -109,20 +115,18 @@ if (cluster.isMaster && !program.single) {
   // Dynamic posts
   nooline.post('/:category', routes['post-category']);
 
-  server.listen(nooline.settings.port, function started() {
+  // Fire it up!
+  server.listen(nooline.settings.port, function started () {
     if (!program.single) {
-      console.log('Nooline worker ' 
-        + cluster.worker.id
-        + ' started listening on ' 
-        + nooline.settings.port);  
+      console.log('Nooline worker ' + cluster.worker.id + ' started listening on ' + nooline.settings.port);
     } else {
-      console.log('Nooline started listening single-threaded on '
-        + nooline.settings.port);
+      console.log('Nooline started listening single-threaded on ' + nooline.settings.port);
     }
-    
+
   });
 
-  io.sockets.on('connection', function (socket) {
+  // Bind on socket connections.
+  io.sockets.on('connection', function(socket) {
     // Not sure this is needed.  Might be able to simply emit events later,
     // e.g. when a content piece is saved.
   });

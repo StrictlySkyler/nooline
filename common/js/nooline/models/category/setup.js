@@ -14,7 +14,17 @@ define(function () {
   require([
     'common/js/nooline/models/category/bind-events',
     'common/js/nooline/models/category/create-snippet'
-  ], function () {
+  /**
+   * removeLoaded
+   * Remove loaded assets after loading.
+   *
+   * After we've finished loading the assets we need, remove them from the
+   * queue of loading components, and if the queue is empty, notify the app
+   * that all of the components are loaded.
+   *
+   * @return
+   */
+  ], function removeLoaded () {
 
     N.componentsLoading = _.difference(N.componentsLoading, components);
 

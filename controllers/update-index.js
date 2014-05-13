@@ -1,4 +1,15 @@
 
+/**
+ * updateIndex
+ * Updates the content index with new snippet indicies.
+ *
+ * Called when a new content snippet has been created, and the user wants to
+ * save it.
+ *
+ * @param type  {String}    The category of content being updated.
+ * @param info  {Object}    Contains references we need.
+ * @return
+ */
 module.exports = function updateIndex (type, info) {
   var fs = require('fs');
   var newIndex;

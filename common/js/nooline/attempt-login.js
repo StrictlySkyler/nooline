@@ -5,6 +5,18 @@ define(function () {
   var lastLoginAttempt;
   var timediff;
 
+  /**
+   * attemptLogin
+   * Have a go at logging in.
+   *
+   * If the credentials validate, check to see if they match on the server,
+   * otherwise reject them and let the user know.  Also, if we're loading the
+   * page, check to see if the user has already logged in, and attempt to log
+   * them in again if they are still within the bounds of the session time.
+   *
+   * @param e   {Object}  Event from the login form.
+   * @return              None.
+   */
   N.attemptLogin = function attemptLogin (e) {
     var $this = $(e.target);
     var username = $this.siblings('.username').val();

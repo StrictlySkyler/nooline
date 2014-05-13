@@ -2,6 +2,16 @@
 define(function () {
   var N = window.Nooline;
     
+  /**
+   * showLoginPanel
+   * Creates a login panel.
+   *
+   * Creates all the DOM elements, and loads all of the modules required for
+   * handling authentication.
+   *
+   * @param e {Object}  The event triggering the login panel.
+   * @return            None.
+   */
   N.showLoginPanel = function showLoginPanel (e) {
     
     var $loginButton = $(e.target);
@@ -16,14 +26,35 @@ define(function () {
       'common/js/nooline/hash-this',
       'common/js/nooline/post-login',
       'common/js/nooline/receive-login'
-    ], function validateLoaded (Crypto) {
+    /**
+     * buildInternals
+     * Build the internals of the login panel.
+     *
+     * Assigns the Crypto module to the global namespace (which it expects),
+     * and builds the DOM element internals for the login panel.
+     *
+     * @param Crypto  {Object}  The entry point for crypto ops, from the lib.
+     * @return                  None.
+     */
+    ], function buildInternals (Crypto) {
       
       window.Crypto = Crypto;
       
-      requestAnimationFrame(function showPanel() {
+      /**
+       * revealPanel
+       * Reveals the login panel, allowing for animations.
+       *
+       */
+      requestAnimationFrame(function revealPanel() {
         $panel
           .removeClass('hidden')
           .on({
+            /**
+             * removeHighlight
+             * Removes the highlight, if present, from the close-section 
+             * button.
+             *
+             */
             'click.close-section': function removeHighlight () {
               $loginButton.removeClass('active');
             }
@@ -63,6 +94,8 @@ define(function () {
         + 'title="Want to make an account?">Create Account</button>');
     }
     
+    // TODO: Make this a configurable element, allowing it to appear in other
+    // places on the page.
     $panel.appendTo('#global-header');
     
   };

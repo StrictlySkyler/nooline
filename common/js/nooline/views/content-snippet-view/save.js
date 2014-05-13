@@ -3,6 +3,15 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * save
+   * Save updated content.
+   *
+   * Timestamps and updates the user edited content back to the model, which
+   * then sends it back to the server.
+   *
+   * @return  None.
+   */
   N.Views.ContentSnippetView.prototype.save = function () {
     
     var user = JSON.parse(sessionStorage.getItem('lastLoginAttempt')).username;

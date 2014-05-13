@@ -3,6 +3,15 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * render
+   * Show updates from the Model.
+   *
+   * Renders out any updates from the ContentSnippet Model to the DOM,
+   * including the ability to edit.
+   *
+   * @return  None.
+   */
   N.Views.ContentSnippetView.prototype.render = function () {
 
     if (this.getOption('create')) {

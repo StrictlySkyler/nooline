@@ -2,6 +2,15 @@
 define(function () {
   var N = window.Nooline;
     
+  /**
+   * logout
+   * Log the user out.
+   *
+   * Removes the logged in widgets, animating them out, and expire the login
+   * session.
+   *
+   * @return  None.
+   */
   N.logout = function () {
 
     clearTimeout(N.expireLogin);
@@ -10,6 +19,11 @@ define(function () {
 
     $('.logged-in-panel')
       .addClass('hidden')
+      /**
+       * removePanel
+       * Yank the element when it's finished animating out.
+       *
+       */
       .one('transitionend webkitTransitionEnd', function removePanel () {
         $(this).remove();
     });

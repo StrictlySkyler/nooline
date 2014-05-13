@@ -3,6 +3,15 @@ define(function () {
 
   var N = window.Nooline;
   
+  /**
+   * showEditor
+   * Show the WYSIWYG editor.
+   *
+   * Enable the editor and editing features on the content snippet the user
+   * is trying to edit.
+   *
+   * @return  None.
+   */
   N.Views.ContentSnippetView.prototype.showEditor = function () {
 
     var id = this.$el.attr('id');

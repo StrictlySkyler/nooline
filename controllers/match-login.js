@@ -1,4 +1,16 @@
 
+/**
+ * matchLogin
+ * Matches the users creds, and responds.
+ *
+ * If the username exists, this function will be called to match the password
+ * hashes.  This will also determine if the user expiry time has elapsed, and
+ * respond accordingly, potentially making the user login again.
+ *
+ * @param data  {String}  JSON containing the user creds from the user file.
+ * @param info  {Object}  Contains the user password submitted by the client.
+ * @return                None.
+ */
 module.exports = function matchLogin (data, info) {
   
   var errorLogin = require('./error-login');
@@ -60,6 +72,7 @@ module.exports = function matchLogin (data, info) {
       errorLogin(error, info);
       
     }
+  // TODO:
   // Need to add check to verify if the user manually submitted the info or not
   } else {
     

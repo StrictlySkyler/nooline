@@ -1,6 +1,21 @@
 
+/**
+ * start
+ * Kick the whole thing off.
+ *
+ * This is the entry point for the client side.
+ *
+ * @return
+ */
 ;(function start() {
   
+  /**
+   * @constructor Nooline
+   * The base constructor which we decorate with various modules, governing
+   * the namespace for the app.
+   *
+   * @return  None.
+   */
   function Nooline () {
     requirejs.config({
       baseUrl: '/',
@@ -41,6 +56,7 @@
         },
         'common/js/nooline/load-components': {
           deps: [
+          // TODO:
           // Right now, jQuery in Bower and npm aren't the same version.
           // Bower ~= 2.0.x
           // npm ~= 1.8.x
@@ -86,7 +102,15 @@
       'node_modules/moment/moment',
       'node_modules/underscore/underscore',
       'node_modules/backbone/backbone'
-    ], function (uuid) {
+    /**
+     * massage
+     * Massage whatever library vars we need to in order to get them working
+     * in proper scope.
+     *
+     * @param uuid  {Object}  The uuid library, to decorate the window.
+     * @return                None.
+     */
+    ], function massage (uuid) {
       
       require([
         'moment'
