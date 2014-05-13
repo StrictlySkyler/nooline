@@ -1140,6 +1140,10 @@ section .controls {
   .login input {
     width: 65%;
   }
+
+  .content article {
+    padding: 20px 40px;
+  }
 }
 
 @media all and (min-width: 40rem) {
@@ -1149,5 +1153,9 @@ section .controls {
 
   .login .go-button {
     position: relative;
+  }
+
+  .content article {
+    padding: 20px 100px;
   }
 }
