@@ -1,4 +1,4 @@
-// Boilerplate for both AMD and CJS.
+// Boilerplate for AMD and CJS isomorphism.
 ({ define: typeof define === "function"
   ? define
   : function(name, deps, func) { 
@@ -7,7 +7,7 @@
 }).define('common/js/nooline/models/category', [], function () {
     
   var root = this;
-  var N = root.window ? root.Nooline : null;
+  var N = root.Nooline = root.Nooline || {};
   var Backbone = root.Backbone || require('backbone');
   var CategoryView;
 
@@ -45,14 +45,16 @@
         id = document.getElementById(this.get('type'));
         CategoryView = N.Views.CategoryView;
 
-        this.bindEvents();
-
       } else {
 
         CategoryView = require('../views/category-view');
 
         Backbone.$ = require('jquery');
+
+        require('./category/setup')();
       }
+
+      this.bindEvents();
 
       this.view = new CategoryView({
         model: this,
@@ -61,15 +63,15 @@
     }
   });
 
+  N.Models = N.Models || {};
+  N.Models.Category = Category;
+
   if (typeof module !== 'undefined') {
 
     module.exports = Category;
     return module.exports;
 
   } else {
-
-    N.Models = N.Models || {};
-    N.Models.Category = Category;
 
     require(['common/js/nooline/models/category/setup']);
 
