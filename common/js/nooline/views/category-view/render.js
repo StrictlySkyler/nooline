@@ -56,7 +56,7 @@
           content.startPath = '/common/js/nooline/start';
 
         }
-        debugger;
+        
         info.res.render(__root 
           + '/sites/' 
           + info.domain
@@ -79,8 +79,8 @@
             if (error) {
 
               error404(error);
-            } else {
-              debugger;
+            } else if (!info.query) {
+              
               info.res.send(html);
             }
           });

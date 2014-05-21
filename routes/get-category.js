@@ -15,7 +15,6 @@ module.exports = function getcategory (req, res) {
   
   var Category = require('../common/js/nooline/models/category');
   var _category = new Category();
-  var content = require('./content');
   var renderTemplate = require('../controllers/render-template');
   var info = req.info || {};
   var index = req.body.index || parseInt(req.params.index, 10);

@@ -40,6 +40,7 @@
 
       Backbone.Model.apply(this, arguments);
 
+      // TODO: Probably worth extracting into a helper.
       if (typeof root.document !== 'undefined') {
 
         id = document.getElementById(this.get('type'));

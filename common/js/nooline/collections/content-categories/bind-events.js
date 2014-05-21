@@ -1,7 +1,15 @@
+// Boilerplate for loading via CJS and AMD both.
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) { 
+    exports = module.exports = func(); 
+  } 
+}).define(
+  'common/js/nooline/collections/content-categories/bind-events', 
+  [], 
+  function () {
 
-define(function () {  
-
-  var N = window.Nooline;
+  var N = this.Nooline;
     
   /**
    * bindEvents
@@ -14,6 +22,8 @@ define(function () {
   N.Collections.ContentCategories.prototype.bindEvents = function () {
     
     this.on({
+      'category:loaded': this.reportCategory,
+      'categories:loaded': this.renderCategories
     });
   };
 

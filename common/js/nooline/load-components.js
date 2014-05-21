@@ -56,6 +56,8 @@ define(function () {
     N.controls = data.controls;
     localStorage.controls = JSON.stringify(data.controls);
 
+    N.componentsLoading = N.componentsLoading || [];
+
     require([
       'common/js/nooline/show-login-panel',
       'common/js/nooline/close-section',

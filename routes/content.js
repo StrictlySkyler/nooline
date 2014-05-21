@@ -14,19 +14,10 @@
  * @param {Object}  info  Metadata relevant to the nature of the request.
  */
 module.exports = function content (req, res, info) {
-  var fs = require('fs');
-  var buildMeta = require('../controllers/build-meta');
+
   var ContentCategories = 
     require('../common/js/nooline/collections/content-categories');
-  var i;
-
-  /**
-   * For each type of content requested, grab the appropriate metadata about
-   * that content type.
-   */
-  function reportMeta (error, data) {
-    buildMeta(error, data, info);
-  }
+  var _contentCategories = new ContentCategories();
   
   if (typeof info !== 'object') {
     info = {
@@ -38,24 +29,16 @@ module.exports = function content (req, res, info) {
   info.res = res ? res : info.res;
   info.metaLoaded = 0;
   info.categories = info.req.query.type ? 
-    [info.req.query.type] : 
+    info.req.query.type.split(',') : 
     info.categories
     ;
   info.contentPath = './sites/' + info.req.host + '/content';
   info.meta = {};
-  info.setup = new ContentCategories();
 
   if (req && req.query.type) {
     info.query = true;
   }
 
-  for (i = 0; i < info.categories.length; i++) {
-    info.meta[info.categories[i]] = info.contentPath 
-      + '/meta/' 
-      + info.categories[i]
-      + '.json';
+  _contentCategories.loadModels(info);
 
-    fs.readFile(info.meta[info.categories[i]], 'utf8', reportMeta);
-
-  }
 };

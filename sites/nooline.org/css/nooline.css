@@ -617,7 +617,7 @@ section .controls {
 }
 
 .content .slider-item:nth-last-child(even),
-.content .snippet:nth-last-child(odd) {
+.content .snippet:nth-child(even) {
   background: #eee;
 }
 

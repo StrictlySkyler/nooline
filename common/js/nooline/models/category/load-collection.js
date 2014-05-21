@@ -12,9 +12,10 @@
    * Loads a collection of content snippets to the model based on the category
    * desired.
    * @param  {String} category The desired category of content snippets.
+   * @param {String} type Optinal. The type of category desired, specifically.
    * @return {Object}          Returns the Category model itself.
    */
-  N.Models.Category.prototype.loadCollection = function (info) {
+  N.Models.Category.prototype.loadCollection = function (info, type) {
     var fs;
     var contentPath;
     var category;
@@ -23,7 +24,7 @@
     if (typeof module !== 'undefined') {
       fs = require('fs');
       contentPath = __root + '/sites/' + info.req.host + '/content';
-      category = info.req.query.type || info.categories[0];
+      category = type || info.req.query.type || info.categories[0];
       Snippets = require('../../collections/snippets');
       info.index = contentPath + '/index.json';
       info.snippets = contentPath + '/snippets/';
