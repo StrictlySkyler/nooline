@@ -13,6 +13,7 @@
  */
 module.exports = function root (req, res) {
   var content = require('./content');
+  // TODO: Move this into the contentcategories view.
   var renderTemplate = require('../controllers/render-template');
   var info = {};
   

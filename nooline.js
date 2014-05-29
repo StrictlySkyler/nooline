@@ -11,6 +11,8 @@ var engine;
 var store = new(require('socket.io-clusterhub'));
 var program = require('commander');
 
+GLOBAL.__root = __dirname;
+
 program
   .option('-s, --single', 'Start without clustering')
   .option('-p, --port <n>', 'Port on which Nooline should listen', parseInt)

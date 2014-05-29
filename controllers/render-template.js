@@ -64,7 +64,7 @@ module.exports = function renderTemplate (content, info) {
 
       if (error) {
         error404(error, info);
-      } else {
+      } else if (!info.query) {
         info.res.send(html);
       }
     });

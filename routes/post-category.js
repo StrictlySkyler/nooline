@@ -13,7 +13,7 @@
 module.exports = function postCategory (req, res) {
 
   var saveContent = require('../controllers/save-content');
-
+  // TODO: Update this for isomorphism
   var category = require('./get-category');
 
   req.info = {

@@ -13,7 +13,8 @@
  */
 module.exports = function getcategory (req, res) {
   
-  var content = require('./content');
+  var Category = require('../common/js/nooline/models/category');
+  var _category = new Category();
   var renderTemplate = require('../controllers/render-template');
   var info = req.info || {};
   var index = req.body.index || parseInt(req.params.index, 10);
@@ -34,6 +35,9 @@ module.exports = function getcategory (req, res) {
   info.next = info.next || renderTemplate;
   info.categories = [req.params.category];
   info.specific = Number.isNaN(index) ? 'all' : index;
+  info.req = req;
+  info.res = res;
+
+  _category.loadCollection(info);
   
-  content(req, res, info);
 };
