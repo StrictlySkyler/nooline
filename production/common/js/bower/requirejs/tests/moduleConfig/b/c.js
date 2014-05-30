@@ -1,1 +1,0 @@
-define(["require","exports","module"],function(e,o,i){return{food:i.config().id}});

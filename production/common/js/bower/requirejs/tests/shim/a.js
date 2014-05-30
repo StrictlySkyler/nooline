@@ -1,1 +1,0 @@
-!function(n){n.A={name:"a"}}(this);

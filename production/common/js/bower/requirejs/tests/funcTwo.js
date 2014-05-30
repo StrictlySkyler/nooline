@@ -1,1 +1,0 @@
-define("funcTwo",["require","funcOne"],function(n){var e=function(e){this.name=e,this.one=new(n("funcOne"))("ONE")};return e.prototype.oneName=function(){return this.one.getName()},e});

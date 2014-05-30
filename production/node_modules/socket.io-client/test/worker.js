@@ -1,1 +1,0 @@
-importScripts("/socket.io/socket.io.js"),self.onmessage=function(o){var e=o.data,n=io.connect(e);n.on("done",function(){self.postMessage("done!")}),n.on("connect_failed",function(){self.postMessage("connect failed")}),n.on("error",function(){self.postMessage("error")}),n.send("woot")};

@@ -1,1 +1,0 @@
-!function(){var e,n,t,o,r;if(Modernizr.webgl){try{e=document.createElement("canvas"),n=e.getContext("webgl")||e.getContext("experimental-webgl"),t=n.getSupportedExtensions()}catch(d){return}for(Modernizr.webgl=void 0===n?new Boolean(!1):new Boolean(!0),o=-1,r=t.length;++o<r;)Modernizr.webgl[t[o]]=!0;window.TEST&&TEST.audvid&&TEST.audvid.push("webgl"),e=void 0}}();

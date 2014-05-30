@@ -1,1 +1,0 @@
-define(["b"],function(n){return{name:"d",b:n}});

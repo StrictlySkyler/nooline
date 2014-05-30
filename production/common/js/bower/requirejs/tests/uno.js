@@ -1,1 +1,0 @@
-define("uno",["dos","tres"],function(n,e){return{name:"uno",doSomething:function(){return{dosName:n.name,tresName:e.name}}}});

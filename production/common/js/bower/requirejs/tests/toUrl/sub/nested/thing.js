@@ -1,1 +1,0 @@
-define(["require"],function(r){return{noext:null,dirPath:r.toUrl("."),parentPath:r.toUrl("..")}});

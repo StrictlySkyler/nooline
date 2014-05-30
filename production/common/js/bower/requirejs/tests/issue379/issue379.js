@@ -1,1 +1,0 @@
-define("a",[],{}),define("text!template.html",[],function(){return"TEXT"}),define("b",["text!template.html"],function(t){return"b "+t}),define("c",["text!template.html"],function(t){return"c "+t}),require(["a"],function(){require({paths:{text:"../../../text/text"}},["b","c"],function(t,e){doh.register("issue379",[function(n){n.is("b TEXT",t),n.is("c TEXT",e)}]),doh.run()})});

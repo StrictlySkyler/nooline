@@ -1,1 +1,0 @@
-!function(e){e(["require"],function(){var e=null,n=null;return{name:"newt",eyeName:n.name,tailName:e.name}})}("function"==typeof define&&define.amd?define:function(e,n){"undefined"!=typeof module&&module.exports?module.exports=n(require):window.myGlobal=n(function(e){return window[e]})});

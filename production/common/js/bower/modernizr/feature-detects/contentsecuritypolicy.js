@@ -1,1 +1,0 @@
-Modernizr.addTest("contentsecuritypolicy","SecurityPolicy"in document);

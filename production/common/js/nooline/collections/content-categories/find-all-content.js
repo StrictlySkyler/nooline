@@ -1,1 +1,0 @@
-define([],function(){var n=window.Nooline;return n.Collections.ContentCategories.prototype.findAllContent=function(){var n=new Backbone.Collection;return this.each(function(e){n.add(e.get("snippets").models)}),n},"collections/content-categories/find-all-content"});

@@ -1,1 +1,0 @@
-define([],function(){var n=window.Nooline;n.errorHandler=function(n){console.error(n)}});

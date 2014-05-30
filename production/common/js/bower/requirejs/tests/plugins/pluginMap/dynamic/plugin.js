@@ -1,1 +1,0 @@
-define("plugin",[],{load:function(n,i,f){i([n],function(n){f(n)})}});

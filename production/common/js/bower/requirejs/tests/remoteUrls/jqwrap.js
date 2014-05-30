@@ -1,1 +1,0 @@
-define(["require"],function(){function n(){}return{isFunction:jQuery.isFunction(n)}});

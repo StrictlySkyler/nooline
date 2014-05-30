@@ -1,1 +1,0 @@
-define([],function(){var n=window.Nooline,o=["collections/snippets/bind-events"];n.componentsLoading=n.componentsLoading||[],n.componentsLoading=n.componentsLoading.concat(o),require(["common/js/nooline/collections/snippets/bind-events"],function(){n.componentsLoading=_.difference(n.componentsLoading,o),n.componentsLoading.length||n.$document.trigger("components:complete")})});

@@ -1,1 +1,0 @@
-define(["require","exports","module","test","a"],function(e,r){var t=null,n=null;t.assert(n.program()===r,"exact exports"),t.print("DONE","info")});

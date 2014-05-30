@@ -1,1 +1,0 @@
-var fullOutput=new Buffer("こんにちは");process.stdout.write(fullOutput.slice(0,4)),process.stdout.write(fullOutput.slice(4)),process.stderr.write(fullOutput.slice(0,4)),process.stderr.write(fullOutput.slice(4));

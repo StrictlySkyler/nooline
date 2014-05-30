@@ -11,3 +11,4 @@ autolint.js
 **/*.hash
 
 node_modules
+production

@@ -1,1 +1,0 @@
-define(["require","exports","module"],function(e,n){n.foo=function(){return 1}});

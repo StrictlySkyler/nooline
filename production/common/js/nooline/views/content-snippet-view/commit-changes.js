@@ -1,1 +1,0 @@
-define([],function(){var e=window.Nooline;return e.Views.ContentSnippetView.prototype.commitChanges=function(){this.trigger("editor:commit editor:disable")},"views/content-snippet-view/commit-changes"});

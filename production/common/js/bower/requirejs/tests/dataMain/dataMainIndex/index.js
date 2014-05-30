@@ -1,1 +1,0 @@
-define("a",{name:"a"}),define("index",["a"],function(n){doh.register("dataMainIndex",[function(e){e.is("a",n.name)}]),doh.run()});

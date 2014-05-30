@@ -1,1 +1,0 @@
-define(["two","three"],function(e,n){return{name:"four",twoName:e.name,threeName:n.name}});

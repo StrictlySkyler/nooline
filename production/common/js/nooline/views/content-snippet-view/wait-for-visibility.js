@@ -1,1 +1,0 @@
-define([],function(){var i=window.Nooline;return i.Views.ContentSnippetView.prototype.waitForVisibility=function(i){!i.$el.is(":visible")||!i.$el.find(".container").length&&"timeline"===i.model.get("type")?requestAnimationFrame(function(){i.waitForVisibility(i)}):i.setOptions({editor:!0,added:!1,saved:!1})},"views/content-snippet-view/wait-for-visibility"});
