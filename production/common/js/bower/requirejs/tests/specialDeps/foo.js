@@ -1,1 +1,0 @@
-define(["require","exports","module"],function(){null.name="foo",null.config().related});

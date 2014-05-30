@@ -1,1 +1,0 @@
-define([],function(){var e=window.Nooline;return e.Models.ContentSnippet.prototype.enableEditing=function(){this.view.setOptions("editable",!0)},"models/content-snippet/enable-editing"});

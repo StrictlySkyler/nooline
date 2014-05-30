@@ -1,1 +1,0 @@
-define([],function(){var n=window.Nooline;n.closeSection=function(n){$(n.target).parents("section").addClass("hidden").one("transitionend webkitTransitionEnd",function(){$(this).remove()})}});

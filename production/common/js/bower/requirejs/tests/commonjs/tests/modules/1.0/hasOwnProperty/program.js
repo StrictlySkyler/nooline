@@ -1,1 +1,0 @@
-define(["require","exports","module","hasOwnProperty","toString","test"],function(){var e=null;e.print("DONE","info")});

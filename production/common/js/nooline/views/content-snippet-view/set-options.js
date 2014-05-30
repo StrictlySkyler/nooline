@@ -1,1 +1,0 @@
-define([],function(){var t=window.Nooline;return t.Views.ContentSnippetView.prototype.setOptions=function(){var t,n,e=this;switch(arguments.length){case 1:n=arguments[0],_.each(n,function(t,n){e.options[n]=t});break;case 2:t=arguments[0],n=arguments[1],this.options[t]=n}return this.trigger("options:change"),n},"views/content-snippet-view/set-options"});

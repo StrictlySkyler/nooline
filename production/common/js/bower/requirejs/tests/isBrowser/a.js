@@ -1,1 +1,0 @@
-define(["require"],function(r){return{isBrowser:r.isBrowser}});

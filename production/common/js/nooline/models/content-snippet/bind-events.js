@@ -1,1 +1,0 @@
-define([],function(){var n=window.Nooline;return n.Models.ContentSnippet.prototype.bindEvents=function(){this.on({login:this.enableEditing,logout:this.disableEditing,create:this.create})},"models/content-snippet/bind-events"});

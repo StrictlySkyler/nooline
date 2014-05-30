@@ -1,1 +1,0 @@
-require({baseUrl:requirejs.isBrowser?"./":"./circular/transpiler",paths:{text:"../../../../text/text",refine:"../../plugins/fromText/refine"}},["require","refine!a","refine!b","refine!d"],function(e,r,i,n){doh.register("circularTranspiler",[function(e){e.is("a",r.name),e.is("b",r.b.name),e.is("c",r.b.c.name),e.is("b",i.name),e.is("c",i.c.name),e.is("ed",n())}]),doh.run()});

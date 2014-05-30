@@ -1,1 +1,0 @@
-define([],function(){var e=window.Nooline;e.postLogin=function(o,n,s){var t={username:o,password:n,timestamp:Date.now()};sessionStorage.setItem("lastLoginAttempt",JSON.stringify(t)),console.log("Posting credentials..."),$.post("/login",{username:o,password:n,type:s},e.receiveLogin)}});

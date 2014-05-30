@@ -1,1 +1,0 @@
-if("function"!=typeof define)var define=window.badDefine;define("one.js script");

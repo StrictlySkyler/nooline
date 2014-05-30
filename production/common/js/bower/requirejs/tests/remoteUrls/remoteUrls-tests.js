@@ -1,1 +1,0 @@
-require({baseUrl:requirejs.isBrowser?"./":"./remoteUrls/"},["require","jqwrap"],function(r,e){doh.register("remoteUrls",[function(r){r.is(!0,e.isFunction)}]),doh.run()});

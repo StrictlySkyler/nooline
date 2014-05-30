@@ -1,1 +1,0 @@
-define([],function(){var n=window.Nooline;n.removeControls=function(){var o=n.contentCategories.findAllContent();o.each(function(n){n.trigger("logout")})}});

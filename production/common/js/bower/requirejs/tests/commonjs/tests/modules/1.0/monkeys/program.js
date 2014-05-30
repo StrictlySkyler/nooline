@@ -1,1 +1,0 @@
-define(["require","exports","module","a","test"],function(e,n){var t=null;t.assert(10==n.monkey,"monkeys permitted"),t.print("DONE","info")});

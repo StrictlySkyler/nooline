@@ -1,1 +1,0 @@
-define([],function(){var o=window.Nooline;o.receiveLogin=function(n){console.log("...Response received.  Status is:",n.status),"success"!==n.status?o.rejectLogin(o.$activeLogin):require(["common/js/nooline/build-controls","common/js/nooline/logout","common/js/nooline/show-login-success","common/js/nooline/remove-controls"],function(){o.showLoginSuccess(n)})}});

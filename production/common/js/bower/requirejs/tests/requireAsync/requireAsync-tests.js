@@ -1,1 +1,0 @@
-define("a",{name:"a"}),require(["a","b"],function(e,n){doh.register("requireAsync",[function(i){i.is("a",e.name),i.is("b",n.name)}]),doh.run()}),define("b",{name:"b"});

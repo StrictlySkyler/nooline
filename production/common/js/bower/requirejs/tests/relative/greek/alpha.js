@@ -1,1 +1,0 @@
-define(["require","exports","module"],function(e,n){n.name="alpha",n.getGreekName=function(){return null.name}});
