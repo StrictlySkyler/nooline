@@ -14,3 +14,6 @@ autolint.js
 node_modules
 production
 bower
+
+# Test coverage
+coverage.html
