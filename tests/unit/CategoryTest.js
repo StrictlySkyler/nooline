@@ -5,6 +5,7 @@ describe('A Category', function () {
   var CategoryView = require('../../common/js/nooline/views/category-view.js');
   var Snippets = require('../../common/js/nooline/collections/snippets.js');
   var _category;
+  GLOBAL.__root = __dirname + '/../..';
 
   it('should be able to be created', function () {
 
@@ -24,7 +25,15 @@ describe('A Category', function () {
     );
   });
 
-  it('should contain a collection of content', function () {
+  it('should be able to load a collection of content', function () {
+    var info = {
+      req: {
+        host: 'someHost.com'
+      }
+    };
+    var type = 'someType';
+
+    _category.loadCollection(info, type);
 
     assert(
       _category.get('snippets') instanceof Snippets, 
