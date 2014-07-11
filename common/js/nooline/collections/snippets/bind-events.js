@@ -1,22 +1,30 @@
+// Boilerplate for AMD and CJS isomorphism.
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/collections/snippets/bind-events',
+  [],
+  function () {
 
-define(function () {
+  var N = this.Nooline;
 
-  var N = window.Nooline;
-  
   /**
    * bindEvents
    * Attach events to the collection of snippets.
    *
-   * Currently there aren't any.
-   *
    * @return  None.
    */
   N.Collections.Snippets.prototype.bindEvents = function () {
-    
-    this.on({
+
+    return this.on({
+      'saveSnippets': this.saveSnippets,
+
+      'snippet:saved': this.countSaved
     });
   };
 
-  return 'collections/snippets/bind-events';
+  // return 'collections/snippets/bind-events';
 
 });

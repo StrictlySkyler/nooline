@@ -1,22 +1,22 @@
 // Boilerplate allows this to work with both AMD and CJS style requires.
 ({ define: typeof define === "function"
   ? define
-  : function(name, deps, func) { 
-    exports = module.exports = func(); 
-  } 
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
 }).define('common/js/nooline/collections/snippets', [], function (){
-    
+
   var root = this;
-  var N = root.window ? root.Nooline : null;
+  var N = root.Nooline = root.Nooline || {};
   var Backbone = root.Backbone || require('backbone');
 
   /**
    * @collection Snippets
    * Defines a collection of content snippets.
    *
-   * This is usually synonymous with a type of content.  Differs from the 
-   * Category model.  Allows for operations to be done on each of the 
-   * snippets contained in the collection.  
+   * This is usually synonymous with a type of content.  Differs from the
+   * Category model.  Allows for operations to be done on each of the
+   * snippets contained in the collection.
    * Used in both client and server ops.
    *
    * @return  {Object|undefined}  Module export for server, none for clients.
@@ -31,9 +31,11 @@
     constructor: function Snippets () {
       Backbone.Collection.apply(this, arguments);
 
-      if (typeof module === 'undefined') {
-        this.bindEvents();
+      if (typeof module !== 'undefined') {
+        require('./snippets/setup')();
       }
+
+      this.bindEvents();
     },
     /**
      * comparator
@@ -51,6 +53,9 @@
     }
   });
 
+  N.Collections = N.Collections || {};
+  N.Collections.Snippets = Snippets;
+
   if (typeof module !== 'undefined') {
 
     module.exports = Snippets;
@@ -58,13 +63,10 @@
 
   } else {
 
-    N.Collections = N.Collections || {};
-    N.Collections.Snippets = Snippets;
-
     require(['common/js/nooline/collections/snippets/setup']);
 
   }
-    
+
   // For RequireJS.
-  return 'collections/snippets';
+  // return 'collections/snippets';
 });

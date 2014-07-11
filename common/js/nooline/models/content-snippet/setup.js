@@ -1,41 +1,60 @@
+// Boilerplate for AMD and CJS isomorphism.
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/models/content-snippet/setup', [], function () {
 
-define(function () {
-  var N = window.Nooline;
-    
-  var components = [
-    'models/content-snippet/bind-events',
-    'models/content-snippet/enable-editing',
-    'models/content-snippet/disable-editing',
-    'models/content-snippet/create',
-    'models/content-snippet/remove'
-  ];
+  var N = this.Nooline;
 
-  N.componentsLoading = N.componentsLoading || [];
+  if (typeof document !== 'undefined') {
 
-  N.componentsLoading = N.componentsLoading.concat(components);
+    var components = [
+      'models/content-snippet/bind-events',
+      'models/content-snippet/enable-editing',
+      'models/content-snippet/disable-editing',
+      'models/content-snippet/create',
+      'models/content-snippet/remove'
+    ];
 
-  require([
-    'common/js/nooline/models/content-snippet/bind-events',
-    'common/js/nooline/models/content-snippet/enable-editing',
-    'common/js/nooline/models/content-snippet/disable-editing',
-    'common/js/nooline/models/content-snippet/create',
-    'common/js/nooline/models/content-snippet/remove'
-  /**
-   * removeLoaded
-   * Remove loaded components from the queue.
-   *
-   * Once they've loaded, remove them from the queue, and notify the app if
-   * there is nothing left in the queue.
-   *
-   * @return  None.
-   */
-  ], function removeLoaded () {
+    N.componentsLoading = N.componentsLoading || [];
 
-    N.componentsLoading = _.difference(N.componentsLoading, components);
+    N.componentsLoading = N.componentsLoading.concat(components);
 
-    if (!N.componentsLoading.length) {
-      N.$document.trigger('components:complete');
-    }
-  });
+    require([
+      'common/js/nooline/models/content-snippet/bind-events',
+      'common/js/nooline/models/content-snippet/enable-editing',
+      'common/js/nooline/models/content-snippet/disable-editing',
+      'common/js/nooline/models/content-snippet/create',
+      'common/js/nooline/models/content-snippet/remove'
+    /**
+     * removeLoaded
+     * Remove loaded components from the queue.
+     *
+     * Once they've loaded, remove them from the queue, and notify the app if
+     * there is nothing left in the queue.
+     *
+     * @return  None.
+     */
+    ], function removeLoaded () {
+
+      N.componentsLoading = _.difference(N.componentsLoading, components);
+
+      if (!N.componentsLoading.length) {
+        N.$document.trigger('components:complete');
+      }
+    });
+  } else {
+
+    return function setup () {
+
+      require('./bind-events');
+      require('./create');
+      require('./remove');
+      require('./save');
+      require('./notify-saved');
+    };
+  }
 
 });

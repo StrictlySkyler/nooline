@@ -1,8 +1,13 @@
+// Boilerplate for AMD and CJS isomorphism.
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/models/content-snippet/create', [], function () {
 
-define(function () {
+  var N = this.Nooline;
 
-  var N = window.Nooline;
-  
   /**
    * create
    * (Re)Create this snippet.
@@ -16,7 +21,7 @@ define(function () {
    * @return
    */
   N.Models.ContentSnippet.prototype.create = function () {
-    
+
     this.view.setOptions('create', true);
   };
 

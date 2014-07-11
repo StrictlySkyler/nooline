@@ -2,21 +2,23 @@
 define(function () {
 
   var N = window.Nooline;
-  
+
   /**
    * createSnippet
    * Create a new piece of content.
    *
-   * Creates a Snippet Model, and adds it to the Snippets Collection 
+   * Creates a Snippet Model, and adds it to the Snippets Collection
    * referenced by this Category Model.  Populates the snippet with some
    * initial data, and then tells it to set itself up.
    *
    * @return
    */
   N.Models.Category.prototype.createSnippet = function () {
-    
+
     var snippets = this.get('snippets');
-    var index = snippets.first().get('index') + 1;
+    var index = 1 + N.contentCategories.reduce(function (memo, category) {
+      return memo + category.get('snippets').length;
+    }, 0);
     var user = JSON.parse(sessionStorage.getItem('lastLoginAttempt')).username;
     var now = window.moment();
     var prettyDate = now.format('dddd, MMMM Mo, YYYY');
@@ -48,7 +50,7 @@ define(function () {
     }
 
     newSnippet.trigger('create');
-    
+
   };
 
   return 'models/category/create-snippet';

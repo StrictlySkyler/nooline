@@ -1,9 +1,9 @@
 // Boilerplate for AMD and CJS isomorphism.
 ({ define: typeof define === "function"
   ? define
-  : function(name, deps, func) { 
-    exports = module.exports = func(); 
-  } 
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
 }).define('common/js/nooline/models/category/load-index', [], function () {
 
   var N = this.Nooline;
@@ -20,12 +20,12 @@
     var info;
     var error404;
     var snippetList;
-      
+
     if (typeof module !== 'undefined') {
       error404 = require(__root + '/routes/error-404');
       fs = require('fs');
 
-      if (error) { 
+      if (error) {
 
         error404(error, this.get('info'));
 
@@ -42,6 +42,10 @@
             snippetList = snippetList.filter(function (value, index) {
               return (index + 1) == info.specific;
             });
+          }
+
+          if (!snippetList.length) {
+            return this.updateIndex();
           }
 
           this.set({
@@ -81,7 +85,7 @@
           error404(fail, this.get('info'));
         }
       }
-      
+
     }
 
     return this;
