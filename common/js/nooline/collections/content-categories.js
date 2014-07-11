@@ -1,11 +1,11 @@
 // Boilerplate for loading via CJS and AMD both.
 ({ define: typeof define === "function"
   ? define
-  : function(name, deps, func) { 
-    exports = module.exports = func(); 
-  } 
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
 }).define('common/js/nooline/collections/content-categories', [], function () {
-    
+
   var root = this;
   var N = root.Nooline = root.Nooline || {};
   var Backbone = root.Backbone || require('backbone');
@@ -36,7 +36,7 @@
       }
 
       this.bindEvents();
-      
+
     },
 
     url: '/content-categories'

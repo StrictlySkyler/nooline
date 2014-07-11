@@ -1,15 +1,15 @@
 // Boilerplate for AMD and CJS isomorphism.
 ({ define: typeof define === "function"
   ? define
-  : function(name, deps, func) { 
-    exports = module.exports = func(); 
-  } 
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
 }).define('common/js/nooline/models/category/setup', [], function () {
 
   var N = this.Nooline;
 
   if (typeof document !== 'undefined') {
-      
+
     var components = [
       'models/category/bind-events',
       'models/category/create-snippet',
@@ -49,7 +49,7 @@
       N.componentsLoading = _.difference(N.componentsLoading, components);
 
       if (!N.componentsLoading.length) {
-        
+
         N.$document.trigger('components:complete');
       }
     });
@@ -60,7 +60,7 @@
      * Loads the required modules for the server.  Being a returned function
      * allows the constructor to call and invoke this with a single line, e.g.:
      *   require('category/setup')();
-     * 
+     *
      * @return None.
      */
     return function setup () {
@@ -72,6 +72,9 @@
       require('./load-snippets');
       require('./report-snippets');
       require('./count-snippets');
+      require('./update-index');
+      require('./commit-version');
+      require('./notify-client');
     };
   }
 

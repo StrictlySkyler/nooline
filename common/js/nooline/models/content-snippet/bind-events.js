@@ -1,8 +1,15 @@
+// Boilerplate for AMD and CJS isomorphism.
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/models/content-snippet/bind-events',
+  [],
+  function () {
 
-define(function () {
+  var N = this.Nooline;
 
-  var N = window.Nooline;
-  
   /**
    * bindEvents
    * Attach event listeners to the model.
@@ -13,18 +20,20 @@ define(function () {
    * @return  None.
    */
   N.Models.ContentSnippet.prototype.bindEvents = function () {
-    
+
     this.on({
       'login': this.enableEditing,
 
       'logout': this.disableEditing,
 
-      'create': this.create
+      'create': this.create,
+
+      'save': this.save
 
     });
   };
 
   // For r.js assembly.
-  return 'models/content-snippet/bind-events';
+  // return 'models/content-snippet/bind-events';
 
 });

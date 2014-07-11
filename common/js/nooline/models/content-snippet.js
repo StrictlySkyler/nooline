@@ -2,14 +2,14 @@
 ({ define: typeof define === "function"
   ? define
   : function(name, deps, func) {
-    exports = module.exports = func(); 
-  } 
+    exports = module.exports = func();
+  }
 }).define('common/js/nooline/models/content-snippet', [
     'node_modules/node-uuid/uuid'
   ], function () {
-    
+
     var root = this;
-    var N = root.window ? root.Nooline : null;
+    var N = root.Nooline = root.Nooline || {};
     var Backbone = root.Backbone || require('backbone');
     var ContentSnippetView;
     var uuid = root.uuid || require('node-uuid');
@@ -42,8 +42,6 @@
 
           ContentSnippetView = N.Views.ContentSnippetView;
 
-          this.bindEvents();
-
         } else {
 
           ContentSnippetView = require('../views/content-snippet-view');
@@ -54,7 +52,11 @@
           // 2013-09-13
           Backbone.$ = require('jquery');
 
+          require('./content-snippet/setup')();
+
         }
+
+        this.bindEvents();
 
         this.view = new ContentSnippetView({
           model: this
@@ -71,21 +73,26 @@
         },
         author: '',
         endDate: '',
+        endTime: '',
         headline: '',
         index: this.collection ? this.collection.first().get('index') + 1 : null,
         prettyStartDate: '',
         prettyStartTime: '',
+        published: true,
         startDate: '',
         startTime: '',
         tag: '',
         text: '',
         type: '',
-        url: this.collection ? 
-          this.collection.url + '/' + this.collection.first().get('index') + 1 
+        url: this.collection ?
+          this.collection.url + '/' + this.collection.first().get('index') + 1
           : '',
         uuid: uuid ? uuid() : ''
       }
     });
+
+    N.Models = N.Models || {};
+    N.Models.ContentSnippet = ContentSnippet;
 
     if (typeof module !== 'undefined') {
 
@@ -94,13 +101,10 @@
 
     } else {
 
-      N.Models = N.Models || {};
-      N.Models.ContentSnippet = ContentSnippet;
-
       require(['common/js/nooline/models/content-snippet/setup']);
 
     }
 
-    return 'models/content-snippet';
+    // return 'models/content-snippet';
 
 });

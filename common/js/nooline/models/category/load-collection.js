@@ -1,9 +1,9 @@
 // Boilerplate for AMD and CJS isomorphism.
 ({ define: typeof define === "function"
   ? define
-  : function(name, deps, func) { 
-    exports = module.exports = func(); 
-  } 
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
 }).define('common/js/nooline/models/category/load-collection', [], function () {
 
   var N = this.Nooline;
@@ -36,6 +36,8 @@
         snippets: new Snippets(),
         metaFile: contentPath + '/meta/' + category + '.json'
       });
+
+      this.get('snippets').parent = this;
 
       fs.readFile(this.get('metaFile'), 'utf8', this.loadMeta.bind(this));
 
