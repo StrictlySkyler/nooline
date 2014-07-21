@@ -20,7 +20,7 @@ module.exports = function renderTemplate (content, info) {
   );
 
   content.currentYear = new Date().getFullYear();
-  content.partials = config.partials;
+  content.partials = JSON.parse(JSON.stringify(config.partials));
 
   if (config.mode === 'production') {
     content.startPath = config.startPaths.production;

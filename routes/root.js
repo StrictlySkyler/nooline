@@ -17,6 +17,14 @@ module.exports = function root (req, res) {
   var renderTemplate = require('../controllers/render-template');
   var info = {};
   var config;
+  var ERROR_MESSAGE = "Looks like that domain doesn't exist yet.";
+  var ERROR_DETAIL = "For the technies:  "
+    + "Try checking the <span class=\"files tech-term\">views/"
+    + "</span> folder to ensure one exists for this domain's <span "
+    + "class=\"tech-term\">root"
+    + "</span> (" + info.domain + " + /) view.  Otherwise, perhaps the "
+    + "specific route for this domain and path are missing.";
+  var TEMPLATE = '/root';
 
   info.domain = req.host;
   info.nooline = req.app;
@@ -26,15 +34,9 @@ module.exports = function root (req, res) {
     + '/config/site.json'
   );
 
-  // TODO: This needs to come from a JSON file.
-  info.errorMessage = "Looks like that domain doesn't exist yet.";
-  info.errorDetail = "For the technies:  "
-    + "Try checking the <span class=\"files tech-term\">views/"
-    + "</span> folder to ensure one exists for this domain's <span "
-    + "class=\"tech-term\">root"
-    + "</span> (" + info.domain + " + /) view.  Otherwise, perhaps the "
-    + "specific route for this domain and path are missing.";
-  info.template = '/root';
+  info.errorMessage = ERROR_MESSAGE;
+  info.errorDetail = ERROR_DETAIL;
+  info.template = TEMPLATE;
 
   info.next = renderTemplate;
   info.categories = config.categories;

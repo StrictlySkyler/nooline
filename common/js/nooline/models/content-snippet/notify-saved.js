@@ -10,16 +10,9 @@
 
   var N = this.Nooline;
 
-  N.Models.ContentSnippet.prototype.notifySaved = function (error) {
+  N.Models.ContentSnippet.prototype.notifySaved = function () {
 
-    if (error) {
-      console.error(error);
-
-    } else {
-
-      this.trigger('snippet:saved');
-    }
-
+    this.trigger('snippet:saved');
 
   };
 

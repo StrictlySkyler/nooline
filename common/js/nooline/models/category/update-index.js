@@ -28,6 +28,8 @@
 
     }
 
+    this.set('filesUpdated', []);
+
     newIndex = JSON.stringify(this.get('info').indexList, null, '\t');
 
     // TODO: invert this binding, making the snippet collection listen for an

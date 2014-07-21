@@ -38,13 +38,13 @@
 
           snippetList = info.indexList.categories[this.get('type')];
 
-          if (typeof info.specific == 'number') {
+          if (typeof info.specific === 'number') {
             snippetList = snippetList.filter(function (value, index) {
-              return (index + 1) == info.specific;
+              return (index + 1) === info.specific;
             });
           }
 
-          if (!snippetList.length) {
+          if (!snippetList.length || info.update) {
             return this.updateIndex();
           }
 
