@@ -37,7 +37,7 @@ The following things are officially on the list of things which need doing, in n
 - User roles & permissions
 - Published/Unpublished for snippets
 - Better timeout & security checks
-- Broadcast events when content is loading at various points
+- ~~Broadcast events when content is loading at various points~~
 - ~~Content editing incrementing bug~~
 
 ## ✌
