@@ -45,11 +45,6 @@
         } else {
 
           ContentSnippetView = require('../views/content-snippet-view');
-          // Right now jQuery for node is out of date.
-          // Current node version ~= 1.8.x
-          // Current client version on Bower = ~= 2.0.x
-          // When these versions reach parity, they should use the same source.
-          // 2013-09-13
           Backbone.$ = require('jquery');
 
           require('./content-snippet/setup')();
