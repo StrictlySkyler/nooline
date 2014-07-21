@@ -8,7 +8,7 @@
  * @return
  */
 ;(function start() {
-  
+
   /**
    * @constructor Nooline
    * The base constructor which we decorate with various modules, governing
@@ -56,15 +56,7 @@
         },
         'common/js/nooline/load-components': {
           deps: [
-          // TODO:
-          // Right now, jQuery in Bower and npm aren't the same version.
-          // Bower ~= 2.0.x
-          // npm ~= 1.8.x
-          // Eventually, when these versions reach parity, the same source
-          // should be used for both client and server.
-          // 2013-09-13
-            'common/js/bower/jquery/jquery',
-            'node_modules/socket.io-client/dist/socket.io',
+            'node_modules/jquery/dist/jquery',
             'common/js/nooline/get-content'
           ]
         },
@@ -80,10 +72,10 @@
         }
       }
     });
-    
+
     // Also see load-components.js.
     require([
-      'common/js/bower/jquery/jquery',
+      'node_modules/jquery/dist/jquery',
       'common/js/bower/modernizr/modernizr',
       'common/js/submodules/StoryJS-Core/VMM.StoryJS',
       'common/js/nooline/get-content',
@@ -93,9 +85,9 @@
 
     // For those modules which explicitly require definition via AMD.
     // Some of these, such as moment, need to be required to be initialized.
-    // Others don't add themselves to global scope, and we need some of them 
+    // Others don't add themselves to global scope, and we need some of them
     // to do so, such as uuid.
-    // 
+    //
     // A CJS loader for browser, without needing to compile, would be so nice.
     define([
       'node_modules/node-uuid/uuid',
@@ -111,7 +103,7 @@
      * @return                None.
      */
     ], function massage (uuid) {
-      
+
       require([
         'moment'
       ]);
@@ -119,7 +111,7 @@
       window.uuid = uuid;
     });
   }
-  
+
   window.Nooline = new Nooline();
-  
+
 }());

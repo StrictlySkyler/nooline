@@ -8,10 +8,11 @@ var server;
 var routes;
 var io;
 var engine;
-var store = new(require('socket.io-clusterhub'));
 var program = require('commander');
+var jsdom = require('jsdom').jsdom;
 
 GLOBAL.__root = __dirname;
+GLOBAL.window = jsdom('<html></html>').parentWindow;
 
 program
   .option('-s, --single', 'Start without clustering')
@@ -42,17 +43,7 @@ if (cluster.isMaster && !program.single) {
   nooline = express();
   server = require('http').createServer(nooline);
   routes = require('./routes');
-  io = require('socket.io').listen(server, {
-    'log level': 2
-  });
 
-  // Allow for a messaging store, so socket connections can communicate
-  // accross worker threads.
-  io.configure(function setWorkerMessageStore () {
-    io.set('store', store);
-  });
-
-  nooline.use(require('express-chrome-logger'));
   nooline.use(express.logger('dev'));
   nooline.use(express.compress());
   nooline.use(express.cookieParser());
@@ -129,12 +120,6 @@ if (cluster.isMaster && !program.single) {
         + nooline.settings.port);
     }
 
-  });
-
-  // Bind on socket connections.
-  io.sockets.on('connection', function(socket) {
-    // Not sure this is needed.  Might be able to simply emit events later,
-    // e.g. when a content piece is saved.
   });
 
 }

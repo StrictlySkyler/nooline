@@ -8,14 +8,14 @@ define(function () {
    * initializeContent
    * Initialize the content for a page.
    *
-   * Sets up the Models and Collections, and gets content relevant to the 
+   * Sets up the Models and Collections, and gets content relevant to the
    * page.
    *
-   * TODO: This is hardcoded right now.  Need to put it in the config 
+   * TODO: This is hardcoded right now.  Need to put it in the config
    * (probably the bootstrap process).  Also, find a better way to deal with
    * the timeline's placeholder.  This should also be able to make a single
    * request for multiple content types, along with ranges of content.
-   * 
+   *
    * TODO: Move the setup which happens here to someplace that makes more
    * sense.
    *
@@ -34,15 +34,13 @@ define(function () {
     N.getContent({type: 'scroll'});
   }
 
-  window.requestAnimationFrame = window.requestAnimationFrame 
+  window.requestAnimationFrame = window.requestAnimationFrame
     || window.webkitRequestAnimationFrame
     || window.mozRequestAnimationFrame;
 
   $(document.body).attr({
     id: 'nooline'
   });
-
-  N.io = io.connect();
 
   N.$document = $(document);
 
@@ -83,9 +81,9 @@ define(function () {
 
         N.$document.on('components:complete', initializeContent);
       }
-      
+
     });
-    
+
   });
-  
+
 });
