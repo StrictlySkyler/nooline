@@ -17,7 +17,8 @@ module.exports = function postCategory (req, res) {
   var category = require('./get-category');
 
   req.info = {
-    next: saveContent
+    next: saveContent,
+    update: true
   };
 
   category(req, res);

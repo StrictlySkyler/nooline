@@ -54,6 +54,7 @@
       require('./remove');
       require('./save');
       require('./notify-saved');
+      require('./commit-version');
     };
   }
 

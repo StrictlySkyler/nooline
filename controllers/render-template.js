@@ -13,61 +13,44 @@
  */
 module.exports = function renderTemplate (content, info) {
   var error404 = require('../routes/error-404');
-  var siteConfig = './sites/' + info.domain + '/config/site.js';
-  var fs = require('fs');
+  var config = require(GLOBAL.__root
+    + '/sites/'
+    + info.domain
+    + '/config/site.json'
+  );
 
-  /**
-   * getSiteConfig
-   * Loads the config data for the site being requested.
-   *
-   * The site config file contains the location of the partials to use in the
-   * various templates.
-   *
-   * @param error {Object}  Yikes!  No site config?
-   * @param data  {String}  JS file containing site config data to eval.
-   * @return
-   */
-  fs.readFile(siteConfig, 'utf8', function getSiteConfig (error, data) {
+  content.currentYear = new Date().getFullYear();
+  content.partials = JSON.parse(JSON.stringify(config.partials));
+
+  if (config.mode === 'production') {
+    content.startPath = config.startPaths.production;
+
+  } else {
+    content.startPath = config.startPaths.debug;
+
+  }
+
+  info.res.render('sites/'
+    + info.domain
+    + '/views'
+    /**
+     * sendRendering
+     * Send a rendered template back to the client.
+     *
+     * Either we receive an error because the files don't exist, or we send
+     * the rendered template back to the client for it to hook onto.
+     *
+     * @param error {Object}  Missing template parts; partials perhaps?
+     * @param html  {String}  String of HTML populated with content.
+     * @return                None.
+     */
+    + info.template, content, function sendRendering (error, html) {
+
     if (error) {
-      throw error;
+      error404(error, info);
+    } else if (!info.query) {
+      info.res.send(html);
     }
-
-    data = eval(data);
-
-    content.currentYear = new Date().getFullYear();
-    content.partials = data.partials;
-
-    // TODO: Make this configurable.
-    if (data.mode === 'production') {
-      content.startPath = '/production/common/js/nooline/start';
-
-    } else {
-      content.startPath = '/common/js/nooline/start';
-
-    }
-    
-    info.res.render('sites/' 
-      + info.domain 
-      + '/views'
-      /**
-       * sendRendering
-       * Send a rendered template back to the client.
-       *
-       * Either we receive an error because the files don't exist, or we send
-       * the rendered template back to the client for it to hook onto.
-       *
-       * @param error {Object}  Missing template parts; partials perhaps?
-       * @param html  {String}  String of HTML populated with content.
-       * @return                None.
-       */
-      + info.template, content, function sendRendering (error, html) {
-
-      if (error) {
-        error404(error, info);
-      } else if (!info.query) {
-        info.res.send(html);
-      }
-    });
   });
-  
+
 };

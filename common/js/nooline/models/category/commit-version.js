@@ -10,18 +10,24 @@
 
   N.Models.Category.prototype.commitVersion = function (error) {
 
-    // TODO: Add versioning here.
-    // Cross-reference against when snippet is saved.
+    var git = require('gitty');
+    var repo = git(__root + '/sites/' + this.get('info').domain);
     var update = 'Index updated:  \n'
-      +'  Category: ' + this.get('type') + '\n'
-      +'  Snippet: ' + this.get('info').specific;
+      +'\tCategory: ' + this.get('type') + '\n'
+      +'\tSnippet: ' + this.get('info').specific;
+    var index = 'content/index.json';
+
+    this.set('repo', repo);
 
     if (error) {
       console.error(error);
     } else {
 
       console.log(update);
-      this.notifyClient({ committed: true });
+
+      this.get('filesUpdated').push(index);
+
+      this.notifyClient({ indexed: true });
     }
   };
 

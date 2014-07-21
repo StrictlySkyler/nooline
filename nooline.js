@@ -94,13 +94,13 @@ if (cluster.isMaster && !program.single) {
   nooline.set('views', __dirname + '/');
   nooline.set('redirect', 'nooline.org');
   nooline.set('EXPIRY', 3600000); // 1 hour = 3600000ms
-  nooline.set('prettyport', function() {
+  nooline.set('prettyport', (function() {
     if (nooline.settings.port !== 80 || nooline.settings.port !== 443) {
       return ':' + nooline.settings.port;
     } else {
       return '';
     }
-  }());
+  })());
 
   // Static gets
   nooline.get('/', routes.root);
@@ -120,9 +120,13 @@ if (cluster.isMaster && !program.single) {
   // Fire it up!
   server.listen(nooline.settings.port, function started () {
     if (!program.single) {
-      console.log('Nooline worker ' + cluster.worker.id + ' started listening on ' + nooline.settings.port);
+      console.log('Nooline worker '
+        + cluster.worker.id
+        + ' started listening on '
+        + nooline.settings.port);
     } else {
-      console.log('Nooline started listening single-threaded on ' + nooline.settings.port);
+      console.log('Nooline started listening single-threaded on '
+        + nooline.settings.port);
     }
 
   });

@@ -75,7 +75,9 @@
         endDate: '',
         endTime: '',
         headline: '',
-        index: this.collection ? this.collection.first().get('index') + 1 : null,
+        index: this.collection ?
+          this.collection.first().get('index') + 1
+          : null,
         prettyStartDate: '',
         prettyStartTime: '',
         published: true,

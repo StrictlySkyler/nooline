@@ -14,9 +14,9 @@
     var file = info.snippets + this.get('index') + '.json';
     var snippet = JSON.stringify(this.toJSON(), null, '\t');
 
-    console.log('Saving file: \n' + file);
+    console.log('Saving file: \n\t' + file);
 
-    fs.writeFile(file, snippet, (this.notifySaved).bind(this));
+    fs.writeFile(file, snippet, (this.commitVersion).bind(this));
   };
 
 });
