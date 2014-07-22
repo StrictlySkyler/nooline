@@ -2,14 +2,12 @@
 Nooline is a platform built for making content management utterly, starkly simple.  It supports multiple users and multiple sites right out of the box.
 It's scalable, fast, extensible, and written entirely in JavaScript.
 
-It is currently in a "stable alpha" development phase.
+It is currently in beta.
 
 ## Content Management is Dead, Long Live Content Management
 The era of page redirects, mandatory admin dashboards, and content "previews" is over.  Today's content demands that we be able to edit content where it exists on a page, as it looks when it's live, without barriers.  It demands that we shouldn't sacrifice SEO concerns for rich, asyncronous web interactions.  It demands that the framework shouldn't require a learning curve.
 
-An efficient framework doesn't need to sacrifice good architecture for extensibility or user experience, and vice-versa.
-
-Our time is too important to be mucking around with a framework's specific details.  We should be creating new things instead.
+An efficient framework doesn't need to sacrifice good architecture for extensibility or user experience, and vice-versa.  Our time is too important to be mucking around with a framework's specific details.  We should be creating new things instead.  This is what nooline aims to achieve.
 
 ## The Principles
 There is a core set of principles which guide how Nooline is built:
@@ -40,4 +38,15 @@ The following things are officially on the list of things which need doing, in n
 - ~~Broadcast events when content is loading at various points~~
 - ~~Content editing incrementing bug~~
 
-## ✌
+## Getting nooline
+
+Getting nooline running on your system is super easy.  You'll need the following things already installed on your system:
+
+- [node.js](nodejs.org)
+- [npm](npmjs.org)
+- [bower](bower.io)
+- [git](git-scm.com), if you intend to use nooline's default version control
+
+Once you have those things up and running, head on over to the [wiki](github.com/nooline/nooline/wiki) for the rest of the details!
+
+# ✌
