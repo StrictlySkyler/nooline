@@ -17,9 +17,8 @@
   "keywords": [
     "cms",
     "content",
-    "content management system",
-    "wordpress",
-    "drupal"
+    "WYSIWYG",
+    "content management system"
   ],
   "dependencies": {
     "backbone": "~1.1.0",
