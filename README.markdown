@@ -42,11 +42,11 @@ The following things are officially on the list of things which need doing, in n
 
 Getting nooline running on your system is super easy.  You'll need the following things already installed on your system:
 
-- [node.js](nodejs.org)
-- [npm](npmjs.org)
-- [bower](bower.io)
-- [git](git-scm.com), if you intend to use nooline's default version control
+- [node.js](http://nodejs.org)
+- [npm](http://npmjs.org)
+- [bower](http://bower.io)
+- [git](http://git-scm.com), if you intend to use nooline's default version control
 
-Once you have those things up and running, head on over to the [wiki](github.com/nooline/nooline/wiki) for the rest of the details!
+Once you have those things up and running, head on over to the [wiki](http://github.com/nooline/nooline/wiki) for the rest of the details!
 
 # ✌
