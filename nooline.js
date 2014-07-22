@@ -93,6 +93,8 @@ if (cluster.isMaster && !program.single) {
     }
   })());
 
+  // Handling for requests with www. and without
+  nooline.get('*', routes.www);
   // Static gets
   nooline.get('/', routes.root);
   nooline.get('/content-categories', routes.content);
