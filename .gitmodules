@@ -1,12 +1,3 @@
-[submodule "common/js/submodules/TimelineJS"]
-	path = common/js/submodules/TimelineJS
-	url = https://github.com/StrictlySkyler/TimelineJS
-[submodule "common/js/submodules/StoryJS-Core"]
-	path = common/js/submodules/StoryJS-Core
-	url = https://github.com/StrictlySkyler/StoryJS-Core
-[submodule "sites/nooline.org"]
-	path = sites/nooline.org
-	url = https://github.com/nooline/nooline.org.git
 [submodule "sites/nooline.default"]
 	path = sites/nooline.default
 	url = https://github.com/nooline/nooline.default.git
