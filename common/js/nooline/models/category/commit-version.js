@@ -10,8 +10,7 @@
 
   N.Models.Category.prototype.commitVersion = function (error) {
 
-    var git = require('gitty');
-    var repo = git(__root + '/sites/' + this.get('info').domain);
+    var repo = __root + '/sites/' + this.get('info').domain;
     var update = 'Index updated:  \n'
       +'\tCategory: ' + this.get('type') + '\n'
       +'\tSnippet: ' + this.get('info').specific;

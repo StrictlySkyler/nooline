@@ -9,31 +9,36 @@
   var N = this.Nooline;
 
   N.Models.Category.prototype.notifyClient = function (status) {
-    var branch;
+    var process;
     var repo;
+    var exec;
+    var files;
 
     function commit (error) {
       if (error) { throw error; }
 
-      repo.commit('User content update.', push);
+      var commitMessage = 'Content updated: ' + this.get('filesUpdated')[1];
+
+      process = exec('git commit -m "' + commitMessage + '"', {
+        cwd: repo
+      }, push);
+
     }
 
     function push (error) {
       if (error) { throw error; }
 
-      repo.branches(function (error, branches) {
-        if (error) { throw error; }
+      process = exec('git push', {
+        cwd: repo
+      }, logResults);
 
-        branch = branches.current;
+    }
 
-        console.log('Pushing branch:', branch, '\n\tto repo:', repo.name);
+    function logResults (error) {
 
-        repo.push('origin', branch, function (error) {
-          if (error) { throw error; }
-
-          console.log("Successful push:", repo.name);
-        });
-      });
+      console.log('Content update successfully pushed:\n\t'
+        + files.replace(' ', '\n\t')
+      );
     }
 
     if (status.indexed) {
@@ -49,8 +54,12 @@
     if (this.get('indexed') && this.get('saved')) {
 
       repo = this.get('repo');
+      exec = require('child_process').exec;
+      files = this.get('filesUpdated').join(' ');
 
-      repo.add(this.get('filesUpdated'), commit);
+      process = exec('git add ' + files, {
+        cwd: repo
+      }, commit.bind(this));
 
       this.get('info').res.send(200);
     }

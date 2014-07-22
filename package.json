@@ -1,7 +1,7 @@
 {
   "name": "nooline",
   "preferGlobal": "false",
-  "version": "0.6.12",
+  "version": "0.6.13",
   "author": "Skyler Brungardt <skyler.brungardt@gmail.com> (skylerbrungardt.com)",
   "description": "Content made easy peasy ✌",
   "contributors": [],
@@ -28,7 +28,6 @@
     "consolidate": "~0.9.1",
     "crypto-js": "~3.1.2",
     "express": "~3.2.5",
-    "gitty": "~1.2.5",
     "grunt": "^0.4.5",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-mocha-test": "^0.10.2",
