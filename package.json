@@ -1,9 +1,9 @@
 {
   "name": "nooline",
   "preferGlobal": "false",
-  "version": "0.2.0",
+  "version": "0.6.12",
   "author": "Skyler Brungardt <skyler.brungardt@gmail.com> (skylerbrungardt.com)",
-  "description": "A CMS to tell the story you want to tell.",
+  "description": "Content made easy peasy ✌",
   "contributors": [],
   "bin": {},
   "scripts": {
