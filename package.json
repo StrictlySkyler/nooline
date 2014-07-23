@@ -27,6 +27,7 @@
     "commander": "~2.0.0",
     "consolidate": "~0.9.1",
     "crypto-js": "~3.1.2",
+    "esprima": "^1.2.2",
     "express": "~3.2.5",
     "grunt": "^0.4.5",
     "grunt-contrib-requirejs": "^0.4.4",
@@ -35,12 +36,14 @@
     "jquery": "~2.1.1",
     "jsdom": "^0.11.1",
     "mocha": "^1.20.0",
+    "mocha-lcov-reporter": "0.0.1",
     "moment": "~2.3.1",
     "node-uuid": "~1.4.1",
     "require-directory": ">= 1.0.0",
     "requirejs": "~2.1.9",
     "rss": "~0.2.1",
-    "underscore": ">= 1.4.4"
+    "underscore": ">= 1.4.4",
+    "xtend": "^3.0.0"
   },
   "noAnalyze": false,
   "devDependencies": {},

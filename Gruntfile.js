@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         options: {
           reporter: 'spec',
           // Require blanket wrapper here to instrument other required
-          // files on the fly. 
+          // files on the fly.
           //
           // NB. We cannot require blanket directly as it
           // detects that we are not running mocha cli and loads differently.
@@ -22,12 +22,12 @@ module.exports = function(grunt) {
       },
       coverage: {
         options: {
-          reporter: 'html-cov',
+          reporter: 'mocha-lcov-reporter',
           // use the quiet flag to suppress the mocha console output
           quiet: true,
           // specify a destination file to capture the mocha
           // output (the quiet option does not suppress this)
-          captureFile: 'coverage/coverage.html'
+          captureFile: 'coverage/coverage.lcov'
         },
         src: ['tests/**/*.js']
       }
