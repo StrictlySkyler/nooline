@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/hash-this',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * hashThis
    * Hash a string.
@@ -12,13 +19,13 @@ define(function () {
    * @return        {String}  The hashed, encoded string.
    */
   N.hashThis = function hashThis (string) {
-    
+
     var hash = Crypto.SHA3(string);
-    
+
     var encoded = hash.toString(Crypto.enc.Base64);
-    
+
     return encoded;
-    
+
   };
-  
+
 });

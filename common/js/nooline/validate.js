@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/validate',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * validate
    * Make sure input is correct.
@@ -13,7 +20,7 @@ define(function () {
    * @return        {Boolean} Whether vaidation passes or not.
    */
   N.validate = function validate (strings) {
-    
+
     var rules = {
       /**
        * username
@@ -23,12 +30,12 @@ define(function () {
        * @return        {Boolean} True if string passes, or undefined.
        */
       username: function (string) {
-        if ((string.length > 2) 
+        if ((string.length > 2)
           && (/^[\w\d\s]+$/.test(string))) {
           return true;
         }
       },
-      
+
       /**
        * password
        * Minimum of 12 chars, alphanumeric + symbols and spaces.
@@ -43,7 +50,7 @@ define(function () {
         }
       }
     };
-    
+
     /**
      * checkRules
      * Checks the rules against every matching type of validation test.
@@ -53,20 +60,20 @@ define(function () {
      * @return        {Boolean} True if all strings pass, otherwise false.
      */
     var valid = _.every(strings, function checkRules (string, test) {
-      
+
       if (rules[test]) {
-        
+
         return rules[test](string);
-        
+
       } else {
-        
+
         return false;
-        
+
       }
     });
-    
+
     return valid;
-    
+
   };
-  
+
 });

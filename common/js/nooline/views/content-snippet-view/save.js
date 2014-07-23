@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/save',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * save
    * Save updated content.
@@ -13,7 +20,7 @@ define(function () {
    * @return  None.
    */
   N.Views.ContentSnippetView.prototype.save = function () {
-    
+
     var user = JSON.parse(sessionStorage.getItem('lastLoginAttempt')).username;
     var now = window.moment();
     var prettyDate = now.format('dddd, MMMM Mo, YYYY');
@@ -34,6 +41,6 @@ define(function () {
     });
   };
 
-  return 'views/content-snippet-view/save';
+  // return 'views/content-snippet-view/save';
 
 });

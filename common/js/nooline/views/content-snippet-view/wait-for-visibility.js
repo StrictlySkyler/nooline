@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/wait-for-visibility',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * waitForVisibility
    * For snippets in the Timeline, wait until visible.
@@ -34,6 +41,6 @@ define(function () {
 
   };
 
-  return 'views/content-snippet-view/wait-for-visibility';
+  // return 'views/content-snippet-view/wait-for-visibility';
 
 });

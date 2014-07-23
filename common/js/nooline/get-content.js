@@ -1,5 +1,12 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/get-content',
+  ['node_modules/backbone/backbone'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
 
   // TODO: Swap this for Backbone.sync eventually.
@@ -45,21 +52,12 @@ define(function () {
         silent: true // No render yet - not finished building the element.
       });
     });
-    
+
     category.set('snippets', snippets);
 
     N.contentCategories.add(category);
 
   }
-
-  require([
-    'common/js/nooline/collections/content-categories',
-    'common/js/nooline/collections/snippets',
-    'common/js/nooline/models/category',
-    'common/js/nooline/models/content-snippet',
-    'common/js/nooline/views/category-view',
-    'common/js/nooline/views/content-snippet-view'
-  ]);
 
   /**
    * getContent
@@ -69,21 +67,21 @@ define(function () {
    * at bootup.
    *
    * @param meta  {Object}    Data about which types of categories we want.
-   * @param next  {Function}  Any other function to call on the content, in 
+   * @param next  {Function}  Any other function to call on the content, in
    *                          addition to parsing it.
    *                          TODO: Make this a list.
    * @return
    */
   N.getContent = function (meta, next) {
-    
+
     $.get('/content-categories', meta, function parseResults (data) {
       data = JSON.parse(data);
-      
+
       if (next) {
         next(data);
       }
       parseContent(data);
     });
   };
-  
+
 });

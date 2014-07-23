@@ -13,6 +13,7 @@
     var repo;
     var exec;
     var files;
+    var config;
 
     function commit (error) {
       if (error) { throw error; }
@@ -35,6 +36,7 @@
     }
 
     function logResults (error) {
+      if (error) { throw error; }
 
       console.log('Content update successfully pushed:\n\t'
         + files.replace(' ', '\n\t')
@@ -54,12 +56,16 @@
     if (this.get('indexed') && this.get('saved')) {
 
       repo = this.get('repo');
+      config = require(repo + '/config/site.json');
       exec = require('child_process').exec;
       files = this.get('filesUpdated').join(' ');
 
-      process = exec('git add ' + files, {
-        cwd: repo
-      }, commit.bind(this));
+      if (config.mode !== 'debug') {
+
+        process = exec('git add ' + files, {
+          cwd: repo
+        }, commit.bind(this));
+      }
 
       this.get('info').res.send(200);
     }

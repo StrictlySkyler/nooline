@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/set-options',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * setOptions
    * Set view options.
@@ -39,12 +46,12 @@ define(function () {
         break;
 
     }
-    
+
     this.trigger('options:change');
 
     return value;
   };
 
-  return 'views/content-snippet-view/set-options';
+  // return 'views/content-snippet-view/set-options';
 
 });

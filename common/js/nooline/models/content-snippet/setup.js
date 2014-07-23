@@ -18,8 +18,6 @@
       'models/content-snippet/remove'
     ];
 
-    N.componentsLoading = N.componentsLoading || [];
-
     N.componentsLoading = N.componentsLoading.concat(components);
 
     require([

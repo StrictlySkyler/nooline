@@ -4,11 +4,14 @@
   : function(name, deps, func) {
     exports = module.exports = func();
   }
-}).define('common/js/nooline/collections/content-categories', [], function () {
+}).define('common/js/nooline/collections/content-categories', [
+    'node_modules/backbone/backbone'
+  ], function () {
 
   var root = this;
   var N = root.Nooline = root.Nooline || {};
   var Backbone = root.Backbone || require('backbone');
+  var component = ['common/js/nooline/collections/content-categories/setup'];
 
   /**
    * @collection ContentCategories
@@ -52,7 +55,18 @@
 
   } else {
 
-    require(['common/js/nooline/collections/content-categories/setup']);
+    N.componentsLoading.concat(component);
+    require(
+      ['common/js/nooline/collections/content-categories/setup'],
+      function removeLoaded () {
+
+      N.componentsLoading = _.difference(N.componentsLoading, component);
+
+      if (!N.componentsLoading.length) {
+        N.$document.trigger('components:complete');
+      }
+
+    });
 
   }
 

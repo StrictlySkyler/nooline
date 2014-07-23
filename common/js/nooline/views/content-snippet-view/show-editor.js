@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/show-editor',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * showEditor
    * Show the WYSIWYG editor.
@@ -15,22 +22,9 @@ define(function () {
   N.Views.ContentSnippetView.prototype.showEditor = function () {
 
     var id = this.$el.attr('id');
-    var offset;
+    var offset = 0;
 
-    if (this.model.get('type') === 'timeline') {
-
-      this.$editableElement = this.$el.find('.container').attr({
-        id: id + '-container'
-      });
-
-      offset = 100;
-
-    } else {
-
-      this.$editableElement = this.$el.children('#' + id + '-article');
-
-      offset = 0;
-    }
+    this.$editableElement = this.$el.children('#' + id + '-article');
 
     this.$el.addClass('editing');
 
@@ -44,12 +38,12 @@ define(function () {
     }
 
     this.$edit.addClass('hidden');
+    this.$unpublish.addClass('hidden');
 
     this.$commit.removeClass('hidden');
-
     this.$cancel.removeClass('hidden');
   };
 
-  return 'views/content-snippet-view/show-editor';
+  // return 'views/content-snippet-view/show-editor';
 
 });

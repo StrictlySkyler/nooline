@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/start-editing',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * startEditing
    * Notify the View to start editing.
@@ -12,10 +19,10 @@ define(function () {
    * @return
    */
   N.Views.ContentSnippetView.prototype.startEditing = function () {
-    
+
     this.trigger('editor:enable');
   };
 
-  return 'views/content-snippet-view/start-editing';
+  // return 'views/content-snippet-view/start-editing';
 
 });

@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/receive-login',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * receiveLogin
    * Deal with login attempt response from server.
@@ -13,15 +20,15 @@ define(function () {
    * @return                None.
    */
   N.receiveLogin = function receiveLogin (data) {
-    
+
     console.log('...Response received.  Status is:', data.status);
-    
+
     if (data.status !== 'success') {
-      
+
       N.rejectLogin(N.$activeLogin);
-      
+
     } else {
-      
+
       require([
         'common/js/nooline/build-controls',
         'common/js/nooline/logout',
@@ -32,10 +39,10 @@ define(function () {
         N.showLoginSuccess(data);
 
       });
-      
-      
+
+
     }
-    
+
   };
-  
+
 });

@@ -1,14 +1,21 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/commit-changes',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * commitChanges
    * Save the changes the user made.
    *
-   * This commits the current state of the editable content snippet to the 
-   * data model, and disables editing on that snippet.  That content will 
+   * This commits the current state of the editable content snippet to the
+   * data model, and disables editing on that snippet.  That content will
    * then be saved to storage.
    *
    * @return  None.
@@ -19,6 +26,6 @@ define(function () {
 
   };
 
-  return 'views/content-snippet-view/commit-changes';
+  // return 'views/content-snippet-view/commit-changes';
 
 });

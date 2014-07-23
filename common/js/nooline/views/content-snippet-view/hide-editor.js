@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/hide-editor',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * hideEditor
    * Hide the WYSIWYG.
@@ -31,13 +38,13 @@ define(function () {
     this.$el.removeClass('editing');
 
     this.$commit.addClass('hidden');
-
     this.$cancel.addClass('hidden');
 
     this.$edit.removeClass('hidden');
+    this.$unpublish.removeClass('hidden');
 
   };
 
-  return 'views/content-snippet-view/hide-editor';
+  // return 'views/content-snippet-view/hide-editor';
 
 });

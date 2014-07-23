@@ -1,7 +1,14 @@
 
-define(function () {
-  var N = window.Nooline;
-    
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/setup',
+  [],
+  function () {
+  var N = this.Nooline;
+
   var components = [
     'views/content-snippet-view/bind-events',
     'views/content-snippet-view/set-options',
@@ -17,10 +24,10 @@ define(function () {
     'views/content-snippet-view/save',
     'views/content-snippet-view/create',
     'views/content-snippet-view/wait-for-visibility',
-    'views/content-snippet-view/remove'
+    'views/content-snippet-view/remove',
+    'views/content-snippet-view/unpublish-content',
+    'views/content-snippet-view/verify'
   ];
-
-  N.componentsLoading = N.componentsLoading || [];
 
   N.componentsLoading = N.componentsLoading.concat(components);
 
@@ -39,7 +46,9 @@ define(function () {
     'common/js/nooline/views/content-snippet-view/save',
     'common/js/nooline/views/content-snippet-view/create',
     'common/js/nooline/views/content-snippet-view/wait-for-visibility',
-    'common/js/nooline/views/content-snippet-view/remove'
+    'common/js/nooline/views/content-snippet-view/remove',
+    'common/js/nooline/views/content-snippet-view/unpublish-content',
+    'common/js/nooline/views/content-snippet-view/verify'
   /**
    * removeLoaded
    * Remove loaded components from the queue.
@@ -50,7 +59,7 @@ define(function () {
    *
    * @return  None.
    */
-  ], function removeLoaded () {
+  ], function removeLoaded (foo) {
 
     N.componentsLoading = _.difference(N.componentsLoading, components);
 
@@ -58,5 +67,5 @@ define(function () {
       N.$document.trigger('components:complete');
     }
   });
-  
+
 });

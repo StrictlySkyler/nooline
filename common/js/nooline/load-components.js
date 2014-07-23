@@ -1,5 +1,20 @@
-
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/load-components',
+  [
+  'node_modules/jquery/dist/jquery',
+  'common/js/nooline/get-content',
+  'common/js/nooline/collections/content-categories',
+  'common/js/nooline/collections/snippets',
+  'common/js/nooline/models/category',
+  'common/js/nooline/models/content-snippet',
+  'common/js/nooline/views/category-view',
+  'common/js/nooline/views/content-snippet-view'
+  ],
+  function () {
 
   var N = window.Nooline;
   var $placeholder;
@@ -25,13 +40,28 @@ define(function () {
 
     N.contentCategories = new N.Collections.ContentCategories();
 
-    if ($placeholder.length) {
-      $('#timeline-placeholder').remove();
+    N.getContent({type: 'scroll'});
 
-      N.getContent({type: 'timeline'}, N.buildTimeline);
+    autoLogin();
+  }
+
+  function autoLogin () {
+    var lastLoginAttempt;
+    var timediff;
+
+    if (sessionStorage.lastLoginAttempt) {
+      lastLoginAttempt = JSON.parse(sessionStorage.lastLoginAttempt);
+      timediff = Date.now() - lastLoginAttempt.timestamp;
     }
 
-    N.getContent({type: 'scroll'});
+    if (timediff < N.settings.EXPIRY) {
+
+      N.postLogin(
+        lastLoginAttempt.username,
+        lastLoginAttempt.password,
+        'initial'
+      );
+    }
   }
 
   window.requestAnimationFrame = window.requestAnimationFrame
@@ -46,43 +76,13 @@ define(function () {
 
   $.get('/bootstrap', function bootstrap (data) {
 
-    $placeholder = $('#timeline-placeholder');
-
     N.settings = data.bootstrap.settings;
     sessionStorage.settings = JSON.stringify(data.bootstrap.settings);
 
     N.controls = data.controls;
     localStorage.controls = JSON.stringify(data.controls);
 
-    N.componentsLoading = N.componentsLoading || [];
-
-    require([
-      'common/js/nooline/show-login-panel',
-      'common/js/nooline/close-section',
-      'common/js/nooline/build-timeline',
-      'common/js/nooline/attempt-login',
-      'common/js/nooline/assign-listeners'
-    /**
-     * setup
-     * Setup the content we've loaded.
-     *
-     * When the components have all finished loading, they'll have removed
-     * themselves from the `componentsLoading` queue, and we can init the
-     * content.  Otherwise we listen until that happens, and do it then.
-     *
-     * @return  None.
-     */
-    ], function setup() {
-
-      if (!N.componentsLoading.length) {
-
-        initializeContent();
-      } else {
-
-        N.$document.on('components:complete', initializeContent);
-      }
-
-    });
+    N.$document.on('components:complete', initializeContent);
 
   });
 

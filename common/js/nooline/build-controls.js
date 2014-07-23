@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/build-controls',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * buildControls
    * Build out controls for a logged in user.
@@ -15,6 +22,7 @@ define(function () {
   N.buildControls = function buildControls (data) {
 
     var allSnippets = N.contentCategories.findAllContent();
+    var permissions = {};
 
     require([
       // TODO: Wrap this into an extension to allow for swapping out WYSIWYGs.
@@ -38,7 +46,7 @@ define(function () {
         snippet.trigger('login');
       });
     });
-  
+
     /**
      * addPermission
      * Adds the user's permissions to the client.
@@ -50,7 +58,9 @@ define(function () {
      */
     _.each(data.permissions, function addPermission (permission) {
 
-      _.each(N.controls['control-locations'], 
+      permissions[permission] = true;
+
+      _.each(N.controls['control-locations'],
         /**
          * addControl
          * Adds controls to the DOM.
@@ -100,16 +110,18 @@ define(function () {
             $container.removeClass('hidden');
           });
         }
-        
+
         if ($button) {
           $button.prependTo($container);
 
         }
-        
+
       });
-      
+
     });
-    
+
+    sessionStorage.permissions = JSON.stringify(permissions);
+
   };
-  
+
 });

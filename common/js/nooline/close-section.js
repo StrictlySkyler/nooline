@@ -1,8 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/close-section',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
-  
   var N = window.Nooline;
-    
+
   /**
    * closeSection
    * Hide a section panel.
@@ -13,7 +19,7 @@ define(function () {
    * @return            None.
    */
   N.closeSection = function closeSection (e) {
-  
+
     $(e.target)
       .parents('section')
       .addClass('hidden')
@@ -23,10 +29,10 @@ define(function () {
        *
        */
       .one('transitionend webkitTransitionEnd', function removeSection () {
-        
+
         $(this).remove();
     });
-  
+
   };
-    
+
 });

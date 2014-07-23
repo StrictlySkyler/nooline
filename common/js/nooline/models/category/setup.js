@@ -21,8 +21,6 @@
       'models/category/count-snippets'
     ];
 
-    N.componentsLoading = N.componentsLoading || [];
-
     N.componentsLoading = N.componentsLoading.concat(components);
 
     require([

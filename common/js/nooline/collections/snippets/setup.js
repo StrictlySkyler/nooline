@@ -14,8 +14,6 @@
       'collections/snippets/bind-events'
     ];
 
-    N.componentsLoading = N.componentsLoading || [];
-
     N.componentsLoading = N.componentsLoading.concat(components);
 
     require([
