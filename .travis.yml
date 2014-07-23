@@ -5,6 +5,6 @@ node_js:
 before_script:
   - npm install grunt-cli -g
   - npm install -g codeclimate-test-reporter
-  - CODECLIMATE_REPO_TOKEN=9e75e75279a10021149961d0320ae1ead2594caa43e1c19c33c7b6e7ca6a72b1
 after_script:
+  - export CODECLIMATE_REPO_TOKEN=9e75e75279a10021149961d0320ae1ead2594caa43e1c19c33c7b6e7ca6a72b1 
   - codeclimate < coverage/coverage.lcov
