@@ -24,19 +24,8 @@ Nooline is built Isomorphically – that is to say, much of its code can execute
 Under the hood, Nooline uses a simple, extensible stack: Express, Backbone, and RequireJS.
 
 ## Want to contribute?
-The following things are officially on the list of things which need doing, in no particular order:
 
-- Abstract the Timeline into a plugin
-- Create a plugin-management panel
-- Add behavior for editing and creating sites
-- Enable content creation on a page which has none currently
-- Finer grain edited controls (added vs. edited, preview, etc.)
-- Wire up widgets for user creation and management
-- User roles & permissions
-- Published/Unpublished for snippets
-- Better timeout & security checks
-- ~~Broadcast events when content is loading at various points~~
-- ~~Content editing incrementing bug~~
+All hands are welcome!  Head on over to the [milestones](https://github.com/nooline/nooline/issues/milestones) and pick something that interests you.  Or submit a pull request for an idea you have!
 
 ## Getting nooline
 
