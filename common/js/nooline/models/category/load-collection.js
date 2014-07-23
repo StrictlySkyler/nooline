@@ -25,7 +25,7 @@
       fs = require('fs');
       contentPath = __root + '/sites/' + info.req.host + '/content';
       category = type || info.req.query.type || info.categories[0];
-      Snippets = require('../../collections/snippets');
+      Snippets = require(__root + '/common/js/nooline/collections/snippets');
       info.index = contentPath + '/index.json';
       info.snippets = contentPath + '/snippets/';
 
