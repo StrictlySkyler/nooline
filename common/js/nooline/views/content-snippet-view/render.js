@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/render',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * render
    * Show updates from the Model.
@@ -18,8 +25,8 @@ define(function () {
       this.create();
       return;
     }
-    
-    if (this.getOption('editable') 
+
+    if (this.getOption('editable')
       && this.getOption('editor') === undefined) {
 
       this.enableEditing();
@@ -30,20 +37,25 @@ define(function () {
     }
 
     if (this.getOption('editor')) {
-      
+
       this.showEditor();
-      
+
     } else if (this.getOption('editor') === false) {
 
       this.hideEditor();
     }
 
     if (this.getOption('added')) {
-      
+
       this.waitForVisibility(this);
+    }
+
+    if (this.getOption('verify')) {
+
+      this.verify();
     }
   };
 
-  return 'views/content-snippet-view/render';
+  // return 'views/content-snippet-view/render';
 
 });

@@ -4,11 +4,14 @@
   : function(name, deps, func) {
     exports = module.exports = func();
   }
-}).define('common/js/nooline/collections/snippets', [], function (){
+}).define('common/js/nooline/collections/snippets', [
+    'node_modules/backbone/backbone'
+  ], function (){
 
   var root = this;
   var N = root.Nooline = root.Nooline || {};
   var Backbone = root.Backbone || require('backbone');
+  var component = ['common/js/nooline/collections/snippets/setup'];
 
   /**
    * @collection Snippets
@@ -63,7 +66,17 @@
 
   } else {
 
-    require(['common/js/nooline/collections/snippets/setup']);
+    N.componentsLoading.concat(component);
+    require(
+      ['common/js/nooline/collections/snippets/setup'],
+      function removeLoaded () {
+
+      N.componentsLoading = _.difference(N.componentsLoading, component);
+
+      if (!N.componentsLoading.length) {
+        N.$document.trigger('components:complete');
+      }
+    });
 
   }
 

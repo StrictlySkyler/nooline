@@ -4,12 +4,15 @@
   : function(name, deps, func) {
     exports = module.exports = func();
   }
-}).define('common/js/nooline/models/category', [], function () {
+}).define('common/js/nooline/models/category', [
+    'node_modules/backbone/backbone'
+  ], function () {
 
   var root = this;
   var N = root.Nooline = root.Nooline || {};
   var Backbone = root.Backbone || require('backbone');
   var CategoryView;
+  var component = ['common/js/nooline/models/category/setup'];
 
   /**
    * @model Category
@@ -74,10 +77,20 @@
 
   } else {
 
-    require(['common/js/nooline/models/category/setup']);
+    N.componentsLoading.concat(component);
+    require(
+      ['common/js/nooline/models/category/setup'],
+      function removeLoaded () {
+
+      N.componentsLoading = _.difference(N.componentsLoading, component);
+
+      if (!N.componentsLoading.length) {
+        N.$document.trigger('components:complete');
+      }
+    });
 
   }
 
-  return 'models/category';
+  // return 'models/category';
 
 });

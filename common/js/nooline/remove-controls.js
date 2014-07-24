@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/remove-controls',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * removeControls
    * Remove the controls present on each snippet.
@@ -24,7 +31,7 @@ define(function () {
     allSnippets.each(function notifyEachSnippet (snippet) {
       snippet.trigger('logout');
     });
-    
+
   };
-  
+
 });

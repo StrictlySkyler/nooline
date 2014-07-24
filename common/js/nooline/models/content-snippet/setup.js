@@ -18,8 +18,6 @@
       'models/content-snippet/remove'
     ];
 
-    N.componentsLoading = N.componentsLoading || [];
-
     N.componentsLoading = N.componentsLoading.concat(components);
 
     require([
@@ -27,7 +25,8 @@
       'common/js/nooline/models/content-snippet/enable-editing',
       'common/js/nooline/models/content-snippet/disable-editing',
       'common/js/nooline/models/content-snippet/create',
-      'common/js/nooline/models/content-snippet/remove'
+      'common/js/nooline/models/content-snippet/remove',
+      'common/js/nooline/models/content-snippet/unpublish'
     /**
      * removeLoaded
      * Remove loaded components from the queue.
@@ -55,6 +54,7 @@
       require('./save');
       require('./notify-saved');
       require('./commit-version');
+      require('./unpublish');
     };
   }
 

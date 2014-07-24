@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/create',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * create
    * Add a new piece of content.
@@ -18,8 +25,8 @@ define(function () {
     var category = this.model.get('type');
     var $el;
     var $article;
-    var headline = '<h3 class="headline">' 
-      + this.model.get('headline') 
+    var headline = '<h3 class="headline">'
+      + this.model.get('headline')
       + '</h3>';
     var text = '<p class="text">' + this.model.get('text') + '</p>';
 
@@ -53,6 +60,6 @@ define(function () {
 
   };
 
-  return 'views/content-snippet-view/create';
+  // return 'views/content-snippet-view/create';
 
 });

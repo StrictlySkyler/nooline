@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/reject-login',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * rejectLogin
    * Reject the user login attempt.
@@ -24,13 +31,13 @@ define(function () {
 
     var $error = $('<p class="error-message hidden"></p>')
       .html(message);
-    
+
     $section
       .addClass('invalid')
       .append($error);
-    
+
     console.log('Credentials rejected.');
-    
+
     /**
      * showError
      * Unhide the error, animating it in if applicable.
@@ -39,9 +46,9 @@ define(function () {
      */
     setTimeout(function showError () {
       $error.removeClass('hidden');
-      
+
       delete N.$activeLogin;
     }, 0);
   };
-  
+
 });

@@ -31,6 +31,8 @@
       'save': this.save
 
     });
+
+    this.listenTo(this.view, 'unpublish', this.unpublish);
   };
 
   // For r.js assembly.

@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/show-login-panel',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * showLoginPanel
    * Creates a login panel.
@@ -13,10 +20,10 @@ define(function () {
    * @return            None.
    */
   N.showLoginPanel = function showLoginPanel (e) {
-    
+
     var $loginButton = $(e.target);
     var $panel = $('<section id="main-login" class="login hidden"></section>');
-    
+
     require([
       'node_modules/crypto-js/core',
       'node_modules/crypto-js/sha3',
@@ -37,9 +44,9 @@ define(function () {
      * @return                  None.
      */
     ], function buildInternals (Crypto) {
-      
+
       window.Crypto = Crypto;
-      
+
       /**
        * revealPanel
        * Reveals the login panel, allowing for animations.
@@ -51,7 +58,7 @@ define(function () {
           .on({
             /**
              * removeHighlight
-             * Removes the highlight, if present, from the close-section 
+             * Removes the highlight, if present, from the close-section
              * button.
              *
              */
@@ -61,16 +68,16 @@ define(function () {
           }, '.close-section-button');
       });
     });
-    
+
     if ($loginButton.hasClass('active')) {
       console.log('This section is already open.');
-      
+
       return false;
     }
-    
+
     $loginButton
       .addClass('active');
-    
+
     $panel
       .append('<form class="login-form form"></form>')
       .children('.login-form')
@@ -80,24 +87,24 @@ define(function () {
         + 'name="username-input" type="text" placeholder="Who are you?">')
       .append('<label class="login-form label" '
         + 'for="password-input">Password:</label>')
-      .append('<input class="login-form input password" ' 
+      .append('<input class="login-form input password" '
         + 'name="password-input" type="password" placeholder="It\'s a secret!">')
       .append('<button class="go-button button" '
         + 'title="Go!">Login</button>')
       .append('<button class="close-section-button button" '
         + 'title="Cancel">Close Login Section</button>');
-    
+
     if (N.settings['allow-signup']) {
       $panel
         .children('.login-form')
         .append('<button class="create-account-button button"'
         + 'title="Want to make an account?">Create Account</button>');
     }
-    
+
     // TODO: Make this a configurable element, allowing it to appear in other
     // places on the page.
     $panel.appendTo('#global-header');
-    
+
   };
-  
+
 });

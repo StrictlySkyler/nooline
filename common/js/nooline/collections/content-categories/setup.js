@@ -1,18 +1,18 @@
 // Boilerplate for AMD and CJS isomorphism.
 ({ define: typeof define === "function"
   ? define
-  : function(name, deps, func) { 
-    exports = module.exports = func(); 
-  } 
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
 }).define(
-  'common/js/nooline/collections/content-categories/setup', 
-  [], 
+  'common/js/nooline/collections/content-categories/setup',
+  [],
   function () {
-  
+
   var N = this.Nooline;
 
   if (typeof document !== 'undefined') {
-    
+
     var components = [
       'collections/content-categories/bind-events',
       'collections/content-categories/find-all-content',
@@ -20,8 +20,6 @@
       'collections/content-categories/report-category',
       'collections/content-categories/render-categories'
     ];
-
-    N.componentsLoading = N.componentsLoading || [];
 
     N.componentsLoading = N.componentsLoading.concat(components);
 

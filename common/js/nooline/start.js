@@ -32,55 +32,30 @@
         },
         'node_modules/underscore/underscore': {
           exports: '_'
-        },
-        'common/js/submodules/StoryJS-Core/VMM.StoryJS': {
-          deps: [
-            'common/js/submodules/StoryJS-Core/Core/VMM.Browser',
-            'common/js/submodules/StoryJS-Core/Core/VMM.Core',
-            'common/js/submodules/StoryJS-Core/Core/VMM.Date',
-            'common/js/submodules/StoryJS-Core/Core/VMM.FileExtention',
-            'common/js/submodules/StoryJS-Core/Core/VMM',
-            'common/js/submodules/StoryJS-Core/Core/VMM.Library',
-            'common/js/submodules/StoryJS-Core/Core/VMM.LoadLib',
-            'common/js/submodules/StoryJS-Core/Core/VMM.Util',
-            'common/js/submodules/StoryJS-Core/Embed/Embed',
-            'common/js/submodules/StoryJS-Core/Embed/Embed.LoadLib',
-            'common/js/submodules/TimelineJS/compiled/js/timeline',
-            'common/js/submodules/StoryJS-Core/Library/LazyLoad'
-          ]
-        },
-        'common/js/nooline/build-timeline': {
-          deps: [
-            'common/js/submodules/StoryJS-Core/VMM.StoryJS',
-          ]
-        },
-        'common/js/nooline/load-components': {
-          deps: [
-            'node_modules/jquery/dist/jquery',
-            'common/js/nooline/get-content'
-          ]
-        },
-        'common/js/nooline/get-content': {
-          deps: [
-            'node_modules/backbone/backbone'
-          ]
-        },
-        'common/js/nooline/models/content-snippet': {
-          deps: [
-            'node_modules/node-uuid/uuid'
-          ]
         }
       }
     });
 
-    // Also see load-components.js.
     require([
       'node_modules/jquery/dist/jquery',
       'common/js/bower/modernizr/modernizr',
-      'common/js/submodules/StoryJS-Core/VMM.StoryJS',
-      'common/js/nooline/get-content',
-      'common/js/nooline/error-handler',
       'common/js/nooline/load-components',
+      'common/js/nooline/get-content',
+      'common/js/nooline/collections/content-categories',
+      'common/js/nooline/collections/snippets',
+      'common/js/nooline/models/category',
+      'common/js/nooline/models/content-snippet',
+      'common/js/nooline/views/category-view',
+      'common/js/nooline/views/content-snippet-view',
+      'common/js/nooline/error-handler',
+      'common/js/nooline/show-login-panel',
+      'common/js/nooline/close-section',
+      'common/js/nooline/attempt-login',
+      'common/js/nooline/assign-listeners',
+      'common/js/nooline/validate',
+      'common/js/nooline/reject-login',
+      'common/js/nooline/post-login',
+      'common/js/nooline/receive-login'
     ]);
 
     // For those modules which explicitly require definition via AMD.
@@ -113,5 +88,6 @@
   }
 
   window.Nooline = new Nooline();
+  window.Nooline.componentsLoading = [];
 
 }());

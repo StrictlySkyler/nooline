@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/logout',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * logout
    * Log the user out.

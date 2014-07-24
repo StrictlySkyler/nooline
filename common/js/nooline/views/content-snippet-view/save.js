@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/save',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * save
    * Save updated content.
@@ -13,7 +20,7 @@ define(function () {
    * @return  None.
    */
   N.Views.ContentSnippetView.prototype.save = function () {
-    
+
     var user = JSON.parse(sessionStorage.getItem('lastLoginAttempt')).username;
     var now = window.moment();
     var prettyDate = now.format('dddd, MMMM Mo, YYYY');
@@ -21,9 +28,7 @@ define(function () {
     var date = now.format('YYYY,M,D');
     var time = now.format('HH:m:s');
 
-    this.setOptions('saved', true);
-
-    this.model.save({
+    this.model.set({
       headline: this.$editableElement.children('.headline').text(),
       text: this.$editableElement.children('.text').html(),
       author: user,
@@ -32,8 +37,15 @@ define(function () {
       startDate: date,
       startTime: time
     });
+
+    // TODO: We can do better than just always a post.
+    this.model.sync('create', this.model);
+
+    this.setOptions({
+      saved: true
+    });
   };
 
-  return 'views/content-snippet-view/save';
+  // return 'views/content-snippet-view/save';
 
 });

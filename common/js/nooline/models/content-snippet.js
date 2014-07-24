@@ -5,7 +5,8 @@
     exports = module.exports = func();
   }
 }).define('common/js/nooline/models/content-snippet', [
-    'node_modules/node-uuid/uuid'
+    'node_modules/node-uuid/uuid',
+    'node_modules/backbone/backbone'
   ], function () {
 
     var root = this;
@@ -13,6 +14,7 @@
     var Backbone = root.Backbone || require('backbone');
     var ContentSnippetView;
     var uuid = root.uuid || require('node-uuid');
+    var component  = ['common/js/nooline/models/content-snippet/setup'];
 
     /**
      * @model ContentSnippet
@@ -51,11 +53,13 @@
 
         }
 
-        this.bindEvents();
-
         this.view = new ContentSnippetView({
           model: this
         });
+
+        this.bindEvents();
+
+        this.set('id', this.get('index'));
 
       },
 
@@ -98,7 +102,17 @@
 
     } else {
 
-      require(['common/js/nooline/models/content-snippet/setup']);
+      N.componentsLoading.concat(component)
+      require(
+        ['common/js/nooline/models/content-snippet/setup'],
+        function removeLoaded () {
+
+        N.componentsLoading = _.difference(N.componentsLoading, component);
+
+        if (!N.componentsLoading.length) {
+          N.$document.trigger('components:complete');
+        }
+      });
 
     }
 

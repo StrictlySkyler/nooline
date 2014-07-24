@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/error-handler',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * errorHandler
    * Handle errors for Nooline.
@@ -15,5 +22,5 @@ define(function () {
   N.errorHandler = function errorHandler (error) {
     console.error(error);
   };
-  
+
 });

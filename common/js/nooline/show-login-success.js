@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/show-login-success',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * showLoginSuccess
    * Tell the user login succeeded.
@@ -13,14 +20,14 @@ define(function () {
    * @return                None.
    */
   N.showLoginSuccess = function showLoginSuccess (data) {
-    
+
     $(document.body).addClass('logged-in');
 
     $('.login-button')
       .removeClass('login-button active')
       .addClass('logout-button')
       .html('Logout');
-    
+
     $('.login')
       .addClass('hidden')
       .one(
@@ -32,21 +39,21 @@ define(function () {
         'transitionend webkitTransitionEnd', function removeLogin () {
         $(this).remove();
     });
-    
+
     /**
      * expireLogin
      * If the user is idle for long enough, expire the session.
      *
      */
     N.expireLogin = setTimeout(function expireLogin () {
-      
+
       delete sessionStorage.lastLoginAttempt;
-    
+
     // TODO: Separate this from idle-timeout, which should be ~10min.
-    }, 3600000); 
-    
+    }, 3600000);
+
     N.buildControls(data);
-    
+
   };
 
 });

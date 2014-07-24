@@ -1,8 +1,15 @@
 
-define(function () {
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/views/content-snippet-view/disable-editing',
+  [],
+  function () {
 
-  var N = window.Nooline;
-  
+  var N = this.Nooline;
+
   /**
    * disableEditing
    * Turn off editing.
@@ -14,7 +21,7 @@ define(function () {
   N.Views.ContentSnippetView.prototype.disableEditing = function () {
 
     var _this = this;
-    
+
     this.hideEditor();
 
     this.$edit
@@ -36,11 +43,12 @@ define(function () {
         _this.$commit.remove();
         _this.$cancel.remove();
         _this.$edit.remove();
+        _this.$unpublish.remove();
     });
-    
+
 
   };
 
-  return 'views/content-snippet-view/disable-editing';
+  // return 'views/content-snippet-view/disable-editing';
 
 });

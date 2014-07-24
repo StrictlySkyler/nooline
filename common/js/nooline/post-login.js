@@ -1,7 +1,14 @@
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define('common/js/nooline/post-login',
+  ['common/js/nooline/load-components'],
+  function () {
 
-define(function () {
   var N = window.Nooline;
-    
+
   /**
    * postLogin
    * Post creds to the server.
@@ -16,26 +23,26 @@ define(function () {
    * @return                    None.
    */
   N.postLogin = function postLogin (username, password, type) {
-    
+
     var lastLoginAttempt = {
       'username': username,
       'password': password,
       timestamp: Date.now()
     };
-    
+
     sessionStorage.setItem(
-      'lastLoginAttempt', 
+      'lastLoginAttempt',
       JSON.stringify(lastLoginAttempt)
     );
-    
+
     console.log('Posting credentials...');
-    
+
     $.post('/login', {
       'username': username,
       'password': password,
       'type': type
     }, N.receiveLogin);
-    
+
   };
-  
+
 });
