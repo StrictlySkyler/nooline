@@ -25,6 +25,6 @@
     this.view.setOptions('create', true);
   };
 
-  return 'models/content-snippet/create';
+  // return 'models/content-snippet/create';
 
 });

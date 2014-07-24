@@ -1,9 +1,9 @@
 // Boilerplate for AMD and CJS isomorphism.
 ({ define: typeof define === "function"
   ? define
-  : function(name, deps, func) { 
-    exports = module.exports = func(); 
-  } 
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
 }).define('common/js/nooline/models/category/load-snippets', [], function () {
 
   var N = this.Nooline;
@@ -20,13 +20,13 @@
     var error404;
     var ContentSnippet;
     var snippet;
-    
+
     if (typeof module !== 'undefined') {
-      
+
       error404 = require(__root + '/routes/error-404');
       ContentSnippet = require('../content-snippet');
 
-      if (error) { 
+      if (error) {
 
         error404(error, this.get('info'));
 
@@ -35,7 +35,7 @@
         try {
 
           snippet = new ContentSnippet();
-          
+
           snippet
             .set(JSON.parse(data))
             .set('index', index)
@@ -47,10 +47,15 @@
 
         } catch (fail) {
 
+          console.error('Unable to load snippet!',
+            '\n\tType: ' + this.get('type'),
+            '\n\tWhich: ' + index + '.json'
+          );
+
           error404(fail, this.get('info'));
         }
       }
-      
+
     }
 
     return this;

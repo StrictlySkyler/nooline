@@ -53,11 +53,13 @@
 
         }
 
-        this.bindEvents();
-
         this.view = new ContentSnippetView({
           model: this
         });
+
+        this.bindEvents();
+
+        this.set('id', this.get('index'));
 
       },
 

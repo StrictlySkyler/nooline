@@ -19,15 +19,17 @@
     if (error) {
       console.error(error);
 
-    } else {
+    }
 
-      console.log(update);
+    console.log(update);
+
+    if (this.collection) {
 
       this.collection.parent.get('filesUpdated').push(file);
 
-      this.notifySaved();
-
     }
+
+    return this.notifySaved();
 
 
   };

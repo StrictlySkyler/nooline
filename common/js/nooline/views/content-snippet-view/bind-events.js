@@ -39,50 +39,55 @@
 
         _this.startEditing();
       })
-
       .on('click',
         '.cancel-editing-button',
         function cancelEditing () {
 
         _this.stopEditing();
       })
-
       .on('click',
         '.commit-changes-button',
         function commitChanges () {
 
         _this.commitChanges();
       })
-
       .on('click',
         '.unpublish-content-button',
         function unpublishContent () {
 
         _this.unpublishContent();
-      });
+      })
+      .on('click',
+        '.verify-cancel',
+        function cancelVerify () {
 
-    if (!this.getOption('bound')) {
+        _this.cancelVerify();
+      })
+      .on('click',
+        '.verify-confirm',
+        function confirmVerify () {
 
-      this.setOptions('bound', true);
+        _this.confirmVerify();
+      })
+      ;
 
-      this.on({
-        'options:change': this.render,
+    this.on({
+      'options:change': this.render,
 
-        'editor:enable': function enableEditor () {
+      'editor:enable': function enableEditor () {
 
-          this.setOptions('editor', true);
-        },
+        this.setOptions('editor', true);
+      },
 
-        'editor:disable': function disableEditor () {
+      'editor:disable': function disableEditor () {
 
-          this.setOptions('editor', false);
-        },
+        this.setOptions('editor', false);
+      },
 
-        'editor:commit': this.save,
+      'editor:commit': this.save,
 
-        'remove': this.remove
-      });
-    }
+      'remove': this.remove
+    });
 
   };
 

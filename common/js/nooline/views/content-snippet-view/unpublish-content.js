@@ -16,7 +16,8 @@
 
     this.setOptions({
       verify: true,
-      message: message
+      message: message,
+      event: 'unpublish'
     });
 
   };

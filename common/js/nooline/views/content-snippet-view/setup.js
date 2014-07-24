@@ -48,7 +48,9 @@
     'common/js/nooline/views/content-snippet-view/wait-for-visibility',
     'common/js/nooline/views/content-snippet-view/remove',
     'common/js/nooline/views/content-snippet-view/unpublish-content',
-    'common/js/nooline/views/content-snippet-view/verify'
+    'common/js/nooline/views/content-snippet-view/verify',
+    'common/js/nooline/views/content-snippet-view/cancel-verify',
+    'common/js/nooline/views/content-snippet-view/confirm-verify'
   /**
    * removeLoaded
    * Remove loaded components from the queue.

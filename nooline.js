@@ -11,8 +11,13 @@ var engine;
 var program = require('commander');
 var jsdom = require('jsdom').jsdom;
 
+
 GLOBAL.__root = __dirname;
 GLOBAL.window = jsdom('<html></html>').parentWindow;
+GLOBAL.Nooline = {};
+
+// Helpers
+require('./controllers/commit-changes');
 
 program
   .option('-s, --single', 'Start without clustering')
@@ -109,9 +114,13 @@ if (cluster.isMaster && !program.single) {
   nooline.post('/login', routes.login);
   // Dynamic posts
   nooline.post('/:category', routes['post-category']);
+  nooline.post('/:category/:id', routes['post-category']);
+  // Dynamic puts
+  nooline.put('/:category/:id', routes['put-snippet']);
 
   // Fire it up!
   server.listen(nooline.settings.port, function started () {
+
     if (!program.single) {
       console.log('Nooline worker '
         + cluster.worker.id

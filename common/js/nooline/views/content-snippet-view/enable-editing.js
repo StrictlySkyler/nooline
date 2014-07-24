@@ -27,14 +27,16 @@
     var headline = this.model.get('headline');
 
     var generalClassNames = ' control button content-snippet hidden';
+    var panelClassNames = ' control button panel-control';
     var editClassNames = 'edit-content-button' + generalClassNames;
     var commitClassNames = 'commit-changes-button' + generalClassNames;
     var cancelEditingClassNames = 'cancel-editing-button' + generalClassNames;
     var unpublishClassNames = 'unpublish-content-button' + generalClassNames;
-    var verifyButtonClassNames = 'verify-confirm' + generalClassNames;
-    var cancelVerifyClassNames = 'verify-cancel' + generalClassNames;
+    var verifyButtonClassNames = 'verify-confirm' + panelClassNames;
+    var cancelVerifyClassNames = 'verify-cancel' + panelClassNames;
 
     var verifyPanelClassNames = 'verify-panel hidden';
+    var verifyTextClassNames = 'verify-text';
 
     var editText = 'Edit content: ' + headline;
     var commitText = 'Commit changes: ' + headline;
@@ -84,7 +86,11 @@
         class: verifyPanelClassNames
       });
 
-      this.$verifyText = $(panelTextTag).appendTo(this.$verifyPanel);
+      this.$verifyText = $(panelTextTag)
+      .appendTo(this.$verifyPanel)
+      .attr({
+        class: verifyTextClassNames
+      });
 
       this.$verifyButton = $(buttonTag)
       .appendTo(this.$verifyPanel)

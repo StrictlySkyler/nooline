@@ -32,35 +32,13 @@
         },
         'node_modules/underscore/underscore': {
           exports: '_'
-        },
-        'common/js/submodules/StoryJS-Core/VMM.StoryJS': {
-          deps: [
-            'common/js/submodules/StoryJS-Core/Core/VMM.Browser',
-            'common/js/submodules/StoryJS-Core/Core/VMM.Core',
-            'common/js/submodules/StoryJS-Core/Core/VMM.Date',
-            'common/js/submodules/StoryJS-Core/Core/VMM.FileExtention',
-            'common/js/submodules/StoryJS-Core/Core/VMM',
-            'common/js/submodules/StoryJS-Core/Core/VMM.Library',
-            'common/js/submodules/StoryJS-Core/Core/VMM.LoadLib',
-            'common/js/submodules/StoryJS-Core/Core/VMM.Util',
-            'common/js/submodules/StoryJS-Core/Embed/Embed',
-            'common/js/submodules/StoryJS-Core/Embed/Embed.LoadLib',
-            'common/js/submodules/TimelineJS/compiled/js/timeline',
-            'common/js/submodules/StoryJS-Core/Library/LazyLoad'
-          ]
-        },
-        'common/js/nooline/build-timeline': {
-          deps: [
-            'common/js/submodules/StoryJS-Core/VMM.StoryJS',
-          ]
-        },
+        }
       }
     });
 
     require([
       'node_modules/jquery/dist/jquery',
       'common/js/bower/modernizr/modernizr',
-      'common/js/submodules/StoryJS-Core/VMM.StoryJS',
       'common/js/nooline/load-components',
       'common/js/nooline/get-content',
       'common/js/nooline/collections/content-categories',
@@ -72,7 +50,6 @@
       'common/js/nooline/error-handler',
       'common/js/nooline/show-login-panel',
       'common/js/nooline/close-section',
-      'common/js/nooline/build-timeline',
       'common/js/nooline/attempt-login',
       'common/js/nooline/assign-listeners',
       'common/js/nooline/validate',

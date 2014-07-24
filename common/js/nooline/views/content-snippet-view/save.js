@@ -28,9 +28,7 @@
     var date = now.format('YYYY,M,D');
     var time = now.format('HH:m:s');
 
-    this.setOptions('saved', true);
-
-    this.model.save({
+    this.model.set({
       headline: this.$editableElement.children('.headline').text(),
       text: this.$editableElement.children('.text').html(),
       author: user,
@@ -38,6 +36,13 @@
       prettyStartTime: prettyTime,
       startDate: date,
       startTime: time
+    });
+
+    // TODO: We can do better than just always a post.
+    this.model.sync('create', this.model);
+
+    this.setOptions({
+      saved: true
     });
   };
 
