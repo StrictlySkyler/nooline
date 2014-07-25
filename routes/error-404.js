@@ -9,8 +9,8 @@
 module.exports = function error404 (error, info) {
 
   console.error(error);
-  
-  // TODO: These options, particularly the partials and startPath, 
+
+  // TODO: These options, particularly the partials and startPath,
   // need to get pulled in from a config file.
   info.res.status(404).render('common/views/error', {
     status: 404,
@@ -21,21 +21,21 @@ module.exports = function error404 (error, info) {
     currentYear: new Date().getFullYear(),
     startPath: '/common/js/nooline/start',
     partials: {
-      'head': '../../sites/' 
-        + info.nooline.settings.redirect 
+      'head': '../../sites/'
+        + info.nooline.settings.redirect
         + '/views/partials/head',
-      'global-header': '../../sites/' 
-        + info.nooline.settings.redirect 
+      'global-header': '../../sites/'
+        + info.nooline.settings.redirect
         + '/views/partials/global-header',
-      'meta': '../../sites/' 
-        + info.nooline.settings.redirect 
+      'meta': '../../sites/'
+        + info.nooline.settings.redirect
         + '/views/partials/meta',
-      'global-footer': '../../sites/' 
-        + info.nooline.settings.redirect 
+      'global-footer': '../../sites/'
+        + info.nooline.settings.redirect
         + '/views/partials/global-footer',
       'global-scripts': '../../sites/'
         + info.nooline.settings.redirect
         + '/views/partials/global-scripts'
     }
   });
-}
+};
