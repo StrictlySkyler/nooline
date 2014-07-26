@@ -31,7 +31,9 @@
       editor.destroy();
     }
 
-    if (this.getOption('saved') === false) {
+    // TODO: Invert this, triggering an event here to which the model listens,
+    // and let the view remove itself.
+    if (this.getOption('saved') === false && this.model) {
       this.model.remove();
     }
 

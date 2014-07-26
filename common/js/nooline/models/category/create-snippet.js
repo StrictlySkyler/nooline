@@ -1,7 +1,16 @@
 
-define(function () {
+// Boilerplate for AMD and CJS isomorphism.
+({ define: typeof define === "function"
+  ? define
+  : function(name, deps, func) {
+    exports = module.exports = func();
+  }
+}).define(
+  'common/js/nooline/models/category/create-snippet',
+  ['moment'],
+  function (moment) {
 
-  var N = window.Nooline;
+  var N = this.Nooline;
 
   /**
    * createSnippet
@@ -20,7 +29,7 @@ define(function () {
       return memo + category.get('snippets').length;
     }, 0);
     var user = JSON.parse(sessionStorage.getItem('lastLoginAttempt')).username;
-    var now = window.moment();
+    var now = moment();
     var prettyDate = now.format('dddd, MMMM Mo, YYYY');
     var prettyTime = now.format('hh:mm:ss a');
     var date = now.format('YYYY,M,D');
@@ -53,6 +62,6 @@ define(function () {
 
   };
 
-  return 'models/category/create-snippet';
+  // return 'models/category/create-snippet';
 
 });

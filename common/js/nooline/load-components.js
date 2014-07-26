@@ -5,19 +5,18 @@
   }
 }).define('common/js/nooline/load-components',
   [
-  'node_modules/jquery/dist/jquery',
-  'common/js/nooline/get-content',
-  'common/js/nooline/collections/content-categories',
-  'common/js/nooline/collections/snippets',
-  'common/js/nooline/models/category',
-  'common/js/nooline/models/content-snippet',
-  'common/js/nooline/views/category-view',
-  'common/js/nooline/views/content-snippet-view'
+    'node_modules/jquery/dist/jquery',
+    'common/js/nooline/get-content',
+    'common/js/nooline/collections/content-categories',
+    'common/js/nooline/collections/snippets',
+    'common/js/nooline/models/category',
+    'common/js/nooline/models/content-snippet',
+    'common/js/nooline/views/category-view',
+    'common/js/nooline/views/content-snippet-view'
   ],
   function () {
 
   var N = window.Nooline;
-  var $placeholder;
 
   /**
    * initializeContent
@@ -85,5 +84,7 @@
     N.$document.on('components:complete', initializeContent);
 
   });
+
+  return true;
 
 });
