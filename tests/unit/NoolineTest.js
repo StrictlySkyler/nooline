@@ -3,7 +3,7 @@ describe('Nooline', function () {
 
   var assert = require('assert');
 
-  before(function () {
+  beforeEach(function () {
     GLOBAL.__root = __dirname + '/../../';
     GLOBAL.window = require('jsdom').jsdom('<html></html>').parentWindow;
     GLOBAL.document = require('jsdom').jsdom('<html></html>')
@@ -33,7 +33,16 @@ describe('Nooline', function () {
 
   });
 
-  after(function () {
+  it('should successfully execute event bindings', function () {
+
+    require(__root + 'common/js/nooline/start');
+    require(__root + 'common/js/nooline/load-components');
+    var listeners = require(__root + 'common/js/nooline/assign-listeners');
+
+    assert(listeners, 'Nooline is failing to bind events!  Did it load?');
+  });
+
+  afterEach(function () {
     delete GLOBAL._root;
     delete GLOBAL.window;
     delete GLOBAL.document;
