@@ -7,14 +7,15 @@
 }).define('common/js/nooline/models/content-snippet', [
     'node_modules/node-uuid/uuid',
     'node_modules/backbone/backbone'
-  ], function () {
+  ], function (uuid) {
 
     var root = this;
     var N = root.Nooline = root.Nooline || {};
     var Backbone = root.Backbone || require('backbone');
     var ContentSnippetView;
-    var uuid = root.uuid || require('node-uuid');
     var component  = ['common/js/nooline/models/content-snippet/setup'];
+
+    root.uuid = root.uuid || uuid || require('node-uuid');
 
     /**
      * @model ContentSnippet

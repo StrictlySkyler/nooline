@@ -5,8 +5,8 @@
     exports = module.exports = func();
   }
 }).define('common/js/nooline/views/content-snippet-view/save',
-  [],
-  function () {
+  ['moment'],
+  function (moment) {
 
   var N = this.Nooline;
 
@@ -22,7 +22,7 @@
   N.Views.ContentSnippetView.prototype.save = function () {
 
     var user = JSON.parse(sessionStorage.getItem('lastLoginAttempt')).username;
-    var now = window.moment();
+    var now = moment();
     var prettyDate = now.format('dddd, MMMM Mo, YYYY');
     var prettyTime = now.format('hh:mm:ss a');
     var date = now.format('YYYY,M,D');
