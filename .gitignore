@@ -17,3 +17,5 @@ bower
 
 # Test coverage
 coverage.html
+coverage.lcov
+coverage/
