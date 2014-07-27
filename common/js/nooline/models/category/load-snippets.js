@@ -28,6 +28,7 @@
 
       if (error) {
 
+        console.error(error);
         error404(error, this.get('info'));
 
       } else {
