@@ -2,6 +2,9 @@ describe('A Category', function () {
 
   GLOBAL.__root = __dirname + '/../../';
   GLOBAL.window = require('jsdom').jsdom('<html></html>').parentWindow;
+  GLOBAL.define = function (name, dependencies, callback) {
+    exports = module.exports = callback();
+  };
 
   var assert = require("assert");
   var fs = require('fs');
@@ -198,6 +201,7 @@ describe('A Category', function () {
 
     delete GLOBAL.__root;
     delete GLOBAL.window;
+    delete GLOBAL.define;
   });
 
 });

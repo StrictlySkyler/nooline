@@ -1,10 +1,5 @@
 // Boilerplate for AMD and CJS isomorphism.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/models/category', [
+define('common/js/nooline/models/category', [
     'node_modules/backbone/backbone'
   ], function () {
 
@@ -55,7 +50,7 @@
 
         Backbone.$ = require('jquery');
 
-        require('./category/setup')();
+        require('./category/setup');
       }
 
       this.bindEvents();

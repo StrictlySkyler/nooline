@@ -1,10 +1,5 @@
 // Boilerplate allows this to work with both AMD and CJS style requires.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/collections/snippets', [
+define('common/js/nooline/collections/snippets', [
     'node_modules/backbone/backbone'
   ], function (){
 
@@ -35,7 +30,7 @@
       Backbone.Collection.apply(this, arguments);
 
       if (typeof module !== 'undefined') {
-        require('./snippets/setup')();
+        require('./snippets/setup');
       }
 
       this.bindEvents();

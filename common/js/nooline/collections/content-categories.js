@@ -1,10 +1,5 @@
 // Boilerplate for loading via CJS and AMD both.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/collections/content-categories', [
+define('common/js/nooline/collections/content-categories', [
     'node_modules/backbone/backbone'
   ], function () {
 
@@ -35,7 +30,7 @@
       Backbone.Collection.apply(this, arguments);
 
       if (typeof module !== 'undefined') {
-        require('./content-categories/setup')();
+        require('./content-categories/setup');
       }
 
       this.bindEvents();

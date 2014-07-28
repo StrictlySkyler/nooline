@@ -1,9 +1,4 @@
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/remove-controls',
+define('common/js/nooline/remove-controls',
   ['common/js/nooline/load-components'],
   function () {
 
