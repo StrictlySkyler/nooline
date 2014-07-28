@@ -6,12 +6,7 @@
  * See comments below.  This file will go away.
  *
  */
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/assign-listeners',
+define('common/js/nooline/assign-listeners',
   ['common/js/nooline/load-components'],
   function globalEvents () {
 

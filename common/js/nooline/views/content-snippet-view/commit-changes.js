@@ -1,10 +1,5 @@
 
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/views/content-snippet-view/commit-changes',
+define('common/js/nooline/views/content-snippet-view/commit-changes',
   [],
   function () {
 
