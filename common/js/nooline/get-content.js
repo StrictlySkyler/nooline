@@ -1,9 +1,4 @@
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/get-content',
+define('common/js/nooline/get-content',
   ['node_modules/backbone/backbone'],
   function () {
 

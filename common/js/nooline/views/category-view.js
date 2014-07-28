@@ -1,10 +1,5 @@
 
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/views/category-view', [
+define('common/js/nooline/views/category-view', [
   'node_modules/backbone/backbone'
   ], function () {
 
@@ -38,7 +33,7 @@
       Backbone.View.apply(this, arguments);
 
       if (typeof module !== 'undefined') {
-        require('./category-view/setup')();
+        require('./category-view/setup');
       }
 
       this.bindEvents();

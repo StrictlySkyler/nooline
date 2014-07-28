@@ -15,6 +15,9 @@ var jsdom = require('jsdom').jsdom;
 GLOBAL.__root = __dirname;
 GLOBAL.window = jsdom('<html></html>').parentWindow;
 GLOBAL.Nooline = {};
+GLOBAL.define = function (name, dependencies, callback) {
+  exports = module.exports = callback();
+};
 
 // Helpers
 require('./controllers/commit-changes');

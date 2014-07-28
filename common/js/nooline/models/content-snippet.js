@@ -1,10 +1,5 @@
 // Boilerplate to load this file in both CJS and AMD environs.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/models/content-snippet', [
+define('common/js/nooline/models/content-snippet', [
     'node_modules/node-uuid/uuid',
     'node_modules/backbone/backbone'
   ], function (uuid) {
@@ -50,7 +45,7 @@
           ContentSnippetView = require('../views/content-snippet-view');
           Backbone.$ = require('jquery');
 
-          require('./content-snippet/setup')();
+          require('./content-snippet/setup');
 
         }
 
