@@ -42,4 +42,6 @@ define('common/js/nooline/attempt-login',
 
   };
 
+  return N;
+
 });

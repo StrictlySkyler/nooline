@@ -46,4 +46,6 @@ define('common/js/nooline/reject-login',
     }, 0);
   };
 
+  return N;
+
 });

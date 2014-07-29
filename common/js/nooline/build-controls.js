@@ -119,4 +119,6 @@ define('common/js/nooline/build-controls',
 
   };
 
+  return N;
+
 });
