@@ -1,10 +1,5 @@
 // Boilerplate for AMD and CJS isomorphism.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/models/content-snippet/create', [], function () {
+define('common/js/nooline/models/content-snippet/create', [], function () {
 
   var N = this.Nooline;
 

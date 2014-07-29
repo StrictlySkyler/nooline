@@ -1,10 +1,5 @@
 // Boilerplate for AMD and CJS isomorphism.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/models/category/setup', [], function () {
+define('common/js/nooline/models/category/setup', [], function () {
 
   var N = this.Nooline;
 
@@ -53,16 +48,6 @@
     });
   } else {
 
-    /**
-     * setup
-     * Loads the required modules for the server.  Being a returned function
-     * allows the constructor to call and invoke this with a single line, e.g.:
-     *   require('category/setup')();
-     *
-     * @return None.
-     */
-    return function setup () {
-
       require('./bind-events');
       require('./load-collection');
       require('./load-meta');
@@ -73,7 +58,7 @@
       require('./update-index');
       require('./commit-version');
       require('./notify-client');
-    };
+
   }
 
 });

@@ -1,10 +1,5 @@
 // Boilerplate for loading via CJS and AMD both.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define(
+define(
   'common/js/nooline/collections/content-categories/bind-events',
   [],
   function () {

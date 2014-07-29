@@ -1,10 +1,5 @@
 // Boilerplate for AMD and CJS isomorphism.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) {
-    exports = module.exports = func();
-  }
-}).define('common/js/nooline/collections/snippets/setup', [], function () {
+define('common/js/nooline/collections/snippets/setup', [], function () {
 
   var N = this.Nooline;
 
@@ -38,12 +33,10 @@
 
   } else {
 
-    return function setup () {
-
       require('./bind-events');
       require('./save-snippets');
       require('./count-saved');
-    };
+
   }
 
 });
