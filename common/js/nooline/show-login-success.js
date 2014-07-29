@@ -51,4 +51,6 @@ define('common/js/nooline/show-login-success',
 
   };
 
+  return N;
+
 });

@@ -30,4 +30,6 @@ define('common/js/nooline/close-section',
 
   };
 
+  return N;
+
 });
