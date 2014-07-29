@@ -102,4 +102,6 @@ define('common/js/nooline/show-login-panel',
 
   };
 
+  return N;
+
 });
