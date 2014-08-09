@@ -2,7 +2,7 @@ define('common/js/nooline/show-login-success',
   ['common/js/nooline/load-components'],
   function () {
 
-  var N = window.Nooline;
+  var N = this.Nooline;
 
   /**
    * showLoginSuccess
