@@ -2,7 +2,7 @@ define('common/js/nooline/show-login-panel',
   ['common/js/nooline/load-components'],
   function () {
 
-  var N = window.Nooline;
+  var N = this.Nooline;
 
   /**
    * showLoginPanel
@@ -83,7 +83,8 @@ define('common/js/nooline/show-login-panel',
       .append('<label class="login-form label" '
         + 'for="password-input">Password:</label>')
       .append('<input class="login-form input password" '
-        + 'name="password-input" type="password" placeholder="It\'s a secret!">')
+        + 'name="password-input" type="password" '
+        + 'placeholder="It\'s a secret!">')
       .append('<button class="go-button button" '
         + 'title="Go!">Login</button>')
       .append('<button class="close-section-button button" '

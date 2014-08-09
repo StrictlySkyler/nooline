@@ -10,7 +10,7 @@ define('common/js/nooline/assign-listeners',
   ['common/js/nooline/load-components'],
   function globalEvents () {
 
-  var N = window.Nooline;
+  var N = this.Nooline;
 
   // TODO: Refactor this.
   //

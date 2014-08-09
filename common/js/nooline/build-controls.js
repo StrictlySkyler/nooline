@@ -2,7 +2,7 @@ define('common/js/nooline/build-controls',
   ['common/js/nooline/load-components'],
   function () {
 
-  var N = window.Nooline;
+  var N = this.Nooline;
 
   /**
    * buildControls
