@@ -2,7 +2,7 @@ define('common/js/nooline/validate',
   ['common/js/nooline/load-components'],
   function () {
 
-  var N = window.Nooline;
+  var N = this.Nooline;
 
   /**
    * validate
@@ -70,5 +70,7 @@ define('common/js/nooline/validate',
     return valid;
 
   };
+
+  return N.validate;
 
 });

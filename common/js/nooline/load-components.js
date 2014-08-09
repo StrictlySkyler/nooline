@@ -11,7 +11,7 @@ define('common/js/nooline/load-components',
   ],
   function () {
 
-  var N = window.Nooline;
+  var N = this.Nooline;
 
   /**
    * initializeContent

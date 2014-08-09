@@ -2,7 +2,7 @@ define('common/js/nooline/attempt-login',
   ['common/js/nooline/load-components'],
   function () {
 
-  var N = window.Nooline;
+  var N = this.Nooline;
 
   /**
    * attemptLogin

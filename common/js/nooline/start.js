@@ -5,7 +5,6 @@
  *
  * This is the entry point for the client side.
  *
- * @return
  */
 ;(function start() {
 
@@ -63,7 +62,7 @@
     ]);
   }
 
-  window.Nooline = new Nooline();
-  window.Nooline.componentsLoading = [];
+  this.Nooline = new Nooline();
+  this.Nooline.componentsLoading = [];
 
 }());
