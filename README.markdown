@@ -30,7 +30,7 @@ Under the hood, Nooline uses a simple, extensible stack: Express, Backbone, and 
 
 ## Want to contribute?
 
-All hands are welcome!  Head on over to the [milestones](https://github.com/nooline/nooline/issues/milestones) and pick something that interests you.  Or submit a pull request for an idea you have!
+All hands are welcome!  Head on over to the [milestones](https://github.com/nooline/nooline/milestones) and pick something that interests you.  Or submit a pull request for an idea you have!
 
 ## Getting nooline
 
