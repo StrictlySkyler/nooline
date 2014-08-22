@@ -1,4 +1,3 @@
-// Boilerplate for AMD and CJS isomorphism.
 define('common/js/nooline/models/category/load-index', [], function () {
 
   var N = this.Nooline;

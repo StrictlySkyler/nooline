@@ -33,11 +33,36 @@ describe('A Category', function () {
     "uuid": "some-uuid-1",
     "id": 1
   }, null, '\t');
+  var futureTestSnippet = JSON.stringify({
+    "asset": {
+      "caption": "",
+      "credit": "",
+      "media": "",
+      "thumbnail": ""
+    },
+    "author": "test",
+    "endDate": "",
+    "endTime": "",
+    "headline": "Test Data",
+    "index": 1,
+    "prettyStartDate": "Thursday, July 7th, 2014",
+    "prettyStartTime": "06:44:02 pm",
+    "published": true,
+    "startDate": "2074,7,24",
+    "startTime": "18:44:2",
+    "tag": "",
+    "text": "Test content",
+    "type": "test",
+    "url": "/test/1",
+    "uuid": "some-uuid-1",
+    "id": 1
+  }, null, '\t');
   var testIndex = JSON.stringify({
-    "count": 1,
+    "count": 2,
     "categories": {
       "test": [
-        1
+        1,
+        2
       ]
     }
   }, null, '\t');
@@ -96,6 +121,7 @@ describe('A Category', function () {
   var testContentPath = testDomainPath + '/content/';
   var testIndexPath = testContentPath + 'index.json';
   var testSnippetPath = testContentPath + 'snippets/1.json';
+  var testFutureSnippetPath = testContentPath + 'snippets/2.json';
   var testMetaPath = testContentPath + 'meta/test.json';
   var testConfigPath = testDomainPath + '/config/site.json';
 
@@ -117,6 +143,10 @@ describe('A Category', function () {
 
     if (fs.existsSync(testSnippetPath)) {
       fs.unlinkSync(testSnippetPath);
+    }
+
+    if (fs.existsSync(testFutureSnippetPath)) {
+      fs.unlinkSync(testFutureSnippetPath);
     }
 
     if (fs.existsSync(testContentPath + 'snippets')) {
@@ -148,6 +178,7 @@ describe('A Category', function () {
     fs.writeFileSync(testIndexPath, testIndex);
     fs.mkdirSync(testContentPath + 'snippets');
     fs.writeFileSync(testSnippetPath, testSnippet);
+    fs.writeFileSync(testFutureSnippetPath, futureTestSnippet);
     fs.mkdirSync(testContentPath + 'meta');
     fs.writeFileSync(testMetaPath, testMeta);
     fs.mkdirSync(testDomainPath + '/config/');
@@ -174,9 +205,9 @@ describe('A Category', function () {
 
   it('should be able to load a collection of content', function (done) {
 
-    _category.loadCollection(infoStub, testType);
+    function assertInstanceofSnippets () {
 
-    _category.on('snippet:loaded', function () {
+      _category.off('collection:loaded', assertInstanceofSnippets);
 
       assert(
         _category.get('snippets') instanceof Snippets,
@@ -184,14 +215,37 @@ describe('A Category', function () {
       );
 
       done();
-    });
+    }
 
+    _category.loadCollection(infoStub, testType);
+
+    _category.on('collection:loaded', assertInstanceofSnippets);
+
+  });
+
+  it('should not load snippets set to a future date', function (done) {
+
+    function assertProperSnippetTotal () {
+
+      _category.off('collection:loaded', assertProperSnippetTotal);
+
+      assert(_category.get('total') === 1,
+        'Incorrect number of snippets is being loaded!'
+      );
+
+      done();
+    }
+
+    _category.loadCollection(infoStub, testType);
+
+    _category.on('collection:loaded', assertProperSnippetTotal);
   });
 
   after(function () {
     fs.unlinkSync(testConfigPath);
     fs.rmdirSync(testDomainPath + '/config/');
     fs.unlinkSync(testSnippetPath);
+    fs.unlinkSync(testFutureSnippetPath);
     fs.rmdirSync(testContentPath + 'snippets');
     fs.unlinkSync(testMetaPath);
     fs.rmdirSync(testContentPath + 'meta');

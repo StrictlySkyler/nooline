@@ -1,10 +1,4 @@
-// Boilerplate for AMD and CJS isomorphism.
-({ define: typeof define === "function"
-  ? define
-  : function(name, deps, func) { 
-    exports = module.exports = func(); 
-  } 
-}).define('common/js/nooline/models/category/load-meta', [], function () {
+define('common/js/nooline/models/category/load-meta', [], function () {
 
   var N = this.Nooline;
 
@@ -27,7 +21,7 @@
       error404 = require(__root + '/routes/error-404');
       fs = require('fs');
 
-      if (error) { 
+      if (error) {
 
         console.error(new Error(errorMessage));
         error404(error, this.get('info'));
