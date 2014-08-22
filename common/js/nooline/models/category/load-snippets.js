@@ -1,4 +1,3 @@
-// Boilerplate for AMD and CJS isomorphism.
 define('common/js/nooline/models/category/load-snippets', [], function () {
 
   var N = this.Nooline;
@@ -16,6 +15,25 @@ define('common/js/nooline/models/category/load-snippets', [], function () {
     var ContentSnippet;
     var snippet;
 
+    function checkFutureDate (snippet) {
+
+      var moment = require('moment');
+      var snippetTime = parseInt(
+        moment(snippet.get('startDate') 
+          + ' ' 
+          + snippet.get('startTime')
+        ).format('X')
+      , 10)
+      ;
+      var now = parseInt(moment(Date.now()).format('X'), 10);
+
+      if (now < snippetTime) {
+        return true;
+      }
+
+      return false;
+    }
+
     if (typeof module !== 'undefined') {
 
       error404 = require(__root + '/routes/error-404');
@@ -24,33 +42,40 @@ define('common/js/nooline/models/category/load-snippets', [], function () {
       if (error) {
 
         console.error(error);
-        error404(error, this.get('info'));
+        return error404(error, this.get('info'));
+
+      }
+
+      try {
+
+        snippet = new ContentSnippet();
+
+        snippet
+          .set(JSON.parse(data))
+          .set('index', index)
+          ;
+
+      } catch (fail) {
+
+        console.error('Unable to load snippet!',
+          '\n\tType: ' + this.get('type'),
+          '\n\tWhich: ' + index + '.json'
+        );
+
+        error404(fail, this.get('info'));
+      }
+
+      if (!checkFutureDate(snippet)) {
+
+        this.get('snippets').add(snippet);
 
       } else {
 
-        try {
+        this.set('total', this.get('total') - 1);
 
-          snippet = new ContentSnippet();
-
-          snippet
-            .set(JSON.parse(data))
-            .set('index', index)
-            ;
-
-          this.get('snippets').add(snippet);
-
-          this.trigger('snippet:loaded');
-
-        } catch (fail) {
-
-          console.error('Unable to load snippet!',
-            '\n\tType: ' + this.get('type'),
-            '\n\tWhich: ' + index + '.json'
-          );
-
-          error404(fail, this.get('info'));
-        }
       }
+
+      this.trigger('snippet:loaded');
 
     }
 
