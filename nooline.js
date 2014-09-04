@@ -92,7 +92,7 @@ if (cluster.isMaster && !program.single) {
   nooline.engine('html', require('consolidate')[engine]);
   nooline.set('express', express);
   nooline.set('views', __dirname + '/');
-  nooline.set('redirect', program.redirect);
+  nooline.set('redirect', program.redirect || 'nooline.default');
   nooline.set('EXPIRY', 3600000); // 1 hour = 3600000ms
   nooline.set('prettyport', (function() {
     if (nooline.settings.port !== 80 || nooline.settings.port !== 443) {
