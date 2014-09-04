@@ -25,6 +25,7 @@ require('./controllers/commit-changes');
 program
   .option('-s, --single', 'Start without clustering')
   .option('-p, --port <n>', 'Port on which Nooline should listen', parseInt)
+  .option('-r, --redirect <site>', 'Content hosted by nooline for suggested redirects')
   .parse(process.argv);
 
 process.title = 'nooline';
@@ -67,7 +68,7 @@ if (cluster.isMaster && !program.single) {
     res.status(404).render('common/views/error', {
       status: '404',
       message: "Whaaaat!  Looks like the thing you're looking for doesn't exist.",
-      redirect: nooline.settings.redirect,
+      redirect: program.redirect,
       port: nooline.settings.prettyport
     });
   });
@@ -91,7 +92,7 @@ if (cluster.isMaster && !program.single) {
   nooline.engine('html', require('consolidate')[engine]);
   nooline.set('express', express);
   nooline.set('views', __dirname + '/');
-  nooline.set('redirect', 'nooline.org');
+  nooline.set('redirect', program.redirect);
   nooline.set('EXPIRY', 3600000); // 1 hour = 3600000ms
   nooline.set('prettyport', (function() {
     if (nooline.settings.port !== 80 || nooline.settings.port !== 443) {
