@@ -35,7 +35,7 @@ define('common/js/nooline/models/category/load-meta', [], function () {
             this.get('info').index, 
             'utf8', 
             this.loadIndex.bind(this)
-            );
+          );
 
         } catch (fail) {
 
