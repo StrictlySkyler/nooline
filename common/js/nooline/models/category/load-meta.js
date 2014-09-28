@@ -15,8 +15,9 @@ define('common/js/nooline/models/category/load-meta', [], function () {
     var error404;
       
     if (typeof module !== 'undefined') {
-      errorMessage = 'No content found for: ' + this.get('info').domain
-        + '\n  Usually this is because the domain is wrong.'
+      errorMessage = 'No content found for: ' + this.get('info').domain + '/'
+        + this.get('type')
+        + '\n  Usually this is because the URL is wrong.'
         + '\n  Check your hosts file, and that this domain folder has content.';
       error404 = require(__root + '/routes/error-404');
       fs = require('fs');

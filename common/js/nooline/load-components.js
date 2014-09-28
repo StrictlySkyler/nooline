@@ -32,9 +32,22 @@ define('common/js/nooline/load-components',
    */
   function initializeContent () {
 
+    var contentPath = window.location.pathname.split('/');
+    var category = contentPath[1] ?
+      contentPath[1] :
+      Nooline.settings['root-category']
+      ;
+    var index = isNaN(parseInt(contentPath[2], 10)) ?
+      undefined :
+      parseInt(contentPath[2], 10)
+      ;
+
     N.contentCategories = new N.Collections.ContentCategories();
 
-    N.getContent({type: 'scroll'});
+    N.getContent({
+      type: category,
+      index: index
+    });
 
     autoLogin();
   }

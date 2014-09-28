@@ -69,13 +69,20 @@ define('common/js/nooline/get-content',
    */
   N.getContent = function (meta, next) {
 
-    $.get('/content-categories', meta, function parseResults (data) {
-      data = JSON.parse(data);
+    $.ajax('/content-categories', {
+      data: meta,
+      success: function parseResults (data) {
+        data = JSON.parse(data);
 
-      if (next) {
-        next(data);
+        if (next) {
+          next(data);
+        }
+        parseContent(data);
+      },
+      error: function (error) {
+
+        console.error('No such content found.  Error:\n', error);
       }
-      parseContent(data);
     });
   };
 

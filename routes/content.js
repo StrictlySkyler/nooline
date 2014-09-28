@@ -34,6 +34,8 @@ module.exports = function content (req, res, info) {
     ;
   info.contentPath = './sites/' + info.req.host + '/content';
   info.meta = {};
+  info.nooline = req.app;
+  info.domain = req.host;
 
   if (req && req.query.type) {
     info.query = true;
