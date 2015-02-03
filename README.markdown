@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/nooline/nooline.svg?branch=master)](https://travis-ci.org/nooline/nooline)
-[![GitHub version](https://badge.fury.io/gh/nooline%2Fnooline.svg)](http://badge.fury.io/gh/nooline%2Fnooline)
 [![Code Climate](https://codeclimate.com/github/nooline/nooline.png)](https://codeclimate.com/github/nooline/nooline)
 [![Test Coverage](https://codeclimate.com/github/nooline/nooline/coverage.png)](https://codeclimate.com/github/nooline/nooline)
 
